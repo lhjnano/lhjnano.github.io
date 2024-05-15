@@ -1,6 +1,6 @@
 ---
 layout: categories
-title: Categories
+title: 카테고리
 description: 카테고리로 확인합니다.
 keywords: 카테고리
 comments: false

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: 소개
 description: 개발 기록기
 keywords: HeonJe Lee, 이헌제
 comments: true

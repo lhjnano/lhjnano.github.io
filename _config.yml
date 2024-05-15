@@ -26,9 +26,9 @@ components:
     busuanzi:
         enabled: true
         start_date: 2024-05-03
-    # My Popular Repositories
+    # Github Repositories
     side_bar_repo:
-        enabled: true
+        enabled: false
         limit: 5
     # 단어 수 세기
     word_count:
@@ -39,7 +39,7 @@ components:
         enabled: false
     # wifi 인덱스 페이지 (list/cate)
     wiki:
-        view: list
+        view: cate
     # 사진 라이트 박스 효과
     fancybox:
         enabled: false
