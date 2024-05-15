@@ -1,9 +1,9 @@
 ---
 layout: post
 title: template page
-categories: [cate1, cate2]
+categories: [wiki]
 description: some word here
-keywords: keyword1, keyword2
+keywords: wiki
 mermaid: false
 sequence: false
 flow: false
@@ -12,4 +12,4 @@ mindmap: false
 mindmap2: false
 ---
 
-Content here
+Tess
