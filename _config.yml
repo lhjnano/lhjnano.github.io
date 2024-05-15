@@ -66,24 +66,24 @@ email: lhjnano@gmail.com
 navs:
   -
     href: /
-    label: 시작
+    label: HOME
 
   -
     href: /categories/
-    label: 카테고리
+    label: CATEGORY
 
   -
     href: /wiki/
-    label: 위키
+    label: WIKI
 
   -
     href: /links/
-    label: 링크
+    label: LINK
     mobile-hidden: true
 
   -
     href: /about/
-    label: 소개
+    label: ABOUT ME
 
 # ---------------- #
 #       RSS        #
@@ -125,6 +125,7 @@ plugins:
     - jekyll-paginate
     - jekyll-sitemap
     - jekyll-feed
+    - jekyll-toc
     - jemoji
 #     - jekyll-mentions
 collections:
