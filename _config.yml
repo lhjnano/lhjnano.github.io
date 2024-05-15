@@ -4,9 +4,9 @@
 baseurl:
 url: https://lhjnano.github.io
 date_format: "ordinal"
-title: Records of development
-subtitle: "시스템 프로그래머"
-description: "정리글"
+title: HeonJE Lee's Record
+subtitle: "Records of On-premise"
+description: ""
 keywords: Devops, System, Linux
 timezone: Asia/South Korea
 encoding: "utf-8"
