@@ -4,7 +4,7 @@
 baseurl:
 url: https://lhjnano.github.io
 date_format: "ordinal"
-title: "HeonJE Lee's Record"
+title: "HeonJe Lee's Record"
 subtitle: "Records of On-premise"
 description: ""
 keywords: Devops, System, Linux
@@ -70,7 +70,7 @@ navs:
 
   -
     href: /categories/
-    label: 분류
+    label: 카테고리
 
   -
     href: /archives/
