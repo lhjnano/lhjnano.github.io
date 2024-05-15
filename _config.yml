@@ -73,11 +73,6 @@ navs:
     label: 카테고리
 
   -
-    href: /archives/
-    label: 배치
-    mobile-hidden: true
-
-  -
     href: /wiki/
     label: 위키
 
