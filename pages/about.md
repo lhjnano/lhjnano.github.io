@@ -8,11 +8,14 @@ menu: 소개
 permalink: /about/
 ---
 
+## 인사
+
 개발을 하면서 다시 사용할 컨텐츠를 정리합니다.
 
 정리는 언제나 저에게도 당신에게도 도움이 될 수 있습니다. 
 
-Let's go to make my search GPT!
+Let's make our on-premise history!
+
 
 ## Contact
 

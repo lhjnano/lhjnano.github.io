@@ -28,7 +28,7 @@ components:
         start_date: 2024-05-03
     # Github Repositories
     side_bar_repo:
-        enabled: false
+        enabled: true
         limit: 5
     # 단어 수 세기
     word_count:
