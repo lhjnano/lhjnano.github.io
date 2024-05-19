@@ -111,11 +111,7 @@ index:
 # ---------------- #
 markdown: kramdown
 kramdown:
-    footnote_backlink: "&#8617;&#xfe0e;"
-    syntax_highlighter: rouge
-    syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
-      css_class: console
-      
+    input: GFM
 highlighter: rouge
 paginate: 10
 lsi: false
