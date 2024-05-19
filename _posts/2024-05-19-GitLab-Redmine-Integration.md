@@ -32,7 +32,7 @@ mkdir git_repos/myproject/myrepo.git
 
 그런 다음 git 명령을 통해서 미러링합니다.
 
-:idea: **Note**
+:light_bulb: **Note**
 
 > Git mirror는 기본적으로 원격 저장소의 복제본을 만드는 데 사용됩니다. 이는 특히 원격 저장소가 손상되거나 유실될 경우 해당 코드의 백업을 보장하는 데 유용합니다. git clone --mirror 명령을 통해 원격 저장소를 미러링할 수 있습니다. 이 명령은 모든 참조(heads, notes, tags, and others)와 함께 원격 저장소를 복제합니다.
 
