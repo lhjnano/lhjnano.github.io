@@ -26,7 +26,7 @@ toc_sticky: true
 
 ADS(Active Directory Server) 의 `서버 관리자` > `도구` > `Active Directory 사용자 및 컴퓨터` 에서 관리하고 있는 객체에 대해서 확인할 수 있습니다. 
 
-![Active Directory 사용자 및 컴퓨터](assets/images/ad-user-computer.png)
+<img src="/images/ad-user-computer.png" width="80%" alt="Active Directory 사용자 및 컴퓨터"/>
 
 각 객체는 조직 단위(Organizational units, OU) 로 구성해서 사용자를 그룹으로 묶을 수도 있습니다. 
 그 외에도 객체는 특성(Attrobutes), 식별자(Gobally Unique Identifier; GUID) 와 보안 식별자(Security Identify; SID) 등의 특성도 포함하고 있습니다. 
