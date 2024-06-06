@@ -36,17 +36,7 @@ ADS(Active Directory Server) 의 `서버 관리자` > `도구` > `Active Directo
 
 아래에서는 간략하게 ADS 를 구성하였을때, 어떻게 NAS 가 연결하는지를 나타냅니다. 
 
-```groovy
-[ NAS ]                                 [    AD    ] 도메인 기반
-+-----+-----------------+               +----------+ Realm: 도메인/작업 그룹(NetBIOS)
-| NAS | Samba [winbind] |     < --- >   | LDAP     |
-+-----+-----------------+               | Kerberos |
-                                        | DNS      |
-                                        | NTP      |
-                                        +----------+
-| UID: Integer          |               | GUID     | 사용자 계정 ID
-               <----------    baserid    -------------- 
-```
+<script src="https://gist.github.com/lhjnano/6cf4c651fc77e2015aa85a4761876744.js"></script>
 
 1. AD 는 도메인 기반이기 때문에  NAS 에서 DNS 정보를 등록해줘야 합니다.
 2. NAS는 Samba 의 winbind 를 통해서 AD 에 인증 정보를 보낼 수 있습니다..
