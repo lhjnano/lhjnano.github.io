@@ -740,7 +740,7 @@ img + em {
 }
 
 /* 코드 블럭의 스타일 */
-.code-block {
+.div.code-block {
     background-color: #f4f4f4; /* 배경색 */
     color: #333; /* 텍스트 색상 */
     padding: 10px; /* 안쪽 여백 */
@@ -752,6 +752,11 @@ img + em {
     overflow-x: auto; /* 가로 스크롤바 표시 */
 }
 
+/* 코드 블럭 내에 코드 스타일 */
+.div.code {
+    display: inline-block;
+    padding-left: 10px;
+}
 
 .content-header-ad { display:inline-block; width: 320px; height: 50px; }
 @media (max-width: 400px) { .content-header-ad { display: none; } }
