@@ -531,7 +531,7 @@
     word-break: normal;
     white-space: pre;
     background: 0 0;
-    border: 0
+    border: 0;
 }
 
 .markdown-body .highlight {
@@ -737,44 +737,6 @@ div.footnotes::before {
 img + em {
   color: grey;
   display: block;
-}
-
-/* 코드 블럭의 스타일 */
-.code-block {
-    position: relative;
-    background-color: #282c34;
-    color: #abb2bf;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.copy-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: #61afef;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.copy-button:hover {
-    background-color: #4a90e2;
-}
-
-.copy-button:focus {
-    outline: none;
-}
-
-.code-block code {
-    color: #abb2bf;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    line-height: 1.5;
 }
 
 .content-header-ad { display:inline-block; width: 320px; height: 50px; }
