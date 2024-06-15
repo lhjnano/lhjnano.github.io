@@ -771,6 +771,7 @@ img + em {
 }
 
 .code-block code {
+    color: #abb2bf;
     font-family: 'Courier New', Courier, monospace;
     font-size: 14px;
     line-height: 1.5;
