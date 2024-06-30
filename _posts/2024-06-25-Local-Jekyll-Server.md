@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 로컬 Jekyll 서버 (feat. undefined method `delegate_method_as')
+title: 로컬 Jekyll 서버 (undefined method `delegate_method_as')
 categories: [Jekyll, GithubPage]
 description: Jekyll 를 로컬에서 어떻게 확인할 수 있는지 설명합니다.
 keywords: Jekyll, GithubPage

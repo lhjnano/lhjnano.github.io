@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GitLab, Mattermost 연동
+title: GitLab, Mattermost 웹 훅 설정과 subscription 설정
 categories: [GitLab, Mattermost]
 description: GitLab, Mattermost 연동 방법을 설명합니다. 
 keywords: CI/CD, GitLab, Mattermost

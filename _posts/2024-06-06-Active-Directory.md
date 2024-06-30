@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Active Directory(AD)
+title: Active Directory(AD) 개념과 동작 구조 
 categories: [AD, Active Directory]
 description: Active Directory 를 사용하여 centos 에서 Window Server(ADS) 에 연결하는 방법을 설명합니다. 
 keywords: LVM

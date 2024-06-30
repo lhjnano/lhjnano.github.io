@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Redmine, Mattermost 연동
+title: Redmine, Mattermost 연동 방법
 categories: [Redmine, Mattermost]
 description: Redmine, Mattermost 연동 방법을 설명합니다. 
 keywords: CI/CD, Redmine, Mattermost

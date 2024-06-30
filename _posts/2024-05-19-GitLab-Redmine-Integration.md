@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Redmine, GitLab 연동
+title: Redmine, GitLab 연동 방법과 이슈 링크 연결
 categories: [GitLab, Redmine]
 description: Redmine, GitLab 저장소 연동 방법과 이슈 링크 연결을 설명합니다. 
 keywords: CI/CD, Redmine, GitLab
