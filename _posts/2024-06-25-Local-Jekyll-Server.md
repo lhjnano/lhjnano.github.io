@@ -12,6 +12,8 @@ toc_sticky: true
 
 한동안은 매번 Github 에 푸시해서 page 변경사항을 확인하는데, 실제 반영되는데 까지 오래걸리기도 하고 `commit` 정리하기도 불편해서 local 에서 테스트하고 올리려고 [Github  페이지 가이드](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll)에 따라서 Local 에서 Jekyll 를 실행시키기 위해 시도해보았다. 하지만 다음과 같은 에러가 발생하였다.
 
+<br>
+
 ```bash
 # Jekyll install in ubuntu
 $ sudo apt-get install ruby-full build-essential zlib1g-dev
@@ -43,10 +45,13 @@ $ jekyll -v
 	from /home/lhj/gems/gems/jekyll-4.3.3/lib/jekyll/drops/collection_drop.rb:4:in `<module:Jekyll>'
 	from /home/lhj/gems/gems/jekyll-4.3.3/lib/jekyll/drops/collection_drop.rb:3:in `<top (required)>'
 ...
-
 ```
 
+<br>
+
 버전이 안 맞는 것 같아 종속성을 정리 후 다시 시도하였다
+
+<br>
 
 ```bash
 $ PACKAGES="$(dpkg -l |grep jekyll|cut -d" " -f3|xargs )"
@@ -70,7 +75,11 @@ $ sudo apt autoremove
 ...
 ```
 
+<br>
+
 이제 재설치 해보자 :)
+
+<br>
 
 ```bash
 $ sudo gem install jekyll jekyll-feed jekyll-gist jekyll-paginate jekyll-sass-converter jekyll-coffeescript
@@ -110,7 +119,11 @@ Bundle complete! 3 Gemfile dependencies, 95 gems now installed.
 Use `bundle info [gemname]` to see where a bundled gem is installed.
 ```
 
+<br>
+
 이제 서버를 구동시키면 `Server address` 주소인 `127.0.0.1:4000` 에서 page 를 확인할 수 있다.
+
+<br>
 
 ```bash
 $ bundle exec jekyll serve
@@ -127,6 +140,8 @@ To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
     Server address: http://127.0.0.1:4000
   Server running... press ctrl-c to stop.
 ```
+
+<br>
 
 ---
 

@@ -15,6 +15,8 @@ toc_sticky: true
 
 각각의 리소스는 소수의 사용자만 볼 수 있도록, 접근 권한을 부여할 수도 있습니다. 
 
+<br>
+
 ### Active Directory 의 구조
 
 **AD** 에는 크게 도메인(Domain), 트리(Tree), 포리스트(Forest) 의 세 가지 계층이 있습니다. 
@@ -32,11 +34,25 @@ ADS(Active Directory Server) 의 `서버 관리자` > `도구` > `Active Directo
 그 외에도 객체는 특성(Attrobutes), 식별자(Gobally Unique Identifier; GUID) 와 보안 식별자(Security Identify; SID) 등의 특성도 포함하고 있습니다. 
 
 
+<br>
+
 ### NAS 에서 AD 로 공유 폴더 연결
 
 아래에서는 간략하게 ADS 를 구성하였을때, 어떻게 NAS 가 연결하는지를 나타냅니다. 
 
-<script src="https://gist.github.com/lhjnano/6cf4c651fc77e2015aa85a4761876744.js"></script>
+```
+[ NAS ]                                 [    AD    ] 도메인 기반
++-----+-----------------+               +----------+ Realm: 도메인/작업 그룹(NetBIOS)
+| NAS | Samba [winbind] |     < --- >   | LDAP     |
++-----+-----------------+               | Kerberos |
+                                        | DNS      |
+                                        | NTP      |
+                                        +----------+
+| UID: Integer          |               | GUID     | 사용자 계정 ID
+               <----------    baserid    -------------- 
+```
+
+
 
 1. AD 는 도메인 기반이기 때문에  NAS 에서 DNS 정보를 등록해줘야 합니다.
 2. NAS는 Samba 의 winbind 를 통해서 AD 에 인증 정보를 보낼 수 있습니다..
@@ -48,6 +64,8 @@ ADS(Active Directory Server) 의 `서버 관리자` > `도구` > `Active Directo
 
 
 이렇게 간략하게 AD 의 설명부터 NAS 에서 ADS 에 어떻게 연결하는 건지 에 대해서 설명했는데, 다음 포스트에서는 실제로 어떤 명령과 설정을 통해서 연결할 수 있는지 살펴보겠습니다 :smile:
+
+<br>
 
 ---
 
