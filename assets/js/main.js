@@ -8,7 +8,7 @@ function toggleMenu() {
 }
 
 jQuery(function() {
-  // 回到顶部
+  // TOP
   function toTop () {
     var $toTop = $(".gotop");
 
