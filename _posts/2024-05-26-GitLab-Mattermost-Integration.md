@@ -11,11 +11,16 @@ toc_sticky: true
 ### Mattermost 에서 GitLab 의 웹 훅 설정
 
 1. 연결할 채팅창에 접속
+
+<br>
+
 2. gitlab 연결
 
 ```bash
 /gitlab connect
 ```
+
+<br>
 
 3. subscription 설정
 
@@ -24,6 +29,8 @@ toc_sticky: true
 
 Successfully subscribed to myrepo/myproject
 ```
+
+<br>
 
 4. 웹 훅 설정
 
@@ -35,9 +42,13 @@ Webhook Created:
 `https://chat.lhjnano.com/plugins/com.github.manland.mattermost-plugin-gitlab/webhook`
 ```
 
+<br>
+
 5. 테스트
 
 GitLab 의 프로젝트에서 `Settings` > `Webhook` 에서 등록된 프로젝트 홈으로 테스트로 확인할 수 있습니다 :smile:
+
+<br>
 
 
 ---

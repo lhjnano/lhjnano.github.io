@@ -13,16 +13,21 @@ toc_sticky: true
 
 SAN은 고속 네트워크를 통해 스토리지 장치와 서버를 연결하는 기술입니다. 주로 데이터 센터에서 대규모 스토리지 시스템을 효율적으로 관리하고 데이터 전송 속도를 높이기 위해 사용됩니다.
 
+<br>
+
 ### 주요 특징
 
 * 스토리지 장치와 서버를 광케이블 또는 케이블로 연결하여 공유
 * 대용량 스토리지를 관리
+
+<br>
 
 ### 인터페이스 카드
 
 - **HBA (Host Bus Adapter)**: 서버와 SAN 스위치를 연결하는 데 사용되는 카드입니다.
 - **FC (Fibre Channel)**: 고속 데이터 전송을 위해 주로 사용되며, 16Gbps 또는 32Gbps의 전송 속도를 지원합니다.
 
+<br>
 
 ### 제조사별 연결 방법
 
@@ -30,6 +35,7 @@ SAN은 고속 네트워크를 통해 스토리지 장치와 서버를 연결하�
 - **NetApp**: NetApp은 FC 및 iSCSI 기반의 SAN 솔루션을 제공하며, 다양한 HBA와 호환됩니다.
 - **HPE**: HPE는 FC 및 FCoE(Fibre Channel over Ethernet) 기반의 SAN 시스템을 제공하며, HPE의 SAN 스위치와 연결할 수 있습니다.
 
+<br>
 
 ### 제조사별 Multipath 설정 방법
 
@@ -46,6 +52,8 @@ sudo yum install device-mapper-multipath
 sudo systemctl enable multipathd
 sudo systemctl start multipathd
 ```
+
+<br>
 
 1. EMC 설정 파일
 
@@ -74,6 +82,8 @@ EOF
 - hardware_handler "1 alua": 하드웨어 핸들러를 지정합니다. "1 alua"는 ALUA(Asymmetric Logical Unit Access) 모드를 사용하여 스토리지 장치와의 상호 작용을 관리합니다.
 - prio alua: 경로 우선순위 설정을 지정합니다. "alua"는 ALUA를 사용하여 경로의 우선순위를 결정합니다.
 ```
+
+<br>
 
 2. NetApp 설정 파일
 
@@ -127,6 +137,8 @@ EOF
 - detect_prio yes: 경로 우선순위 감지를 활성화합니다.
 ```
 
+<br>
+
 3. HPE 설정 파일
 
 ```bash
@@ -161,6 +173,7 @@ EOF
 - path_checker tur: 경로의 유효성을 검사할 때 "tur" (Test Unit Ready) 검사기를 사용합니다. 이는 장치가 준비 상태인지 확인하는 데 사용됩니다.
 ```
 
+<br>
 
 4. HITACHI Multipath 설정파일
 
@@ -209,6 +222,8 @@ EOF
 
 Infiniband는 고성능 컴퓨팅 환경에서 주로 사용되는 고속 인터커넥트 기술입니다. 주로 슈퍼컴퓨터, 데이터 센터 및 고성능 컴퓨팅 클러스터에서 사용됩니다.
 
+<br>
+
 ### 주요 특징
 
 - **고속 데이터 전송**: 최대 200Gbps의 데이터 전송 속도를 지원합니다.
@@ -216,30 +231,38 @@ Infiniband는 고성능 컴퓨팅 환경에서 주로 사용되는 고속 인터
 - **확장성**: 수천 개의 노드를 연결할 수 있는 확장성을 제공합니다.
 - **QoS (Quality of Service)**: 네트워크 트래픽을 효율적으로 관리하여 높은 품질의 서비스를 제공합니다.
 
+<br>
 
 ### 인터페이스 카드
 
 - **HCA (Host Channel Adapter)**: 서버와 Infiniband 스위치를 연결하는 데 사용되는 카드입니다.
 - **Infiniband Adapters**: Mellanox, Intel 등의 제조사에서 다양한 속도와 기능을 제공하는 어댑터를 생산합니다.
 
+<br>
 
 ### 설정 방법
 
 OpenSM은 Infiniband 네트워크에서 Subnet Manager(SM) 역할을 하는 오픈 소스 소프트웨어입니다. Subnet Manager는 Infiniband 패브릭 내의 모든 장치와 연결을 관리하고, 경로를 설정하며, 네트워크의 상태를 모니터링하는 중요한 구성 요소입니다.
+
+<br>
 
 1. **OpenSM 설치**:
     
 ```bash
 sudo yum install opensm
 ```
-    
+
+<br>
+
 2. **OpenSM 서비스 시작**:
     
 ```bash
 sudo systemctl enable opensm
 sudo systemctl start opensm
 ```
-    
+
+<br>
+
 3. **설정 파일 수정 (필요한 경우)**:
 
 기본 설정 파일은 `/etc/rdma/opensm.conf`에 위치해 있습니다. 필요에 따라 이 파일을 수정하여 네트워크 환경에 맞게 설정할 수 있습니다.
@@ -264,6 +287,7 @@ PORTS="1,2"
 RESTART_ON_REBOOT=yes
 ```
 
+<br>
 
 ## 참고
 

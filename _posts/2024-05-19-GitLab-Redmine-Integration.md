@@ -11,6 +11,8 @@ toc_sticky: true
 Redmine 과 GitLab 을 연동 시에 필요한 정보를 작성합니다. 
 우선 `저장소`를 연동 전에 필요한 정보가 어떤 것이 있나 조회하고 넘어가 봅시다.
 
+<br>
+
 ### 저장소 연결 시 필요 정보
 
 * 연결할 GitLab 프로젝트 : `https://gitlab.lhjnano.com/myproject/myrepo.git`
@@ -19,6 +21,7 @@ Redmine 과 GitLab 을 연동 시에 필요한 정보를 작성합니다.
     * 접근 계정 : redmine-id / redmine-pw
 
 
+<br>
 
 ### Redmine 서버 GitLab Repository mirroring
 
@@ -56,6 +59,8 @@ done;
 EOT
 ```
 
+<br>
+
 ### Redmine 저장소 추가
 
 Redmine 의 프로젝트와 GitLab 의 저장소를 이제 연동해봅시다. 
@@ -79,6 +84,8 @@ Redmine 의 프로젝트와 GitLab 의 저장소를 이제 연동해봅시다.
 
 Redmine 의 이슈번호도 GitLab 에서 연결될 수 있도록 해보겠습니다. 
 이번에는 간단한 설정만으로도 연결이 가능합니다. 
+
+<br>
 
 ### GitLab 에 Redmine Issue 링크
 
