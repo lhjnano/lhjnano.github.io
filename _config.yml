@@ -165,6 +165,6 @@ google:
         enabled: true
         footer: true
         sidebar: true
-        sidebar-detail: false
-        content_header: false
-        content_footer: false
+        sidebar-detail: true
+        content_header: true
+        content_footer: true
