@@ -163,8 +163,8 @@ google:
 #     analytics_id: # G-20FLEG5Q2W
     adsense:
         enabled: true
-        footer: true
+        footer: false
         sidebar: true
         sidebar-detail: true
         content_header: false
-        content_footer: true
+        content_footer: false
