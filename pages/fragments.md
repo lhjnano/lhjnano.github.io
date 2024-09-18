@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Fragments
+title: Book Wiki
 description: fragments
 keywords: fragments
 comments: false
 mermaid: false
-menu: 片段
+menu: fragment
 permalink: /fragments/
 ---
 
