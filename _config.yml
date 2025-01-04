@@ -73,7 +73,7 @@ navs:
   - href: /fragments/
     label: WIKI
 
-  - href: /links/
+  - href: /bullets/
     label: BULLET
     mobile-hidden: true
 
