@@ -14,35 +14,35 @@ since: 2024
 repository: lhjnano/lhjnano.github.io
 
 cdn:
-    jsdelivr:
-        enabled: false
+  jsdelivr:
+    enabled: false
 
 components:
-    # weibo,qq,wechat,douban,qzone,linkedin,facebook,twitter
-    share:
-        enabled: false
-        hide-platforms: weibo,qq,wechat,douban,qzone,facebook,twitter
-    # 방문 통계
-    busuanzi:
-        enabled: true
-        start_date: 2024-05-03
-    # Github Repositories
-    side_bar_repo:
-        enabled: true
-        limit: 5
-    # 단어 수 세기
-    word_count:
-        enabled: true
-    # 화면 오른 쪽 상단 모서리의 QR 코드
-    #  assets/images/qrcode.jpg
-    qrcode:
-        enabled: false
-    # wifi 인덱스 페이지 (list/cate)
-    wiki:
-        view: cate
-    # 사진 라이트 박스 효과
-    fancybox:
-        enabled: false
+  # weibo,qq,wechat,douban,qzone,linkedin,facebook,twitter
+  share:
+    enabled: false
+    hide-platforms: weibo,qq,wechat,douban,qzone,facebook,twitter
+  # 방문 통계
+  busuanzi:
+    enabled: true
+    start_date: 2024-05-03
+  # Github Repositories
+  side_bar_repo:
+    enabled: true
+    limit: 5
+  # 단어 수 세기
+  word_count:
+    enabled: true
+  # 화면 오른 쪽 상단 모서리의 QR 코드
+  #  assets/images/qrcode.jpg
+  qrcode:
+    enabled: false
+  # wifi 인덱스 페이지 (list/cate)
+  wiki:
+    view: cate
+  # 사진 라이트 박스 효과
+  fancybox:
+    enabled: false
 # 페이지 콘텐츠 압축
 compress_html:
   clippings: all
@@ -54,8 +54,8 @@ highlight_theme: github
 #      Author      #
 # ---------------- #
 author: HeonJe Lee
-organization: 
-organization_url: 
+organization:
+organization_url:
 github_username: lhjnano
 location: Inchoen, Korea
 email: lhjnano@gmail.com
@@ -64,25 +64,20 @@ email: lhjnano@gmail.com
 #    Navigation    #
 # ---------------- #
 navs:
-  -
-    href: /
+  - href: /
     label: HOME
 
-  -
-    href: /categories/
+  - href: /categories/
     label: CATEGORY
 
-  -
-    href: /fragments/
+  - href: /fragments/
     label: WIKI
 
-  -
-    href: /links/
-    label: LINK
+  - href: /links/
+    label: BULLET
     mobile-hidden: true
 
-  -
-    href: /about/
+  - href: /about/
     label: ABOUT ME
 
 # ---------------- #
@@ -94,24 +89,24 @@ subscribe_rss: /feed.xml
 #      INDEX       #
 # ---------------- #
 index:
-    banner:
-        # 시작 banner 텍스트색
-        color: "#fff"
-        # 시작 네비게이션 텍스트색
-        nav-color: "rgba(255, 255, 255, .5)"
-        # 시작 banner 배경색
-        background-color: "#4183c4"
-        # 시작 banner 배경 이미지
-        # background-image: "/assets/images/octicons-bg.png"
-        # background-repeat: "no-repeat"
-        # background-size: "cover"
+  banner:
+    # 시작 banner 텍스트색
+    color: "#fff"
+    # 시작 네비게이션 텍스트색
+    nav-color: "rgba(255, 255, 255, .5)"
+    # 시작 banner 배경색
+    background-color: "#4183c4"
+    # 시작 banner 배경 이미지
+    # background-image: "/assets/images/octicons-bg.png"
+    # background-repeat: "no-repeat"
+    # background-size: "cover"
 
 # ---------------- #
 #      Jekyll      #
 # ---------------- #
 markdown: kramdown
 kramdown:
-    input: GFM
+  input: GFM
 highlighter: rouge
 paginate: 10
 lsi: false
@@ -119,22 +114,22 @@ quiet: false
 excerpt_separator: "\n\n"
 permalink: /:year/:month/:day/:title/
 plugins:
-    - jekyll-github-metadata
-    - rouge
-#     - jekyll-html-pipeline
-    - jekyll-paginate
-    - jekyll-sitemap
-    - jekyll-feed
-    - jekyll-toc
-    - jemoji
+  - jekyll-github-metadata
+  - rouge
+  #     - jekyll-html-pipeline
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-toc
+  - jemoji
 #     - jekyll-mentions
 collections:
-    wiki:
-        output: true
-        permalink: /wiki/:path/
-    fragments:
-        output: true
-        permalink: /fragment/:path/
+  wiki:
+    output: true
+    permalink: /wiki/:path/
+  fragments:
+    output: true
+    permalink: /fragment/:path/
 
 # ---------------- #
 #      Comments    #
@@ -144,27 +139,25 @@ comments_provider: utterances
 # !!!Important!!! Please modify infos below to yours
 # utterances ：https://utteranc.es/
 utterances:
-    repo: lhjnano/blog-comments
-
+  repo: lhjnano/blog-comments
 
 # ---------------- #
 #      Search      #
 # ---------------- #
 simple_jekyll_search:
-    # 전체 텍스트 검색 지원 여부
-    fulltext: false
-    # 최대 결과 수
-    limit: 10
+  # 전체 텍스트 검색 지원 여부
+  fulltext: false
+  # 최대 결과 수
+  limit: 10
 
 # ---------------- #
 #      Google      #
 # ---------------- #
 google:
-#     analytics_id: # G-20FLEG5Q2W
-    adsense:
-        enabled: true
-        footer: false
-        sidebar: true
-        sidebar-detail: true
-        content_header: false
-        content_footer: false
+  adsense:
+    enabled: true
+    footer: false
+    sidebar: true
+    sidebar-detail: true
+    content_header: false
+    content_footer: false
