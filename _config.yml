@@ -130,6 +130,12 @@ collections:
   fragments:
     output: true
     permalink: /fragment/:path/
+  bullet:
+    output: true
+    permalink: /bullet/:path/
+  2025-feature-log:
+    output: true
+    permalink: /2025-feature-log/:path/
 
 # ---------------- #
 #      Comments    #
