@@ -93,9 +93,9 @@ permalink: /bullet/
         <div class="pastel4"></div>
         <div class="pastel4"></div>
         <div class="pastel4"></div>
+        <div class="pastel6"></div>
         <div class="pastel7"></div>
         <div class="pastel8"></div>
-        <div class="pastel9"></div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
