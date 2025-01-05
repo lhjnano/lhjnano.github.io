@@ -73,9 +73,9 @@ permalink: /bullet/
         <div class="pastel4"></div>
         <div class="pastel4"></div>
         <div class="pastel4"></div>
-        <div class="pastel1"></div>
-        <div class="pastel2"></div>
-        <div class="pastel3"></div>
+        <div class="pastel1">System</div>
+        <div class="pastel2">클라우드 서비스</div>
+        <div class="pastel3">Network</div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
@@ -83,9 +83,9 @@ permalink: /bullet/
         <div class="pastel4"></div>
         <div class="pastel4"></div>
         <div class="pastel4"></div>
-        <div class="pastel4"></div>
+        <div class="pastel4">건강 성장</div>
         <div class="center"><strong>기록하며 성장하는 나</strong></div>
-        <div class="pastel5"></div>
+        <div class="pastel5">내면 성장</div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
@@ -93,9 +93,9 @@ permalink: /bullet/
         <div class="pastel4"></div>
         <div class="pastel4"></div>
         <div class="pastel4"></div>
-        <div class="pastel6"></div>
-        <div class="pastel7"></div>
-        <div class="pastel8"></div>
+        <div class="pastel6">IaC</div>
+        <div class="pastel7">컨테이너</div>
+        <div class="pastel8">CI/CD</div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
         <div class="pastel5"></div>
