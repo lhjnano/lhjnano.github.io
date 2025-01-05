@@ -21,6 +21,7 @@ permalink: /bullet/
         padding: 10px;
         text-align: center;
         border: 1px solid #ddd;
+        font-size: 7px;
     }
     .mandalart div.center {
         background-color: #fce4ec;
