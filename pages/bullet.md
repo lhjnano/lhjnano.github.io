@@ -63,7 +63,7 @@ permalink: /bullet/
 
         <div class="pastel1">고성능 네트워크 및 디스크 I/O 분석</div>
         <div class="pastel1">tmux 사용 늘리기</div>
-        <div class="pastel1"></div>
+        <div class="pastel1">리눅스 시스템 관련 블로그 포스트</div>
         <div class="pastel2"></div>
         <div class="pastel2"></div>
         <div class="pastel2"></div>
@@ -106,7 +106,7 @@ permalink: /bullet/
         <div class="pastel6"></div>
         <div class="pastel7">컨테이너 네이티브 기술(LXC, CRI-O)과 Kubernetes 오픈소스 학습</div>
         <div class="pastel7">cgroups 와 namesspaces 의 동작 방식 이해</div>
-        <div class="pastel7">리눅스 시스템 관련 블로그 포스트</div>
+        <div class="pastel7"></div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
