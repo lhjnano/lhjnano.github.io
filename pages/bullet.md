@@ -43,7 +43,7 @@ permalink: /bullet/
     <div class="mandalart">
         <div class="pastel1">파일 시스템 관련 논문 2부</div>
         <div class="pastel1">리눅스 관리 관련 서적 1권</div>
-        <div class="pastel1">커널 모듈 작성 및 로드</div>
+        <div class="pastel1">테스트 커널 모듈 작성 및 로드</div>
         <div class="pastel2"></div>
         <div class="pastel2"></div>
         <div class="pastel2"></div>
@@ -52,13 +52,14 @@ permalink: /bullet/
         <div class="pastel3"></div>
 
         <div class="pastel1">리눅스 네트워크 스택 구조 및 `netfilter`, `iptables` 내부 동작 이해</div>
-        <div class="pastel1">LSM(Linux Security Modules) SELinux 내부 구조 및 정책 작성 학습</div>
-        <div class="pastel1">관심 있는 리눅스 관련 오픈소스 프로젝트 코드 기여</div>
+        <!-- 심화 학습: LVM 소스 분석 > LVM 어플 > LVM 어플에 기여 > LVM 에 기여 -->
+        <div class="pastel1">LVM thin send/receive 구성해서 테스트 및 Contribute 혹은 포스팅 1회</div>
+        <div class="pastel1">관심 있는 리눅스 관련 오픈소스 프로젝트 Contribute 혹은 포스팅 1회</div>
+        <div class="pastel2">AWS 관련 포스팅 2회</div>
+        <div class="pastel2">AWS 자격증 1개</div>
         <div class="pastel2"></div>
-        <div class="pastel2"></div>
-        <div class="pastel2"></div>
-        <div class="pastel3"></div>
-        <div class="pastel3"></div>
+        <div class="pastel3">고가용성 네트워크 원리 및 이해</div>
+        <div class="pastel3">공유 프로토콜 오픈 소스 블로그 2회</div>
         <div class="pastel3"></div>
 
         <div class="pastel1">고성능 네트워크 및 디스크 I/O 분석</div>
