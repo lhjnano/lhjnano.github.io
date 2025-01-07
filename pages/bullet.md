@@ -107,7 +107,7 @@ permalink: /bullet/
         <div class="pastel6"></div>
         <div class="pastel7">컨테이너 네이티브 기술(LXC, CRI-O)과 Kubernetes 오픈소스 학습</div>
         <div class="pastel7">cgroups 와 namesspaces 의 동작 방식 이해</div>
-        <div class="pastel7"></div>
+        <div class="pastel7">Docker Compose로 멀티컨테이너 애플리케이션 관리</div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
@@ -115,9 +115,9 @@ permalink: /bullet/
         <div class="pastel6"></div>
         <div class="pastel6"></div>
         <div class="pastel6"></div>
-        <div class="pastel7"></div>
-        <div class="pastel7"></div>
-        <div class="pastel7"></div>
+        <div class="pastel7">Docker의 동작 원리 이해</div>
+        <div class="pastel7">컨테이너와 가상 머신의 차이점 학습</div>
+        <div class="pastel7">Kubernetes의 기본 개념 학습</div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
@@ -125,9 +125,9 @@ permalink: /bullet/
         <div class="pastel6"></div>
         <div class="pastel6"></div>
         <div class="pastel6"></div>
-        <div class="pastel7"></div>
-        <div class="pastel7"></div>
-        <div class="pastel7"></div>
+        <div class="pastel7">Pod, Deployment, Service 개념 이해</div>
+        <div class="pastel7">GitLab CI/CD 또는 Jenkins를 사용해 컨테이너 기반 배포 파이프라인 구축</div>
+        <div class="pastel7">Kubernetes Helm Chart 작성</div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
         <div class="pastel8"></div>
