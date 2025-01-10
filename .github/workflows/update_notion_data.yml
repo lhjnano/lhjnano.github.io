@@ -28,10 +28,9 @@ jobs:
       # GitHub Pages 브랜치에 반영
       - name: Update GitHub Pages
         run: |
-          mkdir -p output
-          mv notion_data.json output/
+          mv notion_data.json _bullet/2025/
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@github.com"
-          git add output/notion_data.json
+          git add _bullet/2025/notion_data.json
           git commit -m "Update Notion data"
           git push origin master

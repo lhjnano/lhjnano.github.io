@@ -204,7 +204,7 @@ permalink: /bullet/
 <script>
     <!-- ref: https://lourcode.kr/posts/Jekyll-%EA%B8%B0%EB%B0%98-Github-Pages%EC%99%80-Notion-Page-%EC%97%B0%EB%8F%99/ -->
     async function fetchHabitData() {
-        const response = await fetch('notion_data.json'); 
+        const response = await fetch('2025/notion_data.json'); 
         const data = await response.json();
         const habits = {};
 
