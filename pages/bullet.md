@@ -137,10 +137,106 @@ permalink: /bullet/
 
 <br>
 
+# 미래 로그
+
 <ul class="listing">
-{% for item in site.bullet %}
-<li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-  <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
-</li>
-{% endfor %}
+    {% for item in site.bullet.2025.future_log %}
+    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
+    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+    </li>
+    {% endfor %}
 </ul>
+
+<br>
+
+# 월간 로그
+
+<ul class="listing">
+    {% for item in site.bullet.2025.monthy_log %}
+    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
+    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<br>
+
+---
+
+# 학습 로그
+
+<ul class="listing">
+    {% for item in site.bullet.2025.study_log %}
+    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
+    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<br>
+
+# 기술 트래커
+
+<ul class="listing">
+    {% for item in site.bullet.2025.skill_tracker %}
+    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
+    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<br>
+
+# 이벤트 로그
+
+<ul class="listing">
+    {% for item in site.bullet.2025.event_log %}
+    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
+    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<br>
+
+# 습관 트래커
+
+<script>
+    <!-- ref: https://lourcode.kr/posts/Jekyll-%EA%B8%B0%EB%B0%98-Github-Pages%EC%99%80-Notion-Page-%EC%97%B0%EB%8F%99/ -->
+    async function fetchHabitData() {
+        const response = await fetch('notion_data.json'); 
+        const data = await response.json();
+        const habits = {};
+
+        data.results.forEach(item => {
+            const habit = item.properties['습관'].title[0]?.plain_text;
+            const date = new Date(item.properties['날짜'].date.start).getMonth() + 1;
+
+            if (!habits[habit]) {
+                habits[habit] = { total: 0, completed: 0 };
+            }
+
+            habits[habit].completed++;
+            habits[habit].total++;
+        });
+
+        renderTracker(habits);
+    }
+
+    function renderTracker(habitData) {
+        const trackerDiv = document.getElementById('tracker');
+
+        trackerDiv.innerHTML = '';
+
+        for (const [habit, data] of Object.entries(habitData)) {
+            const percentage = Math.round((data.completed / data.total) * 10);
+            const progress = '■'.repeat(percentage) + '□'.repeat(10 - percentage);
+            const habitDiv = document.createElement('div');
+
+            habitDiv.innerHTML = `<strong>${habit}</strong>: ${progress}`;
+            trackerDiv.appendChild(habitDiv);
+        }
+    }
+
+    fetchHabitData();
+</script>
