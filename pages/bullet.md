@@ -231,14 +231,14 @@ permalink: /bullet/
     </tbody>
 </table>
 
-<script>
-    <!-- ref:https://lourcode.kr/posts/Jekyll-%EA%B8%B0%EB%B0%98-Github-Pages%EC%99%80-Notion-Page-%EC%97%B0%EB%8F%99/#github-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95 -->
-    async function fetchHabitData() {
-        const response = await fetch('2025/notion_data.json'); // Notion에서 가져온 데이터
-        const data = await response.json();
+<!-- ref:https://lourcode.kr/posts/Jekyll-%EA%B8%B0%EB%B0%98-Github-Pages%EC%99%80-Notion-Page-%EC%97%B0%EB%8F%99/#github-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95 -->
 
-        // 습관별로 데이터 정리
+<script>
+    async function fetchHabitData() {
+        const response = await fetch('2025/notion_data.json');
+        const data = await response.json();
         const habits = {};
+
         data.results.forEach(item => {
             const habit = item.properties['습관'].title[0]?.plain_text;
             const date = item.properties['날짜'].date.start;
@@ -246,6 +246,7 @@ permalink: /bullet/
             if (!habits[habit]) {
                 habits[habit] = [];
             }
+
             habits[habit].push(date);
         });
 
