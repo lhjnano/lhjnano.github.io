@@ -201,42 +201,59 @@ permalink: /bullet/
 
 # 습관 트래커
 
-<div id="tracker">Loading...</div>
+<table id="habit-tracker">
+    <thead>
+        <tr>
+            <th>습관</th>
+            <th>기록</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2">Loading...</td>
+        </tr>
+    </tbody>
+</table>
 
 <script>
-    <!-- ref: https://lourcode.kr/posts/Jekyll-%EA%B8%B0%EB%B0%98-Github-Pages%EC%99%80-Notion-Page-%EC%97%B0%EB%8F%99/ -->
     async function fetchHabitData() {
-        const response = await fetch('2025/notion_data.json'); 
+        const response = await fetch('2025/notion_data.json'); // Notion에서 가져온 데이터
         const data = await response.json();
-        const habits = {};
 
+        // 습관별로 데이터 정리
+        const habits = {};
         data.results.forEach(item => {
             const habit = item.properties['습관'].title[0]?.plain_text;
-            const date = new Date(item.properties['날짜'].date.start).getMonth() + 1;
+            const date = item.properties['날짜'].date.start;
 
             if (!habits[habit]) {
-                habits[habit] = { total: 0, completed: 0 };
+                habits[habit] = [];
             }
-
-            habits[habit].completed++;
-            habits[habit].total++;
+            habits[habit].push(date);
         });
 
-        renderTracker(habits);
+        renderHabitTracker(habits);
     }
 
-    function renderTracker(habitData) {
-        const trackerDiv = document.getElementById('tracker');
+    function renderHabitTracker(habitData) {
+        const trackerTable = document.getElementById('habit-tracker').querySelector('tbody');
+        trackerTable.innerHTML = ''; // 기존 내용 초기화
 
-        trackerDiv.innerHTML = '';
+        for (const [habit, dates] of Object.entries(habitData)) {
+            const row = document.createElement('tr');
 
-        for (const [habit, data] of Object.entries(habitData)) {
-            const percentage = Math.round((data.completed / data.total) * 10);
-            const progress = '■'.repeat(percentage) + '□'.repeat(10 - percentage);
-            const habitDiv = document.createElement('div');
+            // 습관 이름
+            const habitCell = document.createElement('td');
+            habitCell.textContent = habit;
+            row.appendChild(habitCell);
 
-            habitDiv.innerHTML = `<strong>${habit}</strong>: ${progress}`;
-            trackerDiv.appendChild(habitDiv);
+            // 기록 (★ 표시)
+            const recordCell = document.createElement('td');
+            const starCount = dates.length;
+            recordCell.textContent = '★'.repeat(starCount);
+            row.appendChild(recordCell);
+
+            trackerTable.appendChild(row);
         }
     }
 
