@@ -201,7 +201,23 @@ permalink: /bullet/
 
 # 습관 트래커
 
-<table id="habit-tracker">
+<style>
+    .habit-tracker table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    .habit-tracker th, .habit-tracker td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    .habit-tracker th {
+        background-color: #f4f4f4;
+    }
+</style>
+
+<table class="habit-tracker" id="habit-tracker">
     <thead>
         <tr>
             <th>습관</th>
@@ -216,6 +232,7 @@ permalink: /bullet/
 </table>
 
 <script>
+    <!-- ref:https://lourcode.kr/posts/Jekyll-%EA%B8%B0%EB%B0%98-Github-Pages%EC%99%80-Notion-Page-%EC%97%B0%EB%8F%99/#github-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95 -->
     async function fetchHabitData() {
         const response = await fetch('2025/notion_data.json'); // Notion에서 가져온 데이터
         const data = await response.json();
@@ -237,17 +254,15 @@ permalink: /bullet/
 
     function renderHabitTracker(habitData) {
         const trackerTable = document.getElementById('habit-tracker').querySelector('tbody');
-        trackerTable.innerHTML = ''; // 기존 내용 초기화
+        trackerTable.innerHTML = '';
 
         for (const [habit, dates] of Object.entries(habitData)) {
             const row = document.createElement('tr');
 
-            // 습관 이름
             const habitCell = document.createElement('td');
             habitCell.textContent = habit;
             row.appendChild(habitCell);
 
-            // 기록 (★ 표시)
             const recordCell = document.createElement('td');
             const starCount = dates.length;
             recordCell.textContent = '★'.repeat(starCount);
