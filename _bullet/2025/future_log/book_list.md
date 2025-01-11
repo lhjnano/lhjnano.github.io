@@ -1,9 +1,16 @@
 ---
 layout: bullet
 title: 읽을 만한 책
+tags: [Book]
 description: Book List
 keywords: Book
 category: 2025.future_log
+mermaid: false
+sequence: false
+flow: false
+mathjax: false
+mindmap: false
+mindmap2: false
 ---
 
 ### 리눅스

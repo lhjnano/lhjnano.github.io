@@ -79,7 +79,7 @@ permalink: /bullet/
         <div class="pastel4">음주 관리</div>
         <div class="pastel1">System</div>
         <div class="pastel2">모니터링</div>
-        <div class="pastel3">Network</div>
+        <div class="pastel3">Network / 클라우드</div>
         <div class="pastel5">국내 여행 2회</div>
         <div class="pastel5">명상</div>
         <div class="pastel5">흑백요리사 식당 2회 방문</div>
@@ -135,8 +135,6 @@ permalink: /bullet/
 
 <br>
 
----
-
 # 학습 로그
 
 <ul class="listing">
@@ -169,7 +167,7 @@ permalink: /bullet/
     {% assign filtered_items = site.bullet | where: "category", "2025.skill_tracker" %}
     {% for item in filtered_items %}
     <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
     </li>
     {% endfor %}
 </ul>
