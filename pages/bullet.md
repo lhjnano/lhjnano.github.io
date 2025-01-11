@@ -111,6 +111,13 @@ permalink: /bullet/
 
 # 미래 로그
 
+<!--
+연간 목표: 배워야 할 기술, 자격증 취득, 프로젝트 계획 등을 기록
+- 1월: Docker 심화 학습
+- 4월: AWS Certified Solutions Architect 시험 응시
+- 8월: 오픈소스 기여 3회 이상
+-->
+
 <ul class="listing">
     {% assign filtered_items = site.bullet | where: "category", "2025.future_log" %}
     {% for item in filtered_items %}
@@ -123,6 +130,14 @@ permalink: /bullet/
 <br>
 
 # 월간 로그
+
+<!--
+해당 월에 학습할 내용, 완료할 작업, 참여할 이벤트 등을 기록
+1월
+- [x] Docker: Compose와 Swarm 비교 학습
+- [ ] GitHub: CI/CD 파이프라인 설정 실습
+- [ ] 세미나: Google Cloud Summit 참가
+-->
 
 <ul class="listing">
     {% assign filtered_items = site.bullet | where: "category", "2025.monthy_log" %}
@@ -137,6 +152,13 @@ permalink: /bullet/
 
 # 학습 로그
 
+<!--
+특정 주제별로 학습 내용을 정리
+- Cluster 구성: Master/Node 역할 이해
+- Deployment: ReplicaSet vs StatefulSet 차이점
+- Helm: 템플릿 패키징 및 배포
+-->
+
 <ul class="listing">
     {% assign filtered_items = site.bullet | where: "category", "2025.study_log" %}
     {% for item in filtered_items %}
@@ -150,6 +172,13 @@ permalink: /bullet/
 
 # 기술 트래커
 
+<!--
+학습 중인 기술과 숙련도를 추적
+- Docker: 기본(✓) → Compose 심화(진행 중) → Swarm(미정)
+- Kubernetes: Deployment 이해(✓) → Helm 학습(진행 중)
+- Perl: Mojolicious 플러그인 활용(✓)
+-->
+
 <ul class="listing">
     {% assign filtered_items = site.bullet | where: "category", "2025.skill_tracker" %}
     {% for item in filtered_items %}
@@ -162,6 +191,13 @@ permalink: /bullet/
 <br>
 
 # 이벤트 로그
+
+<!--
+참여한 세미나, 워크숍, 네트워킹 이벤트 정리
+- Google Cloud Summit Seoul '24:
+  - 학습 내용: 클라우드 비용 최적화 전략
+  - 만난 사람: 김개발, AWS 솔루션즈 아키텍트
+-->
 
 <ul class="listing">
     {% assign filtered_items = site.bullet | where: "category", "2025.skill_tracker" %}
