@@ -47,9 +47,9 @@ permalink: /bullet/
         <div class="pastel2">애플리케이션 성능 모니터링(APM) 개념 포스팅 1회</div>
         <div class="pastel2">컨테이너화된 환경(Kubernetes 포함)에서 모니터링 구축 1회</div>
         <div class="pastel2">SLO, SLA, SLI 개념 정리</div>
-        <div class="pastel3"></div>
-        <div class="pastel3"></div>
-        <div class="pastel3"></div>
+        <div class="pastel3">AWS 관련 포스팅 2회</div>
+        <div class="pastel3">cgroups 와 namesspaces 의 동작 방식 이해</div>
+        <div class="pastel3">Docker의 동작 원리 이해</div>
         <!-- next -->
         <div class="pastel1">리눅스 네트워크 스택 구조 및 <strong>netfilter</strong>, <strong>iptables</strong> 내부 동작 이해</div>
         <!-- 심화 학습: LVM 소스 분석 > LVM 어플 > LVM 어플에 기여 > LVM 에 기여 -->
@@ -62,7 +62,7 @@ permalink: /bullet/
         <div class="pastel2">로그 기반 모니터링으로 세부적인 원인 분석 3회</div>
         <div class="pastel3">고가용성 네트워크 원리 및 이해</div>
         <div class="pastel3">공유 프로토콜 오픈 소스 블로그 2회</div>
-        <div class="pastel3"></div>
+        <div class="pastel3">Kubernetes의 기본 개념 학습</div>
         <!-- next -->
         <div class="pastel1">고성능 네트워크 및 디스크 I/O 분석</div>
         <div class="pastel1">tmux 사용 늘리기</div>
@@ -70,9 +70,9 @@ permalink: /bullet/
         <div class="pastel2">모니터링 종류 포스팅 1회</div>
         <div class="pastel2">Pull, Push 모델 동작 방식 및 원리 이해</div>
         <div class="pastel2">Prometheus와 Grafana를 설치하고 기본적인 메트릭 수집</div>
-        <div class="pastel3"></div>
-        <div class="pastel3"></div>
-        <div class="pastel3"></div>
+        <div class="pastel3">Pod, Deployment, Service 개념 이해</div>
+        <div class="pastel3">컨테이너와 가상 머신의 차이점 학습</div>
+        <div class="pastel3">Kubernetes Helm Chart 작성</div>
         <!-- next -->
         <div class="pastel4">치실 하기</div>
         <div class="pastel4">물 1L 마시기</div>
@@ -97,42 +97,12 @@ permalink: /bullet/
         <div class="pastel4">월 1회 간헐적 단식</div>
         <div class="pastel4">등산 1회</div>
         <div class="pastel4">건강 검진 2회</div>
-        <div class="pastel6">IaC</div>
-        <div class="pastel7">컨테이너</div>
-        <div class="pastel8">CI/CD</div>
+        <div class="pastel6"></div>
+        <div class="pastel7"></div>
+        <div class="pastel8"></div>
         <div class="pastel5">예술 분야 서적 5권</div>
         <div class="pastel5">미술관/전시회 3회</div>
         <div class="pastel5">출퇴근시 영어 앱</div>
-        <!-- next -->
-        <div class="pastel6"></div>
-        <div class="pastel6"></div>
-        <div class="pastel6"></div>
-        <div class="pastel7">AWS 관련 포스팅 2회</div>
-        <div class="pastel7">cgroups 와 namesspaces 의 동작 방식 이해</div>
-        <div class="pastel7">Docker Compose로 멀티컨테이너 애플리케이션 관리</div>
-        <div class="pastel8"></div>
-        <div class="pastel8"></div>
-        <div class="pastel8"></div>
-        <!-- next -->
-        <div class="pastel6"></div>
-        <div class="pastel6"></div>
-        <div class="pastel6"></div>
-        <div class="pastel7">Docker의 동작 원리 이해</div>
-        <div class="pastel7">컨테이너와 가상 머신의 차이점 학습</div>
-        <div class="pastel7">Kubernetes의 기본 개념 학습</div>
-        <div class="pastel8"></div>
-        <div class="pastel8"></div>
-        <div class="pastel8"></div>
-        <!-- next -->
-        <div class="pastel6"></div>
-        <div class="pastel6"></div>
-        <div class="pastel6"></div>
-        <div class="pastel7">Pod, Deployment, Service 개념 이해</div>
-        <div class="pastel7">GitLab CI/CD 또는 Jenkins를 사용해 컨테이너 기반 배포 파이프라인 구축</div>
-        <div class="pastel7">Kubernetes Helm Chart 작성</div>
-        <div class="pastel8"></div>
-        <div class="pastel8"></div>
-        <div class="pastel8"></div>
     </div>
 
 </section>
@@ -142,9 +112,10 @@ permalink: /bullet/
 # 미래 로그
 
 <ul class="listing">
-    {% for item in site.bullet.2025.future_log %}
+    {% assign filtered_items = site.bullet | where: "category", "2025.future_log" %}
+    {% for item in filtered_items %}
     <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
     </li>
     {% endfor %}
 </ul>
@@ -154,9 +125,10 @@ permalink: /bullet/
 # 월간 로그
 
 <ul class="listing">
-    {% for item in site.bullet.2025.monthy_log %}
+    {% assign filtered_items = site.bullet | where: "category", "2025.monthy_log" %}
+    {% for item in filtered_items %}
     <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
     </li>
     {% endfor %}
 </ul>
@@ -168,9 +140,10 @@ permalink: /bullet/
 # 학습 로그
 
 <ul class="listing">
-    {% for item in site.bullet.2025.study_log %}
+    {% assign filtered_items = site.bullet | where: "category", "2025.study_log" %}
+    {% for item in filtered_items %}
     <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
     </li>
     {% endfor %}
 </ul>
@@ -180,9 +153,10 @@ permalink: /bullet/
 # 기술 트래커
 
 <ul class="listing">
-    {% for item in site.bullet.2025.skill_tracker %}
+    {% assign filtered_items = site.bullet | where: "category", "2025.skill_tracker" %}
+    {% for item in filtered_items %}
     <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-    <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
+        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
     </li>
     {% endfor %}
 </ul>
@@ -192,7 +166,8 @@ permalink: /bullet/
 # 이벤트 로그
 
 <ul class="listing">
-    {% for item in site.bullet.2025.event_log %}
+    {% assign filtered_items = site.bullet | where: "category", "2025.skill_tracker" %}
+    {% for item in filtered_items %}
     <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
     <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
     </li>

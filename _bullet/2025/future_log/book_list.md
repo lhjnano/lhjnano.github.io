@@ -3,6 +3,7 @@ layout: bullet
 title: 읽을 만한 책
 description: Book List
 keywords: Book
+category: 2025.future_log
 ---
 
 ### 리눅스
