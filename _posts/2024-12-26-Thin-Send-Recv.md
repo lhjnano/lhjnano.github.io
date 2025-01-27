@@ -100,7 +100,7 @@ $ thin_dump -m --dev-id 1 /dev/mapper/ThinVP-tp_ThinVP_tmeta
 # 차이점을 전송한다면 다음과 같이
 # 2 : ThinSnap 의 Thin ID
 # 3 : ThinSnap2 의 Thin ID
-$ thin_delta -m --snap1 2 --snap2 3 /dev/mapper/ThinVP-tp_ThinVP
+$ thin_delta -m --snap1 2 --snap2 3 /dev/mapper/ThinVP-tp_ThinVP_tmeta
 
 <superblock uuid="" time="2" transaction="3" data_block_size="128" nr_data_blocks="0">
   <diff left="2" right="3">
