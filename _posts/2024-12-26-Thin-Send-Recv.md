@@ -39,8 +39,8 @@ source-machine$ thin_send ssd_vg/CentOS7.6 ssd_vg/li0 | zstd | socat STDIN TCP:1
 5. `parsediff` : 주어진 스트림에서 차이(diff) 정보를 파싱하고, 이를 처리하는 함수
    1. superblock > blocksize
    2. left_only 면 begin lengh 읽음
-      1. send_header ( begin _ block_size _ 512 ~ length* block_size * 512, 1[CMD_UNMAP]), unmap++, chuck++
-   3. rigth_only 또는 diff 면 send_chuck (infd, outfd, begin _ blocksize _ 512 ~ length _ block_size _ 512, each block_size \* 512 ), unmap++, chuck++
+      1. send*header ( begin * block*size * 512 ~ length* block_size * 512, 1[CMD_UNMAP]), unmap++, chuck++
+   3. rigth*only 또는 diff 면 send_chuck (infd, outfd, begin * blocksize _ 512 ~ length _ block*size * 512, each block_size \* 512 ), unmap++, chuck++
 6. `send_header` : 주어진 파일 디스크립터(`out_fd`)로 헤더 정보를 전송하는 함수
    1. magic(64b), offset(64b), length(64b), cmd(32b)
 7. `send_chuck` : send_header(CMD_DATA:0) + copy_data
@@ -49,7 +49,7 @@ source-machine$ thin_send ssd_vg/CentOS7.6 ssd_vg/li0 | zstd | socat STDIN TCP:1
    1. superblock > block_size
    2. single_mapping : origin_block, length = 1
    3. range_mapping : origin_begin, length
-   4. send_chuck (infd, outfd, begin _ block_size _ 512 ~ length _ block_size _ 512, each block_size \* 512)
+   4. send*chuck (infd, outfd, begin * block*size * 512 ~ length _ block_size _ 512, each block_size \* 512)
 
 ### Send
 
@@ -71,6 +71,33 @@ $ lvs -o vg_name,lv_name,pool_lv,lv_dm_path,thin_id,attr
 
 $ dmsetup message /dev/mapper/ThinVP-tp_ThinVP-tpool 0 reserve_metadata_snap
 
+# 볼륨을 전송한다면 다음과 같이
+# 1 : ThinVol 의 Thin ID
+$ thin_dump -m --dev-id 1 /dev/mapper/ThinVP-tp_ThinVP_tmeta
+<superblock uuid="" time="0" transaction="1" flags="0" version="2" data_block_size="128" nr_data_blocks="0">
+  <device dev_id="1" mapped_blocks="177" transaction="0" creation_time="0" snap_time="0">
+    <range_mapping origin_begin="0" data_begin="2" length="2" time="0"/>
+    <single_mapping origin_block="20480" data_block="164" time="0"/>
+    <single_mapping origin_block="40960" data_block="165" time="0"/>
+    <single_mapping origin_block="61440" data_block="166" time="0"/>
+    <single_mapping origin_block="81920" data_block="167" time="0"/>
+    <single_mapping origin_block="102400" data_block="168" time="0"/>
+    <single_mapping origin_block="122880" data_block="169" time="0"/>
+    <single_mapping origin_block="143360" data_block="170" time="0"/>
+    <single_mapping origin_block="163840" data_block="171" time="0"/>
+    <range_mapping origin_begin="163841" data_begin="4" length="160" time="0"/>
+    <single_mapping origin_block="184320" data_block="172" time="0"/>
+    <single_mapping origin_block="204800" data_block="173" time="0"/>
+    <single_mapping origin_block="225280" data_block="174" time="0"/>
+    <single_mapping origin_block="245760" data_block="175" time="0"/>
+    <single_mapping origin_block="266240" data_block="176" time="0"/>
+    <single_mapping origin_block="286720" data_block="177" time="0"/>
+    <single_mapping origin_block="307200" data_block="178" time="0"/>
+  </device>
+</superblock>
+
+
+# 차이점을 전송한다면 다음과 같이
 # 2 : ThinSnap 의 Thin ID
 # 3 : ThinSnap2 의 Thin ID
 $ thin_delta -m --snap1 2 --snap2 3 /dev/mapper/ThinVP-tp_ThinVP
