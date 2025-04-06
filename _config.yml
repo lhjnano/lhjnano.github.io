@@ -163,7 +163,7 @@ google:
   adsense:
     enabled: true
     footer: false
-    sidebar: true
+    sidebar: false
     sidebar-detail: true
     content_header: false
     content_footer: false
