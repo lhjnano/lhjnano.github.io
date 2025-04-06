@@ -2,7 +2,7 @@
 layout: fragment
 title: 나는 내 생각을 다 믿지 않기로 했다
 tags: [자기개발]
-description: "나는 내 생각을 다 믿지 않기로 했다" 책을 읽고 느낀점을 간단하게 기록합니다.
+description: 나는 내 생각을 다 믿지 않기로 했다 책을 읽고 느낀점을 간단하게 기록합니다.
 keywords: 자기 성찰, 독후감
 mermaid: false
 sequence: false
