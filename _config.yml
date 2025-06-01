@@ -73,9 +73,9 @@ navs:
   - href: /fragments/
     label: WIKI
 
-  - href: /bullet/
-    label: BULLET
-    mobile-hidden: true
+  #  - href: /bullet/
+  #    label: BULLET
+  #    mobile-hidden: true
 
   - href: /about/
     label: ABOUT ME
@@ -130,12 +130,13 @@ collections:
   fragments:
     output: true
     permalink: /fragment/:path/
-  bullet:
-    output: true
-    permalink: /bullet/:path/
-  2025-feature-log:
-    output: true
-    permalink: /2025-feature-log/:path/
+# 커리어 쌓는 체크 방식으로 변경 예정
+#  bullet:
+#    output: true
+#    permalink: /bullet/:path/
+#  2025-feature-log:
+#    output: true
+#    permalink: /2025-feature-log/:path/
 
 # ---------------- #
 #      Comments    #

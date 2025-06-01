@@ -1,214 +1,31 @@
 ---
 layout: page
-title: Bullet Skill
-description: Bullet
-keywords: Bullet
+title: Goals
+description: Goals
+keywords: Goals
 comments: false
 mermaid: false
 menu: bullet
 permalink: /bullet/
 ---
 
-<style>
-    .mandalart {
-        display: grid;
-        grid-template-columns: repeat(9, 1fr);
-        gap: 1px;
-        background-color: #ccc;
-    }
-    .mandalart div {
-        background-color: #fff;
-        padding: 10px;
-        text-align: center;
-        border: 1px solid #ddd;
-        font-size: 10px;
-    }
-    .mandalart div.center {
-        background-color: #fce4ec;
-        font-weight: bold;
-    }
-    .mandalart div.pastel1 { background-color: #f8bbd0; }
-    .mandalart div.pastel2 { background-color: #e1bee7; }
-    .mandalart div.pastel3 { background-color: #d1c4e9; }
-    .mandalart div.pastel4 { background-color: #c5cae9; }
-    .mandalart div.pastel5 { background-color: #bbdefb; }
-    .mandalart div.pastel6 { background-color: #b3e5fc; }
-    .mandalart div.pastel7 { background-color: #b2ebf2; }
-    .mandalart div.pastel8 { background-color: #b2dfdb; }
-</style>
-
 # 2025 목표
 
-<section>
-    <div class="mandalart">
-        <div class="pastel1">파일 시스템 관련 논문 2부</div>
-        <div class="pastel1">리눅스 관리 관련 서적 1권</div>
-        <div class="pastel1">테스트 커널 모듈 작성 및 로드</div>
-        <div class="pastel2">애플리케이션 성능 모니터링(APM) 개념 포스팅 1회</div>
-        <div class="pastel2">컨테이너화된 환경(Kubernetes 포함)에서 모니터링 구축 1회</div>
-        <div class="pastel2">SLO, SLA, SLI 개념 정리</div>
-        <div class="pastel3">AWS 관련 포스팅 2회</div>
-        <div class="pastel3">cgroups 와 namesspaces 의 동작 방식 이해</div>
-        <div class="pastel3">Docker의 동작 원리 이해</div>
-        <!-- next -->
-        <div class="pastel1">리눅스 네트워크 스택 구조 및 <strong>netfilter</strong>, <strong>iptables</strong> 내부 동작 이해</div>
-        <!-- 심화 학습: LVM 소스 분석 > LVM 어플 > LVM 어플에 기여 > LVM 에 기여 -->
-        <div class="pastel1">LVM thin send/receive 구성해서 테스트 및 Contribute 혹은 포스팅 1회</div>
-        <div class="pastel1">관심 있는 리눅스 관련 오픈소스 프로젝트 Contribute 혹은 포스팅 1회</div>
-        <!-- Prometheus, Grafana, Datadog -->
-        <div class="pastel2">매트릭 기반 모니터링으로 시스템 병목 현상 분석 1회</div>
-        <!-- (Elasticsearch, Logstash, Kibana), Splunk, Loki -->
-        <div class="pastel2">로그 기반 모니터링 시스템 구축</div>
-        <div class="pastel2">로그 기반 모니터링으로 세부적인 원인 분석 3회</div>
-        <div class="pastel3">고가용성 네트워크 원리 및 이해</div>
-        <div class="pastel3">공유 프로토콜 오픈 소스 블로그 2회</div>
-        <div class="pastel3">Kubernetes의 기본 개념 학습</div>
-        <!-- next -->
-        <div class="pastel1">고성능 네트워크 및 디스크 I/O 분석</div>
-        <div class="pastel1">tmux 사용 늘리기</div>
-        <div class="pastel1">리눅스 시스템 관련 블로그 포스트</div>
-        <div class="pastel2">모니터링 종류 포스팅 1회</div>
-        <div class="pastel2">Pull, Push 모델 동작 방식 및 원리 이해</div>
-        <div class="pastel2">Prometheus와 Grafana를 설치하고 기본적인 메트릭 수집</div>
-        <div class="pastel3">Pod, Deployment, Service 개념 이해</div>
-        <div class="pastel3">컨테이너와 가상 머신의 차이점 학습</div>
-        <div class="pastel3">Kubernetes Helm Chart 작성</div>
-        <!-- next -->
-        <div class="pastel4">치실 하기</div>
-        <div class="pastel4">물 1L 마시기</div>
-        <div class="pastel4">음주 관리</div>
-        <div class="pastel1">System</div>
-        <div class="pastel2">모니터링</div>
-        <div class="pastel3">Network / 클라우드</div>
-        <div class="pastel5">국내 여행 2회</div>
-        <div class="pastel5">명상</div>
-        <div class="pastel5">흑백요리사 식당 2회 방문</div>
-        <!-- next -->
-        <div class="pastel4">주 2회 헬스장</div>
-        <div class="pastel4">주 1회 공원 산책</div>
-        <div class="pastel4">영양제 챙기기</div>
-        <div class="pastel4">건강 성장</div>
-        <div class="center"><strong>기록하며 성장하는 나</strong></div>
-        <div class="pastel5">내면 성장</div>
-        <div class="pastel5">친구 혹은 동료에게 구체적인 내용으로 칭찬하기</div>
-        <div class="pastel5">지인 생일에 소소한 선물하기</div>
-        <div class="pastel5">자기 개발 관련 서적 5권 이상 읽기</div>
-        <!-- next -->
-        <div class="pastel4">월 1회 간헐적 단식</div>
-        <div class="pastel4">등산 1회</div>
-        <div class="pastel4">건강 검진 2회</div>
-        <div class="pastel6"></div>
-        <div class="pastel7"></div>
-        <div class="pastel8"></div>
-        <div class="pastel5">예술 분야 서적 5권</div>
-        <div class="pastel5">미술관/전시회 3회</div>
-        <div class="pastel5">출퇴근시 영어 앱</div>
-    </div>
-
-</section>
+- 부족한 스킬 업데이트 및 자격 증명
+  - RocKy 리녹스 신규 업데이트 기능 정리
+  - 네트워크 관리자 자격증 도전
+  - AWS certified solutions architect 자격증 도전
+- 기술 서적 탐독 예정 리스트
+  - ~~윌 라슨의 엔지니어링 리더십~~
+  - 가상 면접 사례로 배우는 대규모 시스템 설계 기초 : 재밌는 구축 방법이 많아 보인다.
+  - Splunk 를 활용한 시큐리티 모니터링 : 요즘 보안 문제가 많은 것 같아 눈독 중.
+  - 금융 보안 프로세스 A to Z : 법적이 용어가 많던데, 읽을지...
+  - 러스트로 배우는 리눅스 커널 프로그래밍 : 러스트도 커널도 성장해야할 분야
+- 세미나도 종종 참석했는데, 본 걸 리뷰해보자.
 
 <br>
 
-# 미래 로그
-
-<!--
-연간 목표: 배워야 할 기술, 자격증 취득, 프로젝트 계획 등을 기록
-- 1월: Docker 심화 학습
-- 4월: AWS Certified Solutions Architect 시험 응시
-- 8월: 오픈소스 기여 3회 이상
--->
-
-<ul class="listing">
-    {% assign filtered_items = site.bullet | where: "category", "2025.future_log" %}
-    {% for item in filtered_items %}
-    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<br>
-
-# 월간 로그
-
-<!--
-해당 월에 학습할 내용, 완료할 작업, 참여할 이벤트 등을 기록
-1월
-- [x] Docker: Compose와 Swarm 비교 학습
-- [ ] GitHub: CI/CD 파이프라인 설정 실습
-- [ ] 세미나: Google Cloud Summit 참가
--->
-
-<ul class="listing">
-    {% assign filtered_items = site.bullet | where: "category", "2025.monthy_log" %}
-    {% for item in filtered_items %}
-    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<br>
-
-# 학습 로그
-
-<!--
-특정 주제별로 학습 내용을 정리
-- Cluster 구성: Master/Node 역할 이해
-- Deployment: ReplicaSet vs StatefulSet 차이점
-- Helm: 템플릿 패키징 및 배포
--->
-
-<ul class="listing">
-    {% assign filtered_items = site.bullet | where: "category", "2025.study_log" %}
-    {% for item in filtered_items %}
-    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<br>
-
-# 기술 트래커
-
-<!--
-학습 중인 기술과 숙련도를 추적
-- Docker: 기본(✓) → Compose 심화(진행 중) → Swarm(미정)
-- Kubernetes: Deployment 이해(✓) → Helm 학습(진행 중)
-- Perl: Mojolicious 플러그인 활용(✓)
--->
-
-<ul class="listing">
-    {% assign filtered_items = site.bullet | where: "category", "2025.skill_tracker" %}
-    {% for item in filtered_items %}
-    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<br>
-
-# 이벤트 로그
-
-<!--
-참여한 세미나, 워크숍, 네트워킹 이벤트 정리
-- Google Cloud Summit Seoul '24:
-  - 학습 내용: 클라우드 비용 최적화 전략
-  - 만난 사람: 김개발, AWS 솔루션즈 아키텍트
--->
-
-<ul class="listing">
-    {% assign filtered_items = site.bullet | where: "category", "2025.skill_tracker" %}
-    {% for item in filtered_items %}
-    <li class="listing-item" tags="{% for tag in item.tags %}{{ tag }} {% endfor %}">
-        <a href="{{ site.url }}{{ item.url }}">{{ item.title }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<br>
+<!-- 노션 DB 가져오는 건데 나중에 사용할 일이 있으려나...  ------------------------------------------------
 
 # 습관 트래커
 
@@ -242,8 +59,10 @@ permalink: /bullet/
     </tbody>
 </table>
 
+-->
 <!-- ref:https://lourcode.kr/posts/Jekyll-%EA%B8%B0%EB%B0%98-Github-Pages%EC%99%80-Notion-Page-%EC%97%B0%EB%8F%99/#github-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95 -->
 
+<!--
 <script>
     async function fetchHabitData() {
         const response = await fetch('2025/notion_data.json');
@@ -286,3 +105,5 @@ permalink: /bullet/
 
     fetchHabitData();
 </script>
+---------------------------------------------------------------------------------------------------
+-->
