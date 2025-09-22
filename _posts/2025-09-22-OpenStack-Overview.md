@@ -142,4 +142,4 @@ enable_service s-proxy s-object s-container s-account
 - 암호: `devstack`
 
 
-![devstack_dashboard][/images/posts/openstack/dashboard.png]
+![devstack_dashboard](/images/posts/openstack/dashboard.png)
