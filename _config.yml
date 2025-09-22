@@ -162,9 +162,9 @@ simple_jekyll_search:
 # ---------------- #
 google:
   adsense:
-    enabled: true
+    enabled: false
     footer: false
     sidebar: false
-    sidebar-detail: true
+    sidebar-detail: false
     content_header: false
     content_footer: false
