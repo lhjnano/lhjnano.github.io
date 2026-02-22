@@ -42,6 +42,11 @@ Let's make our on-premise history!
 
 {% for skill in site.data.skills %}
 
+## Persol Project
+
+- [LVM-MCP](https://github.com/lhjnano/lvm-mcp)
+- [THIN-SEND-RECV-GRPC](https://github.com/lhjnano/thin-send-recv-grpc)
+
 ### {{ skill.name }}
 
 <div class="btn-inline">
