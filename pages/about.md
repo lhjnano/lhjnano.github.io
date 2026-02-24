@@ -42,9 +42,18 @@ Let's make our on-premise history!
 
 {% for skill in site.data.skills %}
 
-## Persol Project 
+## Personal Project 
 
-- [LVM-MCP](https://github.com/lhjnano/lvm-mcp)
+LVM-MCP 는 LVM 자동화를 위한 Model Context Protocol(MCP) 서버입니다.
+씬 프로비저닝 및 스냅샷 자동화, 볼륨 관리, LVM 구성 최적화 등이 가능합니다.
+구현된 프로젝트는 다음에서 확인할 수 있습니다:
+
+- [LVM-MCP GitHub Repository](https://github.com/lhjnano/lvm-mcp)
+
+THIN-SEND-RECV-GRPC 는 여러 thin-send-recv 의 코드를 참고하여 빠른 전송이 가능하도록 구현했습니다.
+grpc 및 멀티채널을 활용하여 최대 300MB/s 의 속도로 데이터를 복제할 수 있습니다.
+구현된 프로젝트는 다음에서 확인할 수 있습니다: 
+
 - [THIN-SEND-RECV-GRPC](https://github.com/lhjnano/thin-send-recv-grpc)
 
 ### {{ skill.name }}
