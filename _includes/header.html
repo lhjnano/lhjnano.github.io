@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<html lang="ko" prefix="og: http://ogp.me/ns#" class="han-init">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
     <title>{% if page.title %}{{ page.title }} &mdash; {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/vendor/primer-css/css/primer.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/components/collection.css">
     <link rel="stylesheet" href="{{ assets_base_url }}/assets/css/components/repo-card.css">
@@ -70,7 +71,7 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url | remove_first:'index.html' }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="article">
-    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale" content="ko_KR" />
     {% if page.date %}
     <meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%d' }}">
     {% endif %}
@@ -96,7 +97,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     {% endif %}
 </head>
-<body class="{{ page.class }}" data-mz="{{ page.class }}">
+<body class="{{ page.class }}">
     <header class="site-header">
         <div class="container">
             <h1><a href="{{ site.url }}/" title="{{ site.title }}"><span class="octicon octicon-mark-github"></span> {{ site.title }}</a></h1>

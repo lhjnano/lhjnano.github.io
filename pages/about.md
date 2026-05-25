@@ -38,11 +38,7 @@ Let's make our on-premise history!
 - VMware 를 이용한 가상화 환경 관리
 - LVM 기능 개선 및 웹 프론트 개발
 
-## Skill Keywords
-
-{% for skill in site.data.skills %}
-
-## Personal Project 
+## Personal Project
 
 LVM-MCP 는 LVM 자동화를 위한 Model Context Protocol(MCP) 서버입니다.
 씬 프로비저닝 및 스냅샷 자동화, 볼륨 관리, LVM 구성 최적화 등이 가능합니다.
@@ -56,7 +52,11 @@ grpc 및 멀티채널을 활용하여 최대 300MB/s 의 속도로 데이터를 
 
 - [THIN-SEND-RECV-GRPC](https://github.com/lhjnano/thin-send-recv-grpc)
 
-### {{ skill.name }}
+## Skill Keywords
+
+{% for skill in site.data.skills %}
+
+### {{ skill.title }}
 
 <div class="btn-inline">
 {% for keyword in skill.keywords %}

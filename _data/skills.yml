@@ -1,13 +1,17 @@
-- name: Software Engineer Keywords
+- title: System & Infrastructure
   keywords:
-      - Perl
-      - Golang
-      - Javascript
-      - C
-      - Shell script
-      - Design Patterns
+    - Linux
+    - Shell Script
+    - LVM
+    - Kubernetes
+    - OpenStack
+    - CI/CD
+    - Jenkins
+    - GitLab
 
-- name: Mobile Developer Keywords
+- title: Monitoring & Tools
   keywords:
-      - Android
-      - NDK
+    - Zabbix
+    - Grafana
+    - Prometheus
+    - Splunk
