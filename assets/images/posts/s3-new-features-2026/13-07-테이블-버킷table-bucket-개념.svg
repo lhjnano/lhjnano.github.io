@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 700 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh-tb2" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+  <rect width="700" height="450" rx="8" fill="#f8fafb"/>
+  <text x="350" y="24" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">Table Bucket 구조</text>
+  <rect x="20" y="38" width="660" height="400" rx="8" fill="white" stroke="#b0bec5" stroke-width="1.5" filter="url(#sh-tb2)"/>
+  <text x="50" y="62" font-size="13" font-weight="bold" font-family="sans-serif" fill="#e65100">Table Bucket: "analytics-tables"</text>
+  <!-- Namespace: sales -->
+  <rect x="50" y="75" width="600" height="175" rx="5" fill="#fff3e0" stroke="#ff9900" stroke-width="1" filter="url(#sh-tb2)"/>
+  <text x="70" y="95" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Namespace: "sales"</text>
+  <!-- Table: orders -->
+  <rect x="70" y="105" width="260" height="130" rx="4" fill="#e8f5e9" stroke="#43a047" stroke-width="1" filter="url(#sh-tb2)"/>
+  <text x="85" y="125" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1b5e20">Table: "orders"</text>
+  <text x="85" y="143" font-size="9" font-family="monospace" fill="#2e7d32">metadata/</text>
+  <text x="100" y="158" font-size="9" font-family="monospace" fill="#2e7d32">├── v1.metadata.json</text>
+  <text x="100" y="172" font-size="9" font-family="monospace" fill="#2e7d32">├── v2.metadata.json</text>
+  <text x="100" y="186" font-size="9" font-family="monospace" fill="#2e7d32">└── manifest-list/</text>
+  <text x="85" y="200" font-size="9" font-family="monospace" fill="#2e7d32">data/</text>
+  <text x="100" y="214" font-size="9" font-family="monospace" fill="#2e7d32">├── year=2025/month=01/ (*.parquet)</text>
+  <text x="100" y="228" font-size="9" font-family="monospace" fill="#2e7d32">└── year=2025/month=02/ (*.parquet)</text>
+  <!-- Table: returns -->
+  <rect x="350" y="115" width="130" height="40" rx="4" fill="#e8f5e9" stroke="#43a047" stroke-width="1"/>
+  <text x="415" y="140" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#1b5e20">Table: "returns"</text>
+  <!-- Namespace: marketing -->
+  <rect x="50" y="262" width="600" height="55" rx="5" fill="#fff3e0" stroke="#ff9900" stroke-width="1" filter="url(#sh-tb2)"/>
+  <text x="70" y="282" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Namespace: "marketing"</text>
+  <text x="90" y="302" font-size="10" font-family="sans-serif" fill="#bf360c">Table: "campaigns"  |  Table: "attribution"</text>
+  <!-- Namespace: operations -->
+  <rect x="50" y="327" width="600" height="55" rx="5" fill="#fff3e0" stroke="#ff9900" stroke-width="1" filter="url(#sh-tb2)"/>
+  <text x="70" y="347" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Namespace: "operations"</text>
+  <text x="90" y="367" font-size="10" font-family="sans-serif" fill="#bf360c">Table: "inventory"  |  Table: "shipments"</text>
+  <!-- Auto optimization -->
+  <rect x="50" y="392" width="600" height="38" rx="5" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1"/>
+  <text x="70" y="412" font-size="10" font-family="sans-serif" fill="#6a1b9a">자동 최적화: Compaction | Snapshot Expiry | Orphan Cleanup</text>
+</svg>

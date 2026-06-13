@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 760 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow7" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+    <marker id="arrow7b" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="10 0, 0 3.5, 10 7" fill="#546e7a"/></marker>
+    <filter id="shadow7"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+  <rect width="760" height="700" fill="#f8fafb" rx="8"/>
+  <text x="380" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Pre-signed URL 흐름 — 파일 공유 시나리오</text>
+  <rect x="50" y="50" width="230" height="40" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#shadow7)"/>
+  <text x="165" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">사용자 A (소유자)</text>
+  <rect x="480" y="50" width="230" height="40" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#shadow7)"/>
+  <text x="595" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">사용자 B (수신자)</text>
+  <rect x="340" y="50" width="80" height="40" rx="8" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#shadow7)"/>
+  <text x="380" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#e65100">S3</text>
+  <rect x="80" y="110" width="220" height="80" rx="6" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="190" y="132" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565c0">1. Pre-signed URL 생성</text>
+  <text x="190" y="150" text-anchor="middle" font-size="9" fill="#555">s3.generate_presigned_url(</text>
+  <text x="190" y="165" text-anchor="middle" font-size="9" fill="#555">'get_object', Params={...},</text>
+  <text x="190" y="180" text-anchor="middle" font-size="9" fill="#555">ExpiresIn=3600)</text>
+  <line x1="190" y1="190" x2="350" y2="70" stroke="#546e7a" stroke-width="1.2" marker-end="url(#arrow7)"/>
+  <text x="260" y="130" font-size="9" fill="#546e7a">요청</text>
+  <line x1="380" y1="90" x2="190" y2="210" stroke="#43a047" stroke-width="1.2" marker-end="url(#arrow7b)"/>
+  <text x="300" y="168" font-size="9" fill="#43a047">2. 서명된 URL 반환</text>
+  <rect x="60" y="220" width="260" height="35" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1"/>
+  <text x="190" y="243" text-anchor="middle" font-size="10" fill="#2e7d32">https://bucket.s3.../?X-Amz-Signature=...</text>
+  <line x1="280" y1="260" x2="480" y2="280" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow7)"/>
+  <text x="380" y="272" text-anchor="middle" font-size="10" fill="#546e7a">3. URL을 B에게 전달</text>
+  <text x="380" y="288" text-anchor="middle" font-size="9" fill="#888">(이메일, 메신저, 웹앱 등)</text>
+  <rect x="470" y="310" width="240" height="80" rx="6" fill="#ffffff" stroke="#90caf9" stroke-width="1"/>
+  <text x="590" y="332" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565c0">4. URL로 S3 직접 접속</text>
+  <text x="590" y="350" text-anchor="middle" font-size="9" fill="#555">GET ?X-Amz-Algorithm=...</text>
+  <text x="590" y="365" text-anchor="middle" font-size="9" fill="#555">&amp;X-Amz-Credential=...</text>
+  <text x="590" y="380" text-anchor="middle" font-size="9" fill="#555">&amp;X-Amz-Signature=...</text>
+  <line x1="590" y1="390" x2="420" y2="400" stroke="#546e7a" stroke-width="1.2" marker-end="url(#arrow7)"/>
+  <rect x="340" y="405" width="160" height="100" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.2"/>
+  <text x="420" y="428" text-anchor="middle" font-size="10" font-weight="bold" fill="#e65100">5. 서명 검증</text>
+  <text x="420" y="448" text-anchor="middle" font-size="9" fill="#555">① 만료 확인</text>
+  <text x="420" y="465" text-anchor="middle" font-size="9" fill="#555">② 서명 재계산</text>
+  <text x="420" y="482" text-anchor="middle" font-size="9" fill="#555">③ 권한 확인</text>
+  <line x1="420" y1="505" x2="590" y2="530" stroke="#43a047" stroke-width="1.5" marker-end="url(#arrow7)"/>
+  <rect x="470" y="520" width="240" height="45" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#shadow7)"/>
+  <text x="590" y="540" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e7d32">6. 객체 반환</text>
+  <text x="590" y="556" text-anchor="middle" font-size="10" fill="#555">200 OK + Data</text>
+</svg>

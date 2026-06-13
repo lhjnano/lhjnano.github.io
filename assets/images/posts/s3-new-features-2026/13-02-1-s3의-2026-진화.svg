@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh2" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+  <rect width="700" height="380" rx="8" fill="#f8fafb"/>
+  <text x="350" y="24" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">2026 S3: 통합 데이터 플랫폼</text>
+  <!-- Outer container -->
+  <rect x="30" y="40" width="640" height="320" rx="8" fill="white" stroke="#b0bec5" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="350" y="68" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#37474f">"S3는 더 이상 스토리지가 아니다 — 데이터 플랫폼이다"</text>
+  <!-- Objects -->
+  <rect x="60" y="85" width="130" height="90" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="125" y="108" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Objects</text>
+  <text x="125" y="126" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">모든 데이터 유형의</text>
+  <text x="125" y="141" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">기본저장</text>
+  <!-- Files -->
+  <rect x="205" y="85" width="130" height="90" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="270" y="108" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Files</text>
+  <text x="270" y="126" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">파일시스템 직접마운트</text>
+  <text x="270" y="141" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">NFS/SMB</text>
+  <!-- Tables -->
+  <rect x="350" y="85" width="130" height="90" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="415" y="108" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Tables</text>
+  <text x="415" y="126" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">구조화된 테이블</text>
+  <text x="415" y="141" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">Iceberg</text>
+  <!-- Vectors -->
+  <rect x="495" y="85" width="130" height="90" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="560" y="108" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Vectors</text>
+  <text x="560" y="126" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">AI/ML</text>
+  <text x="560" y="141" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">벡터저장 인덱스</text>
+  <!-- Shared Infrastructure -->
+  <rect x="60" y="195" width="580" height="145" rx="6" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="350" y="220" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#6a1b9a">공통 기반 인프라</text>
+  <text x="80" y="245" font-size="11" font-family="sans-serif" fill="#7b1fa2">• 11개 9의 내구성</text>
+  <text x="80" y="265" font-size="11" font-family="sans-serif" fill="#7b1fa2">• 무제한 스토리지</text>
+  <text x="80" y="285" font-size="11" font-family="sans-serif" fill="#7b1fa2">• 세분화된 액세스 제어 (IAM/Bucket Policy/AP)</text>
+  <text x="80" y="305" font-size="11" font-family="sans-serif" fill="#7b1fa2">• 암호화 (SSE-S3/SSE-KMS)</text>
+  <text x="80" y="325" font-size="11" font-family="sans-serif" fill="#7b1fa2">• 감사 (CloudTrail/Access Log)</text>
+</svg>

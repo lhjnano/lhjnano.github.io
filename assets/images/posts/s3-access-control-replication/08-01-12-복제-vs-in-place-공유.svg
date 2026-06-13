@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arr11" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh11" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
+            <rect width="800" height="500" fill="#f8fafb" rx="8"/>
+            
+<text x="400" y="22" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">복제 vs In-place 공유 비교</text>
+
+<!-- In-place section -->
+<rect x="20" y="40" width="760" height="185" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh11)"/>
+<text x="400" y="60" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#2e7d32">In-place 공유 (Access Points 등)</text>
+
+<rect x="60" y="75" width="180" height="70" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh11)"/>
+<text x="150" y="102" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">제공자 버킷 (서울)</text>
+<text x="150" y="118" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">data.csv (원본 유일)</text>
+
+<text x="260" y="95" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#4285f4">◄── 소비자 A (Athena 쿼리)</text>
+<text x="260" y="115" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#4285f4">◄── 소비자 B (SageMaker 학습)</text>
+
+<text x="500" y="88" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 스토리지 비용 1배</text>
+<text x="500" y="105" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 항상 최신 데이터</text>
+<text x="500" y="122" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">✗ 지연 시간 (원격 리전 소비자)</text>
+<text x="500" y="139" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">✗ 원본 장애 시 접근 불가</text>
+
+<!-- Separator -->
+<line x1="100" y1="240" x2="700" y2="240" stroke="#90a4ae" stroke-width="1" stroke-dasharray="6,3"/>
+
+<!-- Replication section -->
+<rect x="20" y="255" width="760" height="230" rx="8" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh11)"/>
+<text x="400" y="275" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">복제 기반 공유 (Replication)</text>
+
+<rect x="60" y="295" width="180" height="60" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh11)"/>
+<text x="150" y="317" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">제공자 버킷 (서울)</text>
+<text x="150" y="333" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">data.csv (원본)</text>
+
+<line x1="240" y1="325" x2="370" y2="325" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr11)"/>
+<text x="305" y="318" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#546e7a">복제</text>
+
+<rect x="370" y="295" width="180" height="60" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh11)"/>
+<text x="460" y="317" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">소비자 버킷 (도쿄)</text>
+<text x="460" y="333" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">data.csv (복제본)</text>
+
+<line x1="460" y1="355" x2="460" y2="385" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr11)"/>
+
+<text x="460" y="398" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#4285f4">소비자 A (로컬 접근)</text>
+<text x="460" y="414" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#4285f4">소비자 B (로컬 접근)</text>
+
+<text x="60" y="450" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 지연 시간 최소화 (로컬 리전)</text>
+<text x="60" y="466" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 원본 장애 시에도 접근 가능</text>
+<text x="400" y="450" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 독립적 수명 주기 관리</text>
+<text x="400" y="466" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">✗ 스토리지 비용 2배</text>
+
+            </svg>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 350" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">다중 기관 데이터 연합 아키텍처</text>
+
+<rect x="30" y="45" width="200" height="100" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" filter="url(#sh)"/>
+<text x="130" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">천문대 A</text>
+<text x="130" y="88" text-anchor="middle" font-size="10" fill="#b45309">VersityGW</text>
+<text x="130" y="105" text-anchor="middle" font-size="10" fill="#78350f">s3.astro.kr :10000</text>
+
+<rect x="275" y="45" width="200" height="100" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">연구소 B</text>
+<text x="375" y="88" text-anchor="middle" font-size="10" fill="#b45309">VersityGW</text>
+<text x="375" y="105" text-anchor="middle" font-size="10" fill="#78350f">s3.lab.org :10000</text>
+
+<rect x="520" y="45" width="200" height="100" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" filter="url(#sh)"/>
+<text x="620" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">대학 C</text>
+<text x="620" y="88" text-anchor="middle" font-size="10" fill="#b45309">VersityGW</text>
+<text x="620" y="105" text-anchor="middle" font-size="10" fill="#78350f">s3.uni.edu :10000</text>
+
+<line x1="130" y1="145" x2="310" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="375" y1="145" x2="375" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="620" y1="145" x2="440" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<rect x="225" y="220" width="300" height="110" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="246" text-anchor="middle" font-size="12" font-weight="bold" fill="#0c4a6e">통합 검색 포털 (S3 Catalog)</text>
+<text x="375" y="270" text-anchor="middle" font-size="10" fill="#1e3a5f">모든 기관의 S3 엔드포인트 통합 조회</text>
+<text x="375" y="290" text-anchor="middle" font-size="10" fill="#1e3a5f">공통 S3 프로토콜 기반</text>
+<text x="375" y="310" text-anchor="middle" font-size="10" fill="#1e3a5f">연합 데이터 검색 및 접근</text>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 430" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">하이브리드 OpenSharing 아키텍처</text>
+
+<text x="175" y="52" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">클라우드 (AWS)</text>
+<rect x="50" y="62" width="250" height="115" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="175" y="86" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">S3 버킷 (AWS 관리)</text>
+<text x="175" y="106" text-anchor="middle" font-size="10" fill="#1e3a8a">Data Exchange</text>
+<text x="175" y="122" text-anchor="middle" font-size="10" fill="#1e3a8a">Access Points</text>
+<text x="175" y="138" text-anchor="middle" font-size="10" fill="#1e3a8a">완전 관리형 스토리지</text>
+
+<text x="575" y="52" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">온프레미스</text>
+<rect x="450" y="62" width="250" height="115" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="575" y="86" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">파일시스템 (NFS/Lustre)</text>
+<text x="575" y="106" text-anchor="middle" font-size="10" fill="#b45309">VersityGW S3 API</text>
+<text x="575" y="122" text-anchor="middle" font-size="10" fill="#b45309">:10000 포트</text>
+<text x="575" y="138" text-anchor="middle" font-size="10" fill="#b45309">자체 관리 스토리지</text>
+
+<line x1="300" y1="115" x2="450" y2="115" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="450" y1="125" x2="300" y2="125" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+<text x="375" y="110" text-anchor="middle" font-size="9" font-weight="bold" fill="#37474f">데이터 동기화</text>
+<text x="375" y="140" text-anchor="middle" font-size="9" fill="#546e7a">(DataSync / rclone)</text>
+
+<line x1="175" y1="177" x2="300" y2="270" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="575" y1="177" x2="450" y2="270" stroke="#546e7a" stroke-width="1.5"/>
+
+<text x="375" y="225" text-anchor="middle" font-size="11" font-weight="bold" fill="#37474f">통합 S3 API 접근</text>
+
+<rect x="225" y="275" width="300" height="70" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="300" text-anchor="middle" font-size="12" font-weight="bold" fill="#0c4a6e">분석 도구</text>
+<text x="375" y="318" text-anchor="middle" font-size="10" fill="#1e3a5f">Athena, Spark, SageMaker, EMR</text>
+<text x="375" y="335" text-anchor="middle" font-size="10" fill="#1e3a5f">동일 S3 API로 양쪽 데이터 쿼리</text>
+
+<text x="375" y="385" text-anchor="middle" font-size="10" fill="#546e7a">클라우드 + 온프레미스 통합 데이터 플랫폼</text>
+</svg>

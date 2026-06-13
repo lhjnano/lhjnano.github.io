@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 310" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arr14" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh14" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
+            <rect width="800" height="310" fill="#f8fafb" rx="8"/>
+            
+<text x="400" y="22" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">CRR 설정 전제 조건 체크리스트</text>
+
+<rect x="20" y="36" width="760" height="260" rx="8" fill="#fce4ec" stroke="#e53935" stroke-width="1.5" filter="url(#sh14)"/>
+<text x="400" y="58" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#c62828">CRR 설정 전제 조건</text>
+
+<text x="50" y="82" text-anchor="start" font-size="11" font-weight="normal" font-family="sans-serif" fill="#2e7d32">☑ 원본 및 대상 버킷의 버전 관리 활성화</text>
+<text x="50" y="102" text-anchor="start" font-size="11" font-weight="normal" font-family="sans-serif" fill="#2e7d32">☑ 원본 버킷과 대상 버킷이 다른 리전에 위치</text>
+<text x="50" y="122" text-anchor="start" font-size="11" font-weight="normal" font-family="sans-serif" fill="#2e7d32">☑ 복제를 위한 IAM 역할 생성</text>
+<text x="50" y="142" text-anchor="start" font-size="11" font-weight="normal" font-family="sans-serif" fill="#2e7d32">☑ 대상 버킷에서 원본 계정에 복제 권한 부여</text>
+<text x="50" y="162" text-anchor="start" font-size="11" font-weight="normal" font-family="sans-serif" fill="#2e7d32">☑ 원본 버킷의 기존 객체는 자동 복제되지 않음</text>
+<text x="70" y="180" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#666">(신규 객체만 자동 복제, 기존은 Batch Replication 필요)</text>
+<text x="50" y="200" text-anchor="start" font-size="11" font-weight="normal" font-family="sans-serif" fill="#2e7d32">☑ (교차 계정 시) 대상 버킷의 버킷 정책 설정</text>
+
+<line x1="50" y1="215" x2="750" y2="215" stroke="#e53935" stroke-width="0.5"/>
+<text x="50" y="235" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#c62828">주의:</text>
+<text x="50" y="252" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">✗ 단일 AZ 버킷(S3 Express One Zone)은 복제 미지원</text>
+<text x="50" y="268" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">✗ Glacier/Deep Archive는 복원 후 복제 가능</text>
+<text x="50" y="284" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">✗ 암호화된 객체는 KMS 권한 추가 필요</text>
+
+            </svg>

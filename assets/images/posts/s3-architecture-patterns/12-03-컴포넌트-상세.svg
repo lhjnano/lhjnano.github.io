@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="sh" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#546e7a"/></marker>
+</defs>
+<style>text{font-family:'Segoe UI',system-ui,sans-serif}</style>
+<text x="360" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🗄️ 데이터 레이크 계층 구조</text>
+<rect x="15" y="28" width="690" height="340" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+<text x="360" y="50" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">🏗️ S3 데이터 레이크</text>
+<rect x="35" y="62" width="210" height="130" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="140" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">📁 /raw/</text>
+<text x="140" y="98" text-anchor="middle" font-size="10" fill="#b45309">원본 데이터 (변경 불가)</text>
+<text x="140" y="118" text-anchor="middle" font-size="9" fill="#d97706">├── year=2025/</text>
+<text x="140" y="132" text-anchor="middle" font-size="9" fill="#d97706">│   ├── month=01/</text>
+<text x="140" y="146" text-anchor="middle" font-size="9" fill="#d97706">│   │   └── *.parquet</text>
+<text x="140" y="160" text-anchor="middle" font-size="9" fill="#d97706">│   └── month=02/</text>
+<text x="140" y="174" text-anchor="middle" font-size="9" fill="#d97706">└── year=2024/</text>
+<rect x="255" y="62" width="210" height="130" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+<text x="360" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">📁 /curated/</text>
+<text x="360" y="98" text-anchor="middle" font-size="10" fill="#2563eb">정제된 데이터 (분석용)</text>
+<text x="360" y="118" text-anchor="middle" font-size="9" fill="#3b82f6">├── dimension_tables/</text>
+<text x="360" y="132" text-anchor="middle" font-size="9" fill="#3b82f6">│   ├── customers/</text>
+<text x="360" y="146" text-anchor="middle" font-size="9" fill="#3b82f6">│   ├── products/</text>
+<text x="360" y="160" text-anchor="middle" font-size="9" fill="#3b82f6">│   └── regions/</text>
+<text x="360" y="174" text-anchor="middle" font-size="9" fill="#3b82f6">└── fact_tables/</text>
+<rect x="475" y="62" width="210" height="130" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+<text x="580" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">📁 /analytics/</text>
+<text x="580" y="98" text-anchor="middle" font-size="10" fill="#15803d">집계 결과 (대시보드용)</text>
+<text x="580" y="118" text-anchor="middle" font-size="9" fill="#22c55e">├── daily_summary/</text>
+<text x="580" y="132" text-anchor="middle" font-size="9" fill="#22c55e">├── monthly_report/</text>
+<text x="580" y="146" text-anchor="middle" font-size="9" fill="#22c55e">└── real_time_metrics/</text>
+<text x="580" y="170" text-anchor="middle" font-size="9" fill="#22c55e">📊 QuickSight 연동</text>
+<rect x="35" y="210" width="650" height="50" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+<text x="360" y="230" text-anchor="middle" font-size="11" font-weight="bold" fill="#6d28d9">🔗 각 계층마다 별도 Access Point → 최소 권한 제어</text>
+<text x="360" y="248" text-anchor="middle" font-size="9" fill="#8b5cf6">raw-AP (제한적 접근) → curated-AP (분석가) → analytics-AP (대시보드)</text>
+<line x1="140" y1="192" x2="140" y2="210" stroke="#546e7a" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="360" y1="192" x2="360" y2="210" stroke="#546e7a" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="580" y1="192" x2="580" y2="210" stroke="#546e7a" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="35" y="272" width="210" height="30" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+<text x="140" y="292" text-anchor="middle" font-size="9" fill="#92400e">📥 수집 → 원본 보존</text>
+<line x1="245" y1="287" x2="255" y2="287" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="255" y="272" width="210" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+<text x="360" y="292" text-anchor="middle" font-size="9" fill="#1e40af">🔄 ETL → 정제/표준화</text>
+<line x1="465" y1="287" x2="475" y2="287" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="475" y="272" width="210" height="30" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1"/>
+<text x="580" y="292" text-anchor="middle" font-size="9" fill="#166534">📊 집계 → 시각화</text>
+<text x="360" y="328" text-anchor="middle" font-size="9" fill="#94a3b8">Lake Formation으로 계층별 세분화된 권한 관리</text>
+</svg>

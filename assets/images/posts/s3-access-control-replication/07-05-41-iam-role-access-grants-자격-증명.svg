@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 620" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arr5" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh5" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
+            <rect width="800" height="620" fill="#f8fafb" rx="8"/>
+            
+<text x="400" y="22" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">권한 위임 체인 (Delegation Chain)</text>
+
+<!-- ① Admin -->
+<text x="50" y="50" text-anchor="start" font-size="12" font-weight="bold" font-family="sans-serif" fill="#1565c0">① 관리자</text>
+<rect x="50" y="60" width="200" height="60" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="150" y="94" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">Admin (계정 관리자)</text>
+<text x="260" y="75" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#666">Access Grants 인스턴스 생성</text>
+<text x="260" y="90" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#666">등록된 위치 등록 / Grant 생성</text>
+
+<line x1="150" y1="120" x2="150" y2="150" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr5)"/>
+<text x="160" y="140" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#666">Grant에 지정된 IAM Role</text>
+
+<!-- ② IAM Role -->
+<text x="50" y="158" text-anchor="start" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">② IAM Role (서비스 역할)</text>
+<rect x="50" y="170" width="340" height="80" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="220" y="202" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#333">S3AccessGrantsRole</text>
+<text x="220" y="218" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#333">권한: S3 버킷 접근 / 범위: 등록된 위치</text>
+<text x="400" y="200" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#666">◄── Access Grants가 이 역할을</text>
+<text x="400" y="215" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#666">    임시 자격 증명 생성에 사용</text>
+
+<line x1="220" y1="250" x2="220" y2="280" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr5)"/>
+<text x="230" y="270" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#666">GetGrant API 호출 시</text>
+
+<!-- ③ 임시 자격 증명 -->
+<text x="50" y="288" text-anchor="start" font-size="12" font-weight="bold" font-family="sans-serif" fill="#c62828">③ 임시 자격 증명 (STS)</text>
+<rect x="50" y="300" width="500" height="120" rx="6" fill="#fce4ec" stroke="#e53935" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="70" y="322" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">AccessKeyId: AKIAIOSFODNN7EXAMPLE</text>
+<text x="70" y="340" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">SecretAccessKey: wJalrXUtnFEMI/K7MDENG...</text>
+<text x="70" y="358" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">SessionToken: FwoGZXIvYXdzEBY...,</text>
+<text x="70" y="376" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Expiration: 2026-01-15T11:00:00Z</text>
+<text x="420" y="376" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#c62828">← 최대 1시간</text>
+<text x="70" y="400" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">권한 범위: Grant에서 지정한 위치로 자동 제한</text>
+
+<line x1="300" y1="420" x2="300" y2="450" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr5)"/>
+<text x="310" y="440" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#666">이 자격 증명으로 S3 접근</text>
+
+<!-- ④ S3 버킷 -->
+<text x="50" y="458" text-anchor="start" font-size="12" font-weight="bold" font-family="sans-serif" fill="#2e7d32">④ S3 버킷</text>
+<rect x="50" y="470" width="500" height="80" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="300" y="514" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#333">s3://company-data-bucket/</text>
+<text x="70" y="520" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">analytics/ ← Grant 범위 내 (접근 가능)</text>
+<text x="70" y="538" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#c62828">financial/ ← Grant 범위 밖 (접근 거부)</text>
+
+            </svg>

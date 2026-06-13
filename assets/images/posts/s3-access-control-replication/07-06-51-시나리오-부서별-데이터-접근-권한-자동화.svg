@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arr6" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh6" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
+            <rect width="800" height="520" fill="#f8fafb" rx="8"/>
+            
+<text x="400" y="22" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">조직 내 데이터 접근 권한 구성 예시</text>
+
+<!-- Data Lake -->
+<rect x="20" y="40" width="760" height="120" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="400" y="60" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#2e7d32">기업 S3 데이터 레이크 — s3://enterprise-datalake/</text>
+
+<rect x="40" y="75" width="110" height="55" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="95" y="94" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">sales/</text>
+<text x="95" y="110" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">영업 데이터</text>
+<rect x="160" y="75" width="110" height="55" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="215" y="94" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">finance/</text>
+<text x="215" y="110" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">재무 데이터</text>
+<rect x="280" y="75" width="110" height="55" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="335" y="94" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">hr/</text>
+<text x="335" y="110" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">인사 데이터</text>
+<rect x="400" y="75" width="110" height="55" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="455" y="94" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">rd/</text>
+<text x="455" y="110" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">연구개발</text>
+<rect x="520" y="75" width="110" height="55" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="575" y="94" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">public/</text>
+<text x="575" y="110" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">공개 데이터</text>
+<rect x="640" y="75" width="110" height="55" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="695" y="94" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">shared/</text>
+<text x="695" y="110" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">공유 데이터</text>
+
+<!-- Access Grants 권한 매핑 -->
+<rect x="20" y="180" width="760" height="320" rx="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="400" y="202" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#7b1fa2">Access Grants 권한 매핑</text>
+
+<!-- Table header -->
+<text x="40" y="225" text-anchor="start" font-size="10" font-weight="bold" font-family="sans-serif" fill="#7b1fa2">디렉토리 그룹</text>
+<text x="300" y="225" text-anchor="start" font-size="10" font-weight="bold" font-family="sans-serif" fill="#7b1fa2">S3 경로</text>
+<text x="580" y="225" text-anchor="start" font-size="10" font-weight="bold" font-family="sans-serif" fill="#7b1fa2">권한</text>
+<line x1="30" y1="232" x2="770" y2="232" stroke="#9c27b0" stroke-width="0.5"/>
+
+<!-- Table rows -->
+<text x="40" y="248" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Sales-Team</text>           <text x="300" y="248" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../sales/</text>       <text x="580" y="248" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READ</text>
+<text x="40" y="264" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Sales-Managers</text>       <text x="300" y="264" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../sales/</text>       <text x="580" y="264" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READWRITE</text>
+<text x="40" y="280" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Finance-Team</text>         <text x="300" y="280" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../finance/</text>     <text x="580" y="280" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READ</text>
+<text x="40" y="296" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Finance-Controllers</text>  <text x="300" y="296" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../finance/</text>     <text x="580" y="296" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READWRITE</text>
+<text x="40" y="312" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">HR-Department</text>        <text x="300" y="312" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../hr/</text>          <text x="580" y="312" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READWRITE</text>
+<text x="40" y="328" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">R&amp;D-Engineers</text>    <text x="300" y="328" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../rd/</text>           <text x="580" y="328" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READWRITE</text>
+<text x="40" y="344" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">All-Employees</text>        <text x="300" y="344" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../public/</text>      <text x="580" y="344" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READ</text>
+<text x="40" y="360" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Data-Scientists</text>      <text x="300" y="360" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../shared/</text>      <text x="580" y="360" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READWRITE</text>
+<text x="40" y="376" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Data-Engineers</text>       <text x="300" y="376" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../</text>              <text x="580" y="376" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READWRITE</text>
+<text x="40" y="392" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Auditors</text>             <text x="300" y="392" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">s3://.../</text>              <text x="580" y="392" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">READ</text>
+
+            </svg>

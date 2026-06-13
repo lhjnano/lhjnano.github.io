@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 700 430" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh-v1" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+  <rect width="700" height="430" rx="8" fill="#f8fafb"/>
+  <text x="350" y="24" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">S3 Vectors: AI/ML을 위한 기본 벡터 스토리지</text>
+  <!-- Outer container -->
+  <rect x="20" y="38" width="660" height="385" rx="8" fill="white" stroke="#b0bec5" stroke-width="1.5" filter="url(#sh-v1)"/>
+  <text x="350" y="60" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#37474f">S3 Vectors 아키텍처</text>
+  <!-- Vector Bucket -->
+  <rect x="50" y="75" width="600" height="280" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh-v1)"/>
+  <text x="350" y="97" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">Vector Bucket (벡터 전용 버킷)</text>
+  <!-- Index 1: document-embeddings -->
+  <rect x="70" y="110" width="560" height="140" rx="5" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1" filter="url(#sh-v1)"/>
+  <text x="350" y="132" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#6a1b9a">Vector Index: "document-embeddings"</text>
+  <text x="90" y="150" font-size="10" font-family="sans-serif" fill="#7b1fa2">차원: 1536 (text-embedding-ada-002)  |  거리 척도: Cosine Similarity  |  벡터 수: 수십억</text>
+  <!-- Vector boxes -->
+  <rect x="90" y="165" width="110" height="70" rx="4" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="145" y="183" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#1565c0">Vector ID: v1</text>
+  <text x="145" y="198" text-anchor="middle" font-size="9" font-family="monospace" fill="#1565c0">[0.1, 0.2, ...]</text>
+  <rect x="215" y="165" width="110" height="70" rx="4" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="270" y="183" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#1565c0">Vector ID: v2</text>
+  <text x="270" y="198" text-anchor="middle" font-size="9" font-family="monospace" fill="#1565c0">[0.3, 0.1, ...]</text>
+  <rect x="340" y="165" width="110" height="70" rx="4" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="395" y="183" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#1565c0">Vector ID: v3</text>
+  <text x="395" y="198" text-anchor="middle" font-size="9" font-family="monospace" fill="#1565c0">[0.7, 0.2, ...]</text>
+  <text x="470" y="200" font-size="12" font-family="sans-serif" fill="#90a4ae">...</text>
+  <!-- Index 2: image-embeddings -->
+  <rect x="70" y="260" width="560" height="45" rx="5" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1" filter="url(#sh-v1)"/>
+  <text x="350" y="280" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#6a1b9a">Vector Index: "image-embeddings"</text>
+  <text x="350" y="295" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#7b1fa2">차원: 512 (CLIP 모델)  |  거리 척도: Euclidean Distance</text>
+  <!-- Performance -->
+  <rect x="50" y="365" width="600" height="30" rx="4" fill="#e8f5e9" stroke="#43a047" stroke-width="1"/>
+  <text x="350" y="385" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1b5e20">성능: 1초 미만 쿼리  |  비용: 기존 대비 90% 절감</text>
+</svg>

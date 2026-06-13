@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 440" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">연구기관 데이터 공유 아키텍처</text>
+
+<rect x="50" y="42" width="650" height="155" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">연구기관 A (천문대)</text>
+<text x="100" y="88" font-size="11" fill="#78350f">위성 데이터 (100TB)</text>
+<text x="100" y="106" font-size="10" fill="#92400e">/data/satellite/</text>
+<text x="100" y="122" font-size="10" fill="#92400e">  ├── 2024/</text>
+<text x="100" y="138" font-size="10" fill="#92400e">  └── 2025/</text>
+
+<line x1="320" y1="128" x2="450" y2="88" stroke="#546e7a" stroke-width="1.5"/>
+
+<rect x="450" y="75" width="175" height="70" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+<text x="537" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">S3 API 서버</text>
+<text x="537" y="113" text-anchor="middle" font-size="10" fill="#b45309">VersityGW :10000</text>
+<text x="537" y="129" text-anchor="middle" font-size="10" fill="#b45309">POSIX → S3 변환</text>
+
+<line x1="375" y1="197" x2="375" y2="245" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+<text x="488" y="226" font-size="10" font-weight="bold" fill="#37474f">인터넷 / VPN / Direct Connect</text>
+
+<rect x="50" y="255" width="650" height="170" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">연구기관 B (대학)</text>
+
+<rect x="80" y="295" width="320" height="55" rx="6" fill="#f0f0f0" stroke="#94a3b8" stroke-width="1"/>
+<text x="240" y="314" text-anchor="middle" font-size="10" fill="#334155">aws --endpoint-url http://observatory.edu:10000 \</text>
+<text x="240" y="330" text-anchor="middle" font-size="10" fill="#334155">    s3 cp s3://satellite/2025/data.fits ./</text>
+
+<rect x="80" y="360" width="320" height="50" rx="6" fill="#f0f0f0" stroke="#94a3b8" stroke-width="1"/>
+<text x="240" y="378" text-anchor="middle" font-size="10" fill="#334155">s3 = boto3.client('s3',</text>
+<text x="240" y="394" text-anchor="middle" font-size="10" fill="#334155">    endpoint_url='http://observatory.edu:10000')</text>
+
+<text x="537" y="320" text-anchor="middle" font-size="11" fill="#546e7a">AWS CLI 또는</text>
+<text x="537" y="338" text-anchor="middle" font-size="11" fill="#546e7a">Python Boto3로</text>
+<text x="537" y="356" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">원격 데이터 접근</text>
+</svg>

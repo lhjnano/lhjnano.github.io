@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 420" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">지원 백엔드 아키텍처</text>
+
+<rect x="250" y="40" width="250" height="55" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="62" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">VersityGW S3 API 서버</text>
+<text x="375" y="80" text-anchor="middle" font-size="10" fill="#b45309">플러그형 백엔드 아키텍처</text>
+
+<line x1="270" y1="95" x2="130" y2="145" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="375" y1="95" x2="375" y2="145" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="480" y1="95" x2="620" y2="145" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<rect x="30" y="150" width="200" height="95" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" filter="url(#sh)"/>
+<text x="130" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#064e3b">POSIX</text>
+<text x="130" y="192" text-anchor="middle" font-size="10" fill="#065f46">ext4, XFS, Btrfs, ZFS</text>
+<text x="130" y="210" text-anchor="middle" font-size="10" fill="#065f46">NFS, GPFS, Lustre</text>
+
+<rect x="275" y="150" width="200" height="95" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#064e3b">ScoutFS</text>
+<text x="375" y="192" text-anchor="middle" font-size="10" fill="#065f46">클러스터 파일시스템</text>
+<text x="375" y="210" text-anchor="middle" font-size="10" fill="#065f46">대규모 아카이브</text>
+
+<rect x="520" y="150" width="200" height="95" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="620" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">Azure Blob</text>
+<text x="620" y="192" text-anchor="middle" font-size="10" fill="#1e3a8a">Microsoft Azure</text>
+<text x="620" y="210" text-anchor="middle" font-size="10" fill="#1e3a8a">Blob Storage</text>
+
+<line x1="130" y1="245" x2="130" y2="290" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="375" y1="245" x2="375" y2="290" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="620" y1="245" x2="620" y2="290" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<rect x="30" y="295" width="200" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+<text x="130" y="317" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">S3 Proxy</text>
+<text x="130" y="337" text-anchor="middle" font-size="10" fill="#64748b">다른 S3 서버 앞단</text>
+<text x="130" y="355" text-anchor="middle" font-size="10" fill="#64748b">캐시 / 변환 계층</text>
+
+<rect x="275" y="295" width="200" height="95" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="317" text-anchor="middle" font-size="12" font-weight="bold" fill="#064e3b">Ceph (RADOS)</text>
+<text x="375" y="337" text-anchor="middle" font-size="10" fill="#065f46">CephFS / RADOS GW</text>
+<text x="375" y="355" text-anchor="middle" font-size="10" fill="#065f46">분산 스토리지</text>
+
+<rect x="520" y="295" width="200" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+<text x="620" y="317" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">확장 가능</text>
+<text x="620" y="337" text-anchor="middle" font-size="10" fill="#64748b">커스텀 백엔드</text>
+<text x="620" y="355" text-anchor="middle" font-size="10" fill="#64748b">플러그인 아키텍처</text>
+</svg>

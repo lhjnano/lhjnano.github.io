@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 460" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">S3 솔루션 선택 플로우차트</text>
+
+<rect x="260" y="40" width="230" height="35" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="62" text-anchor="middle" font-size="11" font-weight="bold" fill="#0c4a6e">데이터가 어디에 있나요?</text>
+
+<line x1="310" y1="75" x2="180" y2="115" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="230" y="88" font-size="10" fill="#546e7a">클라우드</text>
+
+<line x1="440" y1="75" x2="560" y2="115" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="510" y="88" font-size="10" fill="#546e7a">온프레미스</text>
+
+<rect x="90" y="120" width="180" height="50" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="180" y="142" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">AWS S3 (관리형)</text>
+<text x="180" y="158" text-anchor="middle" font-size="10" fill="#1e3a8a">완전 관리형 서비스</text>
+
+<rect x="470" y="120" width="195" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="567" y="142" text-anchor="middle" font-size="10" font-weight="bold" fill="#0c4a6e">기존 파일시스템 데이터?</text>
+<text x="567" y="158" text-anchor="middle" font-size="9" fill="#1e3a5f">POSIX 기반 스토리지</text>
+
+<line x1="510" y1="170" x2="400" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="440" y="185" font-size="10" fill="#059669">예</text>
+
+<line x1="630" y1="170" x2="680" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="665" y="185" font-size="10" fill="#dc2626">아니요</text>
+
+<rect x="290" y="215" width="220" height="50" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="400" y="237" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">VersityGW (POSIX→S3)</text>
+<text x="400" y="253" text-anchor="middle" font-size="10" fill="#b45309">파일시스템을 S3 API로 노출</text>
+
+<rect x="600" y="215" width="130" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="665" y="237" text-anchor="middle" font-size="10" font-weight="bold" fill="#0c4a6e">새 스토리지</text>
+<text x="665" y="253" text-anchor="middle" font-size="9" fill="#1e3a5f">구축 필요?</text>
+
+<line x1="630" y1="265" x2="560" y2="305" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="582" y="280" font-size="10" fill="#059669">예</text>
+
+<line x1="700" y1="265" x2="720" y2="305" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="720" y="280" font-size="10" fill="#dc2626">아니요</text>
+
+<rect x="440" y="310" width="230" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+<text x="555" y="332" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">MinIO (객체 전용)</text>
+<text x="555" y="348" text-anchor="middle" font-size="10" fill="#64748b">S3 호환 자체 스토리지</text>
+
+<rect x="690" y="310" width="50" height="50" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" filter="url(#sh)"/>
+<text x="715" y="332" text-anchor="middle" font-size="9" font-weight="bold" fill="#064e3b">Ceph</text>
+<text x="715" y="348" text-anchor="middle" font-size="8" fill="#065f46">Gluster</text>
+</svg>

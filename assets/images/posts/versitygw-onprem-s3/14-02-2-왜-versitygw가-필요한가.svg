@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 370" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">VersityGW가 해결하는 문제</text>
+
+<text x="375" y="52" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">도입 전</text>
+<rect x="50" y="65" width="230" height="85" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="165" y="88" text-anchor="middle" font-size="11" font-weight="bold" fill="#0c4a6e">S3 애플리케이션</text>
+<text x="165" y="106" text-anchor="middle" font-size="10" fill="#1e3a5f">AWS CLI, Spark, TensorFlow</text>
+
+<text x="375" y="112" text-anchor="middle" font-size="18" font-weight="bold" fill="#dc2626">✗</text>
+<line x1="280" y1="107" x2="345" y2="107" stroke="#dc2626" stroke-width="2" stroke-dasharray="4"/>
+
+<rect x="370" y="65" width="230" height="85" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" filter="url(#sh)"/>
+<text x="485" y="88" text-anchor="middle" font-size="11" font-weight="bold" fill="#064e3b">파일 기반 데이터</text>
+<text x="485" y="106" text-anchor="middle" font-size="10" fill="#065f46">NFS, GPFS, Lustre, HDFS</text>
+
+<line x1="165" y1="150" x2="165" y2="185" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="485" y1="150" x2="485" y2="185" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<text x="375" y="208" text-anchor="middle" font-size="11" font-weight="bold" fill="#059669">도입 후</text>
+<rect x="50" y="220" width="230" height="70" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="165" y="250" text-anchor="middle" font-size="11" font-weight="bold" fill="#0c4a6e">S3 애플리케이션</text>
+<text x="165" y="268" text-anchor="middle" font-size="10" fill="#1e3a5f">AWS CLI, Spark, TensorFlow</text>
+
+<text x="375" y="260" text-anchor="middle" font-size="18" font-weight="bold" fill="#059669">✓</text>
+<line x1="280" y1="255" x2="345" y2="255" stroke="#059669" stroke-width="2.5"/>
+
+<rect x="370" y="220" width="230" height="70" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" filter="url(#sh)"/>
+<text x="485" y="250" text-anchor="middle" font-size="11" font-weight="bold" fill="#064e3b">파일 기반 데이터</text>
+<text x="485" y="268" text-anchor="middle" font-size="10" fill="#065f46">NFS, GPFS, Lustre, HDFS</text>
+
+<rect x="255" y="305" width="240" height="45" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="325" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">VersityGW (S3 ↔ POSIX 번역)</text>
+<text x="375" y="342" text-anchor="middle" font-size="10" fill="#b45309">두 세계를 연결하는 브릿지</text>
+</svg>

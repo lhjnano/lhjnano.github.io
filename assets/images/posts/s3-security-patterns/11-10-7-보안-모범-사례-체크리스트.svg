@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 620" xmlns="http://www.w3.org/2000/svg">
+<defs><filter id="sh" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<rect x="0" y="0" width="720" height="620" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
+<text x="360" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🛡️ S3 OpenSharing 보안 모범 사례 체크리스트 (10가지)</text>
+<rect x="20" y="42" width="680" height="560" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+<rect x="40" y="54" width="640" height="48" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="74" font-size="11" font-weight="bold" fill="#991b1b">☑ 1. Block Public Access</text>
+<text x="60" y="90" font-size="10" fill="#475569">계정 수준에서 4가지 설정 모두 활성화</text>
+<rect x="40" y="110" width="640" height="48" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="130" font-size="11" font-weight="bold" fill="#991b1b">🔑 2. 최소 권한 원칙</text>
+<text x="60" y="146" font-size="10" fill="#475569">필요한 Action과 Resource만 허용 | 와일드카드(*) 사용 최소화</text>
+<rect x="40" y="166" width="640" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="186" font-size="11" font-weight="bold" fill="#1e40af">🔐 3. 암호화 적용</text>
+<text x="60" y="202" font-size="10" fill="#475569">SSE-S3 기본 + 민감 데이터는 SSE-KMS | 전송 중 TLS 암호화 필수</text>
+<rect x="40" y="222" width="640" height="48" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="242" font-size="11" font-weight="bold" fill="#166534">🔄 4. 버전 관리 활성화</text>
+<text x="60" y="258" font-size="10" fill="#475569">의도치 않은 변경/삭제 복구 가능</text>
+<rect x="40" y="278" width="640" height="48" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="298" font-size="11" font-weight="bold" fill="#991b1b">🔐 5. MFA Delete 활성화</text>
+<text x="60" y="314" font-size="10" fill="#475569">중요 버킷의 삭제 작업에 MFA 요구</text>
+<rect x="40" y="334" width="640" height="48" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="354" font-size="11" font-weight="bold" fill="#1e40af">🔗 6. Access Point 활용</text>
+<text x="60" y="370" font-size="10" fill="#475569">버킷 정책 대신 Access Point별 개별 정책 | 접근 범위 세분화</text>
+<rect x="40" y="390" width="640" height="48" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="410" font-size="11" font-weight="bold" fill="#92400e">⏰ 7. Pre-signed URL 만료 시간 설정</text>
+<text x="60" y="426" font-size="10" fill="#475569">최소 필요 시간으로 설정 (권장: 1시간 이내)</text>
+<rect x="40" y="446" width="640" height="48" rx="6" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="466" font-size="11" font-weight="bold" fill="#5b21b6">📜 8. CloudTrail 데이터 이벤트 활성화</text>
+<text x="60" y="482" font-size="10" fill="#475569">모든 S3 API 호출 기록 | 정기적으로 의심스러운 활동 검토</text>
+<rect x="40" y="502" width="640" height="48" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="522" font-size="11" font-weight="bold" fill="#991b1b">🔍 9. 정기 보안 평가</text>
+<text x="60" y="538" font-size="10" fill="#475569">AWS Config 규칙으로 암호화/공개 설정 확인 | Amazon Macie로 민감 데이터 탐지</text>
+<rect x="40" y="558" width="640" height="48" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1" filter="url(#sh)"/>
+<text x="60" y="578" font-size="11" font-weight="bold" fill="#166534">👥 10. IAM 역할 분리</text>
+<text x="60" y="594" font-size="10" fill="#475569">데이터 관리자/소비자/감사자 역할 분리 | 교차 계정 접근 시 역할 체이닝 사용</text>
+</svg>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 760 780" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+    <filter id="shadow2"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+  <rect width="760" height="780" fill="#f8fafb" rx="8"/>
+  <text x="380" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">S3 데이터 모델 — 계층 구조</text>
+  <rect x="40" y="50" width="680" height="700" rx="10" fill="#fff3e0" stroke="#ff9900" stroke-width="2" filter="url(#shadow2)"/>
+  <rect x="80" y="70" width="200" height="36" rx="8" fill="#fce4ec" stroke="#e53935" stroke-width="1.5"/>
+  <text x="180" y="94" text-anchor="middle" font-size="13" font-weight="bold" fill="#c62828">AWS Account</text>
+  <line x1="180" y1="106" x2="180" y2="130" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow2)"/>
+  <rect x="80" y="130" width="600" height="600" rx="8" fill="#ffffff" stroke="#ffb74d" stroke-width="1.5"/>
+  <text x="380" y="158" text-anchor="middle" font-size="13" font-weight="bold" fill="#e65100">Bucket: my-open-data (전역 고유 이름)</text>
+  <rect x="110" y="175" width="560" height="180" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.2"/>
+  <text x="130" y="198" font-size="12" font-weight="bold" fill="#1565c0">Object</text>
+  <text x="130" y="218" font-size="11" fill="#333">Key: "data/2024/population.csv"</text>
+  <text x="130" y="238" font-size="11" fill="#333">Value: (파일 내용, 최대 5TB)</text>
+  <text x="130" y="258" font-size="11" fill="#333">Metadata:</text>
+  <text x="150" y="276" font-size="10" fill="#555">시스템: Content-Type, Content-Length, Last-Modified</text>
+  <text x="150" y="294" font-size="10" fill="#555">사용자: x-amz-meta-author="statistics-kr"</text>
+  <text x="150" y="312" font-size="10" fill="#555">x-amz-meta-source="KOSTAT"</text>
+  <text x="130" y="338" font-size="11" fill="#333">Version ID: "v1.2.0-ab3k9x..."</text>
+  <text x="130" y="380" font-size="12" font-weight="bold" fill="#333">Key 네임스페이스 (폴더 구조 에뮬레이션)</text>
+  <rect x="130" y="395" width="240" height="25" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="1"/>
+  <text x="250" y="413" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">data/2024/</text>
+  <text x="145" y="440" font-size="10" fill="#555">├── population.csv</text>
+  <text x="145" y="458" font-size="10" fill="#555">├── weather.parquet</text>
+  <text x="145" y="476" font-size="10" fill="#555">└── economy.json</text>
+  <rect x="400" y="395" width="240" height="25" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="1"/>
+  <text x="520" y="413" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">data/2025/</text>
+  <text x="415" y="440" font-size="10" fill="#555">├── population.csv</text>
+  <text x="415" y="458" font-size="10" fill="#555">└── weather.parquet</text>
+  <rect x="130" y="480" width="240" height="25" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="1"/>
+  <text x="250" y="498" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">images/satellite/</text>
+  <text x="145" y="525" font-size="10" fill="#555">├── earth_01.tif</text>
+  <text x="145" y="543" font-size="10" fill="#555">├── earth_02.tif</text>
+  <text x="145" y="561" font-size="10" fill="#555">└── mars_01.tif</text>
+  <rect x="400" y="480" width="240" height="25" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="1"/>
+  <text x="520" y="498" text-anchor="middle" font-size="11" font-weight="bold" fill="#1565c0">metadata/</text>
+  <text x="415" y="525" font-size="10" fill="#555">└── catalog.json</text>
+  <rect x="110" y="580" width="560" height="50" rx="6" fill="#fff8e1" stroke="#ffc107" stroke-width="1"/>
+  <text x="390" y="600" text-anchor="middle" font-size="11" fill="#795548">※ "폴더"는 실제로 존재하지 않음. Key의 prefix(접두사)와</text>
+  <text x="390" y="618" text-anchor="middle" font-size="11" fill="#795548">delimiter(/)를 조합하여 논리적으로 폴더처럼 보이게 함.</text>
+</svg>

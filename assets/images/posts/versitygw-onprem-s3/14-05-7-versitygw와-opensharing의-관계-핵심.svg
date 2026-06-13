@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 400" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">VersityGW를 활용한 OpenSharing 아키텍처</text>
+
+<rect x="25" y="38" width="700" height="260" rx="12" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" stroke-dasharray="6"/>
+<text x="375" y="58" text-anchor="middle" font-size="12" font-weight="bold" fill="#854d0e">OpenSharing 생태계</text>
+
+<rect x="50" y="70" width="190" height="85" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="145" y="92" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">AWS S3 (클라우드)</text>
+<text x="145" y="110" text-anchor="middle" font-size="9" fill="#1e3a8a">Data Exchange</text>
+<text x="145" y="124" text-anchor="middle" font-size="9" fill="#1e3a8a">Open Data / Replication</text>
+
+<rect x="280" y="70" width="190" height="85" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="375" y="92" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">AWS S3 (클라우드)</text>
+<text x="375" y="110" text-anchor="middle" font-size="9" fill="#1e3a8a">Access Points</text>
+<text x="375" y="124" text-anchor="middle" font-size="9" fill="#1e3a8a">Access Grants / Multi-Region</text>
+
+<rect x="510" y="70" width="190" height="85" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="605" y="92" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">VersityGW (온프레미스)</text>
+<text x="605" y="110" text-anchor="middle" font-size="9" fill="#b45309">S3 API 호환</text>
+<text x="605" y="124" text-anchor="middle" font-size="9" fill="#b45309">파일→객체 번역 / 자체 S3</text>
+
+<line x1="145" y1="155" x2="145" y2="195" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="375" y1="155" x2="375" y2="195" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="605" y1="155" x2="605" y2="195" stroke="#546e7a" stroke-width="1.5"/>
+
+<text x="375" y="188" text-anchor="middle" font-size="11" font-weight="bold" fill="#37474f">S3 프로토콜 (공통 언어)</text>
+
+<line x1="145" y1="195" x2="145" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="375" y1="195" x2="375" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="605" y1="195" x2="605" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+<rect x="45" y="220" width="185" height="65" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+<text x="137" y="242" text-anchor="middle" font-size="10" fill="#0c4a6e">AWS CLI / Terraform</text>
+<text x="137" y="258" text-anchor="middle" font-size="10" fill="#0c4a6e">rsync+s3 / rclone</text>
+
+<rect x="280" y="220" width="185" height="65" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+<text x="372" y="242" text-anchor="middle" font-size="10" fill="#0c4a6e">Boto3 / Spark</text>
+<text x="372" y="258" text-anchor="middle" font-size="10" fill="#0c4a6e">Hadoop / Rclone</text>
+
+<rect x="515" y="220" width="185" height="65" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+<text x="607" y="242" text-anchor="middle" font-size="10" fill="#0c4a6e">s3cmd / MinIO Client</text>
+<text x="607" y="258" text-anchor="middle" font-size="10" fill="#0c4a6e">Cyberduck</text>
+
+<text x="375" y="320" text-anchor="middle" font-size="11" fill="#546e7a">동일한 S3 프로토콜로 클라우드와 온프레미스 모두 접근</text>
+</svg>

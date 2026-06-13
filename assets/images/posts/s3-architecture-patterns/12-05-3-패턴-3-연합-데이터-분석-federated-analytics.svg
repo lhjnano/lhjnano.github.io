@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 460" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="sh" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#546e7a"/></marker>
+</defs>
+<style>text{font-family:'Segoe UI',system-ui,sans-serif}</style>
+<text x="370" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🔗 패턴 3: 연합 데이터 분석 (Federated Analytics)</text>
+<rect x="15" y="28" width="710" height="420" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" filter="url(#sh)"/>
+<rect x="35" y="42" width="200" height="90" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="135" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">🏢 부서 A 계정</text>
+<text x="135" y="84" text-anchor="middle" font-size="10" fill="#b45309">S3: 원본 데이터</text>
+<text x="135" y="100" text-anchor="middle" font-size="9" fill="#d97706">🔒 데이터 이동 없음</text>
+<text x="135" y="118" text-anchor="middle" font-size="8" fill="#f59e0b">Access Point A</text>
+<rect x="270" y="42" width="200" height="90" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="370" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">🏢 부서 B 계정</text>
+<text x="370" y="84" text-anchor="middle" font-size="10" fill="#b45309">S3: 원본 데이터</text>
+<text x="370" y="100" text-anchor="middle" font-size="9" fill="#d97706">🔒 데이터 이동 없음</text>
+<text x="370" y="118" text-anchor="middle" font-size="8" fill="#f59e0b">Access Point B</text>
+<rect x="505" y="42" width="200" height="90" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="605" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">🏢 부서 C 계정</text>
+<text x="605" y="84" text-anchor="middle" font-size="10" fill="#b45309">S3: 원본 데이터</text>
+<text x="605" y="100" text-anchor="middle" font-size="9" fill="#d97706">🔒 데이터 이동 없음</text>
+<text x="605" y="118" text-anchor="middle" font-size="8" fill="#f59e0b">Access Point C</text>
+<line x1="135" y1="132" x2="135" y2="160" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="370" y1="132" x2="370" y2="160" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="605" y1="132" x2="605" y2="160" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="135" y1="160" x2="605" y2="160" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="370" y1="160" x2="370" y2="176" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="70" y="180" width="600" height="100" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="370" y="204" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e40af">🔍 연합 쿼리 엔진</text>
+<text x="370" y="222" text-anchor="middle" font-size="10" fill="#2563eb">Athena Federated Query / Redshift Federated Query</text>
+<text x="230" y="244" text-anchor="middle" font-size="10" fill="#3b82f6">• 원본 위치에서 쿼리</text>
+<text x="370" y="244" text-anchor="middle" font-size="10" fill="#3b82f6">• Access Point로 안전 접근</text>
+<text x="530" y="244" text-anchor="middle" font-size="10" fill="#3b82f6">• 결과만 중앙 저장</text>
+<text x="370" y="268" text-anchor="middle" font-size="10" fill="#3b82f6">• Redshift Spectrum 대규모 조인</text>
+<line x1="370" y1="280" x2="370" y2="306" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="170" y="310" width="400" height="80" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+<text x="370" y="334" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">📊 결과 버킷 (분석 결과만 공유)</text>
+<text x="280" y="356" text-anchor="middle" font-size="10" fill="#15803d">📁 cross_dept_analysis/</text>
+<text x="370" y="372" text-anchor="middle" font-size="10" fill="#15803d">📁 consolidated_report/</text>
+<text x="460" y="356" text-anchor="middle" font-size="10" fill="#15803d">📁 shared_insights/</text>
+<rect x="60" y="400" width="620" height="36" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+<text x="370" y="422" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">💡 데이터는 각자 계정에 유지 → 결과만 공유 → 데이터 주권 보장</text>
+</svg>

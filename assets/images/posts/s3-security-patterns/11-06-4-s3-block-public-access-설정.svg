@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+<defs><filter id="sh" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<rect x="0" y="0" width="720" height="420" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
+<text x="360" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🚫 S3 Block Public Access 설정 계층</text>
+<rect x="30" y="44" width="660" height="280" rx="10" fill="#fce4ec" stroke="#ef4444" stroke-width="2" filter="url(#sh)"/>
+<text x="360" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#991b1b">☑️ 계정 수준 Block Public Access (최우선)</text>
+<rect x="50" y="82" width="620" height="130" rx="8" fill="#fff" stroke="#fca5a5" stroke-width="1" filter="url(#sh)"/>
+<rect x="70" y="94" width="280" height="50" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+<text x="210" y="114" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">☑ BlockPublicAcls</text>
+<text x="210" y="132" text-anchor="middle" font-size="10" fill="#475569">ACL을 통한 공개 접근 차단</text>
+<rect x="370" y="94" width="280" height="50" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+<text x="510" y="114" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">☑ IgnorePublicAcls</text>
+<text x="510" y="132" text-anchor="middle" font-size="10" fill="#475569">기존 공개 ACL 무시</text>
+<rect x="70" y="152" width="280" height="50" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+<text x="210" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">☑ BlockPublicPolicy</text>
+<text x="210" y="190" text-anchor="middle" font-size="10" fill="#475569">공개 버킷 정책 차단</text>
+<rect x="370" y="152" width="280" height="50" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+<text x="510" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">☑ RestrictPublicBuckets</text>
+<text x="510" y="190" text-anchor="middle" font-size="10" fill="#475569">공개 정책이 있는 버킷 제한</text>
+<rect x="50" y="228" width="620" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+<text x="360" y="250" text-anchor="middle" font-size="12" font-weight="bold" fill="#64748b">📥 버킷 수준 Block Public Access</text>
+<text x="360" y="268" text-anchor="middle" font-size="10" fill="#475569">(개별 버킷에 대해 동일한 4가지 설정)</text>
+<rect x="30" y="340" width="660" height="60" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="360" y="364" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">⚠️ 원칙: 계정 수준에서 모두 활성화 → 버킷별 필요시만 해제</text>
+<text x="360" y="384" text-anchor="middle" font-size="10" fill="#475569">공개 데이터셋을 제공해야 하는 경우에만 선택적 해제 권장</text>
+</svg>

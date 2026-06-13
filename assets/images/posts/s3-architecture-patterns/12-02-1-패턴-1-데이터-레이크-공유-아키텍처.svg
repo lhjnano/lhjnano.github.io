@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="sh" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#546e7a"/></marker>
+</defs>
+<style>text{font-family:'Segoe UI',system-ui,sans-serif}</style>
+<text x="375" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🗄️ 패턴 1: 데이터 레이크 공유 아키텍처</text>
+<text x="130" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">📤 데이터 제공자</text>
+<text x="375" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">☁️ AWS 플랫폼</text>
+<text x="620" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">📥 데이터 소비자</text>
+<rect x="30" y="52" width="200" height="200" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="130" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">S3 버킷</text>
+<rect x="50" y="82" width="160" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+<text x="130" y="102" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">/raw/</text>
+<rect x="50" y="120" width="160" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+<text x="130" y="140" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">/curated/</text>
+<rect x="50" y="158" width="160" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+<text x="130" y="178" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">/agg/</text>
+<line x1="210" y1="97" x2="260" y2="97" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="210" y1="135" x2="260" y2="135" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="210" y1="173" x2="260" y2="173" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="262" y="52" width="220" height="200" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<rect x="282" y="64" width="180" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+<text x="372" y="82" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">S3 Access Points</text>
+<text x="372" y="100" text-anchor="middle" font-size="9" fill="#3b82f6">(접근 엔드포인트)</text>
+<rect x="282" y="120" width="180" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+<text x="372" y="138" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">AWS Glue</text>
+<text x="372" y="156" text-anchor="middle" font-size="9" fill="#3b82f6">Data Catalog (공유 메타데이터)</text>
+<rect x="282" y="176" width="180" height="48" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+<text x="372" y="194" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">Lake Formation</text>
+<text x="372" y="212" text-anchor="middle" font-size="9" fill="#3b82f6">(세분화된 권한 관리)</text>
+<line x1="482" y1="88" x2="530" y2="88" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="482" y1="144" x2="530" y2="144" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="482" y1="200" x2="530" y2="200" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="532" y="52" width="185" height="62" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+<text x="624" y="72" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">🔍 Athena</text>
+<text x="624" y="92" text-anchor="middle" font-size="9" fill="#15803d">SQL 쿼리로 직접 분석</text>
+<rect x="532" y="124" width="185" height="62" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+<text x="624" y="144" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">⚡ EMR</text>
+<text x="624" y="164" text-anchor="middle" font-size="9" fill="#15803d">Spark/Hive 빅데이터 처리</text>
+<rect x="532" y="196" width="185" height="62" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+<text x="624" y="216" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">🤖 SageMaker</text>
+<text x="624" y="236" text-anchor="middle" font-size="9" fill="#15803d">ML 모델 학습</text>
+<line x1="372" y1="252" x2="372" y2="290" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="372" y1="252" x2="530" y2="280" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="310" y="290" width="200" height="54" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+<text x="410" y="312" text-anchor="middle" font-size="12" font-weight="bold" fill="#166534">📊 QuickSight</text>
+<text x="410" y="330" text-anchor="middle" font-size="10" fill="#15803d">비즈니스 시각화</text>
+<rect x="30" y="360" width="690" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+<text x="375" y="380" text-anchor="middle" font-size="10" fill="#92400e">💡 단일 소스 → 다중 소비자 | 비용 효율 | 중앙 집중 관리 | S3 + Access Point + Lake Formation</text>
+</svg>

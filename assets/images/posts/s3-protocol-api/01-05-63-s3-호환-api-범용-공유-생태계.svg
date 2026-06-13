@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 760 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow5" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+    <filter id="shadow5"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  </defs>
+  <rect width="760" height="700" fill="#f8fafb" rx="8"/>
+  <text x="380" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">OpenSharing 아키텍처 개요</text>
+  <rect x="40" y="50" width="250" height="50" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#shadow5)"/>
+  <text x="165" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">데이터 제공자 (Provider)</text>
+  <text x="165" y="90" text-anchor="middle" font-size="10" fill="#555">업로드 / 관리</text>
+  <rect x="470" y="50" width="250" height="50" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#shadow5)"/>
+  <text x="595" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">데이터 소비자 (Consumer)</text>
+  <text x="595" y="90" text-anchor="middle" font-size="10" fill="#555">분석 / 활용</text>
+  <line x1="165" y1="100" x2="310" y2="130" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow5)"/>
+  <line x1="595" y1="100" x2="450" y2="130" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow5)"/>
+  <rect x="100" y="130" width="560" height="380" rx="10" fill="#fff3e0" stroke="#ff9900" stroke-width="2" filter="url(#shadow5)"/>
+  <text x="380" y="158" text-anchor="middle" font-size="14" font-weight="bold" fill="#e65100">Amazon S3</text>
+  <rect x="140" y="175" width="220" height="55" rx="6" fill="#ffffff" stroke="#ffb74d" stroke-width="1.2"/>
+  <text x="250" y="198" text-anchor="middle" font-size="11" font-weight="bold" fill="#e65100">S3 Access Points</text>
+  <text x="250" y="216" text-anchor="middle" font-size="10" fill="#666">전용 엔드포인트 / 개별 권한 정책</text>
+  <rect x="400" y="175" width="220" height="55" rx="6" fill="#ffffff" stroke="#ffb74d" stroke-width="1.2"/>
+  <text x="510" y="198" text-anchor="middle" font-size="11" font-weight="bold" fill="#e65100">AWS Data Exchange</text>
+  <text x="510" y="216" text-anchor="middle" font-size="10" fill="#666">구독 관리 / 상업적 거래</text>
+  <rect x="140" y="245" width="220" height="55" rx="6" fill="#ffffff" stroke="#ffb74d" stroke-width="1.2"/>
+  <text x="250" y="268" text-anchor="middle" font-size="11" font-weight="bold" fill="#e65100">S3 Access Grants</text>
+  <text x="250" y="286" text-anchor="middle" font-size="10" fill="#666">세분화된 권한 위임 / 디렉토리 수준</text>
+  <rect x="400" y="245" width="220" height="55" rx="6" fill="#ffffff" stroke="#ffb74d" stroke-width="1.2"/>
+  <text x="510" y="268" text-anchor="middle" font-size="11" font-weight="bold" fill="#e65100">Registry of Open Data (RODA)</text>
+  <text x="510" y="286" text-anchor="middle" font-size="10" fill="#666">공개 데이터셋 / 무료 접근</text>
+  <rect x="270" y="315" width="220" height="55" rx="6" fill="#ffffff" stroke="#ffb74d" stroke-width="1.2"/>
+  <text x="380" y="338" text-anchor="middle" font-size="11" font-weight="bold" fill="#e65100">Multi-Region Access Points</text>
+  <text x="380" y="356" text-anchor="middle" font-size="10" fill="#666">글로벌 접근 / 자동 페일오버</text>
+  <rect x="180" y="400" width="400" height="45" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5"/>
+  <text x="380" y="420" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e7d32">S3 호환 스토리지</text>
+  <text x="380" y="436" text-anchor="middle" font-size="10" fill="#555">MinIO, Ceph, GCS (동일한 API로 접근)</text>
+  <rect x="250" y="465" width="260" height="50" rx="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5"/>
+  <text x="380" y="488" text-anchor="middle" font-size="11" font-weight="bold" fill="#7b1fa2">분석 서비스</text>
+  <text x="380" y="505" text-anchor="middle" font-size="10" fill="#555">Athena / Redshift / EMR / SageMaker / QuickSight</text>
+</svg>

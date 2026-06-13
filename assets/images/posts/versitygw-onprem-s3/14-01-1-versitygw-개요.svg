@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 750 470" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<defs>
+<filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">VersityGW 기본 아키텍처</text>
+
+<rect x="25" y="50" width="200" height="170" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+<text x="125" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="#0c4a6e">S3 클라이언트</text>
+<text x="45" y="96" font-size="11" fill="#1e3a5f">AWS CLI</text>
+<text x="45" y="114" font-size="11" fill="#1e3a5f">Boto3 (Python)</text>
+<text x="45" y="132" font-size="11" fill="#1e3a5f">AWS SDK (Java)</text>
+<text x="45" y="150" font-size="11" fill="#1e3a5f">s3cmd</text>
+<text x="45" y="168" font-size="11" fill="#1e3a5f">curl</text>
+
+<line x1="225" y1="120" x2="335" y2="120" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+<text x="280" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#37474f">S3 API</text>
+<text x="280" y="140" text-anchor="middle" font-size="10" fill="#546e7a">(HTTP)</text>
+
+<rect x="345" y="40" width="220" height="235" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="455" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">VersityGW</text>
+<text x="455" y="82" text-anchor="middle" font-size="10" fill="#b45309">S3 → POSIX 번역 엔진</text>
+
+<rect x="365" y="96" width="180" height="130" rx="8" fill="#fffbf0" stroke="#fbbf24" stroke-width="1"/>
+<text x="455" y="118" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">S3 API 처리</text>
+<text x="382" y="140" font-size="11" fill="#78350f">PUT → Write</text>
+<text x="382" y="158" font-size="11" fill="#78350f">GET → Read</text>
+<text x="382" y="176" font-size="11" fill="#78350f">DEL → Remove</text>
+<text x="382" y="194" font-size="11" fill="#78350f">LIST → ls</text>
+
+<line x1="455" y1="275" x2="455" y2="335" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+<text x="510" y="310" font-size="11" font-weight="bold" fill="#37474f">POSIX I/O</text>
+
+<rect x="345" y="345" width="220" height="105" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" filter="url(#sh)"/>
+<text x="455" y="370" text-anchor="middle" font-size="12" font-weight="bold" fill="#064e3b">파일시스템</text>
+<text x="455" y="390" text-anchor="middle" font-size="11" fill="#065f46">/data/bucket/</text>
+<text x="455" y="410" text-anchor="middle" font-size="11" fill="#065f46">├── obj1</text>
+<text x="455" y="428" text-anchor="middle" font-size="11" fill="#065f46">└── obj2</text>
+</svg>
