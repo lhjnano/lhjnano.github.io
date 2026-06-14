@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "VPC 네트워킹 — 서브넷부터 Transit Gateway까지"
+title: "[AWS 4/16] VPC 네트워킹 — 서브넷부터 Transit Gateway까지"
 categories: [AWS, Networking]
 description: AWS VPC의 핵심 개념과 서브넷, 라우팅, 보안 그룹, NACL, 피어링, Transit Gateway, 엔드포인트, VPN/Direct Connect를 정리합니다.
 keywords: [VPC, AWS, 네트워킹, 서브넷, 보안그룹, TransitGateway]
@@ -304,3 +304,12 @@ Public Subnet에는 ALB, NAT Gateway, Bastion Host를 배치하고, Private Subn
 1. **VPC 설계는 CIDR에서 결정됩니다** — `/16`으로 충분한 IP 공간을 확보하고 RFC 1918 사설 대역을 사용하며, 온프레미스 및 다른 VPC와 절대 겹치지 않게 초기에 설계해야 합니다. 서브넷은 AZ 단위로 분할하고 5개의 예약 IP를 감안해 크기를 산정합니다
 2. **보안은 SG와 NACL 두 층으로 심층 방어합니다** — Security Group은 Stateful로 인스턴스 단위 세밀 제어를, NACL은 Stateless로 서브넷 단위 차단을 담당합니다. 특정 IP를 명시적으로 Deny해야 하거나 서브넷 전체에 일괄 규칙을 적용할 때만 NACL을 활용합니다
 3. **연결 규모에 맞게 기술을 선택합니다** — 2~5개 VPC는 Peering, 5개 이상은 Transit Gateway로 중앙 허브를 구축합니다. S3/DynamoDB는 무료 Gateway Endpoint로 NAT 비용을 절감하고, 온프레미스 연결은 일관된 성능이 필요하면 Direct Connect, 빠른 설정이 필요하면 Site-to-Site VPN을 선택합니다
+
+---
+
+> **AWS 시리즈 4/16**
+>
+> | | |
+> |---|---|
+> | ← [S3 객체 스토리지 기초 — 버킷부터 수명주기까지]({% post_url 2026-06-14-AWS-S3-Storage-Basics %}) | |
+> | | [로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups]({% post_url 2026-06-14-AWS-ELB-AutoScaling %}) → |

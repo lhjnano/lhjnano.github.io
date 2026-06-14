@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "아키텍처 설계 패턴 & Well-Architected Framework"
+title: "[AWS 16/16] 아키텍처 설계 패턴 & Well-Architected Framework"
 categories: [AWS, Architecture]
 description: AWS Well-Architected Framework 6원칙과 실전 아키텍처 패턴, 재해 복구 전략, 비용 최적화까지 정리합니다.
 keywords: [WellArchitected, 아키텍처, AWS, DR, 비용최적화]
@@ -277,3 +277,12 @@ FinOps는 클라우드 비용을 최적화하는 재무 관리 실천입니다. 
 1. **6원칙을 체크리스트로 사용하세요** — 모든 아키텍처 결정을 운영 우수성, 보안, 안정성, 성능 효율성, 비용 최적화, 지속 가능성 관점에서 검토합니다. Well-Architected Tool로 정기 리뷰하면 맹점을 발견할 수 있습니다
 2. **느슨한 결합과 장애 격리가 복원력의 핵심입니다** — 무상태 설계, 비동기 메시징, Circuit Breaker, Multi-AZ 배포로 장애 전파를 차단하면 부분 장애가 전체 장애로 번지지 않습니다
 3. **DR 전략은 RPO/RTO와 비용의 트레이드오프입니다** — 모든 서비스를 Active-Active로 만들 필요는 없습니다. 서비스 중요도에 따라 단계별 DR을 구성하면 비용 대비 복원력을 최적화할 수 있습니다
+
+---
+
+> **AWS 시리즈 16/16**
+>
+> | | |
+> |---|---|
+> | ← [AI & ML — Bedrock, SageMaker, Amazon Q]({% post_url 2026-06-14-AWS-AI-ML-Bedrock-SageMaker %}) | |
+> | | 마지막 글입니다 |

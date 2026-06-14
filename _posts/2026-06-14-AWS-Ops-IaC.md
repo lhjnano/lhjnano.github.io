@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "운영 & IaC — CloudWatch, CloudTrail, CloudFormation"
+title: "[AWS 11/16] 운영 & IaC — CloudWatch, CloudTrail, CloudFormation"
 categories: [AWS, DevOps, Monitoring]
 description: 모니터링(CloudWatch), 감사(CloudTrail/Config), 인프라 코드(CloudFormation/CDK)로 AWS 운영 자동화를 정리합니다.
 keywords: [CloudWatch, CloudTrail, CloudFormation, CDK, AWS, IaC]
@@ -350,3 +350,12 @@ export class MyAppStack extends cdk.Stack {
 1. **관측·감사·IaC는 운영 자동화의 삼위일체입니다** — CloudWatch로 시스템 상태를 보고, CloudTrail+Config로 변경을 추적하고, CloudFormation/CDK로 인프라를 재현 가능하게 관리합니다. 세 축을 함께 세우면 "보이고, 추적하고, 재현하는" 운영 체계가 완성됩니다
 2. **다중 계정은 중앙 집중이 정답입니다** — Organization Trail로 모든 계정의 API를, Config Aggregator로 모든 계정의 규정 준수를, StackSets로 모든 계정에 IaC를 중앙에서 배포합니다. 보안 전용 Audit 계정을 두면 감사 체계가 한층 견고해집니다
 3. **자동화의 사각지대를 없애세요** — CloudWatch 경보 → EventBridge → Lambda/SSM으로 자동 복구를, Config 위반 → Remediation → SSM Automation으로 자동 수정을, CDK Pipelines/cdk-nag로 배포 전 검증을 구성하면 사람의 개입 없이도 안정성이 유지됩니다
+
+---
+
+> **AWS 시리즈 11/16**
+>
+> | | |
+> |---|---|
+> | ← [인증 & 방화벽 — Cognito, ACM, Shield/WAF]({% post_url 2026-06-14-AWS-Auth-Firewall %}) | |
+> | | [메시징 & 컨테이너 — SQS/SNS/Kinesis와 ECS/EKS]({% post_url 2026-06-14-AWS-Messaging-Containers %}) → |

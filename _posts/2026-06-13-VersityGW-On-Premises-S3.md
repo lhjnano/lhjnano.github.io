@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "VersityGW로 온프레미스에 S3 API 구축하기"
+title: "[S3 7/7] VersityGW로 온프레미스에 S3 API 구축하기"
 categories: [S3, Infrastructure, OpenSource]
 description: 오픈소스 S3 게이트웨이 VersityGW로 온프레미스에 S3 호환 스토리지를 구축하는 방법을 정리합니다. 설치부터 클러스터 배포, 보안 설정, MinIO 비교까지.
 keywords: [VersityGW, S3, 온프레미스, MinIO, Go, FUSE, 하이브리드]
@@ -388,3 +388,12 @@ rclone sync \
 1. **VersityGW는 POSIX 파일시스템을 S3 API로 번역합니다** — 기존 스토리지 투자를 보존하면서 S3 생태계의 도구를 그대로 활용할 수 있습니다.
 2. **바이너리 하나로 5분 안에 시작할 수 있습니다** — Docker나 Kubernetes(Helm)로 프로덕션 규모까지 쉽게 확장합니다.
 3. **AWS CLI/SDK가 그대로 작동합니다** — `--endpoint-url`만 추가하면 클라우드와 온프레미스를 동일한 코드로 다룰 수 있습니다.
+
+---
+
+> **S3 시리즈 7/7**
+>
+> | | |
+> |---|---|
+> | ← [S3 2026 신기능 — Files, Tables, Vectors, Metadata + s3fs-fuse]({% post_url 2026-06-13-S3-New-Features-2026 %}) | |
+> | | 마지막 글입니다 |

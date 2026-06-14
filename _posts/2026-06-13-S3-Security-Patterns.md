@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "S3 보안 다층 방어 — 7계층 패턴과 실전 구현"
+title: "[S3 4/7] S3 보안 다층 방어 — 7계층 패턴과 실전 구현"
 categories: [AWS, Security]
 description: S3 데이터 보안을 위한 7계층 방어 모델을 정리합니다. 최소 권한 원칙, 버킷 정책 패턴, Block Public Access, 암호화, 감사/모니터링까지 실전 코드와 함께 소개합니다.
 keywords: [S3, Security, CORS, IAM, 암호화, CloudTrail, KMS]
@@ -490,3 +490,12 @@ ORDER BY eventtime DESC;
 1. **보안은 하나의 계층으로 충분하지 않다** — 7계층 다층 방어가 기본입니다. 한 계층이 뚫려도 다음 계층이 막아주도록 설계해야 합니다
 2. **Block Public Access는 무조건 켜세요** — 계정 수준에서 4가지 설정 모두 활성화하면 실수로 인한 유출을 원천 차단합니다
 3. **SSE-KMS + CloudTrail + Macie 3종 세트** — 암호화, 감사, 민감 정보 탐지를 한 번에 갖추면 사고 예방과 추적이 모두 가능합니다
+
+---
+
+> **S3 시리즈 4/7**
+>
+> | | |
+> |---|---|
+> | ← [S3 Access Grants와 복제로 대규모 데이터 공유하기]({% post_url 2026-06-13-S3-Access-Grants-and-Replication %}) | |
+> | | [S3 데이터 공유 아키텍처 — 6가지 패턴과 선택 가이드]({% post_url 2026-06-13-S3-Data-Sharing-Architecture-Patterns %}) → |

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS 데이터 공유 서비스 3종 — Registry, Data Exchange, Access Points"
+title: "[S3 2/7] AWS 데이터 공유 서비스 3종 — Registry, Data Exchange, Access Points"
 categories: [AWS, S3]
 description: AWS에서 데이터를 공유하는 세 가지 핵심 서비스를 정리합니다. Registry of Open Data, AWS Data Exchange, S3 Access Points의 차이와 사용 시나리오를 다룹니다.
 keywords: [S3, AWS, DataExchange, AccessPoints, OpenData]
@@ -375,3 +375,12 @@ aws s3control create-access-point \
 1. **공개 데이터는 Registry of Open Data** — 무료 호스팅, `--no-sign-request`로 누구나 접근
 2. **상업 데이터는 Data Exchange** — 결제·라이선스·전송을 한 번에, 데이터 복사 없이 In-place 접근
 3. **대규모 내부 공유는 Access Points** — 버킷 정책을 분산시켜 관리 복잡도를 해결
+
+---
+
+> **S3 시리즈 2/7**
+>
+> | | |
+> |---|---|
+> | ← [S3 프로토콜과 API — 개요부터 실전 활용까지]({% post_url 2026-06-13-S3-Protocol-and-API-Deep-Dive %}) | |
+> | | [S3 Access Grants와 복제로 대규모 데이터 공유하기]({% post_url 2026-06-13-S3-Access-Grants-and-Replication %}) → |

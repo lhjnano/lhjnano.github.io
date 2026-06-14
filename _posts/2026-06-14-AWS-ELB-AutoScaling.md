@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups"
+title: "[AWS 5/16] 로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups"
 categories: [AWS, Networking, Compute]
 description: ALB/NLB/GWLB 4가지 로드밸런서와 Auto Scaling Groups의 설정, 정책, ELB 연동까지 정리합니다.
 keywords: [ELB, ALB, NLB, AutoScaling, AWS, 로드밸런서]
@@ -411,3 +411,12 @@ ASG와 ELB를 연동하면 트래픽 분산과 인스턴스 건전성을 함께 
 1. **LB 선택은 프로토콜과 성능 요구사항으로 결정합니다** — 웹/HTTP는 ALB(경로 라우팅, 유동 IP), 게임/IoT/금융은 NLB(초저지연, 고정 IP, Client IP 보존), 보안 어플라이언스는 GWLB(Geneve 캡슐화)를 사용합니다. CLB는 2026년 Deprecated이므로 마이그레이션해야 합니다.
 2. **Launch Template + Target Tracking이 ASG의 표준입니다** — 수정 불가능한 Launch Configuration 대신 버전 관리가 가능한 Launch Template을 사용하고, 조정 정책은 가장 간단한 Target Tracking을 기본으로 하되 반복 트래픽 패턴에는 Predictive Scaling을 조합합니다.
 3. **ELB + ASG 연동으로 무중단 자동 복구를 구현합니다** — 대상 그룹에 인스턴스를 자동 등록하고 ELB 상태 검사 기반으로 비정상 인스턴스를 자동 교체하며, Connection Draining으로 배포와 스케일 인 시 기존 연결을 안전하게 완료하면 고가용성과 비용 최적화를 동시에 달성할 수 있습니다.
+
+---
+
+> **AWS 시리즈 5/16**
+>
+> | | |
+> |---|---|
+> | ← [VPC 네트워킹 — 서브넷부터 Transit Gateway까지]({% post_url 2026-06-14-AWS-VPC-Networking %}) | |
+> | | [엣지 서비스 — CloudFront, Route 53, Global Accelerator]({% post_url 2026-06-14-AWS-Edge-Services %}) → |

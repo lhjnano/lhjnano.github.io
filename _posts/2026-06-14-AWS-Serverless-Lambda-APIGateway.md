@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "서버리스 — Lambda & API Gateway"
+title: "[AWS 13/16] 서버리스 — Lambda & API Gateway"
 categories: [AWS, Serverless]
 description: AWS 서버리스의 핵심인 Lambda(함수/트리거/제한)와 API Gateway(REST/HTTP/WebSocket)를 정리합니다.
 keywords: [Lambda, APIGateway, Serverless, AWS, 서버리스]
@@ -364,3 +364,12 @@ Resources:
 1. **Lambda는 이벤트 기반·ms 과금의 서버리스 컴퓨팅입니다** — 서버 관리 없이 60개 이상 이벤트 소스에 반응하며, 동기·비동기·스트림 세 가지 호출 방식과 성공/실패 Destination으로 유연한 파이프라인을 구성합니다. 콜드스타트는 Provisioned Concurrency(예열)와 SnapStart(Java)·Graviton2(ARM)로 해결합니다.
 2. **API Gateway는 용도에 따라 3종으로 선택합니다** — 풀 기능과 캐싱이 필요한 복잡한 API는 REST API, 단순 Lambda 백엔드와 저비용·고성능이 필요하면 HTTP API(비용 1/3.5, 지연 60% 감소), 양방향 실시간 통신은 WebSocket API를 사용합니다. 카나리 배포·쓰로틀링·네 가지 인증(IAM/Cognito/Lambda/JWT)으로 운영 수준의 API를 관리합니다.
 3. **서버리스 패턴 3종으로 대부분의 아키텍처를 커버합니다** — 동기 API는 API Gateway + Lambda + DynamoDB, 이벤트 드리븐은 EventBridge + Lambda + SNS/SQS, 다단계 워크플로우는 Step Functions로 오케스트레이션합니다. SAM으로 IaC를 관리하고 `sam local`로 로컬 테스트 후 배포하면 서버 한 대 없이 프로덕션급 시스템을 구축할 수 있습니다.
+
+---
+
+> **AWS 시리즈 13/16**
+>
+> | | |
+> |---|---|
+> | ← [메시징 & 컨테이너 — SQS/SNS/Kinesis와 ECS/EKS]({% post_url 2026-06-14-AWS-Messaging-Containers %}) | |
+> | | [하이브리드 & 마이그레이션 — Storage Gateway, DataSync, Snow Family]({% post_url 2026-06-14-AWS-Hybrid-Migration %}) → |

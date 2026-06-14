@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "엣지 서비스 — CloudFront, Route 53, Global Accelerator"
+title: "[AWS 6/16] 엣지 서비스 — CloudFront, Route 53, Global Accelerator"
 categories: [AWS, Networking, CDN]
 description: AWS의 글로벌 엣지 서비스 3종을 정리합니다. CDN(CloudFront), DNS(Route 53), 글로벌 가속(Global Accelerator)의 차이와 선택 기준을 다룹니다.
 keywords: [CloudFront, Route53, GlobalAccelerator, CDN, DNS, AWS]
@@ -345,3 +345,12 @@ Global Accelerator에는 **AWS Shield Standard**가 기본 통합되어 L3/L4 DD
 1. **목적이 다르면 서비스도 다릅니다** — 캐싱은 CloudFront, 라우팅 제어는 Route 53, 경로 최적화·고정 IP는 Global Accelerator입니다. 세 서비스의 핵심 메커니즘(CDN 캐시·DNS 정책·Anycast 백본)을 구분하면 선택이 명확해집니다
 2. **OAC, Alias, Shield Standard는 2026년 기본값입니다** — CloudFront는 OAI 대신 OAC를, Route 53은 CNAME 대신 Alias를(무료 + 자동 갱신) 쓰고, 두 엣지 서비스 모두 Shield Standard가 기본 탑재되어 L3/L4 DDoS를 자동 방어합니다
 3. **세 서비스는 조합해서 씁니다** — Route 53이 DNS·라우팅 뇌를, CloudFront가 캐싱을, Global Accelerator가 고정 IP·비HTTP 가속을 맡도록 계층화하면 지연·가용성·보안을 동시에 잡을 수 있습니다
+
+---
+
+> **AWS 시리즈 6/16**
+>
+> | | |
+> |---|---|
+> | ← [로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups]({% post_url 2026-06-14-AWS-ELB-AutoScaling %}) | |
+> | | [데이터베이스 & 캐시 — RDS, Aurora, ElastiCache]({% post_url 2026-06-14-AWS-Database-Cache %}) → |

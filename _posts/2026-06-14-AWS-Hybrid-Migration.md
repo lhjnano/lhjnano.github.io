@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "하이브리드 & 마이그레이션 — Storage Gateway, DataSync, Snow Family"
+title: "[AWS 14/16] 하이브리드 & 마이그레이션 — Storage Gateway, DataSync, Snow Family"
 categories: [AWS, Migration, Storage]
 description: 온프레미스와 AWS를 연결하는 하이브리드 스토리지(Storage Gateway, DataSync)와 대용량 데이터 마이그레이션(Snow Family)을 정리합니다.
 keywords: [StorageGateway, DataSync, Snowball, AWS, 마이그레이션]
@@ -316,3 +316,12 @@ Snow Family 디바이스에서 **EC2 인스턴스(sbe 타입), Lambda 함수, Io
 1. **Storage Gateway로 프로토콜을 보존하며 하이브리드를 구현합니다** — File(NFS/SMB→S3), FSx(SMB→FSx for Windows), Volume(iSCSI→S3/EBS Snapshot), Tape(VTL→S3/Glacier) 중 시나리오에 맞는 유형을 선택하여 기존 애플리케이션 변경 없이 클라우드 스토리지를 활용하고 로컬 SSD 캐시로 성능을 확보합니다
 2. **데이터 규모에 따라 DataSync와 Snow Family를 나눕니다** — 온라인 파일 이관(에이전트당 10Gbps, 증분, 무결성 검증)은 DataSync로, 수십~수백 PB 물리 이관은 Snowball Edge/Snow Mobile로 처리하며 두 방식의 전환점은 대역폭 대비 배송 시간의 역전 지점입니다
 3. **진짜 비용 절감은 온·오프라인 조합에서 나옵니다** — Cold 데이터는 Snow로 오프라인 이관, Hot 데이터는 DataSync로 지속 동기화, 데이터베이스는 DMS CDC로 컷오버 다운타임을 30분 미만으로 줄이는 하이브리드 전략이 대규모 마이그레이션의 정답입니다
+
+---
+
+> **AWS 시리즈 14/16**
+>
+> | | |
+> |---|---|
+> | ← [서버리스 — Lambda & API Gateway]({% post_url 2026-06-14-AWS-Serverless-Lambda-APIGateway %}) | |
+> | | [AI & ML — Bedrock, SageMaker, Amazon Q]({% post_url 2026-06-14-AWS-AI-ML-Bedrock-SageMaker %}) → |

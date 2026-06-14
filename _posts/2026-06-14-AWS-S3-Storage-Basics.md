@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "S3 객체 스토리지 기초 — 버킷부터 수명주기까지"
+title: "[AWS 3/16] S3 객체 스토리지 기초 — 버킷부터 수명주기까지"
 categories: [AWS, Storage]
 description: S3의 기본 개념부터 스토리지 클래스, 버전 관리, 수명주기 규칙, 암호화, 복제, 성능 최적화까지 기초를 정리합니다.
 keywords: [S3, AWS, 스토리지, 버킷, 수명주기, 암호화]
@@ -351,3 +351,12 @@ def make_key(original: str) -> str:
 | [S3 아키텍처 패턴]({% post_url 2026-06-13-S3-Data-Sharing-Architecture-Patterns %}) | 데이터 레이크, 정적 웹 호스팅, CDN 통합 아키텍처 |
 | [S3 2026 신기능]({% post_url 2026-06-13-S3-New-Features-2026 %}) | Express One Zone, Directory Bucket, S3 Tables 등 최신 기능 |
 | [VersityGW 온프레미스 S3]({% post_url 2026-06-13-VersityGW-On-Premises-S3 %}) | 온프레미스 환경에서 S3 호환 스토리지 구축 |
+
+---
+
+> **AWS 시리즈 3/16**
+>
+> | | |
+> |---|---|
+> | ← [EC2 & EBS — AWS 컴퓨팅 완전 정복]({% post_url 2026-06-14-AWS-EC2-Computing %}) | |
+> | | [VPC 네트워킹 — 서브넷부터 Transit Gateway까지]({% post_url 2026-06-14-AWS-VPC-Networking %}) → |

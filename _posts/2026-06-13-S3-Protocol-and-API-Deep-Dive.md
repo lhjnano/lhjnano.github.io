@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "S3 프로토콜과 API — 개요부터 실전 활용까지"
+title: "[S3 1/7] S3 프로토콜과 API — 개요부터 실전 활용까지"
 categories: [AWS, S3]
 description: Amazon S3의 핵심 아키텍처부터 REST API, CLI/SDK 실전 활용, Pre-signed URL, 멀티파트 업로드, 이벤트 알림까지 정리합니다.
 keywords: [S3, AWS, API, CLI, SDK, 멀티파트]
@@ -352,3 +352,12 @@ aws events put-targets \
 1. **S3는 파일 시스템이 아니라 객체 스토리지** — Key-Value 구조에 평면 네임스페이스, "폴더"는 prefix의 논리적 표현일 뿐입니다
 2. **Pre-signed URL로 IAM 없이 권한 위임** — 임시 서명 URL을 발급하여 외부 사용자에게 업로드/다운로드를 허용할 수 있습니다
 3. **멀티파트 업로드로 대용량 파일을 병렬 처리** — 3단계 프로세스(Create → Upload → Complete)로 5TB까지 안정적으로 업로드할 수 있습니다
+
+---
+
+> **S3 시리즈 1/7**
+>
+> | | |
+> |---|---|
+> | | 첫 글입니다 |
+> | | [AWS 데이터 공유 서비스 3종 — Registry, Data Exchange, Access Points]({% post_url 2026-06-13-S3-Data-Sharing-Services %}) → |

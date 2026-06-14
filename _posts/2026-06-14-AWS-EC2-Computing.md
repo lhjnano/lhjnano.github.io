@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EC2 & EBS — AWS 컴퓨팅 완전 정복"
+title: "[AWS 2/16] EC2 & EBS — AWS 컴퓨팅 완전 정복"
 categories: [AWS, Compute]
 description: EC2 인스턴스 유형, 구매 옵션, EBS 볼륨, 배치 그룹, Elastic IP, 수명주기까지 EC2 컴퓨팅의 모든 것을 정리합니다.
 keywords: [EC2, EBS, AWS, 컴퓨팅, 인스턴스, AMI]
@@ -276,3 +276,12 @@ EC2 접속을 위한 공개키/개인키 기반 SSH 인증 방식입니다.
 1. **인스턴스는 용도에 맞게 선택** — 범용(M/T), 컴퓨팅(C), 메모리(R/X), 가속(P/Inf/Trn), 스토리지(I/D) 패밀리에서 워크로드 특성에 맞추고, 가성비가 중요하면 Graviton 기반을 우선 검토합니다
 2. **비용은 약정과 스팟으로 최적화** — 예측 가능한 프로덕션 부하분 Savings Plans(최대 72%), 중단 허용되는 분산 작업은 스팟(최대 90%)으로 조합하면 클라우드 비용을 극적으로 줄일 수 있습니다
 3. **스토리지와 배치는 아키텍처에서 결정** — 영구 데이터는 gp3 EBS, 고성능 I/O는 인스턴스 스토어, 내결함성은 RAID 1로 구성하고, 배치 그룹(Cluster/Partition/Spread)으로 물리적 배치를 제어하여 지연·가용성·장애 격리 요구사항을 충족합니다
+
+---
+
+> **AWS 시리즈 2/16**
+>
+> | | |
+> |---|---|
+> | ← [AWS 클라우드 기초 — 핵심 개념과 글로벌 인프라]({% post_url 2026-06-14-AWS-Foundations-Core-Concepts %}) | |
+> | | [S3 객체 스토리지 기초 — 버킷부터 수명주기까지]({% post_url 2026-06-14-AWS-S3-Storage-Basics %}) → |
