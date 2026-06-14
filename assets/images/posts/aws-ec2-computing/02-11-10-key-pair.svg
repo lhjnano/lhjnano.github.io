@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 310" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+
+  <text x="360" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🔑 Key Pair 인증 흐름</text>
+
+  <rect x="40" y="42" width="240" height="65" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="160" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#0284c7">👤 사용자 (개인키 .pem)</text>
+  <text x="160" y="85" text-anchor="middle" font-size="11" fill="#64748b">$ ssh -i key.pem user@host</text>
+
+  <rect x="440" y="42" width="240" height="65" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="560" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#f59e0b">🖥️ EC2 인스턴스 (공개키)</text>
+  <text x="560" y="85" text-anchor="middle" font-size="11" fill="#64748b">~/.ssh/authorized_keys</text>
+
+  <line x1="280" y1="135" x2="440" y2="135" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="360" y="128" text-anchor="middle" font-size="11" font-weight="bold" fill="#546e7a">1️⃣ SSH 접속 요청</text>
+
+  <line x1="440" y1="170" x2="280" y2="170" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="360" y="163" text-anchor="middle" font-size="11" font-weight="bold" fill="#546e7a">2️⃣ 난수 챌린지 전송</text>
+
+  <line x1="280" y1="205" x2="440" y2="205" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="360" y="198" text-anchor="middle" font-size="11" font-weight="bold" fill="#546e7a">3️⃣ 개인키로 서명 → 응답</text>
+
+  <rect x="175" y="240" width="370" height="48" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
+  <text x="360" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="#22c55e">4️⃣ 공개키로 서명 검증</text>
+  <text x="360" y="278" text-anchor="middle" font-size="14" font-weight="bold" fill="#22c55e">✅ 인증 성공!</text>
+
+  <line x1="560" y1="107" x2="560" y2="264" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="545" y1="264" x2="560" y2="264" stroke="#546e7a" stroke-width="1.5"/>
+
+</svg>

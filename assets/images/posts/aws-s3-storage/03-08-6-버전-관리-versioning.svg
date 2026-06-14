@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700">🔄 S3 버전 관리 동작</text>
+
+  <text x="60" y="52" font-size="12" font-weight="700">업로드 시간:</text>
+  <line x1="40" y1="60" x2="680" y2="60" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="60" y="70" width="600" height="28" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="80" y="90" font-size="10">T1: Upload "config.json" → Version ID: "v1"</text>
+  <rect x="60" y="104" width="600" height="28" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="80" y="124" font-size="10">T2: Upload "config.json" → Version ID: "v2"  (v1 보존됨)</text>
+  <rect x="60" y="138" width="600" height="28" rx="4" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="80" y="158" font-size="10">T3: Upload "config.json" → Version ID: "v3"  (v1, v2 보존됨)</text>
+
+  <rect x="80" y="180" width="560" height="160" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
+  <text x="360" y="206" text-anchor="middle" font-size="12" font-weight="700">📦 버킷: my-config-bucket</text>
+  <text x="120" y="236" font-size="11" font-weight="600">📄 config.json</text>
+  <rect x="160" y="248" width="200" height="28" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="180" y="268" font-size="10">├── v1 (이전 버전, 보존)</text>
+  <rect x="160" y="282" width="200" height="28" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="180" y="302" font-size="10">├── v2 (이전 버전, 보존)</text>
+  <rect x="160" y="316" width="260" height="28" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="180" y="336" font-size="10" font-weight="600">└── v3 (최신 버전) ◄── GET 요청 시 반환</text>
+
+  <text x="60" y="370" font-size="12" font-weight="700">삭제 동작:</text>
+  <rect x="60" y="380" width="600" height="28" rx="4" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+  <text x="80" y="400" font-size="10">T4: Delete "config.json" → 삭제 마커(Delete Marker) 추가</text>
+
+  <rect x="80" y="420" width="560" height="125" rx="10" fill="#fce4ec" stroke="#ef4444" stroke-width="2" filter="url(#sh)"/>
+  <text x="120" y="446" font-size="11" font-weight="600">📄 config.json</text>
+  <rect x="160" y="455" width="170" height="22" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="180" y="472" font-size="10">├── v1 (보존)</text>
+  <rect x="160" y="481" width="170" height="22" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="180" y="498" font-size="10">├── v2 (보존)</text>
+  <rect x="160" y="507" width="170" height="22" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="180" y="524" font-size="10">├── v3 (보존)</text>
+  <rect x="340" y="455" width="280" height="28" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="360" y="475" font-size="10" font-weight="600">└── Delete Marker ◄── GET 시 404 반환</text>
+  <text x="360" y="535" font-size="10" fill="#64748b">복구: 삭제 마커 제거 → v3로 복원 가능</text>
+</svg>

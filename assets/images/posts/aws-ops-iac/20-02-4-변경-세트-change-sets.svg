@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 430" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<defs>
+<filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+</defs>
+<text x="280" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🔄 Change Set 워크플로우</text>
+<rect x="175" y="40" width="210" height="42" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="280" y="66" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">📄 템플릿 수정</text>
+<line x1="280" y1="82" x2="280" y2="102" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="175" y="105" width="210" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="280" y="131" text-anchor="middle" font-size="12" font-weight="bold" fill="#f59e0b">📋 Change Set 생성</text>
+<line x1="280" y1="147" x2="280" y2="167" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="140" y="170" width="280" height="42" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="280" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#8b5cf6">👁 변경 내용 미리 보기</text>
+<line x1="420" y1="191" x2="448" y2="191" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="450" y="148" width="220" height="90" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#ds)"/>
+<text x="560" y="170" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">📊 리소스 영향 분석</text>
+<text x="470" y="190" font-size="10" fill="#22c55e">• Add (추가)</text>
+<text x="470" y="205" font-size="10" fill="#f59e0b">• Modify (수정)</text>
+<text x="470" y="220" font-size="10" fill="#ef4444">• Remove (제거)</text>
+<text x="470" y="235" font-size="10" fill="#8b5cf6">• Replace (교체)</text>
+<line x1="280" y1="212" x2="280" y2="232" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="175" y="235" width="210" height="42" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#ds)"/>
+<text x="280" y="261" text-anchor="middle" font-size="12" font-weight="bold" fill="#ef4444">✋ 승인 / 거부 (수동 검토)</text>
+<line x1="280" y1="277" x2="280" y2="297" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<text x="310" y="293" font-size="10" fill="#16a34a">승인 시</text>
+<rect x="175" y="300" width="210" height="42" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="280" y="326" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">🚀 스택 업데이트</text>
+</svg>

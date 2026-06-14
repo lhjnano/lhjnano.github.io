@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700">📜 버킷 정책 예시 (퍼블릭 읽기 허용)</text>
+  <rect x="80" y="38" width="560" height="260" rx="10" fill="#1e293b" stroke="#334155" stroke-width="2" filter="url(#sh)"/>
+  <text x="110" y="66" font-size="11" font-family="monospace" fill="#e2e8f0">{</text>
+  <text x="130" y="84" font-size="11" font-family="monospace" fill="#93c5fd">"Version"</text>
+  <text x="210" y="84" font-size="11" font-family="monospace" fill="#e2e8f0">: "2012-10-17",</text>
+  <text x="130" y="102" font-size="11" font-family="monospace" fill="#93c5fd">"Statement"</text>
+  <text x="230" y="102" font-size="11" font-family="monospace" fill="#e2e8f0">: [</text>
+  <text x="150" y="120" font-size="11" font-family="monospace" fill="#e2e8f0">{</text>
+  <text x="170" y="138" font-size="11" font-family="monospace" fill="#93c5fd">"Sid"</text>
+  <text x="210" y="138" font-size="11" font-family="monospace" fill="#e2e8f0">: "PublicReadGetObject",</text>
+  <text x="170" y="156" font-size="11" font-family="monospace" fill="#93c5fd">"Effect"</text>
+  <text x="240" y="156" font-size="11" font-family="monospace" fill="#86efac">: "Allow"</text>
+  <text x="290" y="156" font-size="11" font-family="monospace" fill="#e2e8f0">,</text>
+  <text x="170" y="174" font-size="11" font-family="monospace" fill="#93c5fd">"Principal"</text>
+  <text x="270" y="174" font-size="11" font-family="monospace" fill="#e2e8f0">: "*"</text>
+  <text x="290" y="174" font-size="11" font-family="monospace" fill="#e2e8f0">,</text>
+  <text x="170" y="192" font-size="11" font-family="monospace" fill="#93c5fd">"Action"</text>
+  <text x="240" y="192" font-size="11" font-family="monospace" fill="#e2e8f0">: "s3:GetObject",</text>
+  <text x="170" y="210" font-size="11" font-family="monospace" fill="#93c5fd">"Resource"</text>
+  <text x="260" y="210" font-size="11" font-family="monospace" fill="#fde68a">: "arn:aws:s3:::my-bucket/*"</text>
+  <text x="150" y="228" font-size="11" font-family="monospace" fill="#e2e8f0">}</text>
+  <text x="130" y="246" font-size="11" font-family="monospace" fill="#e2e8f0">]</text>
+  <text x="110" y="264" font-size="11" font-family="monospace" fill="#e2e8f0">}</text>
+
+  <text x="360" y="325" text-anchor="middle" font-size="13" font-weight="700">📋 주요 요소</text>
+  <line x1="80" y1="338" x2="640" y2="338" stroke="#e2e8f0" stroke-width="1"/>
+
+  <rect x="80" y="350" width="560" height="38" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="100" y="374" font-size="11" font-weight="600">👤 Principal</text>
+  <text x="230" y="374" font-size="10">권한을 부여할 대상 (사용자, 계정, *)</text>
+
+  <rect x="80" y="396" width="560" height="38" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1"/>
+  <text x="100" y="420" font-size="11" font-weight="600">⚡ Effect</text>
+  <text x="230" y="420" font-size="10">Allow 또는 Deny</text>
+
+  <rect x="80" y="442" width="560" height="38" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <text x="100" y="466" font-size="11" font-weight="600">🎯 Action</text>
+  <text x="230" y="466" font-size="10">허용/거부할 작업 (s3:GetObject, s3:PutObject 등)</text>
+
+  <rect x="80" y="488" width="560" height="38" rx="6" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="100" y="512" font-size="11" font-weight="600">📁 Resource</text>
+  <text x="230" y="512" font-size="10">대상 버킷/객체 ARN</text>
+</svg>

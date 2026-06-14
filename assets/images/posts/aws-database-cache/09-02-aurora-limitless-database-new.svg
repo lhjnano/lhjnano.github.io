@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<defs>
+<filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🌍 Aurora 글로벌 아키텍처</text>
+<rect x="30" y="42" width="310" height="195" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1" filter="url(#ds)" opacity="0.3"/>
+<text x="185" y="63" text-anchor="middle" font-size="12" font-weight="bold" fill="#f59e0b">🌏 리전 1 (Primary)</text>
+<rect x="55" y="75" width="260" height="50" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="185" y="97" text-anchor="middle" font-size="12" font-weight="bold" fill="#f59e0b">✏️ Writer</text>
+<text x="185" y="114" text-anchor="middle" font-size="9" fill="#64748b">읽기/쓰기 마스터</text>
+<rect x="55" y="140" width="260" height="45" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="185" y="168" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b5cf6">📖 Reader × N</text>
+<rect x="380" y="42" width="310" height="195" rx="10" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1" filter="url(#ds)" opacity="0.3"/>
+<text x="535" y="63" text-anchor="middle" font-size="12" font-weight="bold" fill="#8b5cf6">🌏 리전 2 (Secondary)</text>
+<rect x="405" y="75" width="260" height="50" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="535" y="97" text-anchor="middle" font-size="12" font-weight="bold" fill="#8b5cf6">📖 Reader</text>
+<text x="535" y="114" text-anchor="middle" font-size="9" fill="#64748b">읽기 전용 복제본</text>
+<rect x="405" y="140" width="260" height="45" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="535" y="168" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b5cf6">📖 Reader × N</text>
+<line x1="315" y1="100" x2="403" y2="100" stroke="#546e7a" stroke-width="2" marker-end="url(#ah)"/>
+<text x="359" y="92" text-anchor="middle" font-size="10" font-weight="bold" fill="#ef4444">⚡ 1초 미만</text>
+<text x="359" y="114" text-anchor="middle" font-size="10" font-weight="bold" fill="#546e7a">복제</text>
+</svg>

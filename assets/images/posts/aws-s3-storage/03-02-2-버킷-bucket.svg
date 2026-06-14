@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <rect x="40" y="10" width="640" height="280" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" filter="url(#sh)"/>
+  <text x="360" y="42" text-anchor="middle" font-size="14" font-weight="700">📋 버킷 명명 규칙</text>
+  <line x1="80" y1="54" x2="640" y2="54" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="80" y="68" width="560" height="72" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="100" y="94" font-size="12" font-weight="700">✅ 적합한 이름</text>
+  <text x="110" y="116" font-size="11" font-family="monospace">my-app-data-2026</text>
+  <text x="340" y="116" font-size="11" font-family="monospace">company-backups-seoul</text>
+  <text x="110" y="134" font-size="11" font-family="monospace">static-assets-prod</text>
+  <rect x="80" y="155" width="560" height="120" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="100" y="181" font-size="12" font-weight="700">📌 규칙</text>
+  <text x="110" y="205" font-size="11">• 3~63자 소문자, 숫자, 하이픈(-)</text>
+  <text x="110" y="225" font-size="11">• 하이픈으로 시작/끝 불가</text>
+  <text x="110" y="245" font-size="11">• IP 주소 형식 불가 (예: 192.168.1.1)</text>
+  <text x="110" y="265" font-size="11">• xn-- 접두사 불가 (Punycode)</text>
+</svg>

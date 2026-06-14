@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="ds" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif">🔍 요청 흐름 추적 (Distributed Tracing)</text>
+<rect x="20" y="42" width="115" height="52" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="77" y="64" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🖥️ Client</text>
+<text x="77" y="80" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">사용자 요청</text>
+<line x1="135" y1="68" x2="172" y2="68" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="175" y="42" width="135" height="52" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="242" y="64" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🔌 API Gateway</text>
+<text x="242" y="80" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">REST API</text>
+<line x1="310" y1="68" x2="347" y2="68" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="350" y="42" width="115" height="52" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="407" y="64" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">⚡ Lambda</text>
+<text x="407" y="80" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">비즈니스 로직</text>
+<line x1="465" y1="68" x2="502" y2="68" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="505" y="42" width="145" height="52" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="577" y="64" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🗄️ DynamoDB</text>
+<text x="577" y="80" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">데이터 저장</text>
+<line x1="242" y1="94" x2="242" y2="152" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="407" y1="94" x2="407" y2="152" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="175" y="155" width="135" height="52" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="242" y="177" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">📢 SNS Topic</text>
+<text x="242" y="193" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">이벤트 발행</text>
+<rect x="340" y="155" width="145" height="52" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="412" y="177" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">📦 S3</text>
+<text x="412" y="193" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">이미지 처리</text>
+<line x1="242" y1="207" x2="242" y2="257" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="175" y="260" width="135" height="52" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="242" y="282" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">📨 SQS Queue</text>
+<text x="242" y="298" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">메시지 큐</text>
+<line x1="310" y1="286" x2="347" y2="286" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="350" y="260" width="115" height="52" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="407" y="282" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">⚡ Lambda</text>
+<text x="407" y="298" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">주문 처리</text>
+<line x1="465" y1="286" x2="502" y2="286" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="505" y="260" width="115" height="52" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="562" y="282" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🗄️ RDS</text>
+<text x="562" y="298" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">관계형 DB</text>
+<text x="360" y="348" text-anchor="middle" font-size="11" fill="#546e7a" font-style="italic" font-family="sans-serif">🔍 X-Ray: 각 구간의 지연 시간, 에러율, 응답 시간 추적</text>
+</svg>

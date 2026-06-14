@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs>
+  <filter id="sh1"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  <marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="30" y="25" width="160" height="42" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh1)"/>
+<text x="110" y="51" text-anchor="middle" font-size="13" font-weight="bold" fill="#0284c7">🏢 온프레미스</text>
+<line x1="190" y1="46" x2="388" y2="46" stroke="#546e7a" stroke-width="2" marker-end="url(#ar1)"/>
+<text x="289" y="38" text-anchor="middle" font-size="11" fill="#546e7a">VPN/DX</text>
+<rect x="398" y="25" width="160" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh1)"/>
+<text x="478" y="51" text-anchor="middle" font-size="13" font-weight="bold" fill="#f59e0b">☁️ VPC</text>
+<line x1="478" y1="67" x2="478" y2="100" stroke="#546e7a" stroke-width="2"/>
+<rect x="348" y="100" width="270" height="36" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="483" y="123" text-anchor="middle" font-size="12" fill="#b45309">AZ-a: EFS 마운트 타겟 (ENI)</text>
+<line x1="478" y1="136" x2="478" y2="150" stroke="#546e7a" stroke-width="1.5"/>
+<rect x="348" y="150" width="270" height="36" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="483" y="173" text-anchor="middle" font-size="12" fill="#b45309">AZ-b: EFS 마운트 타겟 (ENI)</text>
+<line x1="478" y1="186" x2="478" y2="200" stroke="#546e7a" stroke-width="1.5"/>
+<rect x="348" y="200" width="270" height="36" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="483" y="223" text-anchor="middle" font-size="12" fill="#b45309">AZ-c: EFS 마운트 타겟 (ENI)</text>
+<line x1="483" y1="236" x2="420" y2="275" stroke="#546e7a" stroke-width="2" marker-end="url(#ar1)"/>
+<rect x="230" y="275" width="300" height="44" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="2" filter="url(#sh1)"/>
+<text x="380" y="295" text-anchor="middle" font-size="13" font-weight="bold" fill="#16a34a">📁 EFS 파일 시스템</text>
+<text x="380" y="311" text-anchor="middle" font-size="11" fill="#16a34a">(다중 AZ 복제)</text>
+</svg>

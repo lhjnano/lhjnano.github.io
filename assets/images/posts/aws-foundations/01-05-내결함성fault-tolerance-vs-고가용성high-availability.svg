@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="480" fill="#f8fafc" rx="8"/>
+  <rect x="20" y="10" width="700" height="225" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="370" y="35" text-anchor="middle" font-size="13" font-weight="700" font-family="sans-serif" fill="#15803d">🛡️ 내결함성 (Fault Tolerance)</text>
+  <text x="370" y="55" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#546e7a">장애가 발생해도 시스템이 중단 없이 계속 동작</text>
+  <text x="370" y="78" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">예: Multi-AZ RDS — 자동 장애조치(Failover)</text>
+  <rect x="60" y="92" width="280" height="90" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="200" y="112" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#0d47a1">🏢 AZ-a</text>
+  <rect x="100" y="122" width="200" height="45" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="200" y="142" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#e65100">✅ Primary (활성)</text>
+  <text x="200" y="158" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">RDS 마스터</text>
+  <rect x="400" y="92" width="280" height="90" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="540" y="112" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#0d47a1">🏢 AZ-b</text>
+  <rect x="440" y="122" width="200" height="45" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="540" y="142" text-anchor="middle" font-size="12" font-weight="600" font-family="sans-serif" fill="#78909c">⏸️ Standby (대기)</text>
+  <text x="540" y="158" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">RDS 복제본</text>
+  <line x1="300" y1="137" x2="440" y2="137" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="370" y="132" text-anchor="middle" font-size="9" font-weight="600" font-family="sans-serif" fill="#546e7a">동기 복제</text>
+  <text x="370" y="205" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#22c55e">Primary 장애 → Standby 자동 승격 → 서비스 무중단 ✅</text>
+  <line x1="20" y1="245" x2="720" y2="245" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="20" y="255" width="700" height="215" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="370" y="278" text-anchor="middle" font-size="13" font-weight="700" font-family="sans-serif" fill="#0d47a1">⚡ 고가용성 (High Availability)</text>
+  <text x="370" y="298" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#546e7a">장애 발생 시 최소한의 중단으로 빠르게 복구</text>
+  <text x="370" y="320" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">예: ELB + 다중 AZ EC2</text>
+  <rect x="60" y="335" width="280" height="70" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="200" y="355" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#0d47a1">🏢 AZ-a</text>
+  <rect x="100" y="365" width="200" height="30" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <text x="200" y="385" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#e65100">🖥️ EC2-A</text>
+  <rect x="400" y="335" width="280" height="70" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="540" y="355" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#0d47a1">🏢 AZ-b</text>
+  <rect x="440" y="365" width="200" height="30" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <text x="540" y="385" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#e65100">🖥️ EC2-B</text>
+  <line x1="200" y1="405" x2="200" y2="430" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="540" y1="405" x2="540" y2="430" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="200" y1="430" x2="540" y2="430" stroke="#546e7a" stroke-width="1.5"/>
+  <rect x="320" y="425" width="100" height="30" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="370" y="445" text-anchor="middle" font-size="11" font-weight="700" font-family="sans-serif" fill="#e65100">⚖️ ELB</text>
+  <text x="370" y="470" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#0284c7">EC2-A 장애 → ELB가 자동으로 EC2-B로 라우팅 (짧은 중단 후 복구)</text>
+</svg>

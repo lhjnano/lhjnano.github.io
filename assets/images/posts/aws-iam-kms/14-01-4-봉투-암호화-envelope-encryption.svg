@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs>
+  <filter id="sh1"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  <marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="20" y="10" width="680" height="170" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="360" y="32" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">🔒 암호화 과정</text>
+<rect x="40" y="42" width="200" height="36" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="140" y="65" text-anchor="middle" font-size="11" fill="#0284c7">1. 애플리케이션</text>
+<line x1="240" y1="60" x2="300" y2="60" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="270" y="52" text-anchor="middle" font-size="9" fill="#546e7a">GenerateDataKey</text>
+<rect x="310" y="42" width="140" height="36" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="380" y="65" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">🔑 KMS 키</text>
+<line x1="380" y1="78" x2="380" y2="95" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="430" y="90" text-anchor="middle" font-size="9" fill="#546e7a">2. 데이터 키 생성</text>
+<rect x="260" y="95" width="160" height="32" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="340" y="116" text-anchor="middle" font-size="10" fill="#b45309">일반 텍스트 키 + 암호화된 키</text>
+<line x1="340" y1="127" x2="340" y2="140" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="415" y="138" text-anchor="middle" font-size="9" fill="#546e7a">3. 데이터 암호화</text>
+<rect x="180" y="140" width="130" height="30" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1" filter="url(#sh1)"/>
+<text x="245" y="160" text-anchor="middle" font-size="10" fill="#16a34a">평문 데이터</text>
+<line x1="310" y1="155" x2="370" y2="155" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<rect x="380" y="140" width="130" height="30" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1" filter="url(#sh1)"/>
+<text x="445" y="160" text-anchor="middle" font-size="10" fill="#dc2626">암호화된 데이터</text>
+<text x="560" y="145" text-anchor="middle" font-size="9" fill="#546e7a">4. 일반 키 폐기</text>
+<text x="560" y="158" text-anchor="middle" font-size="9" fill="#546e7a">5. 저장: 암호화데이터+키</text>
+<rect x="20" y="195" width="680" height="195" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+<text x="360" y="217" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">🔓 복호화 과정</text>
+<rect x="40" y="228" width="160" height="36" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="120" y="251" text-anchor="middle" font-size="11" fill="#dc2626">1. 암호화된 키</text>
+<line x1="200" y1="246" x2="278" y2="246" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="239" y="238" text-anchor="middle" font-size="9" fill="#546e7a">Decrypt</text>
+<rect x="288" y="228" width="140" height="36" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="358" y="251" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">🔑 KMS 키</text>
+<line x1="358" y1="264" x2="358" y2="285" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="430" y="278" text-anchor="middle" font-size="9" fill="#546e7a">2. 일반 텍스트 키 획득</text>
+<rect x="260" y="285" width="200" height="30" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh1)"/>
+<text x="360" y="305" text-anchor="middle" font-size="10" fill="#b45309">일반 텍스트 키 (메모리에서만)</text>
+<line x1="360" y1="315" x2="360" y2="335" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<text x="415" y="330" text-anchor="middle" font-size="9" fill="#546e7a">3. 데이터 복호화</text>
+<rect x="210" y="335" width="130" height="30" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1" filter="url(#sh1)"/>
+<text x="275" y="355" text-anchor="middle" font-size="10" fill="#dc2626">암호화된 데이터</text>
+<line x1="340" y1="350" x2="380" y2="350" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar1)"/>
+<rect x="390" y="335" width="130" height="30" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1" filter="url(#sh1)"/>
+<text x="455" y="355" text-anchor="middle" font-size="10" fill="#16a34a">평문 데이터</text>
+<text x="580" y="355" text-anchor="middle" font-size="9" fill="#546e7a">4. 키 폐기</text>
+</svg>

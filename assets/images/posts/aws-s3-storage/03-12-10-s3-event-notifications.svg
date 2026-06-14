@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700">📢 S3 이벤트 알림 아키텍처</text>
+
+  <rect x="40" y="42" width="180" height="180" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
+  <text x="130" y="70" text-anchor="middle" font-size="13" font-weight="700">📦 S3 버킷</text>
+  <text x="130" y="92" text-anchor="middle" font-size="10">이벤트:</text>
+  <text x="130" y="110" text-anchor="middle" font-size="10">• PUT</text>
+  <text x="130" y="126" text-anchor="middle" font-size="10">• POST</text>
+  <text x="130" y="142" text-anchor="middle" font-size="10">• COPY</text>
+  <text x="130" y="158" text-anchor="middle" font-size="10">• DELETE</text>
+  <text x="130" y="174" text-anchor="middle" font-size="10">• 등등</text>
+
+  <line x1="220" y1="100" x2="310" y2="80" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="265" y="80" font-size="9" fill="#546e7a">이벤트 발생</text>
+
+  <line x1="220" y1="130" x2="310" y2="150" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="220" y1="160" x2="310" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <rect x="314" y="50" width="160" height="60" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="394" y="76" text-anchor="middle" font-size="11" font-weight="700">📧 SNS Topic</text>
+  <text x="394" y="94" text-anchor="middle" font-size="9">(발행/구독)</text>
+
+  <rect x="314" y="120" width="160" height="60" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="394" y="146" text-anchor="middle" font-size="11" font-weight="700">📬 SQS</text>
+  <text x="394" y="164" text-anchor="middle" font-size="9">(큐)</text>
+
+  <rect x="314" y="190" width="160" height="60" rx="10" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="394" y="216" text-anchor="middle" font-size="11" font-weight="700">⚡ Lambda</text>
+  <text x="394" y="234" text-anchor="middle" font-size="9">(함수)</text>
+
+  <line x1="220" y1="200" x2="310" y2="280" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <rect x="314" y="270" width="370" height="110" rx="10" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="499" y="298" text-anchor="middle" font-size="12" font-weight="700">🌉 Amazon EventBridge</text>
+  <text x="499" y="318" text-anchor="middle" font-size="10">(고급 이벤트 라우팅)</text>
+  <line x1="340" y1="335" x2="650" y2="335" stroke="#ef4444" stroke-width="0.5"/>
+  <text x="499" y="354" text-anchor="middle" font-size="10">→ 다수의 AWS 서비스로 전달</text>
+  <text x="499" y="370" text-anchor="middle" font-size="9" fill="#64748b">이벤트 필터링, 아카이브, 재생 지원</text>
+</svg>

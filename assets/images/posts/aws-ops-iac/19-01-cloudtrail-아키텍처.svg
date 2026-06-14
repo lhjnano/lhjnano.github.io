@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="ds" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="250" y="10" width="220" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="36" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif">☁️ AWS 계정</text>
+<rect x="30" y="80" width="150" height="40" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="105" y="105" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif">🌏 서울 리전</text>
+<rect x="30" y="135" width="150" height="40" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="105" y="160" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif">🌏 도쿄 리전</text>
+<rect x="30" y="190" width="150" height="40" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="105" y="215" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif">🌏 버지니아 리전</text>
+<line x1="180" y1="100" x2="250" y2="145" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="180" y1="155" x2="250" y2="155" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="180" y1="210" x2="250" y2="165" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="253" y="128" width="215" height="52" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="151" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">📝 CloudTrail</text>
+<text x="360" y="168" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">다중 리전 Trail</text>
+<line x1="360" y1="180" x2="360" y2="225" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="245" y="228" width="230" height="52" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="251" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🗄️ S3 버킷</text>
+<text x="360" y="268" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">중앙 로그 저장소</text>
+<text x="530" y="248" font-size="10" fill="#22c55e" font-family="sans-serif">✅ SSE-KMS 암호화</text>
+<text x="530" y="265" font-size="10" fill="#22c55e" font-family="sans-serif">✅ 버전 관리 + MFA Delete</text>
+<text x="530" y="282" font-size="10" fill="#22c55e" font-family="sans-serif">✅ 수명 주기 정책 (7년 보존)</text>
+<line x1="360" y1="280" x2="360" y2="320" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="360" y1="320" x2="220" y2="320" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="360" y1="320" x2="500" y2="320" stroke="#546e7a" stroke-width="1.5"/>
+<line x1="220" y1="320" x2="220" y2="345" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="500" y1="320" x2="500" y2="345" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="130" y="348" width="180" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="220" y="368" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif">🔍 Athena</text>
+<text x="220" y="383" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">SQL 쿼리 분석</text>
+<rect x="410" y="348" width="180" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="500" y="368" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif">📊 CloudWatch</text>
+<text x="500" y="383" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">실시간 경고</text>
+</svg>

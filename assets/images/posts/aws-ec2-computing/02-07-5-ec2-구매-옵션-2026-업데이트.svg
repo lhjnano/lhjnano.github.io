@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="280" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">💳 EC2 구매 옵션 비교</text>
+  <rect x="30" y="38" width="110" height="30" rx="6" fill="#37474f"/>
+  <text x="85" y="58" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="sans-serif">항목</text>
+  <rect x="150" y="38" width="130" height="30" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="215" y="58" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#0d47a1">온디맨드</text>
+  <rect x="290" y="38" width="130" height="30" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="355" y="58" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#15803d">Savings Plans</text>
+  <rect x="430" y="38" width="140" height="30" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="500" y="58" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#e65100">예약(RI)</text>
+  <rect x="580" y="38" width="130" height="30" rx="6" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="645" y="58" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#6b21a8">스팟(Spot)</text>
+  <rect x="30" y="73" width="110" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="85" y="91" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">약정</text>
+  <rect x="150" y="73" width="130" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="215" y="91" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">없음</text>
+  <rect x="290" y="73" width="130" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="355" y="91" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">1년/3년</text>
+  <rect x="430" y="73" width="140" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="500" y="91" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">1년/3년</text>
+  <rect x="580" y="73" width="130" height="28" fill="#f3e8ff" stroke="#8b5cf6" stroke-opacity="0.3"/><text x="645" y="91" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">없음</text>
+  <rect x="30" y="104" width="110" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="85" y="122" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">할인율</text>
+  <rect x="150" y="104" width="130" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="215" y="122" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">정가</text>
+  <rect x="290" y="104" width="130" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="355" y="122" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">최대 72%</text>
+  <rect x="430" y="104" width="140" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="500" y="122" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#e65100">최대 72%</text>
+  <rect x="580" y="104" width="130" height="28" fill="#f3e8ff" stroke="#8b5cf6" stroke-opacity="0.3"/><text x="645" y="122" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#6b21a8">최대 90%</text>
+  <rect x="30" y="135" width="110" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="85" y="153" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">유연성</text>
+  <rect x="150" y="135" width="130" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="215" y="153" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#0d47a1">최고 ⭐</text>
+  <rect x="290" y="135" width="130" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="355" y="153" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">높음</text>
+  <rect x="430" y="135" width="140" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="500" y="153" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">중간</text>
+  <rect x="580" y="135" width="130" height="28" fill="#f3e8ff" stroke="#8b5cf6" stroke-opacity="0.3"/><text x="645" y="153" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">낮음</text>
+  <rect x="30" y="166" width="110" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="85" y="184" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">중단 가능성</text>
+  <rect x="150" y="166" width="130" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="215" y="184" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">없음</text>
+  <rect x="290" y="166" width="130" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="355" y="184" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">없음</text>
+  <rect x="430" y="166" width="140" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="500" y="184" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">없음</text>
+  <rect x="580" y="166" width="130" height="28" fill="#f3e8ff" stroke="#8b5cf6" stroke-opacity="0.3"/><text x="645" y="184" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#ef4444">있음 ⚠️</text>
+  <rect x="30" y="200" width="110" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="85" y="218" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">적합 용도</text>
+  <rect x="150" y="200" width="130" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="215" y="218" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#546e7a">테스트, 단기 워크로드</text>
+  <rect x="290" y="200" width="130" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="355" y="218" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#546e7a">프로덕션 워크로드</text>
+  <rect x="430" y="200" width="140" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="500" y="218" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#546e7a">장기 예측 가능</text>
+  <rect x="580" y="200" width="130" height="28" fill="#f3e8ff" stroke="#8b5cf6" stroke-opacity="0.3"/><text x="645" y="218" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#546e7a">배치/CI/CD, 빅데이터</text>
+  <text x="370" y="260" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#f59e0b">💡 팁: Savings Plans + 스팟 조합으로 최대 비용 절감 가능</text>
+</svg>

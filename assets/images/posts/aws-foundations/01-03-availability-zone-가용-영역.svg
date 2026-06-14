@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 310" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="310" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="13" font-weight="700" font-family="sans-serif" fill="#37474f">🇰🇷 리전 내 AZ 구조 예시 (서울 리전: ap-northeast-2)</text>
+  <rect x="30" y="45" width="220" height="200" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="140" y="68" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#0d47a1">🏢 AZ-a</text>
+  <rect x="55" y="80" width="170" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="140" y="100" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">🖥️ DC (데이터센터)</text>
+  <text x="140" y="118" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">독립 전력/냉각 시스템</text>
+  <rect x="55" y="140" width="170" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="140" y="160" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">🖥️ DC (데이터센터)</text>
+  <text x="140" y="178" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">독립 전력/냉각 시스템</text>
+  <rect x="260" y="45" width="220" height="200" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="370" y="68" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#0d47a1">🏢 AZ-b</text>
+  <rect x="285" y="80" width="170" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="370" y="100" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">🖥️ DC (데이터센터)</text>
+  <text x="370" y="118" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">독립 전력/냉각 시스템</text>
+  <rect x="285" y="140" width="170" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="370" y="160" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">🖥️ DC (데이터센터)</text>
+  <text x="370" y="178" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">독립 전력/냉각 시스템</text>
+  <rect x="490" y="45" width="220" height="200" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="600" y="68" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#0d47a1">🏢 AZ-c</text>
+  <rect x="515" y="80" width="170" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="600" y="100" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">🖥️ DC (데이터센터)</text>
+  <text x="600" y="118" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">독립 전력/냉각 시스템</text>
+  <rect x="515" y="140" width="170" height="50" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="600" y="160" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">🖥️ DC (데이터센터)</text>
+  <text x="600" y="178" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">독립 전력/냉각 시스템</text>
+  <line x1="140" y1="245" x2="140" y2="265" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="370" y1="245" x2="370" y2="265" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="600" y1="245" x2="600" y2="265" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="140" y1="265" x2="600" y2="265" stroke="#f59e0b" stroke-width="2.5"/>
+  <rect x="280" y="273" width="180" height="28" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="370" y="292" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#e65100">🔗 저지연 전용망 (&lt;1ms)</text>
+</svg>

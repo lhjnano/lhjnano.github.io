@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="ds" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="20" y="10" width="160" height="35" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="100" y="33" text-anchor="middle" font-size="11" font-family="sans-serif">계정 A - 서울</text>
+<rect x="20" y="55" width="160" height="35" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="100" y="78" text-anchor="middle" font-size="11" font-family="sans-serif">계정 A - 도쿄</text>
+<rect x="20" y="100" width="160" height="35" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="100" y="123" text-anchor="middle" font-size="11" font-family="sans-serif">계정 B - 서울</text>
+<rect x="20" y="145" width="160" height="35" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="100" y="168" text-anchor="middle" font-size="11" font-family="sans-serif">계정 B - 버지니아</text>
+<rect x="20" y="190" width="160" height="35" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="100" y="213" text-anchor="middle" font-size="11" font-family="sans-serif">계정 C - 서울</text>
+<line x1="180" y1="28" x2="310" y2="120" stroke="#546e7a" stroke-width="1.2" marker-end="url(#ah)"/>
+<line x1="180" y1="73" x2="310" y2="125" stroke="#546e7a" stroke-width="1.2" marker-end="url(#ah)"/>
+<line x1="180" y1="118" x2="310" y2="130" stroke="#546e7a" stroke-width="1.2" marker-end="url(#ah)"/>
+<line x1="180" y1="163" x2="310" y2="135" stroke="#546e7a" stroke-width="1.2" marker-end="url(#ah)"/>
+<line x1="180" y1="208" x2="310" y2="140" stroke="#546e7a" stroke-width="1.2" marker-end="url(#ah)"/>
+<rect x="313" y="105" width="230" height="55" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="428" y="128" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">📋 Config Aggregator</text>
+<text x="428" y="148" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">중앙 계정</text>
+<line x1="428" y1="160" x2="428" y2="200" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="280" y="203" width="295" height="55" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#ds)"/>
+<text x="428" y="224" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">📊 통합 규정 준수 대시보드</text>
+<text x="428" y="244" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">중앙 모니터링</text>
+<text x="428" y="292" font-size="11" fill="#555" font-family="sans-serif">✅ 전체 준수율</text>
+<text x="428" y="312" font-size="11" fill="#555" font-family="sans-serif">✅ 계정별 준수 상태</text>
+<text x="428" y="332" font-size="11" fill="#555" font-family="sans-serif">✅ 위반 리소스 목록</text>
+<line x1="428" y1="258" x2="428" y2="278" stroke="#546e7a" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>

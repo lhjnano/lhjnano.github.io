@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<defs>
+<filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">📋 CloudFormation Stack 라이프사이클</text>
+<rect x="260" y="40" width="200" height="55" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="63" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">📄 템플릿 작성</text>
+<text x="360" y="82" text-anchor="middle" font-size="10" fill="#64748b">YAML / JSON</text>
+<line x1="360" y1="95" x2="360" y2="122" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="245" y="125" width="230" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="151" text-anchor="middle" font-size="12" font-weight="bold" fill="#f59e0b">⏳ CREATE_IN_PROGRESS</text>
+<line x1="360" y1="167" x2="360" y2="192" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="165" y="195" width="200" height="42" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="265" y="221" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">✅ CREATE_COMPLETE</text>
+<rect x="430" y="195" width="210" height="42" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#ds)"/>
+<text x="535" y="221" text-anchor="middle" font-size="12" font-weight="bold" fill="#ef4444">❌ CREATE_ROLLBACK</text>
+<line x1="360" y1="167" x2="265" y2="193" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="360" y1="167" x2="535" y2="193" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ah)"/>
+<text x="420" y="182" font-size="9" fill="#ef4444">오류 시</text>
+<line x1="210" y1="237" x2="155" y2="267" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="320" y1="237" x2="400" y2="267" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="40" y="270" width="190" height="45" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="135" y="293" text-anchor="middle" font-size="12" font-weight="bold" fill="#8b5cf6">🔄 UPDATE (수정)</text>
+<text x="135" y="308" text-anchor="middle" font-size="9" fill="#64748b">스택 리소스 변경</text>
+<rect x="350" y="270" width="190" height="45" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#ds)"/>
+<text x="445" y="293" text-anchor="middle" font-size="12" font-weight="bold" fill="#ef4444">🗑 DELETE (삭제)</text>
+<text x="445" y="308" text-anchor="middle" font-size="9" fill="#64748b">모든 리소스 제거</text>
+</svg>

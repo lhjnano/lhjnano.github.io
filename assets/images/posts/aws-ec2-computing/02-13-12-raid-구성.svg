@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+
+  <text x="360" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">💾 RAID 레벨 비교 (EBS 환경)</text>
+
+  <!-- RAID 0 Section -->
+  <rect x="30" y="42" width="310" height="180" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="185" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">RAID 0 — 스트라이핑 (성능 향상)</text>
+
+  <rect x="55" y="82" width="55" height="40" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="82" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#22c55e">Vol 1</text>
+  <rect x="120" y="82" width="55" height="40" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="147" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#22c55e">Vol 2</text>
+  <rect x="185" y="82" width="55" height="40" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="212" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#22c55e">Vol 3</text>
+  <rect x="250" y="82" width="55" height="40" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="277" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#22c55e">Vol 4</text>
+
+  <line x1="82" y1="122" x2="82" y2="140" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="147" y1="122" x2="147" y2="140" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="212" y1="122" x2="212" y2="140" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="277" y1="122" x2="277" y2="140" stroke="#546e7a" stroke-width="1.5"/>
+  <line x1="82" y1="140" x2="277" y2="140" stroke="#546e7a" stroke-width="2"/>
+  <line x1="185" y1="140" x2="185" y2="155" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+
+  <text x="185" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="#22c55e">⚡ 성능 = N배 향상</text>
+  <text x="185" y="195" text-anchor="middle" font-size="11" fill="#ef4444">⚠️ 볼륨 1개 장애 → 전체 데이터 손실</text>
+
+  <!-- RAID 1 Section -->
+  <rect x="380" y="42" width="310" height="180" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="535" y="66" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">RAID 1 — 미러링 (내결함성)</text>
+
+  <rect x="405" y="82" width="110" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="460" y="103" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">Vol 1</text>
+  <text x="460" y="120" text-anchor="middle" font-size="10" fill="#0284c7">(원본)</text>
+  <rect x="555" y="82" width="110" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="610" y="103" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">Vol 2</text>
+  <text x="610" y="120" text-anchor="middle" font-size="10" fill="#0284c7">(미러)</text>
+
+  <line x1="515" y1="107" x2="555" y2="107" stroke="#546e7a" stroke-width="2.5" stroke-dasharray="6,3"/>
+  <text x="535" y="100" text-anchor="middle" font-size="10" fill="#546e7a">동시 기록</text>
+
+  <text x="535" y="158" text-anchor="middle" font-size="11" fill="#22c55e">✅ 볼륨 1개 장애 → 데이터 보존</text>
+  <text x="535" y="178" text-anchor="middle" font-size="11" fill="#0284c7">내구성 2배, 비용 2배</text>
+
+  <!-- RAID 5/6 Warning -->
+  <rect x="100" y="240" width="520" height="50" rx="10" fill="#fce4ec" stroke="#ef4444" stroke-width="2" filter="url(#sh)"/>
+  <text x="360" y="262" text-anchor="middle" font-size="13" font-weight="bold" fill="#ef4444">🚫 RAID 5/6 — AWS 권장하지 않음</text>
+  <text x="360" y="280" text-anchor="middle" font-size="11" fill="#dc2626">패리티 연산 성능 저하 · EBS에서는 RAID 0 또는 RAID 1 권장</text>
+
+</svg>

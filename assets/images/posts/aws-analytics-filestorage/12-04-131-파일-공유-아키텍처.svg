@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs>
+  <filter id="sh4"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  <marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="280" y="15" width="140" height="40" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="2" filter="url(#sh4)"/>
+<text x="350" y="40" text-anchor="middle" font-size="13" font-weight="bold" fill="#7c3aed">🌐 ALB</text>
+<line x1="310" y1="55" x2="160" y2="85" stroke="#546e7a" stroke-width="2"/>
+<line x1="350" y1="55" x2="350" y2="85" stroke="#546e7a" stroke-width="2"/>
+<line x1="390" y1="55" x2="540" y2="85" stroke="#546e7a" stroke-width="2"/>
+<rect x="30" y="85" width="220" height="38" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh4)"/>
+<text x="140" y="109" text-anchor="middle" font-size="12" fill="#475569">🖥️ EC2-A (Web Server)</text>
+<rect x="240" y="85" width="220" height="38" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh4)"/>
+<text x="350" y="109" text-anchor="middle" font-size="12" fill="#475569">🖥️ EC2-B (Web Server)</text>
+<rect x="450" y="85" width="220" height="38" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh4)"/>
+<text x="560" y="109" text-anchor="middle" font-size="12" fill="#475569">🖥️ EC2-C (Web Server)</text>
+<line x1="140" y1="123" x2="350" y2="170" stroke="#546e7a" stroke-width="2" marker-end="url(#ar4)"/>
+<line x1="350" y1="123" x2="350" y2="170" stroke="#546e7a" stroke-width="2"/>
+<line x1="560" y1="123" x2="350" y2="170" stroke="#546e7a" stroke-width="2"/>
+<rect x="220" y="170" width="260" height="42" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="2" filter="url(#sh4)"/>
+<text x="350" y="190" text-anchor="middle" font-size="13" font-weight="bold" fill="#16a34a">📁 EFS: /var/www/html</text>
+<text x="350" y="206" text-anchor="middle" font-size="10" fill="#16a34a">(공유 콘텐츠, 세션 데이터)</text>
+</svg>

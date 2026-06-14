@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<defs>
+<filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🏗 환경 분리 아키텍처</text>
+<rect x="120" y="40" width="480" height="65" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="62" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">📄 공통 템플릿 (parameterized)</text>
+<text x="360" y="80" text-anchor="middle" font-size="9" fill="#64748b">VPC, Subnet, SG, ECS, RDS, ElastiCache | Parameters: Environment, InstanceType ...</text>
+<line x1="200" y1="105" x2="120" y2="142" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="360" y1="105" x2="360" y2="142" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="520" y1="105" x2="600" y2="142" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="20" y="145" width="210" height="140" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="125" y="168" text-anchor="middle" font-size="12" font-weight="bold" fill="#0284c7">🧪 Dev Stack</text>
+<text x="125" y="190" text-anchor="middle" font-size="10" fill="#64748b">• t3.small</text>
+<text x="125" y="206" text-anchor="middle" font-size="10" fill="#64748b">• 1 AZ</text>
+<text x="125" y="222" text-anchor="middle" font-size="10" fill="#64748b">• 1 Task</text>
+<text x="125" y="238" text-anchor="middle" font-size="10" fill="#64748b">• 단일 AZ RDS</text>
+<rect x="255" y="145" width="210" height="140" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="168" text-anchor="middle" font-size="12" font-weight="bold" fill="#f59e0b">🧪 Staging Stack</text>
+<text x="360" y="190" text-anchor="middle" font-size="10" fill="#64748b">• t3.medium</text>
+<text x="360" y="206" text-anchor="middle" font-size="10" fill="#64748b">• 2 AZ</text>
+<text x="360" y="222" text-anchor="middle" font-size="10" fill="#64748b">• 2 Tasks</text>
+<text x="360" y="238" text-anchor="middle" font-size="10" fill="#64748b">• Multi-AZ RDS</text>
+<rect x="490" y="145" width="210" height="140" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#ds)"/>
+<text x="595" y="168" text-anchor="middle" font-size="12" font-weight="bold" fill="#ef4444">🚀 Prod Stack</text>
+<text x="595" y="190" text-anchor="middle" font-size="10" fill="#64748b">• t3.xlarge</text>
+<text x="595" y="206" text-anchor="middle" font-size="10" fill="#64748b">• 3 AZ</text>
+<text x="595" y="222" text-anchor="middle" font-size="10" fill="#64748b">• 4+ Tasks</text>
+<text x="595" y="238" text-anchor="middle" font-size="10" fill="#64748b">• Multi-AZ RDS</text>
+<rect x="140" y="310" width="440" height="35" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1" filter="url(#ds)"/>
+<text x="360" y="333" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b5cf6">⚙️ Parameter Store / 환경별 파라미터 파일</text>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="200" fill="#f8fafc" rx="8"/>
+  <text x="370" y="28" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">🏷️ 인스턴스 유형 명명 규칙</text>
+  <rect x="140" y="50" width="100" height="55" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="190" y="72" text-anchor="middle" font-size="22" font-weight="700" font-family="monospace" fill="#e65100">m</text>
+  <text x="190" y="95" text-anchor="middle" font-size="9" font-weight="600" font-family="sans-serif" fill="#78909c">패밀리</text>
+  <rect x="250" y="50" width="100" height="55" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="300" y="72" text-anchor="middle" font-size="22" font-weight="700" font-family="monospace" fill="#0d47a1">7</text>
+  <text x="300" y="95" text-anchor="middle" font-size="9" font-weight="600" font-family="sans-serif" fill="#78909c">세대</text>
+  <rect x="360" y="50" width="100" height="55" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
+  <text x="410" y="72" text-anchor="middle" font-size="22" font-weight="700" font-family="monospace" fill="#15803d">i</text>
+  <text x="410" y="95" text-anchor="middle" font-size="9" font-weight="600" font-family="sans-serif" fill="#78909c">속성</text>
+  <rect x="470" y="50" width="130" height="55" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="2" filter="url(#sh)"/>
+  <text x="535" y="72" text-anchor="middle" font-size="18" font-weight="700" font-family="monospace" fill="#6b21a8">.xlarge</text>
+  <text x="535" y="95" text-anchor="middle" font-size="9" font-weight="600" font-family="sans-serif" fill="#78909c">크기</text>
+  <text x="370" y="135" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#546e7a">예시: m7i.xlarge</text>
+  <text x="155" y="160" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#e65100">m=범용, c=컴퓨팅</text>
+  <text x="155" y="175" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#e65100">r=메모리, p=GPU</text>
+  <text x="380" y="160" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">i=Intel, g=Graviton</text>
+  <text x="380" y="175" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">a=AMD, n=Network</text>
+  <text x="580" y="160" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#6b21a8">xlarge, 2xlarge</text>
+  <text x="580" y="175" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#6b21a8">4xlarge, 8xlarge...</text>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 390" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="ds" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif">📊 CloudWatch 기반 자동 스케일링 아키텍처</text>
+<rect x="20" y="48" width="150" height="55" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="95" y="70" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">📱 Application</text>
+<text x="95" y="86" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">지표 수집</text>
+<line x1="170" y1="75" x2="222" y2="75" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="225" y="48" width="155" height="55" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="302" y="70" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🔔 CloudWatch</text>
+<text x="302" y="86" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">경보 (ALARM)</text>
+<line x1="380" y1="75" x2="432" y2="75" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="435" y="48" width="155" height="55" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="512" y="70" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">⚖️ Auto Scaling</text>
+<text x="512" y="86" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">그룹</text>
+<line x1="512" y1="103" x2="512" y2="155" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="512" y1="175" x2="200" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="512" y1="175" x2="512" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="512" y1="175" x2="610" y2="215" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="130" y="155" width="765" height="0" rx="0" fill="none"/>
+<circle cx="512" cy="165" r="5" fill="#546e7a"/>
+<rect x="130" y="218" width="135" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#ds)"/>
+<text x="197" y="240" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🖥️ EC2 #1</text>
+<text x="197" y="256" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">인스턴스</text>
+<rect x="440" y="218" width="135" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#ds)"/>
+<text x="507" y="240" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🖥️ EC2 #2</text>
+<text x="507" y="256" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">인스턴스</text>
+<rect x="610" y="218" width="0" height="0"/>
+<rect x="575" y="218" width="135" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#ds)"/>
+<text x="642" y="240" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif">🖥️ EC2 #3</text>
+<text x="642" y="256" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">인스턴스</text>
+<text x="360" y="310" text-anchor="middle" font-size="12" fill="#546e7a" font-family="sans-serif">⬅️ 스케일 아웃 (인스턴스 추가) ➡️</text>
+<rect x="100" y="280" width="560" height="35" rx="6" fill="none" stroke="#546e7a" stroke-width="1" stroke-dasharray="5,3"/>
+</svg>

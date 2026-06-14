@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 310" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="310" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">💿 EBS 볼륨 유형 비교</text>
+  <rect x="30" y="38" width="210" height="30" rx="6" fill="#37474f"/>
+  <text x="135" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="sans-serif">볼륨 유형</text>
+  <rect x="250" y="38" width="240" height="30" rx="6" fill="#37474f"/>
+  <text x="370" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="sans-serif">특징</text>
+  <rect x="500" y="38" width="210" height="30" rx="6" fill="#37474f"/>
+  <text x="605" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="sans-serif">용도</text>
+  <rect x="30" y="73" width="210" height="55" rx="0" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <text x="135" y="93" text-anchor="middle" font-size="11" font-weight="700" font-family="sans-serif" fill="#e65100">⭐ gp3 (범용 SSD)</text>
+  <text x="135" y="112" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#78909c">2026 기본 권장</text>
+  <rect x="250" y="73" width="240" height="55" rx="0" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/>
+  <text x="370" y="90" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">최대 16,000 IOPS</text>
+  <text x="370" y="105" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">최대 1,000MB/s</text>
+  <text x="370" y="120" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">IOPS/처리량 독립 설정</text>
+  <rect x="500" y="73" width="210" height="55" rx="0" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/>
+  <text x="605" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">대부분의 워크로드</text>
+  <text x="605" y="108" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">부팅 볼륨</text>
+  <text x="605" y="123" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">개발/테스트</text>
+  <rect x="30" y="133" width="210" height="55" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-width="1"/>
+  <text x="135" y="153" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#15803d">🚀 io2 Block Express</text>
+  <text x="135" y="172" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#78909c">프로비저닝 IOPS</text>
+  <rect x="250" y="133" width="240" height="55" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/>
+  <text x="370" y="150" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">최대 256,000 IOPS</text>
+  <text x="370" y="165" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">최대 4,000MB/s</text>
+  <text x="370" y="180" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">99.999% 내구성</text>
+  <rect x="500" y="133" width="210" height="55" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/>
+  <text x="605" y="153" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">고성능 DB</text>
+  <text x="605" y="168" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">SAP HANA</text>
+  <text x="605" y="183" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">미션 크리티컬</text>
+  <rect x="30" y="193" width="210" height="50" rx="0" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="135" y="213" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#6b21a8">💿 st1 (처리량 HDD)</text>
+  <rect x="250" y="193" width="240" height="50" rx="0" fill="#f3e8ff" stroke="#8b5cf6" stroke-opacity="0.3"/>
+  <text x="370" y="210" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">최대 500MB/s | 저비용</text>
+  <rect x="500" y="193" width="210" height="50" rx="0" fill="#f3e8ff" stroke="#8b5cf6" stroke-opacity="0.3"/>
+  <text x="605" y="210" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">빅데이터 | 로그 | DW</text>
+  <rect x="30" y="248" width="210" height="50" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+  <text x="135" y="268" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#b91c1c">❄️ sc1 (Cold HDD)</text>
+  <rect x="250" y="248" width="240" height="50" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/>
+  <text x="370" y="268" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">최대 250MB/s | 최저비용</text>
+  <rect x="500" y="248" width="210" height="50" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/>
+  <text x="605" y="268" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">아카이브 | 저빈도 데이터</text>
+</svg>

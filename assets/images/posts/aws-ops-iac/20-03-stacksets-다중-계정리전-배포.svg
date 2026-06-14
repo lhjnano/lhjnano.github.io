@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<defs>
+<filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🌐 StackSets 다중 계정/리전 배포</text>
+<rect x="220" y="42" width="280" height="80" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="#f59e0b">🏢 관리 계정</text>
+<rect x="255" y="75" width="210" height="35" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="1"/>
+<text x="360" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#f59e0b">📋 StackSet (마스터 템플릿)</text>
+<line x1="260" y1="122" x2="100" y2="168" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="320" y1="122" x2="275" y2="168" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="400" y1="122" x2="450" y2="168" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<line x1="440" y1="122" x2="625" y2="168" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="25" y="172" width="150" height="80" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="100" y="194" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">👤 계정 A</text>
+<text x="100" y="214" text-anchor="middle" font-size="10" fill="#64748b">리전 1</text>
+<text x="100" y="230" text-anchor="middle" font-size="10" fill="#64748b">리전 2</text>
+<rect x="200" y="172" width="150" height="80" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="275" y="194" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">👤 계정 B</text>
+<text x="275" y="214" text-anchor="middle" font-size="10" fill="#64748b">리전 1</text>
+<text x="275" y="230" text-anchor="middle" font-size="10" fill="#64748b">리전 2</text>
+<rect x="375" y="172" width="150" height="80" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="450" y="194" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">👤 계정 C</text>
+<text x="450" y="214" text-anchor="middle" font-size="10" fill="#64748b">리전 1</text>
+<rect x="555" y="172" width="150" height="80" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="630" y="194" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">👤 계정 D</text>
+<text x="630" y="214" text-anchor="middle" font-size="10" fill="#64748b">리전 1</text>
+<text x="630" y="230" text-anchor="middle" font-size="10" fill="#64748b">리전 2</text>
+<rect x="150" y="280" width="420" height="35" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1" filter="url(#ds)"/>
+<text x="360" y="303" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b5cf6">🏢 AWS Organizations 기반 자동 배포</text>
+</svg>

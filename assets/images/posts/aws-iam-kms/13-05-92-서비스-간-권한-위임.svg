@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs>
+            <filter id="sh5"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+            <marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="20" y="15" width="160" height="40" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="2" filter="url(#sh5)"/>
+<text x="100" y="40" text-anchor="middle" font-size="12" font-weight="bold" fill="#7c3aed">🌐 API Gateway</text>
+<line x1="100" y1="55" x2="100" y2="80" stroke="#546e7a" stroke-width="2" marker-end="url(#ar5)"/>
+<rect x="20" y="80" width="160" height="38" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="100" y="104" text-anchor="middle" font-size="12" fill="#b45309">⚡ Lambda: 실행 역할</text>
+<line x1="180" y1="99" x2="320" y2="40" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar5)"/>
+<line x1="180" y1="99" x2="320" y2="88" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar5)"/>
+<line x1="180" y1="99" x2="320" y2="136" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar5)"/>
+<rect x="330" y="20" width="180" height="38" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="420" y="44" text-anchor="middle" font-size="12" fill="#16a34a">🗄️ DynamoDB: 리소스 정책</text>
+<rect x="330" y="68" width="180" height="38" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="420" y="92" text-anchor="middle" font-size="12" fill="#16a34a">📁 S3: 버킷 정책</text>
+<rect x="330" y="116" width="180" height="38" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="420" y="140" text-anchor="middle" font-size="12" fill="#dc2626">🔑 KMS: 키 정책</text>
+<rect x="20" y="170" width="160" height="38" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="100" y="194" text-anchor="middle" font-size="12" fill="#475569">🐳 ECS Service</text>
+<text x="100" y="170" text-anchor="middle" font-size="10" fill="#475569">태스크 역할</text>
+<line x1="180" y1="189" x2="320" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar5)"/>
+<line x1="180" y1="189" x2="320" y2="250" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar5)"/>
+<rect x="330" y="190" width="180" height="38" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="420" y="214" text-anchor="middle" font-size="12" fill="#b45309">📦 ECR: 이미지 Pull</text>
+<rect x="330" y="240" width="180" height="38" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh5)"/>
+<text x="420" y="264" text-anchor="middle" font-size="12" fill="#16a34a">📁 S3: 설정 파일</text>
+<text x="580" y="260" text-anchor="middle" font-size="11" fill="#546e7a">+ Secrets Manager</text>
+</svg>

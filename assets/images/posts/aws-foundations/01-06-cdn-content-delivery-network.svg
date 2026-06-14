@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="340" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">🌐 CDN 동작 원리 (Amazon CloudFront)</text>
+  <rect x="50" y="45" width="170" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="135" y="67" text-anchor="middle" font-size="12" font-weight="600" font-family="sans-serif" fill="#0d47a1">👤 사용자 (서울)</text>
+  <text x="135" y="85" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">🇰🇷 한국</text>
+  <rect x="285" y="45" width="170" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="370" y="67" text-anchor="middle" font-size="12" font-weight="600" font-family="sans-serif" fill="#0d47a1">👤 사용자 (도쿄)</text>
+  <text x="370" y="85" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">🇯🇵 일본</text>
+  <rect x="520" y="45" width="170" height="50" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh)"/>
+  <text x="605" y="67" text-anchor="middle" font-size="12" font-weight="600" font-family="sans-serif" fill="#0d47a1">👤 사용자 (런던)</text>
+  <text x="605" y="85" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">🇬🇧 영국</text>
+  <line x1="135" y1="95" x2="135" y2="120" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="370" y1="95" x2="370" y2="120" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="605" y1="95" x2="605" y2="120" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="50" y="125" width="170" height="55" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="135" y="148" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#6b21a8">⚡ Edge (서울)</text>
+  <text x="135" y="166" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#7c3aed">캐시 서버</text>
+  <rect x="285" y="125" width="170" height="55" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="370" y="148" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#6b21a8">⚡ Edge (도쿄)</text>
+  <text x="370" y="166" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#7c3aed">캐시 서버</text>
+  <rect x="520" y="125" width="170" height="55" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="605" y="148" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#6b21a8">⚡ Edge (런던)</text>
+  <text x="605" y="166" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#7c3aed">캐시 서버</text>
+  <line x1="135" y1="180" x2="280" y2="240" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="370" y1="180" x2="370" y2="240" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="605" y1="180" x2="460" y2="240" stroke="#546e7a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="370" y="220" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#ef4444">캐시 없으면 원본 요청</text>
+  <rect x="270" y="245" width="200" height="55" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="370" y="268" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#e65100">📦 Origin (원본)</text>
+  <text x="370" y="288" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">S3 / EC2 / ALB</text>
+  <text x="370" y="325" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#22c55e">정적 콘텐츠는 엣지에서 즉시 응답 ⚡ | 동적 콘텐츠는 Origin에서 전송</text>
+</svg>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 340" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+                    <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+                  </filter>
+                  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M0 0 L10 5 L0 10z" fill="#546e7a"/>
+                  </marker>
+                </defs>
+                <rect x="0" y="0" width="740" height="340" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+                <text x="370" y="26" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="14" font-weight="bold" fill="#1e293b">🔑 JWT 토큰 발급 흐름</text>
+                <rect x="50" y="55" width="160" height="46" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="130" y="83" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="12" fill="#0c4a6e">💻 클라이언트</text>
+                <line x1="210" y1="78" x2="308" y2="78" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <text x="260" y="70" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#546e7a">로그인</text>
+                <rect x="312" y="48" width="160" height="60" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="392" y="75" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="13" font-weight="bold" fill="#92400e">👤 User Pool</text>
+                <text x="392" y="96" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#78350f">JWT 발급</text>
+                <line x1="392" y1="108" x2="392" y2="138" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="130" y1="138" x2="630" y2="138" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="130" y1="138" x2="130" y2="160" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <line x1="370" y1="138" x2="370" y2="160" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <line x1="610" y1="138" x2="610" y2="160" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <rect x="40" y="165" width="180" height="155" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="130" y="188" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="13" font-weight="bold" fill="#92400e">🎫 Access Token</text>
+                <text x="130" y="208" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">(1시간)</text>
+                <text x="60" y="232" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• API 접근</text>
+                <text x="60" y="250" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• 권한 부여</text>
+                <rect x="280" y="165" width="180" height="155" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="370" y="188" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="13" font-weight="bold" fill="#92400e">🪪 ID Token</text>
+                <text x="370" y="208" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">(1시간)</text>
+                <text x="300" y="232" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• 사용자 정보</text>
+                <rect x="520" y="165" width="180" height="155" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="610" y="188" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="13" font-weight="bold" fill="#92400e">🔄 Refresh Token</text>
+                <text x="610" y="208" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">(30일)</text>
+                <text x="540" y="232" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• 토큰 갱신</text>
+                </svg>

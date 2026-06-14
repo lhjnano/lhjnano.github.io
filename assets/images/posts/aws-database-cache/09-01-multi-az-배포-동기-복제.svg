@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<defs>
+<filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🗄 RDS Multi-AZ 배포 (동기 복제)</text>
+<rect x="40" y="50" width="270" height="120" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1" filter="url(#ds)" opacity="0.3"/>
+<text x="175" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#f59e0b">AZ-1</text>
+<rect x="65" y="82" width="220" height="70" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
+<text x="175" y="108" text-anchor="middle" font-size="12" font-weight="bold" fill="#f59e0b">⚡ Primary DB</text>
+<text x="175" y="126" text-anchor="middle" font-size="10" fill="#64748b">Read / Write</text>
+<rect x="410" y="50" width="270" height="120" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1" filter="url(#ds)" opacity="0.3"/>
+<text x="545" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#f59e0b">AZ-2</text>
+<rect x="435" y="82" width="220" height="70" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#ds)"/>
+<text x="545" y="108" text-anchor="middle" font-size="12" font-weight="bold" fill="#8b5cf6">💤 Standby DB</text>
+<text x="545" y="126" text-anchor="middle" font-size="10" fill="#64748b">대기 only</text>
+<line x1="285" y1="117" x2="433" y2="117" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<text x="359" y="110" text-anchor="middle" font-size="10" font-weight="bold" fill="#546e7a">동기 복제</text>
+<rect x="90" y="190" width="170" height="42" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="175" y="216" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">📱 Application</text>
+<line x1="175" y1="190" x2="175" y2="154" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M655,117 L670,117 L670,230 L545,230 L545,154" stroke="#ef4444" stroke-width="1.2" fill="none" stroke-dasharray="5,3" marker-end="url(#ah)"/>
+<text x="612" y="222" font-size="10" font-weight="bold" fill="#ef4444">자동 장애 조치</text>
+</svg>

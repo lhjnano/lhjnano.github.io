@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700">🔄 S3 복제 유형</text>
+
+  <text x="360" y="54" text-anchor="middle" font-size="12" font-weight="700">교차 리전 복제 (CRR - Cross-Region Replication)</text>
+  <line x1="60" y1="62" x2="660" y2="62" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <rect x="80" y="74" width="220" height="70" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="190" y="100" text-anchor="middle" font-size="12" font-weight="700">📦 소스 버킷</text>
+  <text x="190" y="118" text-anchor="middle" font-size="10">서울 리전 (ap-ne-2)</text>
+  <text x="190" y="134" text-anchor="middle" font-size="9" fill="#64748b">원본 데이터</text>
+
+  <line x1="300" y1="109" x2="400" y2="109" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="350" y="100" text-anchor="middle" font-size="10" font-weight="600" fill="#546e7a">복제</text>
+
+  <rect x="404" y="74" width="220" height="70" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="514" y="100" text-anchor="middle" font-size="12" font-weight="700">📦 대상 버킷</text>
+  <text x="514" y="118" text-anchor="middle" font-size="10">도쿄 리전 (ap-ne-1)</text>
+  <text x="514" y="134" text-anchor="middle" font-size="9" fill="#64748b">복제본</text>
+
+  <rect x="160" y="152" width="400" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="360" y="172" text-anchor="middle" font-size="10">용도: 재해 복구, 지연시간 감소, 규정 준수</text>
+
+  <text x="360" y="212" text-anchor="middle" font-size="12" font-weight="700">같은 리전 복제 (SRR - Same-Region Replication)</text>
+  <line x1="60" y1="220" x2="660" y2="220" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <rect x="80" y="232" width="220" height="70" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="190" y="258" text-anchor="middle" font-size="12" font-weight="700">📦 소스 버킷</text>
+  <text x="190" y="276" text-anchor="middle" font-size="10">서울 리전 — Bucket-A</text>
+
+  <line x1="300" y1="267" x2="400" y2="267" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="350" y="258" text-anchor="middle" font-size="10" font-weight="600" fill="#546e7a">복제</text>
+
+  <rect x="404" y="232" width="220" height="70" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="514" y="258" text-anchor="middle" font-size="12" font-weight="700">📦 대상 버킷</text>
+  <text x="514" y="276" text-anchor="middle" font-size="10">서울 리전 — Bucket-B</text>
+
+  <rect x="160" y="310" width="400" height="28" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="360" y="330" text-anchor="middle" font-size="10">용도: 로그 집계, 다른 계정 간 데이터 공유</text>
+
+  <rect x="60" y="355" width="600" height="70" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="360" y="381" text-anchor="middle" font-size="12" font-weight="700">⏱️ S3 Replication Time Control (RTC)</text>
+  <text x="360" y="401" text-anchor="middle" font-size="10">복제 완료 시간 SLA: 15분 이내 (99.99%)</text>
+  <text x="360" y="417" text-anchor="middle" font-size="10" fill="#64748b">규정 준수 요구사항이 엄격한 워크로드에 적합</text>
+</svg>

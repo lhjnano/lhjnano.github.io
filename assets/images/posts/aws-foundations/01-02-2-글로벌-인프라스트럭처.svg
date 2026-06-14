@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 370" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="370" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">🌐 AWS 글로벌 인프라스트럭처 구조</text>
+  <rect x="30" y="40" width="680" height="185" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="370" y="62" text-anchor="middle" font-size="13" font-weight="700" font-family="sans-serif" fill="#e65100">🌎 Region (리전)</text>
+  <rect x="48" y="75" width="210" height="135" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="153" y="96" text-anchor="middle" font-size="12" font-weight="600" font-family="sans-serif" fill="#0d47a1">🏢 AZ-1</text>
+  <rect x="62" y="106" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="104" y="128" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="157" y="106" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="199" y="128" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="62" y="150" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="104" y="172" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="157" y="150" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="199" y="172" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="268" y="75" width="210" height="135" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="373" y="96" text-anchor="middle" font-size="12" font-weight="600" font-family="sans-serif" fill="#0d47a1">🏢 AZ-2</text>
+  <rect x="282" y="106" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="324" y="128" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="377" y="106" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="419" y="128" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="282" y="150" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="324" y="172" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="377" y="150" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="419" y="172" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="488" y="75" width="210" height="135" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="593" y="96" text-anchor="middle" font-size="12" font-weight="600" font-family="sans-serif" fill="#0d47a1">🏢 AZ-3</text>
+  <rect x="502" y="106" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="544" y="128" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="597" y="106" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="639" y="128" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="502" y="150" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="544" y="172" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="597" y="150" width="85" height="35" rx="5" fill="#f8fafc" stroke="#e2e8f0"/><text x="639" y="172" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">🖥️ DC</text>
+  <rect x="30" y="245" width="165" height="50" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="112" y="266" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#6b21a8">🏙️ Local Zone</text>
+  <text x="112" y="283" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#7c3aed">(대도시 엣지)</text>
+  <rect x="210" y="245" width="185" height="50" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="302" y="266" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#6b21a8">⚡ Edge Location</text>
+  <text x="302" y="283" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#7c3aed">(CloudFront 캐시)</text>
+  <rect x="410" y="245" width="150" height="50" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="485" y="266" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#b91c1c">📱 Wavelength</text>
+  <text x="485" y="283" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#dc2626">(5G 엣지)</text>
+  <rect x="575" y="245" width="135" height="50" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="642" y="266" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#15803d">🏠 Outposts</text>
+  <text x="642" y="283" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#16a34a">(온프레미스 AWS)</text>
+  <text x="370" y="325" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#78909c">각 AZ는 독립적인 전력/냉각/네트워크를 갖춘 물리적 데이터센터</text>
+  <text x="370" y="345" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#78909c">리전 간은 전용 광케이블 네트워크로 연결</text>
+  <line x1="30" y1="310" x2="710" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+</svg>

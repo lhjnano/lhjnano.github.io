@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <rect x="210" y="10" width="300" height="44" rx="10" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="360" y="38" text-anchor="middle" font-size="13" font-weight="700">🌐 인터넷</text>
+  <line x1="360" y1="54" x2="360" y2="82" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="380" y="72" font-size="10" fill="#546e7a">HTTP/HTTPS (REST API)</text>
+  <rect x="270" y="82" width="180" height="40" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="360" y="108" text-anchor="middle" font-size="13" font-weight="700">🔗 S3 Endpoint</text>
+  <line x1="360" y1="122" x2="360" y2="150" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="60" y="150" width="600" height="255" rx="12" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="360" y="178" text-anchor="middle" font-size="14" font-weight="700">☁️ Amazon S3 (글로벌 서비스)</text>
+  <rect x="100" y="200" width="240" height="185" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="220" y="226" text-anchor="middle" font-size="12" font-weight="700">📦 Bucket A (서울 리전)</text>
+  <rect x="130" y="248" width="180" height="120" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="220" y="276" text-anchor="middle" font-size="11" font-weight="600">Object1</text>
+  <text x="220" y="296" text-anchor="middle" font-size="10">photos/img1.jpg</text>
+  <rect x="160" y="310" width="120" height="40" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1"/>
+  <text x="220" y="335" text-anchor="middle" font-size="10">🖼️ 이미지 파일</text>
+  <rect x="380" y="200" width="240" height="185" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="500" y="226" text-anchor="middle" font-size="12" font-weight="700">📦 Bucket B (버지니아)</text>
+  <rect x="410" y="248" width="180" height="120" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="500" y="276" text-anchor="middle" font-size="11" font-weight="600">Object1</text>
+  <text x="500" y="296" text-anchor="middle" font-size="10">logs/2026/01.log</text>
+  <rect x="440" y="310" width="120" height="40" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1"/>
+  <text x="500" y="335" text-anchor="middle" font-size="10">📝 로그 파일</text>
+  <text x="360" y="415" text-anchor="middle" font-size="10" fill="#64748b">11개의 9 내구성 (99.999999999%) | 무제한 저장 | 99.99% 가용성</text>
+</svg>

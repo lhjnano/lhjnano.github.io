@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 170" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs>
+  <filter id="sh2"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="20" y="30" width="150" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh2)"/>
+<text x="95" y="56" text-anchor="middle" font-size="12" font-weight="bold" fill="#b45309">☁️ AWS 서비스</text>
+<line x1="170" y1="51" x2="238" y2="51" stroke="#546e7a" stroke-width="2" marker-end="url(#ar2)"/>
+<rect x="248" y="30" width="120" height="42" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="2" filter="url(#sh2)"/>
+<text x="308" y="56" text-anchor="middle" font-size="13" font-weight="bold" fill="#dc2626">🔑 KMS</text>
+<line x1="368" y1="51" x2="418" y2="51" stroke="#546e7a" stroke-width="2" marker-end="url(#ar2)"/>
+<rect x="428" y="25" width="140" height="52" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh2)"/>
+<text x="498" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">🔌 XKS Proxy</text>
+<text x="498" y="64" text-anchor="middle" font-size="9" fill="#b45309">(외부 키 스토어 연결)</text>
+<line x1="568" y1="51" x2="598" y2="51" stroke="#546e7a" stroke-width="2" marker-end="url(#ar2)"/>
+<rect x="608" y="30" width="100" height="42" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh2)"/>
+<text x="658" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="#0284c7">🏢 온프레미스</text>
+<text x="658" y="64" text-anchor="middle" font-size="10" fill="#0284c7">HSM</text>
+</svg>

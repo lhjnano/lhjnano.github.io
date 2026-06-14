@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs>
+  <filter id="sh6"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+  <marker id="ar6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="20" y="75" width="160" height="80" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh6)"/>
+<text x="100" y="110" text-anchor="middle" font-size="13" font-weight="bold" fill="#0284c7">🏢 온프레미스</text>
+<text x="100" y="128" text-anchor="middle" font-size="10" fill="#0284c7">Windows / ONTAP / NFS</text>
+<line x1="180" y1="95" x2="298" y2="60" stroke="#546e7a" stroke-width="2" marker-end="url(#ar6)"/>
+<line x1="180" y1="115" x2="298" y2="115" stroke="#546e7a" stroke-width="2" marker-end="url(#ar6)"/>
+<line x1="180" y1="135" x2="298" y2="170" stroke="#546e7a" stroke-width="2" marker-end="url(#ar6)"/>
+<rect x="308" y="40" width="130" height="38" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="373" y="64" text-anchor="middle" font-size="12" fill="#b45309">🔄 DataSync</text>
+<rect x="308" y="96" width="130" height="38" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="373" y="120" text-anchor="middle" font-size="12" fill="#b45309">🔗 SnapMirror</text>
+<rect x="308" y="152" width="130" height="38" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="373" y="176" text-anchor="middle" font-size="12" fill="#b45309">🔄 DataSync</text>
+<line x1="438" y1="59" x2="498" y2="59" stroke="#546e7a" stroke-width="2" marker-end="url(#ar6)"/>
+<line x1="438" y1="115" x2="498" y2="115" stroke="#546e7a" stroke-width="2" marker-end="url(#ar6)"/>
+<line x1="438" y1="171" x2="498" y2="171" stroke="#546e7a" stroke-width="2" marker-end="url(#ar6)"/>
+<rect x="508" y="40" width="200" height="38" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="608" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">📦 FSx for Windows</text>
+<rect x="508" y="96" width="200" height="38" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="608" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">📦 FSx for ONTAP</text>
+<rect x="508" y="152" width="200" height="38" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh6)"/>
+<text x="608" y="176" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">📁 EFS / FSx OpenZFS</text>
+</svg>

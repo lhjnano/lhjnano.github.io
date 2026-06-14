@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<defs>
+            <filter id="sh2"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+            <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+</defs>
+<rect x="20" y="80" width="160" height="44" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh2)"/>
+<text x="100" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#0284c7">🌐 외부 IdP</text>
+<text x="100" y="116" text-anchor="middle" font-size="10" fill="#0284c7">Entra ID / Okta</text>
+<line x1="180" y1="102" x2="278" y2="102" stroke="#546e7a" stroke-width="2" marker-end="url(#ar2)"/>
+<text x="229" y="94" text-anchor="middle" font-size="10" fill="#546e7a">SAML/OIDC</text>
+<rect x="288" y="60" width="210" height="85" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="2" filter="url(#sh2)"/>
+<text x="393" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="#dc2626">🔐 IAM Identity Center</text>
+<text x="393" y="105" text-anchor="middle" font-size="11" fill="#dc2626">중앙 사용자 디렉토리</text>
+<text x="393" y="120" text-anchor="middle" font-size="11" fill="#dc2626">권한 세트 관리</text>
+<text x="393" y="138" text-anchor="middle" font-size="10" fill="#dc2626">(Permission Sets)</text>
+<line x1="498" y1="80" x2="558" y2="45" stroke="#546e7a" stroke-width="2" marker-end="url(#ar2)"/>
+<line x1="498" y1="102" x2="558" y2="102" stroke="#546e7a" stroke-width="2" marker-end="url(#ar2)"/>
+<line x1="498" y1="125" x2="558" y2="165" stroke="#546e7a" stroke-width="2" marker-end="url(#ar2)"/>
+<rect x="568" y="25" width="140" height="40" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh2)"/>
+<text x="638" y="43" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">📦 계정 A</text>
+<text x="638" y="58" text-anchor="middle" font-size="10" fill="#b45309">개발</text>
+<rect x="568" y="82" width="140" height="40" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh2)"/>
+<text x="638" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">📦 계정 B</text>
+<text x="638" y="115" text-anchor="middle" font-size="10" fill="#b45309">스테이징</text>
+<rect x="568" y="145" width="140" height="40" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh2)"/>
+<text x="638" y="163" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">📦 계정 C</text>
+<text x="638" y="178" text-anchor="middle" font-size="10" fill="#b45309">프로덕션</text>
+</svg>

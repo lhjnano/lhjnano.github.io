@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700">🔄 Intelligent-Tiering 자동 티어링</text>
+  <rect x="40" y="40" width="200" height="60" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="140" y="66" text-anchor="middle" font-size="12" font-weight="700">⚡ Frequent Access</text>
+  <text x="140" y="84" text-anchor="middle" font-size="10">(자주 액세스)</text>
+  <text x="300" y="62" font-size="10" fill="#546e7a">30일 연속 미접근 ▼</text>
+  <line x1="240" y1="70" x2="390" y2="70" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <rect x="400" y="40" width="220" height="60" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="510" y="66" text-anchor="middle" font-size="12" font-weight="700">📂 Infrequent Access</text>
+  <text x="510" y="84" text-anchor="middle" font-size="10">(간헐적 액세스)</text>
+  <text x="300" y="118" font-size="10" fill="#546e7a">90일 연속 미접근 ▼</text>
+  <line x1="510" y1="100" x2="510" y2="140" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <rect x="400" y="140" width="220" height="60" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="510" y="166" text-anchor="middle" font-size="12" font-weight="700">🗄️ Archive Access</text>
+  <text x="510" y="184" text-anchor="middle" font-size="10">(아카이브)</text>
+  <text x="300" y="218" font-size="10" fill="#546e7a">180일 연속 미접근 ▼</text>
+  <line x1="510" y1="200" x2="510" y2="240" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <rect x="400" y="240" width="220" height="60" rx="10" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="510" y="266" text-anchor="middle" font-size="12" font-weight="700">🗄️ Deep Archive</text>
+  <text x="510" y="284" text-anchor="middle" font-size="10">Access</text>
+
+  <rect x="40" y="320" width="640" height="44" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="360" y="348" text-anchor="middle" font-size="11" font-weight="600">↩️ 액세스 발생 시 자동으로 Frequent Access 티어로 복귀</text>
+</svg>

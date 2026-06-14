@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 580" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+  <style>text{fill:#1e293b}.h{font-weight:700;font-size:11}.c{font-size:10}</style>
+  <defs>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+    </filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
+    </marker>
+  </defs>
+  <rect x="20" y="10" width="680" height="555" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" filter="url(#sh)"/>
+  <text x="360" y="38" text-anchor="middle" font-size="14" font-weight="700">📊 S3 스토리지 클래스 (2026)</text>
+  <line x1="40" y1="48" x2="680" y2="48" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="220" y="68" text-anchor="middle" class="h">클래스</text>
+  <text x="420" y="68" text-anchor="middle" class="h">액세스 빈도</text>
+  <text x="530" y="68" text-anchor="middle" class="h">검색 시간</text>
+  <text x="640" y="68" text-anchor="middle" class="h">용도</text>
+  <line x1="40" y1="78" x2="680" y2="78" stroke="#e2e8f0" stroke-width="1"/>
+
+  <rect x="40" y="84" width="640" height="52" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1"/>
+  <text x="220" y="106" text-anchor="middle" class="h">S3 Standard</text>
+  <text x="220" y="122" text-anchor="middle" class="c">⭐ 기본</text>
+  <text x="420" y="114" text-anchor="middle" class="c">빈번함</text>
+  <text x="530" y="114" text-anchor="middle" class="c">즉시 (ms)</text>
+  <text x="640" y="106" text-anchor="middle" class="c">활성 데이터</text>
+  <text x="640" y="122" text-anchor="middle" class="c">웹사이트 콘텐츠</text>
+
+  <rect x="40" y="142" width="640" height="52" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="220" y="164" text-anchor="middle" class="h">S3 Standard-IA</text>
+  <text x="220" y="180" text-anchor="middle" class="c">간헐적 액세스</text>
+  <text x="420" y="172" text-anchor="middle" class="c">간헐적 (30일+)</text>
+  <text x="530" y="172" text-anchor="middle" class="c">즉시 (ms)</text>
+  <text x="640" y="164" text-anchor="middle" class="c">백업</text>
+  <text x="640" y="180" text-anchor="middle" class="c">재해 복구</text>
+
+  <rect x="40" y="200" width="640" height="52" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="220" y="222" text-anchor="middle" class="h">S3 One Zone-IA</text>
+  <text x="420" y="230" text-anchor="middle" class="c">간헐적 (30일+)</text>
+  <text x="530" y="230" text-anchor="middle" class="c">즉시 (ms)</text>
+  <text x="640" y="222" text-anchor="middle" class="c">2차 백업</text>
+  <text x="640" y="238" text-anchor="middle" class="c">재생성 가능 데이터</text>
+
+  <rect x="40" y="258" width="640" height="52" rx="6" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="220" y="280" text-anchor="middle" class="h">S3 Intelligent-Tiering</text>
+  <text x="220" y="296" text-anchor="middle" class="c">자동 티어링</text>
+  <text x="420" y="288" text-anchor="middle" class="c">자동</text>
+  <text x="530" y="288" text-anchor="middle" class="c">즉시 (ms)</text>
+  <text x="640" y="280" text-anchor="middle" class="c">액세스 패턴이</text>
+  <text x="640" y="296" text-anchor="middle" class="c">불확실한 데이터</text>
+
+  <rect x="40" y="316" width="640" height="52" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="220" y="338" text-anchor="middle" class="h">S3 Express One Zone 🆕</text>
+  <text x="420" y="346" text-anchor="middle" class="c">빈번함 (고성능)</text>
+  <text x="530" y="346" text-anchor="middle" class="c">즉시 (ms)</text>
+  <text x="640" y="338" text-anchor="middle" class="c">고성능 앱</text>
+  <text x="640" y="354" text-anchor="middle" class="c">AI/ML 데이터셋</text>
+
+  <rect x="40" y="374" width="640" height="52" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+  <text x="220" y="396" text-anchor="middle" class="h">S3 Glacier Instant</text>
+  <text x="220" y="412" text-anchor="middle" class="c">Retrieval</text>
+  <text x="420" y="404" text-anchor="middle" class="c">드묾</text>
+  <text x="530" y="404" text-anchor="middle" class="c">밀리초</text>
+  <text x="640" y="396" text-anchor="middle" class="c">아카이브</text>
+  <text x="640" y="412" text-anchor="middle" class="c">(빠른 검색 필요)</text>
+
+  <rect x="40" y="432" width="640" height="52" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+  <text x="220" y="454" text-anchor="middle" class="h">S3 Glacier Flexible</text>
+  <text x="220" y="470" text-anchor="middle" class="c">Retrieval</text>
+  <text x="420" y="462" text-anchor="middle" class="c">드묾</text>
+  <text x="530" y="462" text-anchor="middle" class="c">3~5시간</text>
+  <text x="640" y="454" text-anchor="middle" class="c">장기 아카이브</text>
+  <text x="640" y="470" text-anchor="middle" class="c">(90일 최소)</text>
+
+  <rect x="40" y="490" width="640" height="52" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1"/>
+  <text x="220" y="512" text-anchor="middle" class="h">S3 Glacier Deep Archive</text>
+  <text x="420" y="520" text-anchor="middle" class="c">극히 드묾</text>
+  <text x="530" y="520" text-anchor="middle" class="c">12~48시간</text>
+  <text x="640" y="512" text-anchor="middle" class="c">극장기 아카이브</text>
+  <text x="640" y="528" text-anchor="middle" class="c">(180일 최소)</text>
+
+  <text x="360" y="560" text-anchor="middle" font-size="9" fill="#64748b">비용: Standard &gt; Standard-IA &gt; One Zone-IA &gt; Glacier Instant &gt; Glacier Flexible &gt; Deep Archive</text>
+</svg>

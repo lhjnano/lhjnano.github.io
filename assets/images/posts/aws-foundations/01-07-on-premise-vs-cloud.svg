@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 310" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="310" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">🏢 On-Premise vs ☁️ Cloud 비교</text>
+  <rect x="40" y="40" width="200" height="35" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="140" y="63" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#37474f">📋 항목</text>
+  <rect x="250" y="40" width="220" height="35" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="360" y="63" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#b91c1c">🏢 On-Premise</text>
+  <rect x="480" y="40" width="220" height="35" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="590" y="63" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#15803d">☁️ Cloud (AWS)</text>
+  <rect x="40" y="82" width="200" height="28" rx="0" fill="#f8fafc" stroke="#e2e8f0"/><text x="140" y="100" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">💰 초기 투자비</text>
+  <rect x="250" y="82" width="220" height="28" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="360" y="100" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#b91c1c">높음 (CAPEX)</text>
+  <rect x="480" y="82" width="220" height="28" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="590" y="100" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#15803d">낮음 (OPEX)</text>
+  <rect x="40" y="114" width="200" height="28" rx="0" fill="#f8fafc" stroke="#e2e8f0"/><text x="140" y="132" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">🔧 인프라 관리</text>
+  <rect x="250" y="114" width="220" height="28" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="360" y="132" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#b91c1c">고객 직접 관리</text>
+  <rect x="480" y="114" width="220" height="28" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="590" y="132" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#15803d">AWS가 관리</text>
+  <rect x="40" y="146" width="200" height="28" rx="0" fill="#f8fafc" stroke="#e2e8f0"/><text x="140" y="164" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">⏱️ 확장 소요시간</text>
+  <rect x="250" y="146" width="220" height="28" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="360" y="164" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#b91c1c">주~개월</text>
+  <rect x="480" y="146" width="220" height="28" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="590" y="164" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#15803d">초~분</text>
+  <rect x="40" y="178" width="200" height="28" rx="0" fill="#f8fafc" stroke="#e2e8f0"/><text x="140" y="196" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">📊 용량 계획</text>
+  <rect x="250" y="178" width="220" height="28" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="360" y="196" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#b91c1c">최대 트래픽 기준</text>
+  <rect x="480" y="178" width="220" height="28" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="590" y="196" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#15803d">실시간 조정</text>
+  <rect x="40" y="210" width="200" height="28" rx="0" fill="#f8fafc" stroke="#e2e8f0"/><text x="140" y="228" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">🛠️ 유지보수</text>
+  <rect x="250" y="210" width="220" height="28" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="360" y="228" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#b91c1c">고객 책임</text>
+  <rect x="480" y="210" width="220" height="28" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="590" y="228" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#15803d">AWS 책임</text>
+  <rect x="40" y="242" width="200" height="28" rx="0" fill="#f8fafc" stroke="#e2e8f0"/><text x="140" y="260" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">🌍 글로벌 진출</text>
+  <rect x="250" y="242" width="220" height="28" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="360" y="260" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#b91c1c">각국 IDC 구축</text>
+  <rect x="480" y="242" width="220" height="28" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="590" y="260" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#15803d">리전 선택만으로</text>
+  <rect x="40" y="274" width="200" height="28" rx="0" fill="#f8fafc" stroke="#e2e8f0"/><text x="140" y="292" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#37474f">💳 과금 모델</text>
+  <rect x="250" y="274" width="220" height="28" rx="0" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="360" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#b91c1c">고정비 중심</text>
+  <rect x="480" y="274" width="220" height="28" rx="0" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="590" y="292" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#15803d">사용량 기반</text>
+</svg>

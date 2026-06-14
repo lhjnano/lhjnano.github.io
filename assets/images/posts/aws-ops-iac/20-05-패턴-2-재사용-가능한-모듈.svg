@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 720 370" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<defs>
+<filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+</defs>
+<text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🧩 재사용 가능한 모듈 아키텍처</text>
+<rect x="30" y="40" width="660" height="210" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#475569">📚 Construct Library (조직 표준 모듈)</text>
+<rect x="50" y="75" width="195" height="70" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.2" filter="url(#ds)"/>
+<text x="147" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#16a34a">🌐 VPC Module</text>
+<text x="147" y="113" text-anchor="middle" font-size="9" fill="#64748b">3 AZ / NatGW</text>
+<text x="147" y="127" text-anchor="middle" font-size="9" fill="#64748b">Flow Logs</text>
+<rect x="262" y="75" width="195" height="70" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.2" filter="url(#ds)"/>
+<text x="359" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#f59e0b">🐳 ECS Module</text>
+<text x="359" y="113" text-anchor="middle" font-size="9" fill="#64748b">Fargate / ALB</text>
+<text x="359" y="127" text-anchor="middle" font-size="9" fill="#64748b">AutoScale</text>
+<rect x="474" y="75" width="195" height="70" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.2" filter="url(#ds)"/>
+<text x="571" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#f59e0b">🗄 RDS Module</text>
+<text x="571" y="113" text-anchor="middle" font-size="9" fill="#64748b">Multi-AZ</text>
+<text x="571" y="127" text-anchor="middle" font-size="9" fill="#64748b">Encryption / Backup</text>
+<rect x="50" y="160" width="195" height="70" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.2" filter="url(#ds)"/>
+<text x="147" y="182" text-anchor="middle" font-size="11" font-weight="bold" fill="#ef4444">🔐 Auth Module</text>
+<text x="147" y="198" text-anchor="middle" font-size="9" fill="#64748b">Cognito / WAF</text>
+<text x="147" y="212" text-anchor="middle" font-size="9" fill="#64748b">ACM</text>
+<rect x="262" y="160" width="195" height="70" rx="6" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.2" filter="url(#ds)"/>
+<text x="359" y="182" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b5cf6">📊 Monitoring Module</text>
+<text x="359" y="198" text-anchor="middle" font-size="9" fill="#64748b">CW Alarms</text>
+<text x="359" y="212" text-anchor="middle" font-size="9" fill="#64748b">Dashboard</text>
+<rect x="474" y="160" width="195" height="70" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.2" filter="url(#ds)"/>
+<text x="571" y="182" text-anchor="middle" font-size="11" font-weight="bold" fill="#ef4444">🛡 Security Module</text>
+<text x="571" y="198" text-anchor="middle" font-size="9" fill="#64748b">KMS / Shield</text>
+<text x="571" y="212" text-anchor="middle" font-size="9" fill="#64748b">GuardDuty</text>
+<line x1="360" y1="250" x2="360" y2="275" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+<rect x="120" y="278" width="480" height="65" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>
+<text x="360" y="300" text-anchor="middle" font-size="13" font-weight="bold" fill="#0284c7">🏗 애플리케이션 스택</text>
+<text x="360" y="318" text-anchor="middle" font-size="9" fill="#64748b">모듈 조합으로 인프라 구성 | 일관된 보안/모니터링 | 조직 표준 준수</text>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="300" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">💾 EBS와 EC2의 관계</text>
+  <rect x="40" y="45" width="360" height="200" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="2" filter="url(#sh)"/>
+  <text x="220" y="70" text-anchor="middle" font-size="13" font-weight="700" font-family="sans-serif" fill="#e65100">🖥️ EC2 인스턴스</text>
+  <rect x="60" y="85" width="180" height="35" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="150" y="107" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">/dev/xvda (루트 EBS)</text>
+  <rect x="60" y="130" width="180" height="35" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="150" y="152" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">/dev/xvdb (추가 EBS)</text>
+  <line x1="240" y1="102" x2="420" y2="102" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="240" y1="147" x2="420" y2="155" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="430" y="78" width="190" height="50" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="525" y="100" text-anchor="middle" font-size="11" font-weight="700" font-family="sans-serif" fill="#15803d">💿 EBS Vol 1</text>
+  <text x="525" y="118" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">gp3 SSD</text>
+  <rect x="430" y="138" width="190" height="50" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="525" y="160" text-anchor="middle" font-size="11" font-weight="700" font-family="sans-serif" fill="#15803d">💿 EBS Vol 2</text>
+  <text x="525" y="178" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">io2 (고성능 IOPS)</text>
+  <text x="370" y="270" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#546e7a">네트워크 연결 | 동일 AZ만 가능 | 스냅샷 → S3 백업 | 최대 64TB</text>
+  <text x="370" y="290" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#78909c">인스턴스 수명과 무관하게 독립 존재</text>
+</svg>

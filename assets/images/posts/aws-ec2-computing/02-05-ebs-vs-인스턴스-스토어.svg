@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 310" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="310" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">💾 EBS vs 📦 인스턴스 스토어 비교</text>
+  <rect x="40" y="42" width="160" height="30" rx="6" fill="#37474f"/>
+  <text x="120" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="sans-serif">항목</text>
+  <rect x="210" y="42" width="250" height="30" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="335" y="62" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#15803d">💿 EBS</text>
+  <rect x="470" y="42" width="250" height="30" rx="6" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="595" y="62" text-anchor="middle" font-size="12" font-weight="700" font-family="sans-serif" fill="#b91c1c">📦 인스턴스 스토어</text>
+  <rect x="40" y="77" width="160" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="120" y="96" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">영구성</text>
+  <rect x="210" y="77" width="250" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="335" y="96" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">영구 (독립적)</text>
+  <rect x="470" y="77" width="250" height="28" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="595" y="96" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#b91c1c">임시 (인스턴스 수명 연결)</text>
+  <rect x="40" y="108" width="160" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="120" y="127" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">중지/시작</text>
+  <rect x="210" y="108" width="250" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="335" y="127" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">데이터 유지 ✅</text>
+  <rect x="470" y="108" width="250" height="28" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="595" y="127" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#b91c1c">데이터 손실 ❌</text>
+  <rect x="40" y="139" width="160" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="120" y="158" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">종료 시</text>
+  <rect x="210" y="139" width="250" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="335" y="158" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">설정에 따라 유지</text>
+  <rect x="470" y="139" width="250" height="28" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="595" y="158" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#b91c1c">데이터 손실 ❌</text>
+  <rect x="40" y="170" width="160" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="120" y="189" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">분리 가능</text>
+  <rect x="210" y="170" width="250" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="335" y="189" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">예 ✅</text>
+  <rect x="470" y="170" width="250" height="28" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="595" y="189" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#b91c1c">아니오 ❌</text>
+  <rect x="40" y="201" width="160" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="120" y="220" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">스냅샷</text>
+  <rect x="210" y="201" width="250" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="335" y="220" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">지원 ✅</text>
+  <rect x="470" y="201" width="250" height="28" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="595" y="220" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#b91c1c">미지원 ❌</text>
+  <rect x="40" y="232" width="160" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="120" y="251" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">성능</text>
+  <rect x="210" y="232" width="250" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="335" y="251" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">네트워크 기반</text>
+  <rect x="470" y="232" width="250" height="28" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="595" y="251" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#b91c1c">물리 디스크 직접 (빠름)</text>
+  <rect x="40" y="263" width="160" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="120" y="282" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">요금</text>
+  <rect x="210" y="263" width="250" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="335" y="282" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">GB당 과금</text>
+  <rect x="470" y="263" width="250" height="28" fill="#fce4ec" stroke="#ef4444" stroke-opacity="0.3"/><text x="595" y="282" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#b91c1c">인스턴스 요금에 포함</text>
+</svg>

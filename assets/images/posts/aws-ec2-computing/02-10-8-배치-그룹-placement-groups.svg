@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+  </defs>
+  <rect width="740" height="300" fill="#f8fafc" rx="8"/>
+  <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">📐 배치 그룹 유형 비교</text>
+  <rect x="30" y="40" width="100" height="30" rx="6" fill="#37474f"/>
+  <text x="80" y="60" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="sans-serif">항목</text>
+  <rect x="140" y="40" width="180" height="30" rx="6" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="230" y="60" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#15803d">🔗 Cluster</text>
+  <rect x="330" y="40" width="180" height="30" rx="6" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="420" y="60" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#e65100">📊 Partition</text>
+  <rect x="520" y="40" width="190" height="30" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="615" y="60" text-anchor="middle" font-size="10" font-weight="700" font-family="sans-serif" fill="#0d47a1">🛡️ Spread</text>
+  <rect x="30" y="75" width="100" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="80" y="93" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">목적</text>
+  <rect x="140" y="75" width="180" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="230" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">낮은 지연, 높은 처리량</text>
+  <rect x="330" y="75" width="180" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="420" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">대규모 분산 시스템</text>
+  <rect x="520" y="75" width="190" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="615" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">물리적 격리</text>
+  <rect x="30" y="106" width="100" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="80" y="124" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">배치</text>
+  <rect x="140" y="106" width="180" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="230" y="124" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">동일 랙 (동일 AZ)</text>
+  <rect x="330" y="106" width="180" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="420" y="124" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">파티션별 격리 (동일 AZ)</text>
+  <rect x="520" y="106" width="190" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="615" y="124" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">별도 하드웨어 랙</text>
+  <rect x="30" y="137" width="100" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="80" y="155" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">최대</text>
+  <rect x="140" y="137" width="180" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="230" y="155" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">제한 있음</text>
+  <rect x="330" y="137" width="180" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="420" y="155" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">최대 7 파티션</text>
+  <rect x="520" y="137" width="190" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="615" y="155" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">7개/AZ</text>
+  <rect x="30" y="168" width="100" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="80" y="186" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">장애 격리</text>
+  <rect x="140" y="168" width="180" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="230" y="186" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#ef4444">전체 영향 가능</text>
+  <rect x="330" y="168" width="180" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="420" y="186" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#546e7a">파티션 단위 격리</text>
+  <rect x="520" y="168" width="190" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="615" y="186" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#15803d">개별만 격리 ✅</text>
+  <rect x="30" y="204" width="100" height="28" fill="#f8fafc" stroke="#e2e8f0"/><text x="80" y="222" text-anchor="middle" font-size="10" font-weight="600" font-family="sans-serif" fill="#37474f">적합</text>
+  <rect x="140" y="204" width="180" height="28" fill="#e8f5e9" stroke="#22c55e" stroke-opacity="0.3"/><text x="230" y="222" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#546e7a">HPC, 빅데이터</text>
+  <rect x="330" y="204" width="180" height="28" fill="#fff3e0" stroke="#f59e0b" stroke-opacity="0.3"/><text x="420" y="222" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#546e7a">Hadoop, Kafka, EMR</text>
+  <rect x="520" y="204" width="190" height="28" fill="#e0f2fe" stroke="#0284c7" stroke-opacity="0.3"/><text x="615" y="222" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#546e7a">중요 인스턴스 격리</text>
+  <text x="370" y="265" text-anchor="middle" font-size="11" font-weight="600" font-family="sans-serif" fill="#546e7a">💡 배치 그룹은 인스턴스 시작 시 지정해야 함 (시작 후 변경 불가)</text>
+  <text x="370" y="285" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#78909c">Cluster: 단일 AZ | Partition: 단일 AZ (최대 7 파티션) | Spread: AZ당 최대 7개</text>
+</svg>

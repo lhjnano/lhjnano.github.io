@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 740 490" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+                    <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+                  </filter>
+                  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M0 0 L10 5 L0 10z" fill="#546e7a"/>
+                  </marker>
+                </defs>
+                <rect x="0" y="0" width="740" height="490" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+                <text x="370" y="26" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="14" font-weight="bold" fill="#1e293b">🔐 Amazon Cognito 아키텍처</text>
+                <rect x="55" y="46" width="170" height="46" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="140" y="74" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="12" fill="#0c4a6e">💻 웹 앱</text>
+                <rect x="285" y="46" width="170" height="46" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="370" y="74" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="12" fill="#0c4a6e">📱 모바일 앱</text>
+                <rect x="515" y="46" width="170" height="46" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="600" y="74" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="12" fill="#0c4a6e">🔗 타사 서비스</text>
+                <line x1="140" y1="92" x2="140" y2="120" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="370" y1="92" x2="370" y2="120" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="600" y1="92" x2="600" y2="120" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="140" y1="120" x2="600" y2="120" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="370" y1="120" x2="370" y2="148" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <rect x="195" y="152" width="350" height="98" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="370" y="175" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="13" font-weight="bold" fill="#92400e">👤 User Pool (사용자 디렉터리)</text>
+                <text x="215" y="196" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• 가입/로그인</text>
+                <text x="215" y="212" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• JWT 토큰 발급</text>
+                <text x="215" y="228" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• MFA / 속성 관리</text>
+                <line x1="370" y1="250" x2="370" y2="295" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <text x="395" y="278" font-family="'Noto Sans KR',sans-serif" font-size="10" fill="#546e7a">JWT Token</text>
+                <rect x="195" y="300" width="350" height="80" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="370" y="323" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="13" font-weight="bold" fill="#92400e">🎫 Identity Pool (자격 증명 풀)</text>
+                <text x="215" y="344" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• AWS 임시 자격 증명</text>
+                <text x="215" y="360" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#78350f">• 역할 매핑</text>
+                <line x1="370" y1="380" x2="370" y2="400" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="130" y1="400" x2="610" y2="400" stroke="#546e7a" stroke-width="1.5"/>
+                <line x1="130" y1="400" x2="130" y2="420" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <line x1="370" y1="400" x2="370" y2="420" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <line x1="610" y1="400" x2="610" y2="420" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ah)"/>
+                <rect x="55" y="424" width="150" height="48" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="130" y="453" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="12" font-weight="bold" fill="#166534">📦 S3</text>
+                <rect x="295" y="424" width="150" height="48" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="370" y="453" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="12" font-weight="bold" fill="#166534">🗄️ DynamoDB</text>
+                <rect x="535" y="424" width="150" height="48" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+                <text x="610" y="453" text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-size="12" font-weight="bold" fill="#166534">⚡ Lambda</text>
+                </svg>
