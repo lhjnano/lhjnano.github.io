@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-nocompress
 title: "ZFS CPU 성능 패턴 분석 — 정적 분석과 실측 벤치마크의 간극"
 categories: [Linux, Performance, Filesystem]
 description: OpenZFS 소스 코드를 정적 분석으로 2개 Critical 안티패턴을 발견했지만, 실측 벤치마크에서는 성능 차이가 없었습니다. 왜 그런지 분석합니다.
