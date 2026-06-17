@@ -1,0 +1,60 @@
+{% if page.chartjs %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function() {
+  if (typeof Chart === 'undefined') { console.error('Chart.js failed to load'); return; }
+
+  var dataEl = document.getElementById('chart-data');
+  if (!dataEl) return;
+
+  var charts;
+  try {
+    charts = JSON.parse(dataEl.textContent);
+  } catch(e) {
+    console.error('Failed to parse chart data', e);
+    return;
+  }
+
+  var FONT = "'Segoe UI','Noto Sans KR',system-ui,sans-serif";
+  var GRID = 'rgba(130,140,150,0.15)';
+  var TICK = '#8b949e';
+
+  charts.forEach(function(cfg) {
+    var canvas = document.getElementById(cfg.id);
+    if (!canvas) return;
+
+    var opts = cfg.options || {};
+    opts.responsive = true;
+
+    // Apply theme defaults to scales
+    if (opts.scales) {
+      Object.keys(opts.scales).forEach(function(axis) {
+        var s = opts.scales[axis];
+        if (!s.ticks) s.ticks = {};
+        if (!s.ticks.color) s.ticks.color = TICK;
+        if (!s.ticks.font) s.ticks.font = { family: FONT };
+        if (s.grid && s.grid.color === undefined) s.grid.color = GRID;
+      });
+    }
+
+    // Apply theme defaults to plugins
+    if (!opts.plugins) opts.plugins = {};
+    if (opts.plugins.title) {
+      opts.plugins.title.color = '#c9d1d9';
+      opts.plugins.title.font = { size: 14, family: FONT };
+      opts.plugins.title.padding = { bottom: 16 };
+    }
+    if (opts.plugins.legend && opts.plugins.legend.labels) {
+      opts.plugins.legend.labels.color = '#c9d1d9';
+      opts.plugins.legend.labels.font = { family: FONT, size: 13 };
+    }
+
+    new Chart(canvas, {
+      type: cfg.type,
+      data: cfg.data,
+      options: opts
+    });
+  });
+})();
+</script>
+{% endif %}
