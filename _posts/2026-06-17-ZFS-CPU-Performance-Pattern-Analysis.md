@@ -222,8 +222,8 @@ typedef struct aggsum_bucket {
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
-// Wait for Chart.js to load
-window.addEventListener('load', function() {
+(function() {
+  if (typeof Chart === 'undefined') { console.error('Chart.js not loaded'); return; }
 
   const FONT_FAMILY = "'Segoe UI', 'Noto Sans KR', system-ui, sans-serif";
   const GRID_COLOR = 'rgba(130,140,150,0.15)';
@@ -409,5 +409,5 @@ window.addEventListener('load', function() {
     }
   });
 
-});
+})();
 </script>
