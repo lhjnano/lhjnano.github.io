@@ -124,6 +124,104 @@ Jekyll에서 Mermaid를 지원하지 않는 경우, **텍스트 다이어그램*
 ![이미지](image.png)
 ```
 
+### 3.4 Chart.js 인터랙티브 차트
+
+벤치마크, 성능 비교, A/B 테스트 결과 등 **수치 데이터를 시각화**할 때 Chart.js를 사용합니다.
+
+> **⚠️ 핵심 주의사항: `layout: compress`와 충돌합니다.**
+>
+> 이 블로그의 기본 레이아웃 체인은 `post → default → compress`입니다.
+> `compress` 레이아웃이 `<script>` 태그 내부를 압축하면서 Chart.js 초기화 스크립트가
+> 실행되지 않는 문제가 확인되었습니다. **Chart.js를 사용하는 포스트는 반드시
+> `layout: post-nocompress`를 사용해야 합니다.**
+
+#### 사용 절차
+
+**Step 1: 프론트매터 설정**
+
+```yaml
+---
+layout: post-nocompress    # ← compress 대신 nocompress 사용 (필수)
+chartjs: true              # ← footer에서 Chart.js CDN 로드 활성화
+---
+```
+
+**Step 2: 본문에 `<canvas>` 배치**
+
+```markdown
+<div style="margin: 24px 0;">
+  <canvas id="chart-my-chart" height="200"></canvas>
+</div>
+```
+
+- `id`는 고유해야 함 (차트 식별자)
+- `height` 속성으로 세로 크기 조절 (기본 200)
+
+**Step 3: 차트 데이터를 JSON으로 제공**
+
+포스트 맨 아래에 `<script type="application/json" id="chart-data">` 블록을 추가합니다.
+`_includes/chart-js.html`이 이 JSON을 읽어 Chart.js 인스턴스를 생성합니다.
+
+```html
+<script type="application/json" id="chart-data">
+[
+  {
+    "id": "chart-my-chart",
+    "type": "bar",
+    "data": {
+      "labels": ["A", "B", "C"],
+      "datasets": [{
+        "label": "처리량 (MB/s)",
+        "data": [100, 200, 150],
+        "backgroundColor": "rgba(88,166,255,0.7)",
+        "borderColor": "rgba(88,166,255,1)",
+        "borderWidth": 1.5,
+        "borderRadius": 6
+      }]
+    },
+    "options": {
+      "plugins": {
+        "title": { "display": true, "text": "차트 제목" }
+      },
+      "scales": {
+        "y": { "beginAtZero": true }
+      }
+    }
+  }
+]
+</script>
+```
+
+#### 차트 타입별 색상 가이드
+
+| 용도 | backgroundColor | borderColor |
+|------|----------------|-------------|
+| 긍정/향상 (초록) | `rgba(63,185,80,0.7)` | `rgba(63,185,80,1)` |
+| 부정/저하 (빨강) | `rgba(248,81,73,0.7)` | `rgba(248,81,73,1)` |
+| 중립/기본 (파랑) | `rgba(88,166,255,0.7)` | `rgba(88,166,255,1)` |
+| 보조/회색 | `rgba(139,148,158,0.7)` | `rgba(139,148,158,1)` |
+| 경고/주의 (노랑) | `rgba(210,153,34,0.7)` | `rgba(210,153,34,1)` |
+| 보라 | `rgba(188,140,255,0.7)` | `rgba(188,140,255,1)` |
+
+#### 다크 테마 자동 적용
+
+`chart-js.html`이 자동으로 다음을 적용합니다 (개별 차트에서 override 불필요):
+- Tick 색상: `#8b949e`
+- Grid 색상: `rgba(130,140,150,0.15)`
+- Title/Legend 색상: `#c9d1d9`
+- Font: `'Segoe UI','Noto Sans KR',system-ui,sans-serif`
+
+#### 레이아웃 구조 (참고)
+
+```
+_layouts/post-nocompress.html    ← compress를 거치지 않음
+  └→ _layouts/default-nocompress.html
+       ├→ _includes/header.html
+       ├→ {{ content }}  (포스트 본문 + JSON 데이터)
+       └→ _includes/footer.html
+            └→ _includes/chart-js.html  ← {% if page.chartjs %} 조건부 로드
+```
+
 ---
 
 ## 4. 코드 작성 규칙
@@ -212,13 +310,17 @@ res.cookies.set('token', token, {             // 2. HttpOnly 쿠키로 설정
 
 ```yaml
 ---
-layout: post
+layout: post               # 기본값. Chart.js 사용 시 post-nocompress
 title: 제목은 검색에 잘 걸리게 (한글 가능)
 categories: [카테고리1, 카테고리2]      # 2~3개, 대분류 → 소분류
 description: 검색결과에 표시될 한 줄 요약  # 80자 이내
 keywords: [키워드1, 키워드2, 키워드3]    # 3~7개
 toc: true
 toc_sticky: true
+# --- 선택 옵션 ---
+# chartjs: true            # Chart.js 차트 사용 시 (layout을 post-nocompress로 변경 필수)
+# mermaid: true            # Mermaid 다이어그램 사용 시
+# flow: true               # flowchart.js 사용 시
 ---
 ```
 
@@ -255,6 +357,7 @@ toc_sticky: true
 - [ ] **이미지 경로**: `/assets/images/posts/{슬러그}/` 아래에 있는가?
 - [ ] **링크**: 외부 링크가 정상 작동하는가?
 - [ ] **로컬 빌드**: `bundle exec jekyll serve`로 렌더링이 정상인가?
+- [ ] **Chart.js 사용 시**: `layout: post-nocompress` + `chartjs: true` 설정했는가?
 
 ---
 
