@@ -217,9 +217,9 @@ chartjs: true              # ← footer에서 Chart.js CDN 로드 활성화
 _layouts/post-nocompress.html    ← compress를 거치지 않음
   └→ _layouts/default-nocompress.html
        ├→ _includes/header.html
-       ├→ {{ content }}  (포스트 본문 + JSON 데이터)
+        ├→ `content` 변수  (포스트 본문 + JSON 데이터)
        └→ _includes/footer.html
-            └→ _includes/chart-js.html  ← {% if page.chartjs %} 조건부 로드
+            └→ _includes/chart-js.html  ← `page.chartjs` 조건부 로드
 ```
 
 ---
