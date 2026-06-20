@@ -183,4 +183,4 @@ API (생산자)                         컴포넌트 (소비자)
 
 | ← 이전 | 시리즈: AI 주도 개발 거버넌스 | 다음 → |
 |---|---|---|
-| **[(4) gettext 원문 키]({% post_url 2026-06-23-Gettext-Original-Key-i18n %})** | **(5) 레이어드 테스팅** | **[(6) 3-Tier CI 게이트]({% post_url 2026-06-25-CI-Dead-Button-Detection-3-Tier-Gate %})** |
+| **[(4) gettext 원문 키]({% post_url 2026-06-10-Gettext-Original-Key-i18n %})** | **(5) 레이어드 테스팅** | **[(6) 3-Tier CI 게이트]({% post_url 2026-06-12-CI-Dead-Button-Detection-3-Tier-Gate %})** |

@@ -418,5 +418,5 @@ ASG와 ELB를 연동하면 트래픽 분산과 인스턴스 건전성을 함께 
 >
 > | | |
 > |---|---|
-> | ← [VPC 네트워킹 — 서브넷부터 Transit Gateway까지]({% post_url 2026-06-14-AWS-VPC-Networking %}) | |
-> | | [엣지 서비스 — CloudFront, Route 53, Global Accelerator]({% post_url 2026-06-14-AWS-Edge-Services %}) → |
+> | ← [VPC 네트워킹 — 서브넷부터 Transit Gateway까지]({% post_url 2026-05-25-AWS-VPC-Networking %}) | |
+> | | [엣지 서비스 — CloudFront, Route 53, Global Accelerator]({% post_url 2026-05-27-AWS-Edge-Services %}) → |

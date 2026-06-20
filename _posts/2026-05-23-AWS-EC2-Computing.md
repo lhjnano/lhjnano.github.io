@@ -283,5 +283,5 @@ EC2 접속을 위한 공개키/개인키 기반 SSH 인증 방식입니다.
 >
 > | | |
 > |---|---|
-> | ← [AWS 클라우드 기초 — 핵심 개념과 글로벌 인프라]({% post_url 2026-06-14-AWS-Foundations-Core-Concepts %}) | |
-> | | [S3 객체 스토리지 기초 — 버킷부터 수명주기까지]({% post_url 2026-06-14-AWS-S3-Storage-Basics %}) → |
+> | ← [AWS 클라우드 기초 — 핵심 개념과 글로벌 인프라]({% post_url 2026-05-22-AWS-Foundations-Core-Concepts %}) | |
+> | | [S3 객체 스토리지 기초 — 버킷부터 수명주기까지]({% post_url 2026-05-24-AWS-S3-Storage-Basics %}) → |

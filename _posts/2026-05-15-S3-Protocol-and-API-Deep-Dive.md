@@ -360,4 +360,4 @@ aws events put-targets \
 > | | |
 > |---|---|
 > | | 첫 글입니다 |
-> | | [AWS 데이터 공유 서비스 3종 — Registry, Data Exchange, Access Points]({% post_url 2026-06-13-S3-Data-Sharing-Services %}) → |
+> | | [AWS 데이터 공유 서비스 3종 — Registry, Data Exchange, Access Points]({% post_url 2026-05-16-S3-Data-Sharing-Services %}) → |

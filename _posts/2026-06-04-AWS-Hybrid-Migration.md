@@ -323,5 +323,5 @@ Snow Family 디바이스에서 **EC2 인스턴스(sbe 타입), Lambda 함수, Io
 >
 > | | |
 > |---|---|
-> | ← [서버리스 — Lambda & API Gateway]({% post_url 2026-06-14-AWS-Serverless-Lambda-APIGateway %}) | |
-> | | [AI & ML — Bedrock, SageMaker, Amazon Q]({% post_url 2026-06-14-AWS-AI-ML-Bedrock-SageMaker %}) → |
+> | ← [서버리스 — Lambda & API Gateway]({% post_url 2026-06-03-AWS-Serverless-Lambda-APIGateway %}) | |
+> | | [AI & ML — Bedrock, SageMaker, Amazon Q]({% post_url 2026-06-05-AWS-AI-ML-Bedrock-SageMaker %}) → |

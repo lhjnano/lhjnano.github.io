@@ -497,5 +497,5 @@ ORDER BY eventtime DESC;
 >
 > | | |
 > |---|---|
-> | ← [S3 Access Grants와 복제로 대규모 데이터 공유하기]({% post_url 2026-06-13-S3-Access-Grants-and-Replication %}) | |
-> | | [S3 데이터 공유 아키텍처 — 6가지 패턴과 선택 가이드]({% post_url 2026-06-13-S3-Data-Sharing-Architecture-Patterns %}) → |
+> | ← [S3 Access Grants와 복제로 대규모 데이터 공유하기]({% post_url 2026-05-17-S3-Access-Grants-and-Replication %}) | |
+> | | [S3 데이터 공유 아키텍처 — 6가지 패턴과 선택 가이드]({% post_url 2026-05-19-S3-Data-Sharing-Architecture-Patterns %}) → |

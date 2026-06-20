@@ -352,5 +352,5 @@ Global Accelerator에는 **AWS Shield Standard**가 기본 통합되어 L3/L4 DD
 >
 > | | |
 > |---|---|
-> | ← [로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups]({% post_url 2026-06-14-AWS-ELB-AutoScaling %}) | |
-> | | [데이터베이스 & 캐시 — RDS, Aurora, ElastiCache]({% post_url 2026-06-14-AWS-Database-Cache %}) → |
+> | ← [로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups]({% post_url 2026-05-26-AWS-ELB-AutoScaling %}) | |
+> | | [데이터베이스 & 캐시 — RDS, Aurora, ElastiCache]({% post_url 2026-05-28-AWS-Database-Cache %}) → |

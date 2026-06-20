@@ -192,4 +192,4 @@ t(`${count}세트`)                    // 변수를 키에
 
 | ← 이전 | 시리즈: AI 주도 개발 거버넌스 | 다음 → |
 |---|---|---|
-| **[(3) 모놀리식 HTML 분할]({% post_url 2026-06-22-Monolithic-HTML-Splitting-AI-Context %})** | **(4) gettext 원문 키** | **[(5) 레이어드 테스팅]({% post_url 2026-06-24-Layered-Testing-E2E-Last %})** |
+| **[(3) 모놀리식 HTML 분할]({% post_url 2026-06-09-Monolithic-HTML-Splitting-AI-Context %})** | **(4) gettext 원문 키** | **[(5) 레이어드 테스팅]({% post_url 2026-06-11-Layered-Testing-E2E-Last %})** |

@@ -219,4 +219,4 @@ git push --no-verify
 
 | ← 이전 | 시리즈: AI 주도 개발 거버넌스 | 다음 → |
 |---|---|---|
-| **[(5) 레이어드 테스팅]({% post_url 2026-06-24-Layered-Testing-E2E-Last %})** | **(6) 3-Tier CI 게이트** | **[(7) ADR 14선]({% post_url 2026-06-26-ADR-14-Architecture-Tradeoffs %})** |
+| **[(5) 레이어드 테스팅]({% post_url 2026-06-11-Layered-Testing-E2E-Last %})** | **(6) 3-Tier CI 게이트** | **[(7) ADR 14선]({% post_url 2026-06-13-ADR-14-Architecture-Tradeoffs %})** |

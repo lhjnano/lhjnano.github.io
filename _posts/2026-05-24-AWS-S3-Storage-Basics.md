@@ -344,13 +344,13 @@ def make_key(original: str) -> str:
 
 | 포스트 | 주제 |
 |--------|------|
-| [S3 프로토콜과 API 심층 분석]({% post_url 2026-06-13-S3-Protocol-and-API-Deep-Dive %}) | REST API 구조, HTTP 헤더, 서명 버전, 멀티파트 업로드 내부 동작 |
-| [S3 데이터 공유 서비스]({% post_url 2026-06-13-S3-Data-Sharing-Services %}) | Access Point, Pre-signed URL, S3 Access Points, DataSync |
-| [S3 Access Grants와 복제]({% post_url 2026-06-13-S3-Access-Grants-and-Replication %}) | Access Grants, SRR/CRR 상세 구성, Batch Replication |
-| [S3 보안 다층 방어 패턴]({% post_url 2026-06-13-S3-Security-Patterns %}) | 7계층 방어 모델, 버킷 정책 6가지 패턴, CloudTrail 감사 |
-| [S3 아키텍처 패턴]({% post_url 2026-06-13-S3-Data-Sharing-Architecture-Patterns %}) | 데이터 레이크, 정적 웹 호스팅, CDN 통합 아키텍처 |
-| [S3 2026 신기능]({% post_url 2026-06-13-S3-New-Features-2026 %}) | Express One Zone, Directory Bucket, S3 Tables 등 최신 기능 |
-| [VersityGW 온프레미스 S3]({% post_url 2026-06-13-VersityGW-On-Premises-S3 %}) | 온프레미스 환경에서 S3 호환 스토리지 구축 |
+| [S3 프로토콜과 API 심층 분석]({% post_url 2026-05-15-S3-Protocol-and-API-Deep-Dive %}) | REST API 구조, HTTP 헤더, 서명 버전, 멀티파트 업로드 내부 동작 |
+| [S3 데이터 공유 서비스]({% post_url 2026-05-16-S3-Data-Sharing-Services %}) | Access Point, Pre-signed URL, S3 Access Points, DataSync |
+| [S3 Access Grants와 복제]({% post_url 2026-05-17-S3-Access-Grants-and-Replication %}) | Access Grants, SRR/CRR 상세 구성, Batch Replication |
+| [S3 보안 다층 방어 패턴]({% post_url 2026-05-18-S3-Security-Patterns %}) | 7계층 방어 모델, 버킷 정책 6가지 패턴, CloudTrail 감사 |
+| [S3 아키텍처 패턴]({% post_url 2026-05-19-S3-Data-Sharing-Architecture-Patterns %}) | 데이터 레이크, 정적 웹 호스팅, CDN 통합 아키텍처 |
+| [S3 2026 신기능]({% post_url 2026-05-20-S3-New-Features-2026 %}) | Express One Zone, Directory Bucket, S3 Tables 등 최신 기능 |
+| [VersityGW 온프레미스 S3]({% post_url 2026-05-21-VersityGW-On-Premises-S3 %}) | 온프레미스 환경에서 S3 호환 스토리지 구축 |
 
 ---
 
@@ -358,5 +358,5 @@ def make_key(original: str) -> str:
 >
 > | | |
 > |---|---|
-> | ← [EC2 & EBS — AWS 컴퓨팅 완전 정복]({% post_url 2026-06-14-AWS-EC2-Computing %}) | |
-> | | [VPC 네트워킹 — 서브넷부터 Transit Gateway까지]({% post_url 2026-06-14-AWS-VPC-Networking %}) → |
+> | ← [EC2 & EBS — AWS 컴퓨팅 완전 정복]({% post_url 2026-05-23-AWS-EC2-Computing %}) | |
+> | | [VPC 네트워킹 — 서브넷부터 Transit Gateway까지]({% post_url 2026-05-25-AWS-VPC-Networking %}) → |

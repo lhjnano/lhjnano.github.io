@@ -223,4 +223,4 @@ ADR-0006: "346KB가 됐다. 분할하자. 단, 빌드 도구는 안 도입한다
 
 | ← 이전 | 시리즈: AI 주도 개발 거버넌스 | 다음 → |
 |---|---|---|
-| **[(6) 3-Tier CI 게이트]({% post_url 2026-06-25-CI-Dead-Button-Detection-3-Tier-Gate %})** | **(7) ADR 14선** | — (시리즈 끝) |
+| **[(6) 3-Tier CI 게이트]({% post_url 2026-06-12-CI-Dead-Button-Detection-3-Tier-Gate %})** | **(7) ADR 14선** | — (시리즈 끝) |

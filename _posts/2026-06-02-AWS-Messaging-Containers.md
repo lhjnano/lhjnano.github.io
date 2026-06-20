@@ -478,5 +478,5 @@ AWS의 **관리형 Kubernetes** 서비스입니다. Control Plane을 AWS가 완�
 >
 > | | |
 > |---|---|
-> | ← [운영 & IaC — CloudWatch, CloudTrail, CloudFormation]({% post_url 2026-06-14-AWS-Ops-IaC %}) | |
-> | | [서버리스 — Lambda & API Gateway]({% post_url 2026-06-14-AWS-Serverless-Lambda-APIGateway %}) → |
+> | ← [운영 & IaC — CloudWatch, CloudTrail, CloudFormation]({% post_url 2026-06-01-AWS-Ops-IaC %}) | |
+> | | [서버리스 — Lambda & API Gateway]({% post_url 2026-06-03-AWS-Serverless-Lambda-APIGateway %}) → |

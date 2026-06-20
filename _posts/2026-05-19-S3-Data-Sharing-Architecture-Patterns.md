@@ -345,5 +345,5 @@ events.put_targets(
 >
 > | | |
 > |---|---|
-> | ← [S3 보안 다층 방어 — 7계층 패턴과 실전 구현]({% post_url 2026-06-13-S3-Security-Patterns %}) | |
-> | | [S3 2026 신기능 — Files, Tables, Vectors, Metadata + s3fs-fuse]({% post_url 2026-06-13-S3-New-Features-2026 %}) → |
+> | ← [S3 보안 다층 방어 — 7계층 패턴과 실전 구현]({% post_url 2026-05-18-S3-Security-Patterns %}) | |
+> | | [S3 2026 신기능 — Files, Tables, Vectors, Metadata + s3fs-fuse]({% post_url 2026-05-20-S3-New-Features-2026 %}) → |

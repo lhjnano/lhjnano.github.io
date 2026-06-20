@@ -167,4 +167,4 @@ Phase 4: screens 분할 (진행 중)
 
 | ← 이전 | 시리즈: AI 주도 개발 거버넌스 | 다음 → |
 |---|---|---|
-| **[(2) 4단계 디자인 게이트]({% post_url 2026-06-21-Design-Gate-4-Stage-Preview-Control %})** | **(3) 모놀리식 HTML 분할** | **[(4) gettext 원문 키]({% post_url 2026-06-23-Gettext-Original-Key-i18n %})** |
+| **[(2) 4단계 디자인 게이트]({% post_url 2026-06-08-Design-Gate-4-Stage-Preview-Control %})** | **(3) 모놀리식 HTML 분할** | **[(4) gettext 원문 키]({% post_url 2026-06-10-Gettext-Original-Key-i18n %})** |

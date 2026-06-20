@@ -311,5 +311,5 @@ Public Subnet에는 ALB, NAT Gateway, Bastion Host를 배치하고, Private Subn
 >
 > | | |
 > |---|---|
-> | ← [S3 객체 스토리지 기초 — 버킷부터 수명주기까지]({% post_url 2026-06-14-AWS-S3-Storage-Basics %}) | |
-> | | [로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups]({% post_url 2026-06-14-AWS-ELB-AutoScaling %}) → |
+> | ← [S3 객체 스토리지 기초 — 버킷부터 수명주기까지]({% post_url 2026-05-24-AWS-S3-Storage-Basics %}) | |
+> | | [로드밸런싱 & 오토스케일링 — ELB와 Auto Scaling Groups]({% post_url 2026-05-26-AWS-ELB-AutoScaling %}) → |

@@ -184,4 +184,4 @@ AWS는 모든 아키텍처 설계 시 6가지 원칙을 권장합니다.
 > | | |
 > |---|---|
 > | | 첫 글입니다 |
-> | | [EC2 & EBS — AWS 컴퓨팅 완전 정복]({% post_url 2026-06-14-AWS-EC2-Computing %}) → |
+> | | [EC2 & EBS — AWS 컴퓨팅 완전 정복]({% post_url 2026-05-23-AWS-EC2-Computing %}) → |

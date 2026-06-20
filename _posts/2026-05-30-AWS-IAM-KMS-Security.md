@@ -279,5 +279,5 @@ XKS(External Key Store)는 KMS 키의 암호화 자료를 **온프레미스 외�
 >
 > | | |
 > |---|---|
-> | ← [분석 & 파일 스토리지 — Redshift, Athena, EFS, FSx]({% post_url 2026-06-14-AWS-Analytics-FileStorage %}) | |
-> | | [인증 & 방화벽 — Cognito, ACM, Shield/WAF]({% post_url 2026-06-14-AWS-Auth-Firewall %}) → |
+> | ← [분석 & 파일 스토리지 — Redshift, Athena, EFS, FSx]({% post_url 2026-05-29-AWS-Analytics-FileStorage %}) | |
+> | | [인증 & 방화벽 — Cognito, ACM, Shield/WAF]({% post_url 2026-05-31-AWS-Auth-Firewall %}) → |

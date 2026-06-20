@@ -357,5 +357,5 @@ export class MyAppStack extends cdk.Stack {
 >
 > | | |
 > |---|---|
-> | ← [인증 & 방화벽 — Cognito, ACM, Shield/WAF]({% post_url 2026-06-14-AWS-Auth-Firewall %}) | |
-> | | [메시징 & 컨테이너 — SQS/SNS/Kinesis와 ECS/EKS]({% post_url 2026-06-14-AWS-Messaging-Containers %}) → |
+> | ← [인증 & 방화벽 — Cognito, ACM, Shield/WAF]({% post_url 2026-05-31-AWS-Auth-Firewall %}) | |
+> | | [메시징 & 컨테이너 — SQS/SNS/Kinesis와 ECS/EKS]({% post_url 2026-06-02-AWS-Messaging-Containers %}) → |

@@ -284,5 +284,5 @@ FinOps는 클라우드 비용을 최적화하는 재무 관리 실천입니다. 
 >
 > | | |
 > |---|---|
-> | ← [AI & ML — Bedrock, SageMaker, Amazon Q]({% post_url 2026-06-14-AWS-AI-ML-Bedrock-SageMaker %}) | |
+> | ← [AI & ML — Bedrock, SageMaker, Amazon Q]({% post_url 2026-06-05-AWS-AI-ML-Bedrock-SageMaker %}) | |
 > | | 마지막 글입니다 |
