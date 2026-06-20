@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "기계가 규칙을 지킨다 — 데드 버튼 탐지와 3-Tier CI (6)"
+title: "[AI 개발 거버넌스 (6)] 기계가 규칙을 지킨다 — 데드 버튼 탐지와 3-Tier CI"
 categories: [AI, Development, Governance]
 description: AI 에이전트가 만드는 데드 버튼과 목 데이터를 CI에서 자동 탐지하는 방법과, pre-commit부터 배포까지 3-Tier 게이트로 규칙을 기계적으로 강제하는 구조를 설명합니다.
 keywords: [CI/CD, 데드 버튼, 정적 분석, pre-commit, 자동화]

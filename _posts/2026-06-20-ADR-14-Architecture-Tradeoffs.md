@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "14개의 결정 — ADR에서 배우는 아키텍처 트레이드오프 (7)"
+title: "[AI 개발 거버넌스 (7)] 14개의 결정 — ADR에서 배우는 아키텍처 트레이드오프"
 categories: [AI, Development, Governance]
 description: 세 프로젝트에서 작성된 14개의 아키텍처 결정 기록(ADR)에서 핵심 트레이드오프를 추출해 소개합니다. 왜 이 기술을 선택했고, 무엇을 포기했는지를 기록하는 것이 ADR의 본질입니다.
 keywords: [ADR, 아키텍처 결정 기록, 트레이드오프, Cloudflare, 아키텍처]

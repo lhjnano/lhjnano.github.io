@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI 주도 개발에서 반복되는 10가지 함정 (1)"
+title: "[AI 개발 거버넌스 (1)] AI 주도 개발에서 반복되는 10가지 함정"
 categories: [AI, Development, Governance]
 description: AI 에이전트로 소프트웨어를 개발하며 반복적으로 겪은 문제를 분석하고, 10가지 핵심 원칙으로 체계적으로 해결한 과정을 정리합니다.
 keywords: [AI 개발, 거버넌스, 에이전트, 소프트웨어 개발, CI/CD, 코드 품질]

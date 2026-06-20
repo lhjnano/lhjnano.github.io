@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "E2E는 최후의 수단 — 레이어드 테스팅 전략 (5)"
+title: "[AI 개발 거버넌스 (5)] E2E는 최후의 수단 — 레이어드 테스팅 전략"
 categories: [AI, Development, Governance]
 description: 전통적 E2E 우선 테스트는 느리고 불안정하여 CI를 차단합니다. 컴포넌트 격리 우선, E2E 최후의 바텀업 테스팅으로 전환한 4계층 전략을 설명합니다.
 keywords: [테스팅, E2E, 컴포넌트 테스트, 컨트랙트 테스트, CI]

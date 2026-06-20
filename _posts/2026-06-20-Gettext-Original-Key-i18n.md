@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "키 발명은 끝났다 — GNU gettext 원문 키 방식 (4)"
+title: "[AI 개발 거버넌스 (4)] 키 발명은 끝났다 — GNU gettext 원문 키 방식"
 categories: [AI, Development, Governance]
 description: JSON 키-값 i18n 방식의 키 발명 부담에서 벗어나, GNU gettext 원문 키 방식을 채택한 과정과 듀얼 모드 설계를 설명합니다.
 keywords: [i18n, gettext, 국제화, 다국어, 번역]

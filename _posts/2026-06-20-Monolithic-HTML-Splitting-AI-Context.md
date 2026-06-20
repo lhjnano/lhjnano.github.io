@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "모놀리식 HTML의 저주 — 점진적 분할과 AI 컨텍스트 절약 (3)"
+title: "[AI 개발 거버넌스 (3)] 모놀리식 HTML의 저주 — 점진적 분할과 AI 컨텍스트 절약"
 categories: [AI, Development, Governance]
 description: AI 도구가 만든 단일 HTML 파일이 346KB/7600줄까지 성장했습니다. 빌드 도구 없이 4-Phase 점진적 분할로 해결하고 AI 컨텍스트를 절약한 과정을 설명합니다.
 keywords: [파일 분할, 모놀리식 HTML, AI 컨텍스트, 점진적 마이그레이션, PWA]

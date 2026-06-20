@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "프리뷰가 데이터를 지배할 때 — 4단계 디자인 게이트 (2)"
+title: "[AI 개발 거버넌스 (2)] 프리뷰가 데이터를 지배할 때 — 4단계 디자인 게이트"
 categories: [AI, Development, Governance]
 description: AI 디자인 도구의 프리뷰는 성공 상태만 보여줍니다. 프리뷰 역설을 해결하기 위해 도메인부터 디자인까지 4단계 게이트로 통제하는 방법을 설명합니다.
 keywords: [디자인 게이트, 프리뷰, 데드 버튼, API 컨트랙트, UI 상태]
