@@ -227,4 +227,4 @@ SSO를 구현하는 방법은 Kerberos만 있는 게 아닙니다. 웹 기반의
 
 ---
 
-> **이전 글**: [(4) MFA & TOTP]({% post_url 2026-05-11-MFA-TOTP-RFC6238 %}) | **다음 글**: [(6) JWT 토큰]({% post_url 2026-05-13-JWT-Structure-Signature-Revocation %})
+> **이전 글**: [(4) MFA & TOTP]({% post_url 2026-06-21-MFA-TOTP-RFC6238 %}) | **다음 글**: [(6) JWT 토큰]({% post_url 2026-06-23-JWT-Structure-Signature-Revocation %})

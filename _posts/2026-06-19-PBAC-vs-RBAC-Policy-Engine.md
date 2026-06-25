@@ -306,4 +306,4 @@ PBAC를 도입하고 나서 가장 크게 달라진 점은, 권한 변경이 더
 
 ---
 
-> **이전 글**: [(1) IAM이란 무엇인가]({% post_url 2026-05-08-IAM-Overview-AuthN-AuthZ-Audit %}) | **다음 글**: [(3) OAuth2 & OIDC]({% post_url 2026-05-10-OAuth2-OIDC-Authorization-Flow %})
+> **이전 글**: [(1) IAM이란 무엇인가]({% post_url 2026-06-18-IAM-Overview-AuthN-AuthZ-Audit %}) | **다음 글**: [(3) OAuth2 & OIDC]({% post_url 2026-06-20-OAuth2-OIDC-Authorization-Flow %})

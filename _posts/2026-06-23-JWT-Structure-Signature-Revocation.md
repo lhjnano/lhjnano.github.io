@@ -221,4 +221,4 @@ Refresh Token Rotation은 이 딜레마에 대한 실무적 답입니다. 체계
 
 ---
 
-> **이전 글**: [(5) Kerberos & SSO]({% post_url 2026-05-12-Kerberos-SSO-SPNEGO %}) | **처음으로**: [(1) IAM이란 무엇인가]({% post_url 2026-05-08-IAM-Overview-AuthN-AuthZ-Audit %})
+> **이전 글**: [(5) Kerberos & SSO]({% post_url 2026-06-22-Kerberos-SSO-SPNEGO %}) | **처음으로**: [(1) IAM이란 무엇인가]({% post_url 2026-06-18-IAM-Overview-AuthN-AuthZ-Audit %})
