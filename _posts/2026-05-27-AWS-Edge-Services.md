@@ -340,11 +340,13 @@ Global Accelerator에는 **AWS Shield Standard**가 기본 통합되어 L3/L4 DD
 
 ---
 
-## Takeaway
+## 마치며
 
-1. **목적이 다르면 서비스도 다릅니다** — 캐싱은 CloudFront, 라우팅 제어는 Route 53, 경로 최적화·고정 IP는 Global Accelerator입니다. 세 서비스의 핵심 메커니즘(CDN 캐시·DNS 정책·Anycast 백본)을 구분하면 선택이 명확해집니다
-2. **OAC, Alias, Shield Standard는 2026년 기본값입니다** — CloudFront는 OAI 대신 OAC를, Route 53은 CNAME 대신 Alias를(무료 + 자동 갱신) 쓰고, 두 엣지 서비스 모두 Shield Standard가 기본 탑재되어 L3/L4 DDoS를 자동 방어합니다
-3. **세 서비스는 조합해서 씁니다** — Route 53이 DNS·라우팅 뇌를, CloudFront가 캐싱을, Global Accelerator가 고정 IP·비HTTP 가속을 맡도록 계층화하면 지연·가용성·보안을 동시에 잡을 수 있습니다
+엣지 서비스 하면 CDN 하나만 떠올렸는데, CloudFront·Route 53·Global Accelerator가 각각 캐싱, DNS 라우팅 제어, Anycast 백본 가속이라는 서로 다른 문제를 해결한다는 걸 이해하고 나서 혼란이 사라졌습니다. 세 서비스의 핵심 메커니즘을 구분하니, 어떤 상황에 무엇을 써야 하는지가 명확해졌습니다.
+
+2026년의 기본값들이 바뀌었다는 점도 놀라웠습니다. CloudFront는 OAI 대신 OAC를 쓰고, Route 53은 CNAME 대신 무료이면서 자동 갱신되는 Alias를 사용하며, 두 서비스 모두 Shield Standard가 기본 탑재되어 DDoS를 자동 방어합니다. 보안과 성능이 기본값으로 녹아들어 있다는 것은 클라우드가 성숙해진 증거입니다.
+
+결국 세 서비스를 계층화해서 조합할 때 지연·가용성·보안을 동시에 잡을 수 있다는 통찰이 가장 중요한 깨달음이었습니다. 앞으로 Route 53로 DNS·라우팅 뇌를, CloudFront로 캐싱을, Global Accelerator로 고정 IP와 비HTTP 가속을 맡기는 글로벌 아키텍처를 직접 설계해 보고 싶습니다.
 
 ---
 

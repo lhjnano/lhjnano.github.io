@@ -105,6 +105,9 @@ npm create cloudflare@latest -- my-next-app --framework=next
 
 [Hono](https://hono.dev/)는 Workers에 최적화된 경량 프레임워크입니다. 익스프레스와 비슷한 문법으로 빠르게 API를 작성할 수 있습니다.
 
+<details markdown="1">
+<summary>3단계: Workers로 API 만들기</summary>
+
 ```ts
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
@@ -131,6 +134,7 @@ app.post('/api/users', async (c) => {
 
 export default app
 ```
+</details>
 
 ### 크론 트리거 (스케줄링)
 
@@ -400,8 +404,10 @@ API Token은 Dashboard → My Profile → API Tokens에서 `Edit Cloudflare Work
 | 스케줄링 | Vercel Cron | **Cron Triggers (5개)** |
 | 한국 CDN | 글로벌만 | **한국 PoP** |
 
-## Takeaway
+## 마치며
 
-1. **무제한 대역폭이 핵심입니다** — Cloudflare만이 무료로 무제한 대역폭을 제공합니다. 트래픽 증가를 걱정하지 않아도 됩니다
-2. **Email Sending으로 외부 의존성을 줄입니다** — `send_email` 바인딩만으로 Workers에서 이메일 발송이 가능합니다. API 키 관리 부담이 없습니다
-3. **CPU 10ms 제한을 반드시 인지해야 합니다** — 무료지만 CPU 시간 제한이 있습니다. 가벼운 API와 캐싱 전략으로 극복합니다
+처음에는 "무료 티어로 과연 진짜 서비스가 돌아갈까" 반신반의했습니다. 어딘가에 숨겨진 요금 함정이 있거나, 한계에 부딪히면 결국 유료로 갈 수밖에 없을 거라 짐작했죠. 그런데 막상 Cloudflare 스택을 조립해보니 가장 놀라운 것은 '무제한 대역폭'이 단순한 마케팅 문구가 아니라는 점이었습니다. 트래픽이 늘어도 요금 폭탄을 걱정하지 않아도 된다는 심리적 안도감은, MVP 단계에서 기능 개발에 집중할 수 있게 만드는 가장 큰 자산이었습니다.
+
+이 과정에서 가장 크게 깨달은 점은 '바인딩'이라는 개념의 힘입니다. Email Sending, D1, R2, Cron Triggers가 전부 설정 파일 몇 줄로 연결되고, 외부 API 키나 커넥션 풀을 관리할 필요가 없습니다. 서비스를 구성하는 부품이 줄어들면 줄어들수록 운영 복잡성은 기하급수적으로 낮아집니다. 물론 CPU 10ms 제한처럼 무료의 대가는 분명히 존재하지만, 가벼운 API와 캐싱 전략으로 충분히 극복할 수 있는 수준이었습니다.
+
+비용을 제로로 유지하면서 전 세계 엣지에서 서비스를 운영할 수 있는 시대가 왔다는 사실이 여전히 신기합니다. 앞으로는 새 프로젝트를 시작할 때 "어떤 클라우드를 쓸까"가 아니라 "Cloudflare 생태계 안에서 어떤 조합을 쓸까"를 먼저 떠올리게 되었습니다. 무료라서 소홀히할 수 있는 것이 아니라, 무료이기에 오히려 더 빠르게 실험하고 더 많이 배울 수 있다고 생각합니다.

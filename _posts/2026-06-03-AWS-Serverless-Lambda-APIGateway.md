@@ -242,6 +242,9 @@ CloudWatch 지표로 에러율·지연 시간을 검증한 뒤 자동 승격 또
 
 가장 대표적인 서버리스 CRUD API 패턴입니다. API Gateway가 요청을 받아 Lambda를 동기 호출하고, Lambda가 DynamoDB에 접근합니다.
 
+<details markdown="1">
+<summary>패턴 1. API Gateway + Lambda + DynamoDB (동기 API)</summary>
+
 ```
 ┌────────────────────────────────────────────┐
 │                 Client                      │
@@ -269,6 +272,7 @@ CloudWatch 지표로 에러율·지연 시간을 검증한 뒤 자동 승격 또
 │         Table: Items                        │
 └────────────────────────────────────────────┘
 ```
+</details>
 
 ### 패턴 2. EventBridge + Lambda (이벤트 드리븐)
 
@@ -325,6 +329,9 @@ CloudWatch 지표로 에러율·지연 시간을 검증한 뒤 자동 승격 또
 
 서버리스 애플리케이션을 IaC로 정의하는 프레임워크입니다. CloudFormation을 확장하여 Lambda, API Gateway, DynamoDB를 간결하게 선언합니다.
 
+<details markdown="1">
+<summary>SAM (Serverless Application Model)</summary>
+
 ```yaml
 # template.yaml (SAM)
 Transform: AWS::Serverless-2016-10-31
@@ -349,6 +356,7 @@ Resources:
     Properties:
       StageName: prod
 ```
+</details>
 
 | SAM CLI 명령 | 용도 |
 |-------------|------|
@@ -359,11 +367,13 @@ Resources:
 
 ---
 
-## Takeaway
+## 마치며
 
-1. **Lambda는 이벤트 기반·ms 과금의 서버리스 컴퓨팅입니다** — 서버 관리 없이 60개 이상 이벤트 소스에 반응하며, 동기·비동기·스트림 세 가지 호출 방식과 성공/실패 Destination으로 유연한 파이프라인을 구성합니다. 콜드스타트는 Provisioned Concurrency(예열)와 SnapStart(Java)·Graviton2(ARM)로 해결합니다.
-2. **API Gateway는 용도에 따라 3종으로 선택합니다** — 풀 기능과 캐싱이 필요한 복잡한 API는 REST API, 단순 Lambda 백엔드와 저비용·고성능이 필요하면 HTTP API(비용 1/3.5, 지연 60% 감소), 양방향 실시간 통신은 WebSocket API를 사용합니다. 카나리 배포·쓰로틀링·네 가지 인증(IAM/Cognito/Lambda/JWT)으로 운영 수준의 API를 관리합니다.
-3. **서버리스 패턴 3종으로 대부분의 아키텍처를 커버합니다** — 동기 API는 API Gateway + Lambda + DynamoDB, 이벤트 드리븐은 EventBridge + Lambda + SNS/SQS, 다단계 워크플로우는 Step Functions로 오케스트레이션합니다. SAM으로 IaC를 관리하고 `sam local`로 로컬 테스트 후 배포하면 서버 한 대 없이 프로덕션급 시스템을 구축할 수 있습니다.
+처음 Lambda를 봤을 때는 제약이 너무 많다고 생각했습니다. 15분 실행 제한, 10GB 메모리 상한, 콜드스타트 지연 — 이런 제약이 있으면 "진짜" 애플리케이션은 만들 수 없다고 의심했습니다. 하지만 역으로 생각해 보니, 그 제약이야말로 함수를 무상태(stateless)로 강제하고, 이벤트 기반으로만 동작하도록 유도하는 설계 경계라는 것을 깨달았습니다. 상태를 외부(DynamoDB, ElastiCache)에 두어야 하고, 긴 작업은 Step Functions로 분할해야 한다는 제약은 결국 "분산 시스템의 원칙을 아키텍처 수준에서 강제하는" 것과 같았습니다. 제약이 자유를 만든다는 역설을 서버리스에서 다시 만났습니다.
+
+API Gateway의 REST API, HTTP API, WebSocket API 세 가지 유형을 비교하면서, "복잡한 기능"과 "단순한 성능" 사이의 트레이드오프가 얼마나 극적인지 체감했습니다. HTTP API가 REST API 대비 비용은 1/3.5, 지연은 60% 감소라는 수치는 단순한 개선이 아니라, 단순한 Lambda 백엔드에게는 불필요한 기능을 벗겨내는 것이 곧 성능이라는 통찰이었습니다. 카나리 배포로 트래픽을 점진적으로 승격하고, 쓰로틀링으로 과부하를 막으며, 네 가지 인증 방식으로 접근을 제어하는 것까지 포함하면, "서버 한 대 없이 운영 수준의 API를 관리한다"는 말이 과장이 아님을 알게 되었습니다.
+
+서버리스 아키텍처의 진정한 매력은 "코드가 실행된 시간만큼만 과금한다"는 경제성 그 이상이라고 생각합니다. 새벽에 트래픽이 0이 되어도 비용이 나가지 않고, 트래픽이 100배로 늘어도 자동으로 확장되는 구조는, 인프라를 "관리하는 대상"이 아니라 "이벤트에 반응하는 함수의 집합"으로 재정의합니다. Provisioned Concurrency와 SnapStart로 콜드스타트를 극복하고, SAM으로 IaC를 관리하며, `sam local`로 로컬에서 테스트하는 워크플로우까지 갖추면, 서버리스는 더 이상 실험적인 선택이 아니라 기본 설계 옵션이 됩니다. 앞으로는 "서버를 프로비저닝하기 전에 먼저 서버리스로 가능한가"를 물어보는 습관을 들이고 싶습니다.
 
 ---
 
