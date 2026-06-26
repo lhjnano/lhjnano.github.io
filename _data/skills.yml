@@ -1,17 +1,67 @@
-- title: System & Infrastructure
+- title: Storage & File Systems
+  keywords:
+    - LVM
+    - XFS
+    - ZFS
+    - GlusterFS
+    - SMB / NFS
+    - iSCSI
+    - Thin Provisioning
+    - Snapshot
+
+- title: Infrastructure & HA
   keywords:
     - Linux
+    - CentOS / RHEL
+    - Pacemaker
+    - Paxos
+    - InfiniBand
+    - OpenSM
+    - VMware
     - Shell Script
-    - LVM
-    - Kubernetes
-    - OpenStack
-    - CI/CD
+
+- title: Programming Languages
+  keywords:
+    - C / C++
+    - Go
+    - Python
+    - Perl
+    - Java
+    - JavaScript
+    - Groovy
+    - YAML / OpenAPI
+
+- title: Build & CI/CD
+  keywords:
+    - Koji
+    - Pungi
     - Jenkins
     - GitLab
+    - Redmine
+    - Mattermost
 
-- title: Monitoring & Tools
+- title: Monitoring & Observability
   keywords:
-    - Zabbix
     - Grafana
-    - Prometheus
-    - Splunk
+    - InfluxDB
+    - Netdata
+    - Zabbix
+    - GDB
+    - strace
+
+- title: Web & API
+  keywords:
+    - Spring Framework
+    - ExtJS
+    - RESTful API
+    - MVC
+    - JNI / NDK
+
+- title: Learning Interests
+  keywords:
+    - AWS
+    - Kubernetes
+    - OpenStack
+    - IAM / PBAC
+    - OAuth2 / OIDC
+    - AI Development
