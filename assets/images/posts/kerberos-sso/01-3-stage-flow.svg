@@ -1,7 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 620" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
     <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
     </marker>
-  </defs>  <rect x="35" y="20" width="130" height="50" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>  <text x="100" y="42" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">클라이언트</text>  <text x="100" y="58" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">(사용자 PC)</text>  <line x1="100" y1="70" x2="100" y2="500" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>  <rect x="275" y="20" width="130" height="50" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>  <text x="340" y="42" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">KDC</text>  <text x="340" y="58" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">(AD DC)</text>  <line x1="340" y1="70" x2="340" y2="500" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>  <rect x="515" y="20" width="130" height="50" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>  <text x="580" y="42" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">서비스</text>  <text x="580" y="58" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">(웹 관리)</text>  <line x1="580" y1="70" x2="580" y2="500" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>  <text x="340.0" y="75" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">단계 1: AS Exchange</text>  <text x="340.0" y="215" font-size="12" fill="#bc8cff" font-weight="bold" text-anchor="middle">단계 2: TGS Exchange</text>  <text x="340.0" y="355" font-size="12" fill="#3fb950" font-weight="bold" text-anchor="middle">단계 3: Client-Server</text>  <line x1="110" y1="100" x2="330" y2="100" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>  <text x="220.0" y="92" font-size="9" fill="#4183c4" font-weight="normal" text-anchor="middle">"TGT 주세요"</text>  <line x1="330" y1="130" x2="110" y2="130" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>  <text x="220.0" y="122" font-size="9" fill="#3fb950" font-weight="normal" text-anchor="middle">TGT 발급</text>  <text x="220.0" y="134" font-size="9" fill="#3fb950" font-weight="normal" text-anchor="middle">(KDC 비밀키로 암호화)</text>  <line x1="110" y1="240" x2="330" y2="240" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>  <text x="220.0" y="232" font-size="9" fill="#4183c4" font-weight="normal" text-anchor="middle">TGT로 서비스</text>  <text x="220.0" y="244" font-size="9" fill="#4183c4" font-weight="normal" text-anchor="middle">티켓 요청</text>  <line x1="330" y1="270" x2="110" y2="270" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>  <text x="220.0" y="262" font-size="9" fill="#3fb950" font-weight="normal" text-anchor="middle">서비스 티켓 발급</text>  <line x1="110" y1="380" x2="570" y2="380" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>  <text x="340.0" y="372" font-size="9" fill="#4183c4" font-weight="normal" text-anchor="middle">서비스 티켓 제시</text>  <line x1="570" y1="410" x2="110" y2="410" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>  <text x="340.0" y="402" font-size="9" fill="#3fb950" font-weight="normal" text-anchor="middle">티켓 검증</text>  <text x="340.0" y="414" font-size="9" fill="#3fb950" font-weight="normal" text-anchor="middle">→ 인증 성공!</text>  <text x="340.0" y="490" font-size="12" fill="#f85149" font-weight="bold" text-anchor="middle">비밀번호는 네트워크로 절대 전송되지 않음</text>
+  </defs>
+  <rect x="40" y="15" width="140" height="55" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>
+  <text x="110" y="38" font-size="13" fill="#4183c4" font-weight="bold" text-anchor="middle">클라이언트</text>
+  <text x="110" y="56" font-size="11" fill="#666" font-weight="normal" text-anchor="middle">(사용자 PC)</text>
+  <line x1="110" y1="70" x2="110" y2="590" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+  <rect x="280" y="15" width="140" height="55" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>
+  <text x="350" y="38" font-size="13" fill="#4183c4" font-weight="bold" text-anchor="middle">KDC</text>
+  <text x="350" y="56" font-size="11" fill="#666" font-weight="normal" text-anchor="middle">(AD DC)</text>
+  <line x1="350" y1="70" x2="350" y2="590" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+  <rect x="520" y="15" width="140" height="55" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>
+  <text x="590" y="38" font-size="13" fill="#4183c4" font-weight="bold" text-anchor="middle">서비스</text>
+  <text x="590" y="56" font-size="11" fill="#666" font-weight="normal" text-anchor="middle">(웹 관리)</text>
+  <line x1="590" y1="70" x2="590" y2="590" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="350.0" y="95" font-size="12" fill="#4183c4" font-weight="bold" text-anchor="middle">단계 1: AS Exchange</text>
+  <text x="350.0" y="250" font-size="12" fill="#bc8cff" font-weight="bold" text-anchor="middle">단계 2: TGS Exchange</text>
+  <text x="350.0" y="405" font-size="12" fill="#3fb950" font-weight="bold" text-anchor="middle">단계 3: Client-Server</text>
+  <line x1="122" y1="120" x2="338" y2="120" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="230.0" y="114" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">"TGT 주세요"</text>
+  <line x1="338" y1="165" x2="122" y2="165" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="230.0" y="145" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">TGT 발급</text>
+  <text x="230.0" y="159" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">(KDC 비밀키로 암호화)</text>
+  <line x1="122" y1="280" x2="338" y2="280" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="230.0" y="260" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">TGT로 서비스</text>
+  <text x="230.0" y="274" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">티켓 요청</text>
+  <line x1="338" y1="325" x2="122" y2="325" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="230.0" y="305" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">서비스 티켓 발급</text>
+  <text x="230.0" y="319" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">(서비스 비밀키로 암호화)</text>
+  <line x1="122" y1="435" x2="578" y2="435" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="350.0" y="429" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">서비스 티켓 제시</text>
+  <line x1="578" y1="480" x2="122" y2="480" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="350.0" y="460" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">티켓 검증</text>
+  <text x="350.0" y="474" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">-&gt; 인증 성공!</text>
+  <text x="350.0" y="608" font-size="12" fill="#f85149" font-weight="bold" text-anchor="middle">비밀번호는 네트워크로 절대 전송되지 않음</text>
+
 </svg>
