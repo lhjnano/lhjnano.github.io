@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 560" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+  <defs>
+    <marker id="ah-sso1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
+    </marker>
+    <marker id="ah-sso2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <marker id="ah-sso3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="410" y="28" font-size="15" font-weight="700" fill="#1e3a5f" text-anchor="middle">실전: 외부 앱 SSO 시나리오</text>
+
+  <!-- Actor headers -->
+  <rect x="30" y="50" width="150" height="50" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="105" y="80" font-size="12" font-weight="700" fill="#2563eb" text-anchor="middle">외부 모니터링 앱</text>
+  <line x1="105" y1="100" x2="105" y2="535" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <rect x="250" y="50" width="140" height="50" rx="10" fill="#f0f4f8" stroke="#666" stroke-width="1.5"/>
+  <text x="320" y="80" font-size="12" font-weight="700" fill="#666" text-anchor="middle">사용자 (브라우저)</text>
+  <line x1="320" y1="100" x2="320" y2="535" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <rect x="560" y="50" width="170" height="50" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="645" y="73" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">인증 서버</text>
+  <text x="645" y="89" font-size="10" fill="#888" text-anchor="middle">(OIDC Provider)</text>
+  <line x1="645" y1="100" x2="645" y2="535" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Step 1: 인가 요청 -->
+  <circle cx="320" cy="135" r="11" fill="#666"/>
+  <text x="320" y="139" font-size="11" font-weight="bold" fill="white" text-anchor="middle">1</text>
+  <line x1="335" y1="135" x2="633" y2="135" stroke="#666" stroke-width="1.5" marker-end="url(#ah-sso1)"/>
+  <text x="484" y="129" font-size="10" fill="#666" text-anchor="middle">인가 요청: scope=openid+profile</text>
+
+  <!-- Step 2: 로그인 화면 -->
+  <circle cx="320" cy="180" r="11" fill="#666"/>
+  <text x="320" y="184" font-size="11" font-weight="bold" fill="white" text-anchor="middle">2</text>
+  <line x1="633" y1="180" x2="335" y2="180" stroke="#666" stroke-width="1.5" marker-end="url(#ah-sso1)"/>
+  <text x="484" y="174" font-size="10" fill="#666" text-anchor="middle">로그인 화면 → 사용자 LDAP 인증</text>
+
+  <!-- Step 3: Authorization Code -->
+  <circle cx="320" cy="225" r="11" fill="#2563eb"/>
+  <text x="320" y="229" font-size="11" font-weight="bold" fill="white" text-anchor="middle">3</text>
+  <line x1="633" y1="225" x2="117" y2="225" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-sso2)"/>
+  <text x="375" y="219" font-size="10" fill="#2563eb" text-anchor="middle">Authorization Code 발급 (redirect)</text>
+
+  <!-- Step 4: 토큰 교환 -->
+  <circle cx="645" cy="280" r="11" fill="#2563eb"/>
+  <text x="645" y="284" font-size="11" font-weight="bold" fill="white" text-anchor="middle">4</text>
+  <line x1="117" y1="280" x2="633" y2="280" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-sso2)"/>
+  <text x="375" y="274" font-size="10" fill="#2563eb" text-anchor="middle">POST /oauth/token (백채널)</text>
+
+  <!-- Step 5: ID Token + Access Token -->
+  <circle cx="645" cy="325" r="11" fill="#16a34a"/>
+  <text x="645" y="329" font-size="11" font-weight="bold" fill="white" text-anchor="middle">5</text>
+  <line x1="633" y1="325" x2="117" y2="325" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ah-sso3)"/>
+  <text x="375" y="319" font-size="10" fill="#16a34a" text-anchor="middle">ID Token + Access Token</text>
+
+  <!-- Step 6: ID Token 검증 (highlighted) -->
+  <circle cx="105" cy="375" r="11" fill="#dc2626"/>
+  <text x="105" y="379" font-size="11" font-weight="bold" fill="white" text-anchor="middle">6</text>
+  <rect x="145" y="360" width="390" height="32" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="340" y="374" font-size="10" fill="#dc2626" font-weight="600" text-anchor="middle">ID Token 서명 검증 (공개키로)</text>
+  <text x="340" y="387" font-size="9" fill="#dc2626" text-anchor="middle">iss, aud, exp 확인 → 비밀번호 검증 불필요</text>
+
+  <!-- Step 7: API 호출 -->
+  <circle cx="645" cy="430" r="11" fill="#2563eb"/>
+  <text x="645" y="434" font-size="11" font-weight="bold" fill="white" text-anchor="middle">7</text>
+  <line x1="117" y1="430" x2="633" y2="430" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-sso2)"/>
+  <text x="375" y="424" font-size="10" fill="#2563eb" text-anchor="middle">Access Token으로 API 호출</text>
+
+  <!-- Key insight box -->
+  <rect x="30" y="465" width="700" height="65" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="380" y="488" font-size="11" fill="#92400e" font-weight="600" text-anchor="middle">SSO의 본질</text>
+  <text x="380" y="505" font-size="10" fill="#92400e" text-anchor="middle">외부 앱은 사용자 비밀번호를 한 번도 만지지 않는다</text>
+  <text x="380" y="520" font-size="10" fill="#92400e" text-anchor="middle">신뢰의 부담이 외부 앱에서 인증 서버로 옮겨간다</text>
+
+  <!-- Arrow indicating trust shift -->
+  <text x="380" y="548" font-size="10" fill="#8b949e" text-anchor="middle" font-style="italic">외부 앱 → (신뢰 위임) → 인증 서버</text>
+</svg>

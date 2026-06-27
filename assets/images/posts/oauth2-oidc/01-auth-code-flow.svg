@@ -1,45 +1,102 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 680" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 720" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
-    <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="ah-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <marker id="ah-gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
     </marker>
+    <marker id="ah-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
+    </marker>
   </defs>
-  <rect x="35" y="15" width="130" height="55" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>
-  <text x="100" y="38" font-size="13" fill="#4183c4" font-weight="bold" text-anchor="middle">사용자</text>
-  <text x="100" y="56" font-size="11" fill="#666" font-weight="normal" text-anchor="middle">(브라우저)</text>
-  <line x1="100" y1="70" x2="100" y2="655" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
-  <rect x="305" y="15" width="130" height="55" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>
-  <text x="370" y="38" font-size="13" fill="#4183c4" font-weight="bold" text-anchor="middle">Client</text>
-  <text x="370" y="56" font-size="11" fill="#666" font-weight="normal" text-anchor="middle">(앱)</text>
-  <line x1="370" y1="70" x2="370" y2="655" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
-  <rect x="575" y="15" width="130" height="55" rx="10" fill="#f0f4f8" stroke="#4183c4" stroke-width="1.5"/>
-  <text x="640" y="38" font-size="13" fill="#4183c4" font-weight="bold" text-anchor="middle">Auth Server</text>
-  <line x1="640" y1="70" x2="640" y2="655" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
-  <line x1="112" y1="110" x2="358" y2="110" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="235.0" y="104" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">"로그인" 클릭</text>
-  <line x1="358" y1="160" x2="112" y2="160" stroke="#555" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="235.0" y="140" font-size="10" fill="#555" font-weight="normal" text-anchor="middle">인가 페이지로</text>
-  <text x="235.0" y="154" font-size="10" fill="#555" font-weight="normal" text-anchor="middle">리다이렉트</text>
-  <line x1="112" y1="215" x2="628" y2="215" stroke="#555" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="370.0" y="209" font-size="10" fill="#555" font-weight="normal" text-anchor="middle">인가 페이지로 이동</text>
-  <line x1="628" y1="265" x2="112" y2="265" stroke="#555" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="370.0" y="259" font-size="10" fill="#555" font-weight="normal" text-anchor="middle">동의 화면 표시</text>
-  <line x1="112" y1="315" x2="628" y2="315" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="370.0" y="309" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">로그인 + 동의</text>
-  <line x1="628" y1="365" x2="112" y2="365" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="370.0" y="345" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">Authorization Code</text>
-  <text x="370.0" y="359" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">발급 (redirect)</text>
-  <line x1="382" y1="420" x2="628" y2="420" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="505.0" y="400" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">코드로 토큰 교환</text>
-  <text x="505.0" y="414" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">POST /token</text>
-  <line x1="628" y1="475" x2="382" y2="475" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="505.0" y="455" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">Access Token</text>
-  <text x="505.0" y="469" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">+ Refresh Token</text>
-  <line x1="382" y1="530" x2="628" y2="530" stroke="#4183c4" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="505.0" y="510" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">API 호출</text>
-  <text x="505.0" y="524" font-size="10" fill="#4183c4" font-weight="normal" text-anchor="middle">Authorization: Bearer</text>
-  <line x1="628" y1="585" x2="382" y2="585" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ah)"/>
-  <text x="505.0" y="579" font-size="10" fill="#3fb950" font-weight="normal" text-anchor="middle">보호된 데이터 반환</text>
-  <text x="370.0" y="670" font-size="11" fill="#8b949e" font-weight="normal" text-anchor="middle">프론트채널(브라우저 경유)과 백채널(서버 직접)의 분리가 핵심</text>
 
+  <!-- Background zones -->
+  <rect x="0" y="80" width="820" height="310" fill="#eff6ff" opacity="0.35"/>
+  <text x="410" y="75" font-size="10" fill="#3b82f6" font-weight="600" text-anchor="middle">프론트채널 (브라우저 경유)</text>
+  <rect x="0" y="400" width="820" height="290" fill="#f0fdf4" opacity="0.35"/>
+  <text x="410" y="395" font-size="10" fill="#16a34a" font-weight="600" text-anchor="middle">백채널 (서버 간 직접 통신)</text>
+
+  <!-- Actor headers -->
+  <rect x="35" y="15" width="140" height="55" rx="10" fill="#f0f4f8" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="105" y="38" font-size="13" fill="#2563eb" font-weight="bold" text-anchor="middle">사용자</text>
+  <text x="105" y="56" font-size="11" fill="#666" text-anchor="middle">(브라우저)</text>
+  <line x1="105" y1="70" x2="105" y2="685" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <rect x="340" y="15" width="140" height="55" rx="10" fill="#f0f4f8" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="410" y="38" font-size="13" fill="#2563eb" font-weight="bold" text-anchor="middle">Client</text>
+  <text x="410" y="56" font-size="11" fill="#666" text-anchor="middle">(앱 서버)</text>
+  <line x1="410" y1="70" x2="410" y2="685" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <rect x="645" y="15" width="140" height="55" rx="10" fill="#f0f4f8" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="715" y="38" font-size="13" fill="#2563eb" font-weight="bold" text-anchor="middle">Auth Server</text>
+  <line x1="715" y1="70" x2="715" y2="685" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Step 1: "로그인" 클릭 -->
+  <circle cx="130" cy="115" r="11" fill="#2563eb"/>
+  <text x="130" y="119" font-size="11" font-weight="bold" fill="white" text-anchor="middle">1</text>
+  <line x1="117" y1="115" x2="398" y2="115" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+  <text x="255" y="108" font-size="10" fill="#2563eb" text-anchor="middle">"로그인" 클릭</text>
+
+  <!-- Step 2: redirect to auth page (Client가 state 생성) -->
+  <circle cx="398" cy="165" r="11" fill="#666"/>
+  <text x="398" y="169" font-size="11" font-weight="bold" fill="white" text-anchor="middle">2</text>
+  <line x1="398" y1="165" x2="117" y2="165" stroke="#666" stroke-width="1.5" marker-end="url(#ah-gray)"/>
+  <text x="255" y="142" font-size="10" fill="#666" text-anchor="middle">인가 페이지로 리다이렉트</text>
+  <text x="255" y="156" font-size="9" fill="#999" text-anchor="middle" font-style="italic">Client가 state 난수 생성 후 포함</text>
+
+  <!-- Step 3: 인가 요청 (User → Auth Server) with params -->
+  <circle cx="715" cy="220" r="11" fill="#666"/>
+  <text x="715" y="224" font-size="11" font-weight="bold" fill="white" text-anchor="middle">3</text>
+  <line x1="117" y1="220" x2="703" y2="220" stroke="#666" stroke-width="1.5" marker-end="url(#ah-gray)"/>
+  <text x="410" y="200" font-size="10" fill="#666" text-anchor="middle">GET /oauth/authorize?</text>
+  <text x="410" y="214" font-size="9" fill="#999" text-anchor="middle">client_id, redirect_uri, scope, state=xyz123</text>
+
+  <!-- Step 4: 동의 화면 표시 -->
+  <circle cx="715" cy="270" r="11" fill="#666"/>
+  <text x="715" y="274" font-size="11" font-weight="bold" fill="white" text-anchor="middle">4</text>
+  <line x1="703" y1="270" x2="117" y2="270" stroke="#666" stroke-width="1.5" marker-end="url(#ah-gray)"/>
+  <text x="410" y="264" font-size="10" fill="#666" text-anchor="middle">로그인 + 동의 화면 표시</text>
+
+  <!-- Step 5: 사용자 로그인 + 동의 -->
+  <circle cx="715" cy="320" r="11" fill="#2563eb"/>
+  <text x="715" y="324" font-size="11" font-weight="bold" fill="white" text-anchor="middle">5</text>
+  <line x1="117" y1="320" x2="703" y2="320" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+  <text x="410" y="314" font-size="10" fill="#2563eb" text-anchor="middle">사용자 로그인 + 동의</text>
+
+  <!-- Step 6: Authorization Code + state (Auth Server → User → Client) -->
+  <circle cx="715" cy="370" r="11" fill="#2563eb"/>
+  <text x="715" y="374" font-size="11" font-weight="bold" fill="white" text-anchor="middle">6</text>
+  <line x1="703" y1="370" x2="117" y2="370" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+  <text x="410" y="350" font-size="10" fill="#2563eb" text-anchor="middle">302 Redirect → callback?code=Abc&amp;state=xyz123</text>
+  <text x="410" y="364" font-size="9" fill="#dc2626" text-anchor="middle" font-style="italic">Client가 state 일치 여부 확인 (CSRF 방어)</text>
+
+  <!-- Step 7: 토큰 교환 (Client → Auth Server) -->
+  <circle cx="715" cy="440" r="11" fill="#2563eb"/>
+  <text x="715" y="444" font-size="11" font-weight="bold" fill="white" text-anchor="middle">7</text>
+  <line x1="422" y1="440" x2="703" y2="440" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+  <text x="562" y="420" font-size="10" fill="#2563eb" text-anchor="middle">POST /oauth/token</text>
+  <text x="562" y="434" font-size="9" fill="#999" text-anchor="middle">code, client_id, client_secret</text>
+
+  <!-- Step 8: Token response -->
+  <circle cx="715" cy="495" r="11" fill="#16a34a"/>
+  <text x="715" y="499" font-size="11" font-weight="bold" fill="white" text-anchor="middle">8</text>
+  <line x1="703" y1="495" x2="422" y2="495" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ah-green)"/>
+  <text x="562" y="475" font-size="10" fill="#16a34a" text-anchor="middle">Access Token + Refresh Token</text>
+  <text x="562" y="489" font-size="9" fill="#999" text-anchor="middle">(+ OIDC 시 ID Token 포함)</text>
+
+  <!-- Step 9: API 호출 -->
+  <circle cx="715" cy="550" r="11" fill="#2563eb"/>
+  <text x="715" y="554" font-size="11" font-weight="bold" fill="white" text-anchor="middle">9</text>
+  <line x1="422" y1="550" x2="703" y2="550" stroke="#2563eb" stroke-width="1.5" marker-end="url(#ah-blue)"/>
+  <text x="562" y="544" font-size="10" fill="#2563eb" text-anchor="middle">API 호출: Authorization: Bearer ...</text>
+
+  <!-- Step 10: Data response -->
+  <circle cx="715" cy="600" r="11" fill="#16a34a"/>
+  <text x="715" y="604" font-size="11" font-weight="bold" fill="white" text-anchor="middle">10</text>
+  <line x1="703" y1="600" x2="422" y2="600" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ah-green)"/>
+  <text x="562" y="594" font-size="10" fill="#16a34a" text-anchor="middle">보호된 데이터 반환</text>
+
+  <!-- Footer note -->
+  <text x="410" y="700" font-size="10" fill="#8b949e" text-anchor="middle">state는 3단계에서 전송 → 6단계에서 검증. 코드는 브라우저를 거치지만 토큰은 그렇지 않음</text>
 </svg>
