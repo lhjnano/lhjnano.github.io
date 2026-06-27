@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
-    <marker id="ah-disc" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="ah-d1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#666"/>
     </marker>
-    <marker id="ah-disc2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="ah-d2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
     </marker>
     <filter id="shadow-d">
@@ -14,50 +14,56 @@
   <!-- Title -->
   <text x="410" y="28" font-size="15" font-weight="700" fill="#1e3a5f" text-anchor="middle">Discovery: 한 번의 GET으로 모든 설정 자동 발견</text>
 
-  <!-- Client box -->
-  <rect x="30" y="55" width="160" height="50" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" filter="url(#shadow-d)"/>
-  <text x="110" y="85" font-size="13" font-weight="700" fill="#2563eb" text-anchor="middle">Client (앱)</text>
+  <!-- Actor: Client -->
+  <rect x="40" y="55" width="160" height="50" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" filter="url(#shadow-d)"/>
+  <text x="120" y="85" font-size="13" font-weight="700" fill="#2563eb" text-anchor="middle">Client (앱)</text>
+  <line x1="120" y1="105" x2="120" y2="415" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
 
-  <!-- Auth Server box -->
-  <rect x="600" y="55" width="190" height="50" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2" filter="url(#shadow-d)"/>
-  <text x="695" y="85" font-size="13" font-weight="700" fill="#16a34a" text-anchor="middle">OIDC Provider</text>
+  <!-- Actor: OIDC Provider -->
+  <rect x="620" y="55" width="160" height="50" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2" filter="url(#shadow-d)"/>
+  <text x="700" y="85" font-size="13" font-weight="700" fill="#16a34a" text-anchor="middle">OIDC Provider</text>
+  <line x1="700" y1="105" x2="700" y2="415" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
 
-  <!-- Step 1: GET request -->
-  <line x1="190" y1="125" x2="598" y2="125" stroke="#666" stroke-width="1.5" marker-end="url(#ah-disc)"/>
-  <text x="394" y="119" font-size="10" fill="#666" text-anchor="middle">GET /.well-known/openid-configuration</text>
+  <!-- Step 1: GET request (Client → Provider) -->
+  <circle cx="120" cy="140" r="12" fill="#666"/>
+  <text x="120" y="144" font-size="11" font-weight="bold" fill="white" text-anchor="middle">1</text>
+  <line x1="135" y1="140" x2="685" y2="140" stroke="#666" stroke-width="1.5" marker-end="url(#ah-d1)"/>
+  <text x="410" y="133" font-size="10" fill="#666" text-anchor="middle">GET /.well-known/openid-configuration</text>
 
-  <!-- Step 2: JSON response -->
-  <line x1="600" y1="165" x2="192" y2="165" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ah-disc2)"/>
-  <text x="394" y="159" font-size="10" fill="#16a34a" text-anchor="middle">200 OK (JSON)</text>
+  <!-- Step 2: JSON response (Provider → Client) -->
+  <circle cx="700" cy="185" r="12" fill="#16a34a"/>
+  <text x="700" y="189" font-size="11" font-weight="bold" fill="white" text-anchor="middle">2</text>
+  <line x1="685" y1="185" x2="135" y2="185" stroke="#16a34a" stroke-width="1.5" marker-end="url(#ah-d2)"/>
+  <text x="410" y="178" font-size="10" fill="#16a34a" text-anchor="middle">200 OK (JSON 응답)</text>
 
   <!-- JSON response box -->
-  <rect x="190" y="185" width="480" height="165" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
-  <text x="210" y="205" font-size="10" font-weight="600" fill="#495057">{</text>
-  <text x="210" y="222" font-size="10" fill="#2563eb">  "issuer"</text>
-  <text x="310" y="222" font-size="10" fill="#666">: "https://auth.example.com",</text>
-  <text x="210" y="239" font-size="10" fill="#2563eb">  "authorization_endpoint"</text>
-  <text x="390" y="239" font-size="10" fill="#666">: ".../oauth/authorize",</text>
-  <text x="210" y="256" font-size="10" fill="#2563eb">  "token_endpoint"</text>
-  <text x="340" y="256" font-size="10" fill="#666">: ".../oauth/token",</text>
-  <text x="210" y="273" font-size="10" fill="#2563eb">  "userinfo_endpoint"</text>
-  <text x="350" y="273" font-size="10" fill="#666">: ".../oauth/userinfo",</text>
-  <text x="210" y="290" font-size="10" fill="#2563eb">  "jwks_uri"</text>
-  <text x="310" y="290" font-size="10" fill="#666">: ".../oauth/certs",</text>
-  <text x="210" y="307" font-size="10" fill="#2563eb">  "id_token_signing_alg_values_supported"</text>
-  <text x="440" y="307" font-size="10" fill="#666">: ["RS256"],</text>
-  <text x="210" y="324" font-size="10" fill="#2563eb">  "scopes_supported"</text>
-  <text x="340" y="324" font-size="10" fill="#666">: ["openid","profile","email"]</text>
-  <text x="210" y="341" font-size="10" font-weight="600" fill="#495057">}</text>
+  <rect x="190" y="210" width="520" height="150" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <rect x="190" y="210" width="520" height="24" rx="8" fill="#e9ecef"/>
+  <rect x="190" y="226" width="520" height="8" fill="#e9ecef"/>
+  <text x="210" y="227" font-size="10" font-weight="700" fill="#495057">Discovery 문서 (JSON)</text>
 
-  <!-- Auto-configured boxes -->
-  <text x="410" y="380" font-size="10" fill="#8b949e" text-anchor="middle" font-style="italic">이 문서 하나로 모든 엔드포인트, 공개키 위치, 지원 알고리즘을 자동 발견</text>
+  <text x="210" y="252" font-size="10" fill="#495057">{</text>
+  <text x="220" y="268" font-size="10" fill="#2563eb" font-family="'Courier New',monospace">"issuer"</text>
+  <text x="320" y="268" font-size="10" fill="#666" font-family="'Courier New',monospace">: "https://auth.example.com",</text>
+  <text x="220" y="284" font-size="10" fill="#2563eb" font-family="'Courier New',monospace">"authorization_endpoint"</text>
+  <text x="400" y="284" font-size="10" fill="#666" font-family="'Courier New',monospace">: ".../oauth/authorize",</text>
+  <text x="220" y="300" font-size="10" fill="#2563eb" font-family="'Courier New',monospace">"token_endpoint"</text>
+  <text x="350" y="300" font-size="10" fill="#666" font-family="'Courier New',monospace">: ".../oauth/token",</text>
+  <text x="220" y="316" font-size="10" fill="#2563eb" font-family="'Courier New',monospace">"jwks_uri"</text>
+  <text x="320" y="316" font-size="10" fill="#666" font-family="'Courier New',monospace">: ".../oauth/certs",</text>
+  <text x="220" y="332" font-size="10" fill="#2563eb" font-family="'Courier New',monospace">"scopes_supported"</text>
+  <text x="350" y="332" font-size="10" fill="#666" font-family="'Courier New',monospace">: ["openid","profile","email"]</text>
+  <text x="210" y="348" font-size="10" fill="#495057">}</text>
 
-  <rect x="190" y="392" width="100" height="20" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
-  <text x="240" y="406" font-size="9" fill="#92400e" text-anchor="middle">수동 설정 불필요</text>
+  <!-- Benefits row -->
+  <text x="410" y="388" font-size="10" fill="#8b949e" text-anchor="middle" font-style="italic">문서 하나로 모든 엔드포인트, 공개키 위치, 지원 알고리즘을 자동 발견</text>
 
-  <rect x="310" y="392" width="110" height="20" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
-  <text x="365" y="406" font-size="9" fill="#92400e" text-anchor="middle">키 회전 자동 대응</text>
+  <rect x="120" y="400" width="150" height="24" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+  <text x="195" y="416" font-size="10" fill="#92400e" text-anchor="middle">수동 설정 불필요</text>
 
-  <rect x="440" y="392" width="110" height="20" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
-  <text x="495" y="406" font-size="9" fill="#92400e" text-anchor="middle">Provider 교체 용이</text>
+  <rect x="335" y="400" width="150" height="24" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+  <text x="410" y="416" font-size="10" fill="#92400e" text-anchor="middle">키 회전 자동 대응</text>
+
+  <rect x="550" y="400" width="150" height="24" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+  <text x="625" y="416" font-size="10" fill="#92400e" text-anchor="middle">Provider 교체 용이</text>
 </svg>
