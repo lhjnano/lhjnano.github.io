@@ -253,5 +253,5 @@ aws s3control create-access-point \
 >
 > | | |
 > |---|---|
-> | ← [S3 프로토콜과 API — 개요부터 실전 활용까지]({% post_url 2026-05-15-S3-Protocol-and-API-Deep-Dive %}) | |
+> | ← [S3 프로토콜과 API. 개요부터 실전 활용까지]({% post_url 2026-05-15-S3-Protocol-and-API-Deep-Dive %}) | |
 > | | [S3 Access Grants와 복제로 대규모 데이터 공유하기]({% post_url 2026-05-17-S3-Access-Grants-and-Replication %}) → |

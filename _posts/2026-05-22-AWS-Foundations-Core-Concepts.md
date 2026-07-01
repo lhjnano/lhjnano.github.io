@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[AWS 1/16] AWS 클라우드 기초 — 핵심 개념과 글로벌 인프라"
+title: "[AWS 1/16] AWS 클라우드 기초: 핵심 개념과 글로벌 인프라"
 categories: [AWS, Cloud]
 description: AWS 클라우드의 핵심 개념부터 글로벌 인프라, 서비스 분류, 요금 모델까지 초보자도 이해하기 쉽게 정리합니다.
 keywords: [AWS, Cloud, IaaS, PaaS, SaaS, 리전, 가용영역]
@@ -12,17 +12,17 @@ toc_sticky: true
 
 서버 한 대를 구하려면 예전엔 몇 주가 걸렸습니다. 견적 받고, 발주 넣고, 랙에 올리고, OS 설치하고. AWS에서는 클릭 몇 번으로 60초면 됩니다. 이 차이가 클라우드입니다.
 
-하지만 "클라우드"라는 단어 하나로 이 모든 걸 설명하기엔 갭이 큽니다. 리전, 가용 영역, 엣지 로케이션부터 탄력성, 내결함성, CDN까지 — 개념 없이 콘솔에 들어가면 길을 잃기 쉽습니다. 이 글에서는 AWS를 처음 접하는 분도 아키텍처 설계 시 참고할 수 있도록, 핵심 개념과 글로벌 인프라, 서비스 분류, 요금 모델까지 한 번에 정리합니다.
+하지만 "클라우드"라는 단어 하나로 이 모든 걸 설명하기엔 갭이 큽니다. 리전, 가용 영역, 엣지 로케이션부터 탄력성, 내결함성, CDN까지. 개념 없이 콘솔에 들어가면 길을 잃기 쉽습니다. 이 글에서는 AWS를 처음 접하는 분도 아키텍처 설계 시 참고할 수 있도록, 핵심 개념과 글로벌 인프라, 서비스 분류, 요금 모델까지 한 번에 정리합니다.
 
 ---
 
 ## TL;DR
 
-- **서비스 모델 3가지** — IaaS(인프라), PaaS(플랫폼), SaaS(완성 소프트웨어), 관리 책임 범위로 구분
-- **글로벌 인프라 4계층** — Region → AZ → Edge Location → Local Zone/Wavelength
-- **핵심 개념 4쌍** — 탄력성 vs 확장성, 내결함성 vs 고가용성, CDN, VPC
-- **서비스 분류 12개** — 컴퓨팅/스토리지/네트워킹/DB/보안/분석/AI·ML/서버리스 등
-- **요금 모델** — 온디맨드, 예약, 스팟, 사용량 기반 종량제
+- **서비스 모델 3가지**: IaaS(인프라), PaaS(플랫폼), SaaS(완성 소프트웨어), 관리 책임 범위로 구분
+- **글로벌 인프라 4계층**: Region → AZ → Edge Location → Local Zone/Wavelength
+- **핵심 개념 4쌍**: 탄력성 vs 확장성, 내결함성 vs 고가용성, CDN, VPC
+- **서비스 분류 12개**: 컴퓨팅/스토리지/네트워킹/DB/보안/분석/AI·ML/서버리스 등
+- **요금 모델**: 온디맨드, 예약, 스팟, 사용량 기반 종량제
 
 ---
 
@@ -36,11 +36,11 @@ toc_sticky: true
 
 클라우드 서비스는 관리 책임의 범위에 따라 세 가지로 구분합니다.
 
-![클라우드 서비스 모델 — IaaS, PaaS, SaaS 구분](/assets/images/posts/aws-foundations/01-01-iaas-paas-saas-구분.svg)
+![클라우드 서비스 모델. IaaS, PaaS, SaaS 구분](/assets/images/posts/aws-foundations/01-01-iaas-paas-saas-구분.svg)
 
-- **IaaS (Infrastructure as a Service)** — 가상화된 컴퓨팅 인프라 제공. OS, 앱, 데이터를 고객이 관리. 예: EC2, VPC, EBS
-- **PaaS (Platform as a Service)** — 개발/배포 플랫폼 제공. 앱과 데이터만 관리. 예: Elastic Beanstalk, Lambda, RDS
-- **SaaS (Software as a Service)** — 완성된 소프트웨어 제공. 공급자가 거의 모든 것을 관리. 예: WorkSpaces
+- **IaaS (Infrastructure as a Service)**: 가상화된 컴퓨팅 인프라 제공. OS, 앱, 데이터를 고객이 관리. 예: EC2, VPC, EBS
+- **PaaS (Platform as a Service)**: 개발/배포 플랫폼 제공. 앱과 데이터만 관리. 예: Elastic Beanstalk, Lambda, RDS
+- **SaaS (Software as a Service)**: 완성된 소프트웨어 제공. 공급자가 거의 모든 것을 관리. 예: WorkSpaces
 
 온프레미스에서 SaaS로 갈수록 고객의 관리 부담은 줄고 공급자의 책임은 커집니다.
 
@@ -58,7 +58,7 @@ toc_sticky: true
 
 AWS는 전 세계에 분산된 인프라를 운영하여 사용자에게 낮은 지연시간과 고가용성을 제공합니다. 인프라는 계층 구조로 이해하면 깔끔합니다.
 
-![AWS 글로벌 인프라스트럭처 구조 — Region, AZ, Edge](/assets/images/posts/aws-foundations/01-02-2-글로벌-인프라스트럭처.svg)
+![AWS 글로벌 인프라스트럭처 구조. Region, AZ, Edge](/assets/images/posts/aws-foundations/01-02-2-글로벌-인프라스트럭처.svg)
 
 ### Region (리전)
 
@@ -70,7 +70,7 @@ AWS는 전 세계에 분산된 인프라를 운영하여 사용자에게 낮은 
 
 가용 영역(AZ)은 리전 내에서 물리적으로 분리된 하나 이상의 데이터센터입니다. 각 AZ는 별도의 전력, 냉각, 네트워킹 인프라를 갖추고 있습니다.
 
-![리전 내 AZ 구조 예시 — 서울 리전 (ap-northeast-2)](/assets/images/posts/aws-foundations/01-03-availability-zone-가용-영역.svg)
+![리전 내 AZ 구조 예시. 서울 리전 (ap-northeast-2)](/assets/images/posts/aws-foundations/01-03-availability-zone-가용-영역.svg)
 
 일반적으로 하나의 리전은 3~6개의 AZ로 구성됩니다. AZ 간 지연시간은 1ms 이하이며, AZ 간 데이터 복제로 고가용성을 확보합니다. 단일 AZ 장애가 전체 리전에 영향을 주지 않는 것이 핵심입니다.
 
@@ -88,8 +88,8 @@ AWS는 리전/AZ 외에도 다양한 엣지 인프라를 운영합니다. Edge L
 
 ![탄력성(Elasticity) vs 확장성(Scalability)](/assets/images/posts/aws-foundations/01-04-탄력성elasticity-vs-확장성scalability.svg)
 
-- **탄력성** — 수요 변화에 따라 리소스를 자동으로 추가/제거하는 능력. Scale Out(늘리기)과 Scale In(줄이기)을 반복. 예: Auto Scaling
-- **확장성** — 시스템이 증가하는 부하를 처리할 수 있는 능력. 수직 확장(Scale Up, 사양 업그레이드)과 수평 확장(Scale Out, 서버 대수 증설)으로 구분
+- **탄력성**: 수요 변화에 따라 리소스를 자동으로 추가/제거하는 능력. Scale Out(늘리기)과 Scale In(줄이기)을 반복. 예: Auto Scaling
+- **확장성**: 시스템이 증가하는 부하를 처리할 수 있는 능력. 수직 확장(Scale Up, 사양 업그레이드)과 수평 확장(Scale Out, 서버 대수 증설)으로 구분
 
 탄력성은 "수요에 맞춰 유연하게 변하는 것"이고, 확장성은 "더 큰 부하를 감당할 수 있는 능력"입니다.
 
@@ -99,8 +99,8 @@ AWS는 리전/AZ 외에도 다양한 엣지 인프라를 운영합니다. Edge L
 
 ![내결함성(Fault Tolerance) vs 고가용성(High Availability)](/assets/images/posts/aws-foundations/01-05-내결함성fault-tolerance-vs-고가용성high-availability.svg)
 
-- **내결함성** — 장애가 발생해도 시스템이 중단 없이 계속 동작합니다. 예: Multi-AZ RDS의 자동 장애조치(Failover). Primary가 죽어도 Standby가 즉시 승격되어 무중단을 유지합니다
-- **고가용성** — 장애 발생 시 최소한의 중단으로 빠르게 복구합니다. 보통 99.99% 이상의 가용성을 목표로 합니다. 예: ELB + 다중 AZ EC2. 한 AZ가 죽으면 ELB가 다른 AZ로 라우팅합니다
+- **내결함성**: 장애가 발생해도 시스템이 중단 없이 계속 동작합니다. 예: Multi-AZ RDS의 자동 장애조치(Failover). Primary가 죽어도 Standby가 즉시 승격되어 무중단을 유지합니다
+- **고가용성**: 장애 발생 시 최소한의 중단으로 빠르게 복구합니다. 보통 99.99% 이상의 가용성을 목표로 합니다. 예: ELB + 다중 AZ EC2. 한 AZ가 죽으면 ELB가 다른 AZ로 라우팅합니다
 
 내결함성은 "장애를 견디는 것", 고가용성은 "장애 후 빠르게 복구하는 것"입니다.
 
@@ -108,7 +108,7 @@ AWS는 리전/AZ 외에도 다양한 엣지 인프라를 운영합니다. Edge L
 
 CDN은 전 세계에 분산된 서버 네트워크를 통해 사용자에게 콘텐츠를 빠르게 전달하는 시스템입니다. AWS의 CDN 서비스는 Amazon CloudFront입니다.
 
-![CDN 동작 원리 — Amazon CloudFront](/assets/images/posts/aws-foundations/01-06-cdn-content-delivery-network.svg)
+![CDN 동작 원리. Amazon CloudFront](/assets/images/posts/aws-foundations/01-06-cdn-content-delivery-network.svg)
 
 오리진(S3, EC2, ALB 등 원본 서버)의 콘텐츠를 엣지 로케이션에 캐싱합니다. 서울 사용자는 서울 엣지에서, 런던 사용자는 런던 엣지에서 응답을 받습니다. 캐시에 없으면 원본에 요청하고, 응답을 캐싱한 뒤 전달합니다. DDoS 방어(AWS Shield 통합)와 HTTPS termination 기능도 제공합니다.
 
@@ -160,12 +160,12 @@ AWS는 종량제(Pay-as-you-go)를 기본으로 하되, 사용 패턴에 따라 
 
 AWS는 모든 아키텍처 설계 시 6가지 원칙을 권장합니다.
 
-1. **운영 우수성** — 실행, 모니터링, 지속적 개선
-2. **보안** — 데이터 보호, 위험 관리, 최소 권한
-3. **안정성** — 장애 복구, 자동 복구, 확장
-4. **성능 효율성** — 워크로드에 맞는 리소스 선택
-5. **비용 최적화** — 불필요한 비용 제거
-6. **지속 가능성** — 환경 영향 최소화 (2021년 추가)
+1. **운영 우수성**: 실행, 모니터링, 지속적 개선
+2. **보안**: 데이터 보호, 위험 관리, 최소 권한
+3. **안정성**: 장애 복구, 자동 복구, 확장
+4. **성능 효율성**: 워크로드에 맞는 리소스 선택
+5. **비용 최적화**: 불필요한 비용 제거
+6. **지속 가능성**: 환경 영향 최소화 (2021년 추가)
 
 이 원칙들은 서비스를 선택하고 아키텍처를 설계할 때 체크리스트로 활용할 수 있습니다.
 
@@ -186,4 +186,4 @@ AWS는 모든 아키텍처 설계 시 6가지 원칙을 권장합니다.
 > | | |
 > |---|---|
 > | | 첫 글입니다 |
-> | | [EC2 & EBS — AWS 컴퓨팅 완전 정복]({% post_url 2026-05-23-AWS-EC2-Computing %}) → |
+> | | [EC2 & EBS. AWS 컴퓨팅 완전 정복]({% post_url 2026-05-23-AWS-EC2-Computing %}) → |

@@ -18,7 +18,7 @@
 <text x="280" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="#37474f">S3 API</text>
 <text x="280" y="140" text-anchor="middle" font-size="10" fill="#546e7a">(HTTP)</text>
 
-<rect x="345" y="40" width="220" height="235" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<rect x="345" y="40" width="220" height="235" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh)"/>
 <text x="455" y="64" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">VersityGW</text>
 <text x="455" y="82" text-anchor="middle" font-size="10" fill="#b45309">S3 → POSIX 번역 엔진</text>
 

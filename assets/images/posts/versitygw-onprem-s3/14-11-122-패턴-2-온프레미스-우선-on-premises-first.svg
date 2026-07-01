@@ -6,14 +6,14 @@
 </defs>
 <text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">온프레미스 우선 (On-Premises First) 패턴</text>
 
-<rect x="250" y="42" width="250" height="70" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<rect x="250" y="42" width="250" height="70" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh)"/>
 <text x="375" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">VersityGW (Primary)</text>
 <text x="375" y="88" text-anchor="middle" font-size="10" fill="#b45309">주 데이터 저장소</text>
 
 <line x1="375" y1="112" x2="375" y2="158" stroke="#546e7a" stroke-width="2" marker-end="url(#ar)"/>
 <text x="465" y="140" font-size="10" font-weight="bold" fill="#37474f">백업/아카이브</text>
 
-<rect x="250" y="165" width="250" height="70" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<rect x="250" y="165" width="250" height="70" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh)"/>
 <text x="375" y="191" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">AWS S3 (Archive)</text>
 <text x="375" y="211" text-anchor="middle" font-size="10" fill="#1e3a8a">백업 / 재해 복구</text>
 

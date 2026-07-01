@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
             <defs><marker id="arr3" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh3" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
             <rect width="800" height="520" fill="#f8fafb" rx="8"/>
             
@@ -9,14 +9,14 @@
 <text x="40" y="48" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1565c0">① 사용자가 데이터에 접근하려 함</text>
 
 <!-- 사용자 box 1 -->
-<rect x="40" y="65" width="130" height="60" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh3)"/>
-<text x="105" y="87" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">사용자</text>
-<text x="105" y="103" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">(앱/CLI)</text>
+<rect x="40" y="65" width="130" height="60" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh3)"/>
+<text x="105" y="87" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">사용자</text>
+<text x="105" y="103" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">(앱/CLI)</text>
 
 <!-- S3 Access Grants box 1 -->
-<rect x="460" y="55" width="300" height="150" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh3)"/>
-<text x="610" y="134" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#333">S3 Access Grants</text>
-<text x="470" y="100" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#666">Grant 확인:</text>
+<rect x="460" y="55" width="300" height="150" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh3)"/>
+<text x="610" y="134" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#2c3e50">S3 Access Grants</text>
+<text x="470" y="100" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#666666">Grant 확인:</text>
 <text x="470" y="116" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 사용자 식별</text>
 <text x="470" y="132" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 권한 검증</text>
 <text x="470" y="148" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 위치 매칭</text>
@@ -28,19 +28,19 @@
 <text x="314" y="78" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#546e7a">② GetGrant (임시 자격 증명 요청)</text>
 
 <!-- ③ Response arrow -->
-<line x1="458" y1="110" x2="170" y2="110" stroke="#43a047" stroke-width="1.5" marker-end="url(#arr3)"/>
-<text x="314" y="105" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#43a047">③ 임시 자격 증명 반환</text>
-<text x="314" y="126" text-anchor="middle" font-size="8" font-weight="normal" font-family="sans-serif" fill="#666">AccessKeyId + SecretKey + SessionToken</text>
-<text x="314" y="140" text-anchor="middle" font-size="8" font-weight="normal" font-family="sans-serif" fill="#666">(최대 1시간 유효)</text>
+<line x1="458" y1="110" x2="170" y2="110" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr3)"/>
+<text x="314" y="105" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#16a34a">③ 임시 자격 증명 반환</text>
+<text x="314" y="126" text-anchor="middle" font-size="8" font-weight="normal" font-family="sans-serif" fill="#666666">AccessKeyId + SecretKey + SessionToken</text>
+<text x="314" y="140" text-anchor="middle" font-size="8" font-weight="normal" font-family="sans-serif" fill="#666666">(최대 1시간 유효)</text>
 
 <!-- 사용자 box 2 -->
-<rect x="40" y="260" width="130" height="60" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh3)"/>
-<text x="105" y="294" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">사용자</text>
+<rect x="40" y="260" width="130" height="60" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh3)"/>
+<text x="105" y="294" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">사용자</text>
 
 <!-- S3 버킷 box -->
-<rect x="460" y="260" width="300" height="80" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh3)"/>
-<text x="610" y="304" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#333">S3 버킷</text>
-<text x="470" y="305" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#666">IAM 정책 자동 검증 (Grant 기반)</text>
+<rect x="460" y="260" width="300" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh3)"/>
+<text x="610" y="304" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#2c3e50">S3 버킷</text>
+<text x="470" y="305" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#666666">IAM 정책 자동 검증 (Grant 기반)</text>
 
 <!-- ④ Label -->
 <text x="40" y="240" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1565c0">④ 임시 자격 증명으로 S3 접근</text>
@@ -50,8 +50,8 @@
 <text x="314" y="278" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#546e7a">⑤ S3 API 요청 (GetObject, ListObject 등)</text>
 
 <!-- ⑥ Response arrow -->
-<line x1="458" y1="310" x2="170" y2="310" stroke="#43a047" stroke-width="1.5" marker-end="url(#arr3)"/>
-<text x="314" y="305" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#43a047">⑥ 데이터 반환</text>
+<line x1="458" y1="310" x2="170" y2="310" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr3)"/>
+<text x="314" y="305" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#16a34a">⑥ 데이터 반환</text>
 
 <!-- Notes -->
 <text x="40" y="380" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#78909c">※ 임시 자격 증명이 만료되면 ②~③ 반복</text>

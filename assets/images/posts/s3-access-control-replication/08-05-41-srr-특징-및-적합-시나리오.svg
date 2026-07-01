@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
             <defs><marker id="arr15" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh15" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
             <rect width="800" height="480" fill="#f8fafb" rx="8"/>
             
@@ -10,42 +10,42 @@
 <!-- Scenario ① -->
 <text x="50" y="58" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1565c0">① 교차 계정 데이터 공유 (동일 리전)</text>
 
-<rect x="50" y="70" width="150" height="45" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh15)"/>
-<text x="125" y="84" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">계정 A (제공자)</text>
-<text x="125" y="100" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">source (서울)</text>
+<rect x="50" y="70" width="150" height="45" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh15)"/>
+<text x="125" y="84" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">계정 A (제공자)</text>
+<text x="125" y="100" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">source (서울)</text>
 <line x1="200" y1="92" x2="260" y2="92" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr15)"/>
 <text x="230" y="84" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#546e7a">SRR 복제</text>
-<rect x="260" y="70" width="150" height="45" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh15)"/>
-<text x="335" y="84" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">계정 B (소비자)</text>
-<text x="335" y="100" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">dest (서울)</text>
+<rect x="260" y="70" width="150" height="45" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh15)"/>
+<text x="335" y="84" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">계정 B (소비자)</text>
+<text x="335" y="100" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">dest (서울)</text>
 <text x="450" y="80" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 전송 비용 없음 (동일 리전)</text>
 <text x="450" y="96" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 소비자가 자체 버킷에서 관리</text>
 
 <!-- Scenario ② -->
 <text x="50" y="140" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1565c0">② 실운영-개발 환경 분리</text>
 
-<rect x="50" y="152" width="170" height="45" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh15)"/>
-<text x="135" y="178" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Production 버킷</text>
+<rect x="50" y="152" width="170" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh15)"/>
+<text x="135" y="178" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">Production 버킷</text>
 <line x1="220" y1="174" x2="280" y2="174" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr15)"/>
 <text x="250" y="166" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#546e7a">SRR</text>
-<rect x="280" y="152" width="170" height="45" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh15)"/>
-<text x="365" y="178" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Development 버킷</text>
+<rect x="280" y="152" width="170" height="45" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh15)"/>
+<text x="365" y="178" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">Development 버킷</text>
 <text x="480" y="162" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 실운영 데이터를 개발에 안전하게 복사</text>
 <text x="480" y="178" text-anchor="start" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2e7d32">✓ 개발 환경에서 자유롭게 수정 가능</text>
 
 <!-- Scenario ③ -->
 <text x="50" y="222" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1565c0">③ 로그 집계</text>
 
-<rect x="50" y="238" width="130" height="45" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh15)"/>
-<text x="115" y="252" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">App A</text>
-<text x="115" y="268" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">로그 버킷</text>
-<rect x="200" y="238" width="130" height="45" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh15)"/>
-<text x="265" y="252" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">App B</text>
-<text x="265" y="268" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">로그 버킷</text>
+<rect x="50" y="238" width="130" height="45" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh15)"/>
+<text x="115" y="252" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2c3e50">App A</text>
+<text x="115" y="268" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2c3e50">로그 버킷</text>
+<rect x="200" y="238" width="130" height="45" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh15)"/>
+<text x="265" y="252" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2c3e50">App B</text>
+<text x="265" y="268" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2c3e50">로그 버킷</text>
 
-<rect x="500" y="238" width="170" height="55" rx="6" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5" filter="url(#sh15)"/>
-<text x="585" y="257" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#333">Centralized</text>
-<text x="585" y="273" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#333">Log 버킷</text>
+<rect x="500" y="238" width="170" height="55" rx="6" fill="#f3e5f5" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh15)"/>
+<text x="585" y="257" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#2c3e50">Centralized</text>
+<text x="585" y="273" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#2c3e50">Log 버킷</text>
 
 <line x1="115" y1="283" x2="540" y2="265" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr15)"/>
 <line x1="265" y1="283" x2="540" y2="278" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr15)"/>

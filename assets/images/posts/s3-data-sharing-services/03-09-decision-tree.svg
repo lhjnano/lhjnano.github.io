@@ -1,38 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
-<marker id="ah-666" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#666"/></marker>
+<marker id="ah-666" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#666666"/></marker>
 <marker id="ah-2563eb" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
 <marker id="ah-16a34a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
   </defs>
 <text x="410" y="28" font-size="15" font-weight="700" fill="#2c3e50" text-anchor="middle">데이터 공유 방식 선택 가이드</text>
-<polygon points="250,100 350,125 250,150 150,125" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
-<text x="250" y="129" font-size="11" fill="#666666" text-anchor="middle">상업적 판매?</text>
-<line x1="350" y1="125" x2="470" y2="125" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<text x="410" y="118" font-size="10" fill="#666" text-anchor="middle">YES</text>
+<polygon points="250,100 350,125 250,150 150,125" fill="#f0f4f8" stroke="#666666666" stroke-width="1.5"/>
+<text x="250" y="129" font-size="11" fill="#666666666" text-anchor="middle">상업적 판매?</text>
+<line x1="350" y1="125" x2="470" y2="125" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<text x="410" y="118" font-size="10" fill="#666666" text-anchor="middle">YES</text>
 <rect x="470" y="100" width="200" height="50" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
 <text x="570" y="125" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">Data Exchange</text>
-<line x1="250" y1="150" x2="250" y2="170" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="250" y1="150" x2="250" y2="170" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
 <text x="265" y="164" font-size="9" fill="#8b949e">NO</text>
-<polygon points="250,175 350,200 250,225 150,200" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
-<text x="250" y="204" font-size="11" fill="#666666" text-anchor="middle">다수 구독자?</text>
-<line x1="350" y1="200" x2="470" y2="200" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<text x="410" y="193" font-size="10" fill="#666" text-anchor="middle">YES</text>
+<polygon points="250,175 350,200 250,225 150,200" fill="#f0f4f8" stroke="#666666666" stroke-width="1.5"/>
+<text x="250" y="204" font-size="11" fill="#666666666" text-anchor="middle">다수 구독자?</text>
+<line x1="350" y1="200" x2="470" y2="200" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<text x="410" y="193" font-size="10" fill="#666666" text-anchor="middle">YES</text>
 <rect x="470" y="175" width="200" height="50" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
 <text x="570" y="200" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">Data Exchange</text>
-<line x1="250" y1="225" x2="250" y2="245" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="250" y1="225" x2="250" y2="245" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
 <text x="265" y="239" font-size="9" fill="#8b949e">NO</text>
-<polygon points="250,250 350,275 250,300 150,275" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
-<text x="250" y="279" font-size="11" fill="#666666" text-anchor="middle">공개 데이터?</text>
-<line x1="350" y1="275" x2="470" y2="275" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<text x="410" y="268" font-size="10" fill="#666" text-anchor="middle">YES</text>
+<polygon points="250,250 350,275 250,300 150,275" fill="#f0f4f8" stroke="#666666666" stroke-width="1.5"/>
+<text x="250" y="279" font-size="11" fill="#666666666" text-anchor="middle">공개 데이터?</text>
+<line x1="350" y1="275" x2="470" y2="275" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<text x="410" y="268" font-size="10" fill="#666666" text-anchor="middle">YES</text>
 <rect x="470" y="250" width="200" height="50" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
 <text x="570" y="275" font-size="12" font-weight="700" fill="#2563eb" text-anchor="middle">Registry</text>
-<line x1="250" y1="300" x2="250" y2="320" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="250" y1="300" x2="250" y2="320" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
 <text x="265" y="314" font-size="9" fill="#8b949e">NO</text>
-<polygon points="250,325 350,350 250,375 150,350" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
-<text x="250" y="354" font-size="11" fill="#666666" text-anchor="middle">내부 다수 팀?</text>
-<line x1="350" y1="350" x2="470" y2="350" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<text x="410" y="343" font-size="10" fill="#666" text-anchor="middle">YES</text>
+<polygon points="250,325 350,350 250,375 150,350" fill="#f0f4f8" stroke="#666666666" stroke-width="1.5"/>
+<text x="250" y="354" font-size="11" fill="#666666666" text-anchor="middle">내부 다수 팀?</text>
+<line x1="350" y1="350" x2="470" y2="350" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<text x="410" y="343" font-size="10" fill="#666666" text-anchor="middle">YES</text>
 <rect x="470" y="325" width="200" height="50" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
 <text x="570" y="350" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">Access Points</text>
 <text x="250" y="395" font-size="10" fill="#8b949e" text-anchor="middle">NO → 요구사항 재검토</text>

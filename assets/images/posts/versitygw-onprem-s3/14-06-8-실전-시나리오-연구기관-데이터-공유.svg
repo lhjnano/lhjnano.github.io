@@ -15,7 +15,7 @@
 
 <line x1="320" y1="128" x2="450" y2="88" stroke="#546e7a" stroke-width="1.5"/>
 
-<rect x="450" y="75" width="175" height="70" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+<rect x="450" y="75" width="175" height="70" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
 <text x="537" y="97" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">S3 API 서버</text>
 <text x="537" y="113" text-anchor="middle" font-size="10" fill="#b45309">VersityGW :10000</text>
 <text x="537" y="129" text-anchor="middle" font-size="10" fill="#b45309">POSIX → S3 변환</text>
@@ -26,11 +26,11 @@
 <rect x="50" y="255" width="650" height="170" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" filter="url(#sh)"/>
 <text x="375" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">연구기관 B (대학)</text>
 
-<rect x="80" y="295" width="320" height="55" rx="6" fill="#f0f0f0" stroke="#94a3b8" stroke-width="1"/>
+<rect x="80" y="295" width="320" height="55" rx="6" fill="#f0f0f0" stroke="#8b949e" stroke-width="1"/>
 <text x="240" y="314" text-anchor="middle" font-size="10" fill="#334155">aws --endpoint-url http://observatory.edu:10000 \</text>
 <text x="240" y="330" text-anchor="middle" font-size="10" fill="#334155">    s3 cp s3://satellite/2025/data.fits ./</text>
 
-<rect x="80" y="360" width="320" height="50" rx="6" fill="#f0f0f0" stroke="#94a3b8" stroke-width="1"/>
+<rect x="80" y="360" width="320" height="50" rx="6" fill="#f0f0f0" stroke="#8b949e" stroke-width="1"/>
 <text x="240" y="378" text-anchor="middle" font-size="10" fill="#334155">s3 = boto3.client('s3',</text>
 <text x="240" y="394" text-anchor="middle" font-size="10" fill="#334155">    endpoint_url='http://observatory.edu:10000')</text>
 

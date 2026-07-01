@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
             <defs><marker id="arr17" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh17" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
             <rect width="800" height="560" fill="#f8fafb" rx="8"/>
             
@@ -14,10 +14,10 @@
 <line x1="280" y1="90" x2="200" y2="110" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <line x1="520" y1="90" x2="600" y2="110" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 
-<rect x="100" y="113" width="200" height="35" rx="6" fill="#fff3e0" stroke="#ff9800" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="200" y="134" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">YES (물리적 복사)</text>
-<rect x="500" y="113" width="200" height="35" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="600" y="134" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">NO (원본 위치 접근)</text>
+<rect x="100" y="113" width="200" height="35" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="200" y="134" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">YES (물리적 복사)</text>
+<rect x="500" y="113" width="200" height="35" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="600" y="134" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">NO (원본 위치 접근)</text>
 
 <!-- Left branch: YES -->
 <line x1="200" y1="148" x2="200" y2="170" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
@@ -26,10 +26,10 @@
 <line x1="150" y1="190" x2="100" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <line x1="250" y1="190" x2="310" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 
-<rect x="30" y="213" width="140" height="35" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="100" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">다른 리전 → CRR</text>
-<rect x="260" y="213" width="150" height="35" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="335" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">동일 리전 → SRR</text>
+<rect x="30" y="213" width="140" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="100" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">다른 리전 → CRR</text>
+<rect x="260" y="213" width="150" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="335" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">동일 리전 → SRR</text>
 
 <line x1="200" y1="248" x2="200" y2="278" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <text x="200" y="288" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#546e7a">기존 객체도 복제?</text>
@@ -37,10 +37,10 @@
 <line x1="150" y1="298" x2="100" y2="318" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <line x1="250" y1="298" x2="300" y2="318" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 
-<rect x="30" y="321" width="150" height="35" rx="6" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="105" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Batch Replication</text>
-<rect x="260" y="321" width="130" height="35" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="325" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">실시간 복제만</text>
+<rect x="30" y="321" width="150" height="35" rx="6" fill="#f3e5f5" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="105" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">Batch Replication</text>
+<rect x="260" y="321" width="130" height="35" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="325" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">실시간 복제만</text>
 
 <!-- Right branch: NO -->
 <line x1="600" y1="148" x2="600" y2="170" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
@@ -49,29 +49,29 @@
 <line x1="550" y1="190" x2="490" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <line x1="650" y1="190" x2="710" y2="210" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 
-<rect x="430" y="213" width="140" height="35" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="500" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">전 세계 → 버킷 정책</text>
+<rect x="430" y="213" width="140" height="35" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="500" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">전 세계 → 버킷 정책</text>
 
-<rect x="640" y="213" width="120" height="35" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="700" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">특정 계정/조직</text>
+<rect x="640" y="213" width="120" height="35" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="700" y="234" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">특정 계정/조직</text>
 <line x1="700" y1="248" x2="700" y2="278" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <text x="700" y="288" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#546e7a">사내?</text>
 
 <line x1="650" y1="298" x2="590" y2="318" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <line x1="750" y1="298" x2="740" y2="318" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 
-<rect x="520" y="321" width="140" height="35" rx="6" fill="#fce4ec" stroke="#e53935" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="590" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">상업적?</text>
-<rect x="680" y="321" width="90" height="35" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="725" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">비상업적</text>
+<rect x="520" y="321" width="140" height="35" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="590" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">상업적?</text>
+<rect x="680" y="321" width="90" height="35" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="725" y="342" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">비상업적</text>
 
 <line x1="560" y1="356" x2="560" y2="385" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 <line x1="725" y1="356" x2="725" y2="385" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr17)"/>
 
-<rect x="480" y="388" width="160" height="35" rx="6" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="560" y="409" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">Data Exchange</text>
-<rect x="660" y="388" width="100" height="35" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh17)"/>
-<text x="710" y="397" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">Access Points</text>
-<text x="710" y="413" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#333">또는 Grants</text>
+<rect x="480" y="388" width="160" height="35" rx="6" fill="#f3e5f5" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="560" y="409" text-anchor="middle" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">Data Exchange</text>
+<rect x="660" y="388" width="100" height="35" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh17)"/>
+<text x="710" y="397" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2c3e50">Access Points</text>
+<text x="710" y="413" text-anchor="middle" font-size="9" font-weight="normal" font-family="sans-serif" fill="#2c3e50">또는 Grants</text>
 
             </svg>

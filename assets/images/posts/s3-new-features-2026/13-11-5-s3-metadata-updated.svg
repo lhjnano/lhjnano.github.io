@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 740 450" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 740 450" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
     <filter id="sh" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
     <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
   </defs>
   <rect width="740" height="450" rx="8" fill="#f8fafb"/>
   <text x="370" y="24" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">S3 Metadata: 쿼리 가능한 객체 메타데이터</text>
-  <rect x="40" y="42" width="660" height="75" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="40" y="42" width="660" height="75" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh)"/>
   <text x="370" y="62" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#1e3a5f">📦 S3 Bucket</text>
-  <rect x="65" y="72" width="95" height="32" rx="4" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="65" y="72" width="95" height="32" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
   <text x="112" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#92400e">obj1</text>
-  <rect x="170" y="72" width="95" height="32" rx="4" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="170" y="72" width="95" height="32" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
   <text x="217" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#92400e">obj2</text>
-  <rect x="275" y="72" width="95" height="32" rx="4" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="275" y="72" width="95" height="32" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
   <text x="322" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#92400e">obj3</text>
-  <rect x="380" y="72" width="95" height="32" rx="4" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="380" y="72" width="95" height="32" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
   <text x="427" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#92400e">obj4</text>
-  <rect x="485" y="72" width="95" height="32" rx="4" fill="#fff3e0" stroke="#f59e0b" stroke-width="1"/>
+  <rect x="485" y="72" width="95" height="32" rx="4" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
   <text x="532" y="93" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#92400e">obj5 ...</text>
   <line x1="112" y1="104" x2="112" y2="130" stroke="#546e7a" stroke-width="1" marker-end="url(#ar)"/>
   <line x1="217" y1="104" x2="217" y2="130" stroke="#546e7a" stroke-width="1" marker-end="url(#ar)"/>
   <line x1="322" y1="104" x2="322" y2="130" stroke="#546e7a" stroke-width="1" marker-end="url(#ar)"/>
   <line x1="427" y1="104" x2="427" y2="130" stroke="#546e7a" stroke-width="1" marker-end="url(#ar)"/>
   <line x1="532" y1="104" x2="532" y2="130" stroke="#546e7a" stroke-width="1" marker-end="url(#ar)"/>
-  <rect x="40" y="140" width="660" height="200" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="40" y="140" width="660" height="200" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh)"/>
   <text x="370" y="162" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#4c1d95">📊 S3 Metadata (Apache Iceberg Table)</text>
   <rect x="60" y="175" width="620" height="24" rx="3" fill="#ddd6fe"/>
   <text x="100" y="192" text-anchor="middle" font-size="10" font-weight="bold" font-family="sans-serif" fill="#5b21b6">key</text>
@@ -51,7 +51,7 @@
   <text x="590" y="261" text-anchor="middle" font-size="9" font-family="monospace" fill="#6b21a8">{env:prod}</text>
   <text x="60" y="290" font-size="10" font-family="sans-serif" fill="#7c3aed">✅ 자동 업데이트 (객체 변경 시 실시간 반영)</text>
   <text x="60" y="306" font-size="10" font-family="sans-serif" fill="#7c3aed">✅ SQL로 메타데이터 쿼리 • 데이터 카탈로그 자동 생성</text>
-  <rect x="40" y="350" width="660" height="90" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" filter="url(#sh)"/>
+  <rect x="40" y="350" width="660" height="90" rx="8" fill="#f0f4f8" stroke="#e2e8f0" stroke-width="1" filter="url(#sh)"/>
   <text x="60" y="372" font-size="12" font-weight="bold" font-family="sans-serif" fill="#37474f">💡 활용</text>
   <text x="60" y="392" font-size="10" font-family="sans-serif" fill="#546e7a">• "1GB 이상의 PROD 환경 데이터 찾기"</text>
   <text x="60" y="408" font-size="10" font-family="sans-serif" fill="#546e7a">• "30일 이상 미수정 GLACIER 객체 목록"</text>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 720 410" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
-  <style>text{fill:#1e293b}</style>
+  <style>text{fill:#2c3e50}</style>
   <defs>
     <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
       <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
@@ -11,27 +11,27 @@
   </defs>
   <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700">🔐 S3 보안 레이어</text>
 
-  <rect x="80" y="38" width="560" height="50" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="80" y="38" width="560" height="50" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
   <text x="360" y="60" text-anchor="middle" font-size="12" font-weight="700">1️⃣ IAM 정책</text>
   <text x="360" y="78" text-anchor="middle" font-size="10">사용자/역할 단위 접근 제어</text>
 
-  <rect x="80" y="96" width="560" height="50" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="80" y="96" width="560" height="50" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
   <text x="360" y="118" text-anchor="middle" font-size="12" font-weight="700">2️⃣ 버킷 정책 (Bucket Policy)</text>
   <text x="360" y="136" text-anchor="middle" font-size="10">버킷 단위 접근 제어, JSON 기반</text>
 
-  <rect x="80" y="154" width="560" height="50" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="80" y="154" width="560" height="50" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
   <text x="360" y="176" text-anchor="middle" font-size="12" font-weight="700">3️⃣ ACL (Access Control List)</text>
   <text x="360" y="194" text-anchor="middle" font-size="10">객체/버킷 단위 ⚠️ 권장하지 않음</text>
 
-  <rect x="80" y="212" width="560" height="50" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="80" y="212" width="560" height="50" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
   <text x="360" y="234" text-anchor="middle" font-size="12" font-weight="700">4️⃣ S3 Object Ownership</text>
   <text x="360" y="252" text-anchor="middle" font-size="10">버킷 소유자 강제 설정 (권장)</text>
 
-  <rect x="80" y="270" width="560" height="50" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="80" y="270" width="560" height="50" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
   <text x="360" y="292" text-anchor="middle" font-size="12" font-weight="700">5️⃣ 암호화 (Encryption)</text>
   <text x="360" y="310" text-anchor="middle" font-size="10">전송 중 암호화 + 저장 데이터 암호화</text>
 
-  <rect x="80" y="328" width="560" height="50" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="80" y="328" width="560" height="50" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
   <text x="360" y="350" text-anchor="middle" font-size="12" font-weight="700">6️⃣ S3 Object Lambda</text>
   <text x="360" y="368" text-anchor="middle" font-size="10">데이터 처리 파이프라인</text>
 </svg>

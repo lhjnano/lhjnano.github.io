@@ -1,6 +1,6 @@
 ---
 layout: post-nocompress
-title: "ZFS CPU 성능 패턴 분석 — 정적 분석과 실측 벤치마크의 간극"
+title: "ZFS CPU 성능 패턴 분석: 정적 분석과 실측 벤치마크의 간극"
 categories: [Linux, Performance, Filesystem]
 description: OpenZFS 소스 코드를 정적 분석으로 2개 Critical 안티패턴을 발견했지만, 실측 벤치마크에서는 성능 차이가 없었습니다. 왜 그런지 분석합니다.
 keywords: [ZFS, OpenZFS, 성능최적화, SIMD, LZ4, ZSTD, ARC, 벤치마크]
@@ -13,13 +13,13 @@ chartjs: true
 
 정적 분석은 강력합니다. 소스 코드만 보고 "이건 Critical 성능 버그다"라고 진단할 수 있으니까요. 하지만 코드에서 발견한 안티패턴이 항상 실제 성능 저하로 이어지는 것은 아닙니다.
 
-OpenZFS 소스 코드를 Intel의 CPU 성능 패턴 카탈로그로 분석했더니 2개의 Critical 안티패턴이 나왔습니다. LZ4의 `restrict` 무효화와 ZSTD의 ASM 비활성화. "이거 고치면 5–20% 빨라지겠네?"라고 생각하기 쉽습니다. 그래서 실제로 벤치마크를 돌려봤습니다. 결과는 — **성능 차이 0%**. 컴파일러는 우리가 생각하는 것보다 훨씬 똑똑했습니다.
+OpenZFS 소스 코드를 Intel의 CPU 성능 패턴 카탈로그로 분석했더니 2개의 Critical 안티패턴이 나왔습니다. LZ4의 `restrict` 무효화와 ZSTD의 ASM 비활성화. "이거 고치면 5–20% 빨라지겠네?"라고 생각하기 쉽습니다. 그래서 실제로 벤치마크를 돌려봤습니다. 결과는. **성능 차이 0%**. 컴파일러는 우리가 생각하는 것보다 훨씬 똑똑했습니다.
 
 ## TL;DR
 
-- **정적 분석만으로 성능을 판단하면 안 됩니다** — LZ4 `restrict` 무효화는 코드상 Critical이지만, A/B 벤치마크 결과 처리량 차이 0%, CPI 동일
-- **ZSTD ASM 비활성화는 의도적입니다** — 커널 빌드 호환성(objtool/ORC)과 데이터 손상 리스크를 고려한 설계 결정
-- **체크섬 SIMD와 ARC는 모범 사례 수준** — BLAKE3 AVX2 2,635 MB/s 실측, false sharing 완벽 방지
+- **정적 분석만으로 성능을 판단하면 안 됩니다**: LZ4 `restrict` 무효화는 코드상 Critical이지만, A/B 벤치마크 결과 처리량 차이 0%, CPI 동일
+- **ZSTD ASM 비활성화는 의도적입니다**: 커널 빌드 호환성(objtool/ORC)과 데이터 손상 리스크를 고려한 설계 결정
+- **체크섬 SIMD와 ARC는 모범 사례 수준**: BLAKE3 AVX2 2,635 MB/s 실측, false sharing 완벽 방지
 - **최종 결론: OpenZFS는 현재 성능 관점에서 잘 최적화되어 있음**
 
 ## Background: 분석 대상과 방법
@@ -50,7 +50,7 @@ OpenZFS 소스 코드를 Intel의 CPU 성능 패턴 카탈로그로 분석했더
 
 ## Solution: 영역별 분석 결과
 
-### 1. 체크섬 SIMD — 실측으로 확인한 모범 사례
+### 1. 체크섬 SIMD: 실측으로 확인한 모범 사례
 
 ZFS 내장 벤치마크 도구(`chksum_bench`)로 알고리즘별·SIMD 경로별 처리량을 측정했습니다. 아래 차트는 BLAKE3의 SIMD 구현별 성능 차이를 보여줍니다:
 
@@ -82,9 +82,9 @@ Fletcher4의 4가지 핵심 패턴도 모두 정상입니다:
 | `serial-accumulator` | 정상 | SIMD 벡터 연산으로 데이터 병렬성 확보 |
 | `unroll-loop` | 정상 | AVX-512: 8-way unroll (32바이트/iteration) |
 
-### 2. 압축 분석 — 정적 분석과 실측의 간극
+### 2. 압축 분석: 정적 분석과 실측의 간극
 
-#### LZ4 `#define restrict` — 정적 발견: Critical / 실측 결과: 영향 없음
+#### LZ4 `#define restrict`: 정적 발견: Critical / 실측 결과: 영향 없음
 
 정적 분석에서는 LZ4의 `restrict` 키워드가 빈 매크로로 정의되어 완전히 무효화된 것을 발견했습니다:
 
@@ -123,13 +123,13 @@ perf stat 비교 (128K 블록, 20,000회):
 
 **결론: 성능 차이 없음.** 이유는 세 가지입니다:
 
-1. **GCC 11.4는 `restrict` 없이도 타입 기반 alias 분석으로 동일 코드를 생성합니다** — 명령어 수가 동일하다는 것이 이를 증명합니다
-2. **LZ4 해제 경로는 메모리 바운드(CPI 4.0)입니다** — alias 분석이 개선할 수 있는 CPU 바운드 구간이 아닙니다
-3. **4K 블록의 -16%는 측정 노이즈입니다** — 다른 블록 크기에서는 ±3% 이내
+1. **GCC 11.4는 `restrict` 없이도 타입 기반 alias 분석으로 동일 코드를 생성합니다**: 명령어 수가 동일하다는 것이 이를 증명합니다
+2. **LZ4 해제 경로는 메모리 바운드(CPI 4.0)입니다**: alias 분석이 개선할 수 있는 CPU 바운드 구간이 아닙니다
+3. **4K 블록의 -16%는 측정 노이즈입니다**: 다른 블록 크기에서는 ±3% 이내
 
 > 코드 품질 관점에서는 빈 매크로가 의도치 않은 것이 맞지만, 성능 개선 근거가 없으므로 upstream PR 제출은 의미가 없습니다.
 
-#### ZSTD `ZSTD_DISABLE_ASM 1` — 의도적 비활성
+#### ZSTD `ZSTD_DISABLE_ASM 1`: 의도적 비활성
 
 ```c
 // module/zstd/zstd-in.c:52
@@ -159,7 +159,7 @@ perf stat 비교 (128K 블록, 20,000회):
 
 > ZSTD 해제 처리량이 1.2–2.4 GB/s면 대부분의 스토리지 워크로드에서 디스크 I/O가 병목이지 압축 해제가 병목이 아닙니다.
 
-### 3. ARC 메모리 관리 — False Sharing 완벽 방지
+### 3. ARC 메모리 관리: False Sharing 완벽 방지
 
 ARC의 핫 카운터와 락은 `____cacheline_aligned` 속성으로 false sharing을 적극 방지합니다:
 
@@ -176,7 +176,7 @@ typedef struct aggsum_bucket {
 } ____cacheline_aligned;
 ```
 
-실측 LZ4 perf stat에서 CPI 0.81, cache-miss 26.67% — 양호한 수준이며, cache-miss는 파일 읽기 경로의 특성상 예상 범위 내입니다.
+실측 LZ4 perf stat에서 CPI 0.81, cache-miss 26.67%. 양호한 수준이며, cache-miss는 파일 읽기 경로의 특성상 예상 범위 내입니다.
 
 | 패턴 | 상태 | 비고 |
 |---|---|---|
@@ -193,8 +193,8 @@ typedef struct aggsum_bucket {
 | ZSTD ASM | ZSTD 해제 | **Critical 발견** | **의도적 비활성** | 조사만 |
 | `serial-accumulator` | Fletcher4 | 없음 | chksum\_bench 확인 | 정상 |
 | `false-sharing` | ARC 통계/락 | 없음 | CPI 0.81 측정 | 정상 |
-| `missing-vzeroupper` | Fletcher4 AVX2/512 | 없음 | — | 정상 |
-| `per-cpu-stats` | ARC 카운터 | 없음 | — | 정상 |
+| `missing-vzeroupper` | Fletcher4 AVX2/512 | 없음 |, | 정상 |
+| `per-cpu-stats` | ARC 카운터 | 없음 |, | 정상 |
 | `cpu-dispatch` | 체크섬 디스패치 | 없음 | chksum\_bench 확인 | 정상 |
 | `mutex-to-rwlock` | ARC 해시 테이블 | 검토 대상 | 미측정 | 향후 과제 |
 
@@ -202,9 +202,9 @@ typedef struct aggsum_bucket {
 
 정적 분석은 "이론적으로 문제가 될 수 있는 코드 패턴"을 찾아줍니다. 하지만 실제 성능 영향은 다음 요소들에 의해 좌우됩니다:
 
-1. **컴파일러의 독립적 최적화** — GCC는 `restrict` 없이도 타입 기반 alias 분석으로 동일한 최적화를 수행합니다. 정적 분석 도구는 이를 알지 못합니다
-2. **워크로드의 병목 위치** — LZ4 해제는 메모리 바운드(CPI 4.0)이므로, alias 분석 개선으로 도움받을 수 없습니다. CPU 바운드 코드에서는 다를 수 있습니다
-3. **의도적 설계 결정** — ZSTD ASM 비활성화는 "고쳐야 할 버그"가 아니라 데이터 무결성과 빌드 호환성을 위한 트레이드오프입니다
+1. **컴파일러의 독립적 최적화**: GCC는 `restrict` 없이도 타입 기반 alias 분석으로 동일한 최적화를 수행합니다. 정적 분석 도구는 이를 알지 못합니다
+2. **워크로드의 병목 위치**: LZ4 해제는 메모리 바운드(CPI 4.0)이므로, alias 분석 개선으로 도움받을 수 없습니다. CPU 바운드 코드에서는 다를 수 있습니다
+3. **의도적 설계 결정**: ZSTD ASM 비활성화는 "고쳐야 할 버그"가 아니라 데이터 무결성과 빌드 호환성을 위한 트레이드오프입니다
 
 ### 남은 과제 (선택적)
 
@@ -252,7 +252,7 @@ typedef struct aggsum_bucket {
     "options": {
       "plugins": {
         "legend": { "display": false },
-        "title": { "display": true, "text": "BLAKE3 SIMD 가속 효과 — generic 대비 AVX2가 15.9배 빠름" }
+        "title": { "display": true, "text": "BLAKE3 SIMD 가속 효과. generic 대비 AVX2가 15.9배 빠름" }
       },
       "scales": {
         "y": { "beginAtZero": true, "title": { "display": true, "text": "처리량 (MB/s)" } },
@@ -292,7 +292,7 @@ typedef struct aggsum_bucket {
     },
     "options": {
       "plugins": {
-        "title": { "display": true, "text": "LZ4 restrict A/B 벤치마크 — 두 선이 겹침 = 성능 차이 없음" }
+        "title": { "display": true, "text": "LZ4 restrict A/B 벤치마크. 두 선이 겹침 = 성능 차이 없음" }
       },
       "scales": {
         "y": { "min": 1500, "max": 2300, "title": { "display": true, "text": "처리량 (MB/s)" } },

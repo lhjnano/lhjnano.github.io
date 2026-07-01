@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "웹 보안 다층 방어 — 실전에서 적용한 8가지 레이어"
+title: "웹 보안 다층 방어: 실전에서 적용한 8가지 레이어"
 categories: [Security, Web]
 description: 웹 서비스에 실제로 적용한 보안 조치를 다층 방어 관점에서 정리합니다. 비밀번호 해싱, JWT, CSP, CORS, Rate Limiting까지 실전 코드와 함께 소개합니다.
 keywords: [Security, JWT, Argon2id, CSP, CORS, XSS]
@@ -18,11 +18,11 @@ toc_sticky: true
 
 ## TL;DR
 
-- **비밀번호는 반드시 Argon2id로 해싱** — SHA256도, bcrypt도 아닙니다
-- **JWT는 HttpOnly 쿠키에** — localStorage는 XSS에 무방비
-- **CSP 하나로 XSS의 80%를 막습니다** — `script-src 'self'`만으로도
+- **비밀번호는 반드시 Argon2id로 해싱**: SHA256도, bcrypt도 아닙니다
+- **JWT는 HttpOnly 쿠키에**: localStorage는 XSS에 무방비
+- **CSP 하나로 XSS의 80%를 막습니다**: `script-src 'self'`만으로도
 - **CORS에 `*` + credentials 조합은 절대 금지**
-- **Rate Limiting으로 무차별 대입을 차단** — 60초당 10회
+- **Rate Limiting으로 무차별 대입을 차단**: 60초당 10회
 
 ---
 
@@ -281,13 +281,13 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
 
 ### 무엇을 막는가
 
-CSRF(Cross-Site Request Forgery) — 인증된 사용자의 브라우저를 이용해 의도하지 않은 요청을 보내는 공격입니다.
+CSRF(Cross-Site Request Forgery). 인증된 사용자의 브라우저를 이용해 의도하지 않은 요청을 보내는 공격입니다.
 
 ### 3중 방어
 
-- **SameSite=Lax** — 교차 사이트 POST/PUT/DELETE에 쿠키가 전송되지 않습니다
-- **Origin 검증 (CORS)** — 허용되지 않은 출처의 요청을 CORS 미들웨어가 차단합니다
-- **JSON Content-Type 요구** — HTML `<form>`은 `application/x-www-form-urlencoded`로 전송하므로, JSON을 요구하면 폼 기반 CSRF가 불가능합니다
+- **SameSite=Lax**: 교차 사이트 POST/PUT/DELETE에 쿠키가 전송되지 않습니다
+- **Origin 검증 (CORS)**: 허용되지 않은 출처의 요청을 CORS 미들웨어가 차단합니다
+- **JSON Content-Type 요구**: HTML `<form>`은 `application/x-www-form-urlencoded`로 전송하므로, JSON을 요구하면 폼 기반 CSRF가 불가능합니다
 
 ---
 
@@ -328,7 +328,7 @@ os.chmod(secret_file, 0o600)
 
 ### 배포 전
 
-- [ ] `secure=True` — HTTPS에서만 쿠키 전송
+- [ ] `secure=True`. HTTPS에서만 쿠키 전송
 - [ ] CSP에서 `unsafe-inline`, `unsafe-eval` 제거
 - [ ] CORS `allow_origins`에 `*` 없음 (특정 도메인만)
 - [ ] HSTS 헤더 활성화 (`max-age=63072000`)
@@ -353,5 +353,5 @@ os.chmod(secret_file, 0o600)
 | OWASP Top 10 | https://owasp.org/www-project-top-ten/ |
 | Argon2 RFC 9106 | https://datatracker.ietf.org/doc/html/rfc9106 |
 | JWT Best Practices RFC 8725 | https://datatracker.ietf.org/doc/html/rfc8725 |
-| MDN — CSP | https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP |
-| MDN — CORS | https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS |
+| MDN, CSP | https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP |
+| MDN, CORS | https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS |

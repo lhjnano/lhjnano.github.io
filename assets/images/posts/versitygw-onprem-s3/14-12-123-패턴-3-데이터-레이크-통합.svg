@@ -9,7 +9,7 @@
 <rect x="30" y="38" width="690" height="330" rx="12" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5" stroke-dasharray="6"/>
 <text x="375" y="60" text-anchor="middle" font-size="12" font-weight="bold" fill="#854d0e">통합 데이터 레이크</text>
 
-<rect x="55" y="78" width="300" height="140" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<rect x="55" y="78" width="300" height="140" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh)"/>
 <text x="205" y="102" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">핫 데이터</text>
 <text x="205" y="124" text-anchor="middle" font-size="11" fill="#1e3a8a">AWS S3 Standard</text>
 <text x="205" y="146" text-anchor="middle" font-size="10" fill="#1e3a8a">자주 접근 / 실시간 분석</text>

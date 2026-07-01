@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
     <marker id="arrow8" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
     <marker id="arrow8b" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="10 0, 0 3.5, 10 7" fill="#546e7a"/></marker>
     <filter id="shadow8"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
   </defs>
   <rect width="760" height="620" fill="#f8fafb" rx="8"/>
-  <text x="380" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">멀티파트 업로드 프로세스</text>
-  <rect x="60" y="50" width="180" height="40" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#shadow8)"/>
+  <text x="380" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">멀티파트 업로드 프로세스</text>
+  <rect x="60" y="50" width="180" height="40" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#shadow8)"/>
   <text x="150" y="76" text-anchor="middle" font-size="13" font-weight="bold" fill="#1565c0">Client</text>
-  <rect x="520" y="50" width="180" height="40" rx="8" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#shadow8)"/>
-  <text x="610" y="76" text-anchor="middle" font-size="13" font-weight="bold" fill="#e65100">Amazon S3</text>
+  <rect x="520" y="50" width="180" height="40" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow8)"/>
+  <text x="610" y="76" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">Amazon S3</text>
   <line x1="240" y1="100" x2="520" y2="100" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow8)"/>
   <rect x="280" y="82" width="200" height="20" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="0.8"/>
   <text x="380" y="96" text-anchor="middle" font-size="9" fill="#1565c0">Step 1: CreateMultipartUpload</text>
-  <line x1="520" y1="125" x2="240" y2="125" stroke="#43a047" stroke-width="1.5" marker-end="url(#arrow8b)"/>
-  <text x="380" y="120" text-anchor="middle" font-size="9" fill="#43a047">UploadId: "abcdef123456..."</text>
+  <line x1="520" y1="125" x2="240" y2="125" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow8b)"/>
+  <text x="380" y="120" text-anchor="middle" font-size="9" fill="#16a34a">UploadId: "abcdef123456..."</text>
   <line x1="240" y1="160" x2="520" y2="160" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow8)"/>
   <rect x="280" y="142" width="200" height="20" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="0.8"/>
   <text x="380" y="156" text-anchor="middle" font-size="9" fill="#1565c0">Step 2: UploadPart (partNumber=1)</text>
-  <line x1="520" y1="185" x2="240" y2="185" stroke="#43a047" stroke-width="1.5" marker-end="url(#arrow8b)"/>
-  <text x="380" y="180" text-anchor="middle" font-size="9" fill="#43a047">ETag: "etag-1"</text>
+  <line x1="520" y1="185" x2="240" y2="185" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow8b)"/>
+  <text x="380" y="180" text-anchor="middle" font-size="9" fill="#16a34a">ETag: "etag-1"</text>
   <line x1="240" y1="220" x2="520" y2="220" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow8)"/>
   <rect x="280" y="202" width="200" height="20" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="0.8"/>
   <text x="380" y="216" text-anchor="middle" font-size="9" fill="#1565c0">Step 2: UploadPart (partNumber=2)</text>
-  <line x1="520" y1="245" x2="240" y2="245" stroke="#43a047" stroke-width="1.5" marker-end="url(#arrow8b)"/>
-  <text x="380" y="240" text-anchor="middle" font-size="9" fill="#43a047">ETag: "etag-2"</text>
-  <text x="380" y="280" text-anchor="middle" font-size="10" fill="#888">... (파트 3, 4, 5 ... 병렬 업로드)</text>
+  <line x1="520" y1="245" x2="240" y2="245" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow8b)"/>
+  <text x="380" y="240" text-anchor="middle" font-size="9" fill="#16a34a">ETag: "etag-2"</text>
+  <text x="380" y="280" text-anchor="middle" font-size="10" fill="#8b949e">... (파트 3, 4, 5 ... 병렬 업로드)</text>
   <line x1="240" y1="310" x2="520" y2="310" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow8)"/>
-  <rect x="265" y="290" width="230" height="22" rx="4" fill="#fce4ec" stroke="#e53935" stroke-width="0.8"/>
-  <text x="380" y="305" text-anchor="middle" font-size="9" fill="#c62828">Step 3: CompleteMultipartUpload</text>
-  <text x="380" y="340" text-anchor="middle" font-size="9" fill="#555">&lt;Part&gt;1 / etag-1&lt;/Part&gt; &lt;Part&gt;2 / etag-2&lt;/Part&gt;</text>
-  <line x1="520" y1="360" x2="240" y2="360" stroke="#43a047" stroke-width="2" marker-end="url(#arrow8b)"/>
-  <rect x="280" y="365" width="200" height="40" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#shadow8)"/>
+  <rect x="265" y="290" width="230" height="22" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="0.8"/>
+  <text x="380" y="305" text-anchor="middle" font-size="9" fill="#dc2626">Step 3: CompleteMultipartUpload</text>
+  <text x="380" y="340" text-anchor="middle" font-size="9" fill="#495057">&lt;Part&gt;1 / etag-1&lt;/Part&gt; &lt;Part&gt;2 / etag-2&lt;/Part&gt;</text>
+  <line x1="520" y1="360" x2="240" y2="360" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow8b)"/>
+  <rect x="280" y="365" width="200" height="40" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow8)"/>
   <text x="380" y="385" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e7d32">200 OK — 객체 조합 완료</text>
-  <text x="380" y="400" text-anchor="middle" font-size="10" fill="#555">ETag: "최종-etag"</text>
+  <text x="380" y="400" text-anchor="middle" font-size="10" fill="#495057">ETag: "최종-etag"</text>
 </svg>

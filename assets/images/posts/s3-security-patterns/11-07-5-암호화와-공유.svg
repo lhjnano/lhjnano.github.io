@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg">
-<defs><filter id="sh" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<defs><filter id="sh_암호화와공유" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_암호화와공유" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
 <rect x="0" y="0" width="720" height="500" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
-<text x="360" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🔐 S3 암호화 방식 비교와 공유 영향</text>
-<rect x="20" y="42" width="680" height="108" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="360" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">🔐 S3 암호화 방식 비교와 공유 영향</text>
+<rect x="20" y="42" width="680" height="108" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh_암호화와공유)"/>
 <text x="40" y="64" font-size="12" font-weight="bold" fill="#1e40af">🔐 SSE-S3 (Amazon S3 관리형 키)</text>
-<text x="40" y="82" font-size="10" fill="#475569">• AWS가 자동 관리하는 키로 암호화</text>
-<text x="40" y="98" font-size="10" fill="#22c55e" font-weight="bold">• 공유 영향: 없음 → 정상적으로 공유 가능 ✅</text>
-<text x="40" y="114" font-size="10" fill="#475569">• 소비자가 키 접근 필요 없음 | ✅ 권장: 공유 데이터의 기본 암호화</text>
-<rect x="20" y="160" width="680" height="108" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+<text x="40" y="82" font-size="10" fill="#495057">• AWS가 자동 관리하는 키로 암호화</text>
+<text x="40" y="98" font-size="10" fill="#16a34a" font-weight="bold">• 공유 영향: 없음 → 정상적으로 공유 가능 ✅</text>
+<text x="40" y="114" font-size="10" fill="#495057">• 소비자가 키 접근 필요 없음 | ✅ 권장: 공유 데이터의 기본 암호화</text>
+<rect x="20" y="160" width="680" height="108" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh_암호화와공유)"/>
 <text x="40" y="182" font-size="12" font-weight="bold" fill="#991b1b">🔑 SSE-KMS (AWS KMS 키)</text>
-<text x="40" y="200" font-size="10" fill="#475569">• 고객 관리 CMK 또는 AWS 관리 키 사용</text>
-<text x="40" y="216" font-size="10" fill="#f59e0b" font-weight="bold">• 공유 영향: 소비자가 KMS 키 사용 권한 필요 ⚠️</text>
-<text x="40" y="232" font-size="10" fill="#475569">• 키 정책에 소비자 계정/역할 추가 필요 | ✅ 권장: 민감한 데이터 공유 시</text>
-<rect x="20" y="278" width="680" height="90" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="40" y="200" font-size="10" fill="#495057">• 고객 관리 CMK 또는 AWS 관리 키 사용</text>
+<text x="40" y="216" font-size="10" fill="#fbbf24" font-weight="bold">• 공유 영향: 소비자가 KMS 키 사용 권한 필요 ⚠️</text>
+<text x="40" y="232" font-size="10" fill="#495057">• 키 정책에 소비자 계정/역할 추가 필요 | ✅ 권장: 민감한 데이터 공유 시</text>
+<rect x="20" y="278" width="680" height="90" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh_암호화와공유)"/>
 <text x="40" y="300" font-size="12" font-weight="bold" fill="#5b21b6">🗝️ SSE-C (고객 제공 키)</text>
-<text x="40" y="318" font-size="10" fill="#475569">• 요청 시마다 암호화 키 제공</text>
-<text x="40" y="334" font-size="10" fill="#8b5cf6" font-weight="bold">• 공유 영향: 키를 안전하게 소비자에게 전달해야 함</text>
-<text x="40" y="350" font-size="10" fill="#475569">• 권장: 최고 수준의 제어가 필요한 경우</text>
-<rect x="20" y="378" width="680" height="90" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="40" y="318" font-size="10" fill="#495057">• 요청 시마다 암호화 키 제공</text>
+<text x="40" y="334" font-size="10" fill="#7c3aed" font-weight="bold">• 공유 영향: 키를 안전하게 소비자에게 전달해야 함</text>
+<text x="40" y="350" font-size="10" fill="#495057">• 권장: 최고 수준의 제어가 필요한 경우</text>
+<rect x="20" y="378" width="680" height="90" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh_암호화와공유)"/>
 <text x="40" y="400" font-size="12" font-weight="bold" fill="#92400e">🔒 클라이언트 측 암호화 (CSE)</text>
-<text x="40" y="418" font-size="10" fill="#475569">• S3에 업로드 전 클라이언트에서 암호화</text>
-<text x="40" y="434" font-size="10" fill="#f59e0b" font-weight="bold">• 공유 영향: 복호화 키를 별도 채널로 공유</text>
-<text x="40" y="450" font-size="10" fill="#475569">• 권장: 규제 요건이 엄격한 경우</text>
+<text x="40" y="418" font-size="10" fill="#495057">• S3에 업로드 전 클라이언트에서 암호화</text>
+<text x="40" y="434" font-size="10" fill="#fbbf24" font-weight="bold">• 공유 영향: 복호화 키를 별도 채널로 공유</text>
+<text x="40" y="450" font-size="10" fill="#495057">• 권장: 규제 요건이 엄격한 경우</text>
 </svg>

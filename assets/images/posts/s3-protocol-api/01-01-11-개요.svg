@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 760 680" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 760 680" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
     <marker id="arrow1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
     <filter id="shadow1"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
   </defs>
   <rect width="760" height="680" fill="#f8fafb" rx="8"/>
-  <text x="380" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">S3 프로토콜과 호환 생태계</text>
-  <rect x="270" y="48" width="220" height="36" rx="8" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="380" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">S3 프로토콜과 호환 생태계</text>
+  <rect x="270" y="48" width="220" height="36" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#shadow1)"/>
   <text x="380" y="72" text-anchor="middle" font-size="13" fill="#1a237e">Client Application</text>
   <text x="380" y="102" text-anchor="middle" font-size="11" fill="#546e7a">웹 / 모바일 / CLI / SDK</text>
   <line x1="380" y1="84" x2="380" y2="130" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow1)"/>
   <text x="400" y="118" font-size="10" fill="#546e7a">HTTP/HTTPS (REST API)</text>
-  <rect x="80" y="130" width="600" height="220" rx="10" fill="#fff3e0" stroke="#ff9900" stroke-width="2" filter="url(#shadow1)"/>
-  <text x="380" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#e65100">Amazon S3</text>
+  <rect x="80" y="130" width="600" height="220" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#shadow1)"/>
+  <text x="380" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400e">Amazon S3</text>
   <rect x="120" y="170" width="240" height="130" rx="6" fill="#ffffff" stroke="#ffb74d" stroke-width="1.2"/>
-  <text x="240" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#e65100">Bucket A</text>
-  <rect x="145" y="202" width="190" height="80" rx="4" fill="#fff8e1" stroke="#ffcc80" stroke-width="1"/>
-  <text x="240" y="222" text-anchor="middle" font-size="11" fill="#555">Object 1</text>
-  <text x="240" y="242" text-anchor="middle" font-size="11" fill="#555">Object 2</text>
-  <text x="240" y="262" text-anchor="middle" font-size="11" fill="#555">Object 3</text>
+  <text x="240" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">Bucket A</text>
+  <rect x="145" y="202" width="190" height="80" rx="4" fill="#fef3c7" stroke="#ffcc80" stroke-width="1"/>
+  <text x="240" y="222" text-anchor="middle" font-size="11" fill="#495057">Object 1</text>
+  <text x="240" y="242" text-anchor="middle" font-size="11" fill="#495057">Object 2</text>
+  <text x="240" y="262" text-anchor="middle" font-size="11" fill="#495057">Object 3</text>
   <rect x="400" y="170" width="240" height="130" rx="6" fill="#ffffff" stroke="#ffb74d" stroke-width="1.2"/>
-  <text x="520" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#e65100">Bucket B</text>
-  <rect x="425" y="202" width="190" height="80" rx="4" fill="#fff8e1" stroke="#ffcc80" stroke-width="1"/>
-  <text x="520" y="222" text-anchor="middle" font-size="11" fill="#555">Object 1</text>
-  <text x="520" y="242" text-anchor="middle" font-size="11" fill="#555">Object 2</text>
-  <text x="520" y="262" text-anchor="middle" font-size="11" fill="#555">Object 3</text>
-  <text x="380" y="330" text-anchor="middle" font-size="11" fill="#795548">스토리지 클래스: Standard │ IA │ One Zone-IA │ Glacier</text>
+  <text x="520" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">Bucket B</text>
+  <rect x="425" y="202" width="190" height="80" rx="4" fill="#fef3c7" stroke="#ffcc80" stroke-width="1"/>
+  <text x="520" y="222" text-anchor="middle" font-size="11" fill="#495057">Object 1</text>
+  <text x="520" y="242" text-anchor="middle" font-size="11" fill="#495057">Object 2</text>
+  <text x="520" y="262" text-anchor="middle" font-size="11" fill="#495057">Object 3</text>
+  <text x="380" y="330" text-anchor="middle" font-size="11" fill="#8b949e">스토리지 클래스: Standard │ IA │ One Zone-IA │ Glacier</text>
   <line x1="380" y1="350" x2="380" y2="390" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow1)"/>
   <text x="400" y="378" font-size="10" fill="#546e7a">동일한 S3 API (REST)</text>
-  <rect x="80" y="390" width="600" height="260" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="2" filter="url(#shadow1)"/>
+  <rect x="80" y="390" width="600" height="260" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2" filter="url(#shadow1)"/>
   <text x="380" y="418" text-anchor="middle" font-size="14" font-weight="bold" fill="#2e7d32">S3-Compatible Storage</text>
   <rect x="110" y="435" width="150" height="60" rx="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1.2"/>
   <text x="185" y="460" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">MinIO</text>
-  <text x="185" y="478" text-anchor="middle" font-size="10" fill="#666">(오픈소스)</text>
+  <text x="185" y="478" text-anchor="middle" font-size="10" fill="#666666">(오픈소스)</text>
   <rect x="305" y="435" width="150" height="60" rx="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1.2"/>
   <text x="380" y="460" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">Ceph</text>
-  <text x="380" y="478" text-anchor="middle" font-size="10" fill="#666">(RGW)</text>
+  <text x="380" y="478" text-anchor="middle" font-size="10" fill="#666666">(RGW)</text>
   <rect x="500" y="435" width="150" height="60" rx="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1.2"/>
   <text x="575" y="460" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">GCS</text>
-  <text x="575" y="478" text-anchor="middle" font-size="10" fill="#666">(호환모드)</text>
+  <text x="575" y="478" text-anchor="middle" font-size="10" fill="#666666">(호환모드)</text>
   <rect x="110" y="515" width="150" height="60" rx="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1.2"/>
   <text x="185" y="542" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">Wasabi</text>
   <rect x="305" y="515" width="150" height="60" rx="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1.2"/>

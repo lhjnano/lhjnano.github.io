@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IAM & 보안 (6)] JWT 토큰 — 구조, 서명, 그리고 철회의 어려움"
+title: "[IAM & 보안 (6)] JWT 토큰: 구조, 서명, 그리고 철회의 어려움"
 categories: [Security, IAM, Infrastructure]
 description: "JWT는 한 번 발급되면 만료될 때까지 유효합니다. 로그아웃 버튼을 눌러도 서버에서 무효화할 수 없습니다. 이 글은 JWT의 3부분 구조와 서명 알고리즘(HS256 vs RS256)을 짚고, stateless가 주는 확장성과 철회의 어려움이라는 트레이드오프를 따집니다. 그리고 Access Token + Refresh Token Rotation으로 그 딜레마를 실무적으로 다루는 방법을 설명합니다."
 keywords: [JWT, JSON Web Token, HS256, RS256, Refresh Token Rotation, Token Revocation, Stateless]

@@ -20,10 +20,10 @@ toc_sticky: true
 
 ## TL;DR
 
-- **Access Grants**: IAM 정책 대신 데이터 카탈로그 기반으로 권한 부여 — 대규모 관리 간소화
-- **CRR (Cross-Region Replication)**: 다른 리전으로 자동 복제 — 글로벌 접근 속도 향상
-- **SRR (Same-Region Replication)**: 같은 리전 내 복제 — 계정 분리/백업
-- **RTC (Replication Time Control)**: 15분 내 복제 보장 — 규정 준수용
+- **Access Grants**: IAM 정책 대신 데이터 카탈로그 기반으로 권한 부여. 대규모 관리 간소화
+- **CRR (Cross-Region Replication)**: 다른 리전으로 자동 복제. 글로벌 접근 속도 향상
+- **SRR (Same-Region Replication)**: 같은 리전 내 복제. 계정 분리/백업
+- **RTC (Replication Time Control)**: 15분 내 복제 보장. 규정 준수용
 
 ---
 
@@ -53,10 +53,10 @@ toc_sticky: true
 
 | 컴포넌트 | 역할 |
 |----------|------|
-| **Instance** | Access Grants 인스턴스 — 계정 내 권한 관리의 최상위 컨테이너 |
-| **Location** | 등록된 위치 — S3 버킷/접두사 경로를 권한 범위로 매핑 |
-| **Grant** | 권한 부여 — 대상(사용자/그룹)에 READ/WRITE/READWRITE 권한 할당 |
-| **Target** | S3 버킷 — 임시 자격 증명으로 접근하는 실제 데이터 저장소 |
+| **Instance** | Access Grants 인스턴스, 계정 내 권한 관리의 최상위 컨테이너 |
+| **Location** | 등록된 위치, S3 버킷/접두사 경로를 권한 범위로 매핑 |
+| **Grant** | 권한 부여, 대상(사용자/그룹)에 READ/WRITE/READWRITE 권한 할당 |
+| **Target** | S3 버킷, 임시 자격 증명으로 접근하는 실제 데이터 저장소 |
 
 ![권한 요청 흐름](/assets/images/posts/s3-access-control-replication/07-03-22-권한-요청-흐름-request-flow.svg)
 
@@ -261,7 +261,7 @@ CRR 설정 전에 반드시 확인해야 할 전제 조건입니다.
 - 원본과 대상이 **서로 다른 리전**에 위치
 - 복제용 **IAM 역할** 생성 필요
 - 교차 계정 시 대상 버킷의 **버킷 정책**으로 복제 권한 부여
-- **기존 객체는 자동 복제되지 않음** — 신규 객체만 복제, 기존은 Batch Replication 필요
+- **기존 객체는 자동 복제되지 않음**: 신규 객체만 복제, 기존은 Batch Replication 필요
 
 ```bash
 # 소스: 서울 → 대상: 도쿄 CRR 설정
@@ -408,5 +408,5 @@ IAM 정책으로 권한을 관리하다 보면, 어느 순간 JSON 파일이 수
 >
 > | | |
 > |---|---|
-> | ← [AWS 데이터 공유 서비스 3종 — Registry, Data Exchange, Access Points]({% post_url 2026-05-16-S3-Data-Sharing-Services %}) | |
-> | | [S3 보안 다층 방어 — 7계층 패턴과 실전 구현]({% post_url 2026-05-18-S3-Security-Patterns %}) → |
+> | ← [AWS 데이터 공유 서비스 3종. Registry, Data Exchange, Access Points]({% post_url 2026-05-16-S3-Data-Sharing-Services %}) | |
+> | | [S3 보안 다층 방어. 7계층 패턴과 실전 구현]({% post_url 2026-05-18-S3-Security-Patterns %}) → |

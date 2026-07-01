@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 275" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
-<marker id="ah-666" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#666"/></marker>
+<marker id="ah-666" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#666666"/></marker>
 <marker id="ah-2563eb" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker>
   </defs>
 <text x="410" y="28" font-size="15" font-weight="700" fill="#2c3e50" text-anchor="middle">AWS Data Exchange: 작동 흐름</text>
@@ -16,10 +16,10 @@ data.parquet</text>
 <text x="690" y="100" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">데이터 구독자</text>
 <text x="690" y="116" font-size="9" fill="#8b949e" text-anchor="middle">Athena · EMR
 SageMaker</text>
-<line x1="200" y1="80" x2="255" y2="80" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<line x1="540" y1="80" x2="595" y2="80" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<line x1="595" y1="110" x2="540" y2="110" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<line x1="255" y1="110" x2="200" y2="110" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="200" y1="80" x2="255" y2="80" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="540" y1="80" x2="595" y2="80" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="595" y1="110" x2="540" y2="110" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="255" y1="110" x2="200" y2="110" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
 <line x1="400" y1="160" x2="400" y2="195" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#ah-fbbf24)"/>
 <rect x="260" y="200" width="280" height="55" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
 <text x="400" y="222" font-size="12" font-weight="700" fill="#92400e" text-anchor="middle">AWS Marketplace</text>

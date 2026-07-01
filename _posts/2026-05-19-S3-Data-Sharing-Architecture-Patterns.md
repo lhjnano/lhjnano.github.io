@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[S3 5/7] S3 데이터 공유 아키텍처 — 6가지 패턴과 선택 가이드"
+title: "[S3 5/7] S3 데이터 공유 아키텍처: 6가지 패턴과 선택 가이드"
 categories: [AWS, S3, Architecture]
 description: S3 기반 데이터 공유 아키텍처의 6가지 패턴을 정리합니다. 데이터 레이크, 멀티 계정 허브, 연합 분석, 마켓플레이스, 글로벌 복제, 이벤트 기반 공유까지.
 keywords: [S3, 아키텍처, 데이터레이크, LakeFormation, EventBridge, 데이터공유]
@@ -10,7 +10,7 @@ toc_sticky: true
 
 ## Hook
 
-> 조직 규모가 커지면 데이터 공유 방식도 달라져야 합니다. 소규모 팀의 버킷 공유부터 글로벌 연합 분석까지 — 상황에 맞는 6가지 아키텍처 패턴을 소개합니다.
+> 조직 규모가 커지면 데이터 공유 방식도 달라져야 합니다. 소규모 팀의 버킷 공유부터 글로벌 연합 분석까지. 상황에 맞는 6가지 아키텍처 패턴을 소개합니다.
 
 팀 하나일 때는 버킷 정책 한 줄이면 충분합니다. 하지만 부서가 여러 개로 나뉘고, 계정이 분리되고, 규제가 걸리고, 글로벌 사용자가 붙기 시작하면 "데이터를 어떻게 공유할 것인가"는 완전히 다른 문제가 됩니다. 이 글에서는 S3를 중심으로 한 **6가지 데이터 공유 아키텍처 패턴**을 정리하고, 상황에 따라 어떤 패턴을 선택해야 하는지 가이드합니다.
 
@@ -18,18 +18,18 @@ toc_sticky: true
 
 ## TL;DR
 
-- **패턴 1: 데이터 레이크 공유** — 단일 S3 + Access Points + Lake Formation
-- **패턴 2: 멀티 계정 데이터 허브** — Organizations + hub-and-spoke
-- **패턴 3: 연합 데이터 분석** — Athena Federated Query로 이기종 분산 쿼리
-- **패턴 4: 데이터 마켓플레이스** — AWS Data Exchange로 외부 데이터 거래
-- **패턴 5: 글로벌 데이터 복제** — CRR + Multi-Region Access Points
-- **패턴 6: 이벤트 기반 공유** — S3 + EventBridge + Lambda
+- **패턴 1: 데이터 레이크 공유**: 단일 S3 + Access Points + Lake Formation
+- **패턴 2: 멀티 계정 데이터 허브**: Organizations + hub-and-spoke
+- **패턴 3: 연합 데이터 분석**: Athena Federated Query로 이기종 분산 쿼리
+- **패턴 4: 데이터 마켓플레이스**: AWS Data Exchange로 외부 데이터 거래
+- **패턴 5: 글로벌 데이터 복제**: CRR + Multi-Region Access Points
+- **패턴 6: 이벤트 기반 공유**: S3 + EventBridge + Lambda
 
 ---
 
 ## 왜 아키텍처 패턴이 필요한가
 
-"그냥 버킷 권한 열어주면 안 되나?" — 작은 규모에서는 됩니다. 하지만 아래 상황이 하나라도 겹치면 패턴 없는 접근은 기술 부채가 됩니다.
+"그냥 버킷 권한 열어주면 안 되나?". 작은 규모에서는 됩니다. 하지만 아래 상황이 하나라도 겹치면 패턴 없는 접근은 기술 부채가 됩니다.
 
 - **계정이 여러 개** → 교차 계정 권한, 비용 추적, 보안 격리
 - **데이터를 옮길 수 없음** → 규제, 데이터 주권, 복사 비용
@@ -41,7 +41,7 @@ toc_sticky: true
 
 ### 6가지 패턴 개요
 
-![S3 데이터 공유 아키텍처 패턴 6종 카탈로그 — 단일 소스 공유부터 이벤트 기반 처리까지](/assets/images/posts/s3-architecture-patterns/12-01-diagram.svg)
+![S3 데이터 공유 아키텍처 패턴 6종 카탈로그. 단일 소스 공유부터 이벤트 기반 처리까지](/assets/images/posts/s3-architecture-patterns/12-01-diagram.svg)
 
 | 패턴 | 복잡도 | 적합 규모 | 핵심 서비스 |
 |------|--------|-----------|-------------|
@@ -58,17 +58,17 @@ toc_sticky: true
 
 하나의 S3 버킷을 중심으로 Access Points와 Lake Formation으로 권한을 관리하는 **가장 기본적인 패턴**입니다. "단일 소스, 다수 소비자" 구조입니다.
 
-![데이터 레이크 공유 아키텍처 — S3 버킷의 raw/curated/analytics 계층을 Access Points와 Lake Formation으로 다수 소비자에게 공유](/assets/images/posts/s3-architecture-patterns/12-02-1-패턴-1-데이터-레이크-공유-아키텍처.svg)
+![데이터 레이크 공유 아키텍처. S3 버킷의 raw/curated/analytics 계층을 Access Points와 Lake Formation으로 다수 소비자에게 공유](/assets/images/posts/s3-architecture-patterns/12-02-1-패턴-1-데이터-레이크-공유-아키텍처.svg)
 
 ### 어떻게 구성되나
 
 데이터 레이크를 **계층(Raw → Curated → Analytics)** 으로 나누고, 각 계층마다 별도의 Access Point를 둡니다. Lake Formation이 테이블·컬럼 수준의 세분화된 권한을 부여합니다.
 
-![데이터 레이크 계층 구조 상세 — raw/curated/analytics 폴더 구조와 계층별 Access Point 매핑](/assets/images/posts/s3-architecture-patterns/12-03-컴포넌트-상세.svg)
+![데이터 레이크 계층 구조 상세. raw/curated/analytics 폴더 구조와 계층별 Access Point 매핑](/assets/images/posts/s3-architecture-patterns/12-03-컴포넌트-상세.svg)
 
-- `/raw/` — 원본 데이터, 변경 불가 (제한적 접근)
-- `/curated/` — 정제된 분석용 데이터 (분석가)
-- `/analytics/` — 집계 결과, 대시보드용 (QuickSight 연동)
+- `/raw/`. 원본 데이터, 변경 불가 (제한적 접근)
+- `/curated/`. 정제된 분석용 데이터 (분석가)
+- `/analytics/`. 집계 결과, 대시보드용 (QuickSight 연동)
 
 **핵심 포인트**: 데이터를 복제하지 않고 단일 소스에서 다수 소비자에게 권한만 분배합니다.
 
@@ -125,7 +125,7 @@ lf.grant_permissions(
 
 AWS Organizations 환경에서 **중앙 데이터 계정을 허브로 두고, 각 팀 계정을 스포크로 연결**하는 hub-and-spoke 패턴입니다.
 
-![멀티 계정 데이터 허브 아키텍처 — 중앙 데이터 계정이 hub가 되고 마케팅/엔지니어링/재무/ML 팀 계정이 spoke로 접근](/assets/images/posts/s3-architecture-patterns/12-04-2-패턴-2-멀티-계정-데이터-허브.svg)
+![멀티 계정 데이터 허브 아키텍처. 중앙 데이터 계정이 hub가 되고 마케팅/엔지니어링/재무/ML 팀 계정이 spoke로 접근](/assets/images/posts/s3-architecture-patterns/12-04-2-패턴-2-멀티-계정-데이터-허브.svg)
 
 ### 어떻게 구성되나
 
@@ -178,7 +178,7 @@ s3.put_bucket_policy(Bucket='central-data-hub', Policy=json.dumps(bucket_policy)
 
 데이터는 각 부서 계정에 그대로 두고, **쿼리 결과만 공유**하는 분산형 패턴입니다. 데이터를 복사하지 않습니다.
 
-![연합 데이터 분석 아키텍처 — 부서 A/B/C가 각자 S3에 데이터를 보유하고 Athena Federated Query로 교차 쿼리, 결과만 중앙 버킷에 저장](/assets/images/posts/s3-architecture-patterns/12-05-3-패턴-3-연합-데이터-분석-federated-analytics.svg)
+![연합 데이터 분석 아키텍처. 부서 A/B/C가 각자 S3에 데이터를 보유하고 Athena Federated Query로 교차 쿼리, 결과만 중앙 버킷에 저장](/assets/images/posts/s3-architecture-patterns/12-05-3-패턴-3-연합-데이터-분석-federated-analytics.svg)
 
 ### 어떻게 구성되나
 
@@ -205,7 +205,7 @@ WHERE a.sale_date >= DATE '2025-01-01';
 
 AWS Data Exchange를 기반으로 **외부 데이터를 구독하고 유통**하는 패턴입니다. 날씨, 금융, 인구통계 같은 서드파티 데이터를 결합할 때 사용합니다.
 
-![데이터 마켓플레이스 아키텍처 — 데이터 제공자가 Data Exchange에 데이터셋 등록, 소비자가 구독하면 S3에 자동 배포 및 Glue Catalog 등록](/assets/images/posts/s3-architecture-patterns/12-06-4-패턴-4-데이터-마켓플레이스.svg)
+![데이터 마켓플레이스 아키텍처. 데이터 제공자가 Data Exchange에 데이터셋 등록, 소비자가 구독하면 S3에 자동 배포 및 Glue Catalog 등록](/assets/images/posts/s3-architecture-patterns/12-06-4-패턴-4-데이터-마켓플레이스.svg)
 
 ### 어떻게 구성되나
 
@@ -225,7 +225,7 @@ AWS Data Exchange를 기반으로 **외부 데이터를 구독하고 유통**하
 
 CRR(Cross-Region Replication)과 **Multi-Region Access Points**로 여러 리전에 데이터를 복제하고, 사용자와 가장 가까운 리전으로 라우팅하는 패턴입니다.
 
-![글로벌 데이터 복제 공유 아키텍처 — 서울 원본 버킷을 CRR로 도쿄/버지니아에 복제하고 Multi-Region Access Point가 가장 가까운 리전으로 자동 라우팅](/assets/images/posts/s3-architecture-patterns/12-07-5-패턴-5-글로벌-데이터-복제-공유.svg)
+![글로벌 데이터 복제 공유 아키텍처. 서울 원본 버킷을 CRR로 도쿄/버지니아에 복제하고 Multi-Region Access Point가 가장 가까운 리전으로 자동 라우팅](/assets/images/posts/s3-architecture-patterns/12-07-5-패턴-5-글로벌-데이터-복제-공유.svg)
 
 ### 어떻게 구성되나
 
@@ -243,7 +243,7 @@ CRR(Cross-Region Replication)과 **Multi-Region Access Points**로 여러 리전
 
 S3 이벤트를 **EventBridge로 라우팅**하여, 데이터가 변경될 때마다 자동으로 알림·처리하는 패턴입니다.
 
-![이벤트 기반 데이터 공유 아키텍처 — S3 객체 생성/삭제 이벤트가 EventBridge 규칙으로 분기되어 Lambda/Step Functions/SNS로 자동 처리](/assets/images/posts/s3-architecture-patterns/12-08-6-패턴-6-s3-eventbridge-이벤트-기반-공유.svg)
+![이벤트 기반 데이터 공유 아키텍처. S3 객체 생성/삭제 이벤트가 EventBridge 규칙으로 분기되어 Lambda/Step Functions/SNS로 자동 처리](/assets/images/posts/s3-architecture-patterns/12-08-6-패턴-6-s3-eventbridge-이벤트-기반-공유.svg)
 
 ### 어떻게 구성되나
 
@@ -304,11 +304,11 @@ events.put_targets(
 
 6가지 패턴을 복잡도, 보안, 비용, 지연, 확장성 기준으로 비교한 매트릭스입니다.
 
-![아키텍처 패턴 비교 매트릭스 — 6개 패턴을 복잡도/데이터 위치/보안/비용/지연/확장성/권장 대상 기준으로 비교](/assets/images/posts/s3-architecture-patterns/12-09-7-패턴-비교-총정리.svg)
+![아키텍처 패턴 비교 매트릭스. 6개 패턴을 복잡도/데이터 위치/보안/비용/지연/확장성/권장 대상 기준으로 비교](/assets/images/posts/s3-architecture-patterns/12-09-7-패턴-비교-총정리.svg)
 
 ### 의사결정 트리
 
-![아키텍처 패턴 선택 의사결정 트리 — 상업적/글로벌/데이터 이동/실시간/멀티 팀 여부에 따라 패턴을 추천](/assets/images/posts/s3-architecture-patterns/12-10-패턴-선택-의사결정-트리.svg)
+![아키텍처 패턴 선택 의사결정 트리. 상업적/글로벌/데이터 이동/실시간/멀티 팀 여부에 따라 패턴을 추천](/assets/images/posts/s3-architecture-patterns/12-10-패턴-선택-의사결정-트리.svg)
 
 의사결정 흐름은 이렇습니다:
 
@@ -339,7 +339,7 @@ events.put_targets(
 
 특히 인상 깊었던 것은 패턴들이 단독으로 쓰이지 않는다는 점이었습니다. 현실에서는 멀티 계정 허브를 기본으로 깔고 그 위에 이벤트 기반 공유를 얹으며, 외부 데이터는 마켓플레이스로 가져오는 식으로 조합됩니다. 이는 아키텍처가 정답을 찾는 것이 아니라 상황에 맞게 **조립하는 것**이라는 사실을 잘 보여줍니다. 패턴을 외우는 것보다, 자신의 조직이 어떤 압력에 직면해 있는지 파악하는 것이 훨씬 중요합니다.
 
-데이터 공유 아키텍처를 설계하실 때는 먼저 조직의 제약 조건을 솔직하게 나열해 보시길 권합니다. 계정 수, 규제, 지연 요구사항, 실시간성 — 이 다섯 가지 질문에 답하다 보면, 어떤 패턴을 조합해야 할지 자연스럽게 보이기 시작할 것입니다.
+데이터 공유 아키텍처를 설계하실 때는 먼저 조직의 제약 조건을 솔직하게 나열해 보시길 권합니다. 계정 수, 규제, 지연 요구사항, 실시간성. 이 다섯 가지 질문에 답하다 보면, 어떤 패턴을 조합해야 할지 자연스럽게 보이기 시작할 것입니다.
 
 ---
 
@@ -347,5 +347,5 @@ events.put_targets(
 >
 > | | |
 > |---|---|
-> | ← [S3 보안 다층 방어 — 7계층 패턴과 실전 구현]({% post_url 2026-05-18-S3-Security-Patterns %}) | |
-> | | [S3 2026 신기능 — Files, Tables, Vectors, Metadata + s3fs-fuse]({% post_url 2026-05-20-S3-New-Features-2026 %}) → |
+> | ← [S3 보안 다층 방어. 7계층 패턴과 실전 구현]({% post_url 2026-05-18-S3-Security-Patterns %}) | |
+> | | [S3 2026 신기능. Files, Tables, Vectors, Metadata + s3fs-fuse]({% post_url 2026-05-20-S3-New-Features-2026 %}) → |

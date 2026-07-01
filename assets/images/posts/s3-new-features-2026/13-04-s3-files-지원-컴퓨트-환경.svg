@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
     <marker id="arrow-c1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
     <filter id="sh-c1" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
@@ -9,18 +9,18 @@
   <!-- Outer container -->
   <rect x="20" y="38" width="660" height="350" rx="8" fill="white" stroke="#b0bec5" stroke-width="1.5" filter="url(#sh-c1)"/>
   <!-- EC2 -->
-  <rect x="60" y="60" width="160" height="80" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh-c1)"/>
-  <text x="140" y="82" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#e65100">EC2</text>
+  <rect x="60" y="60" width="160" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh-c1)"/>
+  <text x="140" y="82" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#92400e">EC2</text>
   <text x="140" y="100" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">파일 기반</text>
   <text x="140" y="115" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">애플리케이션</text>
   <!-- ECS -->
-  <rect x="250" y="60" width="160" height="80" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh-c1)"/>
-  <text x="330" y="82" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#e65100">ECS</text>
+  <rect x="250" y="60" width="160" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh-c1)"/>
+  <text x="330" y="82" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#92400e">ECS</text>
   <text x="330" y="100" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">컨테이너</text>
   <text x="330" y="115" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">워크로드</text>
   <!-- EKS -->
-  <rect x="440" y="60" width="160" height="80" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh-c1)"/>
-  <text x="520" y="82" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#e65100">EKS</text>
+  <rect x="440" y="60" width="160" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh-c1)"/>
+  <text x="520" y="82" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#92400e">EKS</text>
   <text x="520" y="100" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">쿠버네티스</text>
   <text x="520" y="115" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">파드 마운트</text>
   <!-- Converging lines -->
@@ -30,16 +30,16 @@
   <line x1="140" y1="165" x2="520" y2="165" stroke="#546e7a" stroke-width="1.5"/>
   <line x1="330" y1="165" x2="330" y2="185" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow-c1)"/>
   <!-- S3 Files -->
-  <rect x="240" y="195" width="180" height="55" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2" filter="url(#sh-c1)"/>
+  <rect x="240" y="195" width="180" height="55" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="2" filter="url(#sh-c1)"/>
   <text x="330" y="218" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1b5e20">S3 Files</text>
   <text x="330" y="236" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#2e7d32">파일 시스템 인터페이스</text>
   <line x1="330" y1="250" x2="330" y2="275" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow-c1)"/>
   <!-- S3 -->
-  <rect x="240" y="285" width="180" height="50" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh-c1)"/>
-  <text x="330" y="306" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#e65100">Amazon S3</text>
+  <rect x="240" y="285" width="180" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh-c1)"/>
+  <text x="330" y="306" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#92400e">Amazon S3</text>
   <text x="330" y="322" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#bf360c">(객체 스토리지)</text>
   <!-- Lambda -->
-  <rect x="60" y="270" width="130" height="70" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh-c1)"/>
+  <rect x="60" y="270" width="130" height="70" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh-c1)"/>
   <text x="125" y="292" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif" fill="#1565c0">Lambda</text>
   <text x="125" y="310" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#1565c0">서버리스 함수</text>
   <text x="125" y="325" text-anchor="middle" font-size="9" font-family="sans-serif" fill="#1565c0">마운트 경로 접근</text>

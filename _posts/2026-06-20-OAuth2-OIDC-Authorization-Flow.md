@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IAM & 보안 (3)] OAuth2 & OIDC — 인가 코드 플로우와 토큰 교환"
+title: "[IAM & 보안 (3)] OAuth2 & OIDC: 인가 코드 플로우와 토큰 교환"
 categories: [Security, IAM, Infrastructure]
 description: "OAuth2 인가 코드 플로우의 전체 과정과 Access Token, Refresh Token, ID Token의 차이를 설명합니다. OIDC Discovery 문서 구조도 다룹니다."
 keywords: [OAuth2, OIDC, Authorization Code Flow, Access Token, Refresh Token, SSO]

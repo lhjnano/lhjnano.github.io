@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg">
-<defs><filter id="sh" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<defs><filter id="sh_사및모니터링" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_사및모니터링" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
 <rect x="0" y="0" width="720" height="480" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
-<text x="360" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🔍 S3 감사 &amp; 모니터링 아키텍처</text>
-<rect x="80" y="42" width="250" height="56" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+<text x="360" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">🔍 S3 감사 &amp; 모니터링 아키텍처</text>
+<rect x="80" y="42" width="250" height="56" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh_사및모니터링)"/>
 <text x="205" y="66" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">🪣 버킷 A (제공자)</text>
-<text x="205" y="84" text-anchor="middle" font-size="10" fill="#475569">Provider Bucket</text>
-<rect x="390" y="42" width="250" height="56" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+<text x="205" y="84" text-anchor="middle" font-size="10" fill="#495057">Provider Bucket</text>
+<rect x="390" y="42" width="250" height="56" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh_사및모니터링)"/>
 <text x="515" y="66" text-anchor="middle" font-size="11" font-weight="bold" fill="#166534">🪣 버킷 B (소비자)</text>
-<text x="515" y="84" text-anchor="middle" font-size="10" fill="#475569">Consumer Bucket</text>
-<line x1="205" y1="98" x2="205" y2="124" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
-<line x1="515" y1="98" x2="515" y2="124" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
-<rect x="30" y="126" width="660" height="336" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
-<text x="360" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#64748b">📋 감사 &amp; 모니터링 서비스</text>
-<rect x="50" y="160" width="620" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="515" y="84" text-anchor="middle" font-size="10" fill="#495057">Consumer Bucket</text>
+<line x1="205" y1="98" x2="205" y2="124" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar_사및모니터링)"/>
+<line x1="515" y1="98" x2="515" y2="124" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar_사및모니터링)"/>
+<rect x="30" y="126" width="660" height="336" rx="10" fill="#f0f4f8" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh_사및모니터링)"/>
+<text x="360" y="148" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">📋 감사 &amp; 모니터링 서비스</text>
+<rect x="50" y="160" width="620" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh_사및모니터링)"/>
 <text x="70" y="180" font-size="12" font-weight="bold" fill="#1e40af">📜 AWS CloudTrail</text>
-<text x="70" y="196" font-size="10" fill="#475569">• 모든 S3 API 이벤트 기록</text>
-<text x="70" y="210" font-size="10" fill="#475569">• 데이터 이벤트 (GetObject, PutObject) | 관리 이벤트 (CreateBucket, PutBucketPolicy)</text>
-<text x="70" y="224" font-size="10" fill="#475569">• 계정 간 공유 접근 추적</text>
-<rect x="50" y="240" width="620" height="62" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+<text x="70" y="196" font-size="10" fill="#495057">• 모든 S3 API 이벤트 기록</text>
+<text x="70" y="210" font-size="10" fill="#495057">• 데이터 이벤트 (GetObject, PutObject) | 관리 이벤트 (CreateBucket, PutBucketPolicy)</text>
+<text x="70" y="224" font-size="10" fill="#495057">• 계정 간 공유 접근 추적</text>
+<rect x="50" y="240" width="620" height="62" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh_사및모니터링)"/>
 <text x="70" y="260" font-size="12" font-weight="bold" fill="#166534">📝 S3 Server Access Logging</text>
-<text x="70" y="276" font-size="10" fill="#475569">• 모든 요청에 대한 상세 로그 | 요청자 IP, 시간, 응답 코드, 바이트 수</text>
-<text x="70" y="292" font-size="10" fill="#475569">• Access Point를 통한 접근 기록</text>
-<rect x="50" y="312" width="620" height="62" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+<text x="70" y="276" font-size="10" fill="#495057">• 모든 요청에 대한 상세 로그 | 요청자 IP, 시간, 응답 코드, 바이트 수</text>
+<text x="70" y="292" font-size="10" fill="#495057">• Access Point를 통한 접근 기록</text>
+<rect x="50" y="312" width="620" height="62" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh_사및모니터링)"/>
 <text x="70" y="332" font-size="12" font-weight="bold" fill="#991b1b">🔍 Amazon Macie</text>
-<text x="70" y="348" font-size="10" fill="#475569">• 민감한 데이터 자동 탐지 (PII, PHI) | 데이터 분류 및 보안 평가</text>
-<text x="70" y="364" font-size="10" fill="#475569">• 공유 전/후 민감 정보 노출 방지</text>
-<rect x="50" y="384" width="620" height="62" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh)"/>
+<text x="70" y="348" font-size="10" fill="#495057">• 민감한 데이터 자동 탐지 (PII, PHI) | 데이터 분류 및 보안 평가</text>
+<text x="70" y="364" font-size="10" fill="#495057">• 공유 전/후 민감 정보 노출 방지</text>
+<rect x="50" y="384" width="620" height="62" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh_사및모니터링)"/>
 <text x="70" y="404" font-size="12" font-weight="bold" fill="#5b21b6">⚙️ AWS Config</text>
-<text x="70" y="420" font-size="10" fill="#475569">• 버킷 설정 변경 추적 | 암호화 활성화 여부 모니터링</text>
-<text x="70" y="436" font-size="10" fill="#475569">• 공개 접근 설정 규칙 준수 확인</text>
+<text x="70" y="420" font-size="10" fill="#495057">• 버킷 설정 변경 추적 | 암호화 활성화 여부 모니터링</text>
+<text x="70" y="436" font-size="10" fill="#495057">• 공개 접근 설정 규칙 준수 확인</text>
 </svg>

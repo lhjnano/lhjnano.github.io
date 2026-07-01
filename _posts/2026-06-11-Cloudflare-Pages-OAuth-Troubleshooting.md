@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cloudflare Pages OAuth 로그인 — 9번의 실패와 교훈"
+title: "Cloudflare Pages OAuth 로그인: 9번의 실패와 교훈"
 categories: [Cloudflare, OAuth]
 description: Cloudflare Pages에서 Google·Kakao OAuth 로그인을 구현하며 겪은 9건의 이슈와 해결 과정을 공유합니다.
 keywords: [Cloudflare, OAuth, Google, Kakao, JWT, 트러블슈팅]
@@ -10,7 +10,7 @@ toc_sticky: true
 
 ## Hook
 
-OAuth 로그인을 붙이려다 보니 302 리다이렉트, 쿠키 누락, 한글 깨짐, 아키텍처 변경까지 — 총 9번의 삽질 끝에 찾은 정답입니다.
+OAuth 로그인을 붙이려다 보니 302 리다이렉트, 쿠키 누락, 한글 깨짐, 아키텍처 변경까지. 총 9번의 삽질 끝에 찾은 정답입니다.
 
 ## TL;DR
 
@@ -162,7 +162,7 @@ wrangler pages secret put GOOGLE_CLIENT_SECRET --project-name my-app
 
 ## 아키텍처 이관 이야기 (Issue #8)
 
-이것이 가장 극적인 삽질이었습니다. 처음에는 인증 API를 별도 Worker(`my-api.workers.dev`)에 배포했습니다. 프론트엔드(`my-app.pages.dev`)와 도메인이 다르니 **CORS 에러**가 발생하고, 쿠키는 **SameSite 정책**에 막히고, OAuth Redirect URI는 **두 도메인을 관리**해야 하고 — 하나를 고치면 다른 게 터지는 악순환이었습니다.
+이것이 가장 극적인 삽질이었습니다. 처음에는 인증 API를 별도 Worker(`my-api.workers.dev`)에 배포했습니다. 프론트엔드(`my-app.pages.dev`)와 도메인이 다르니 **CORS 에러**가 발생하고, 쿠키는 **SameSite 정책**에 막히고, OAuth Redirect URI는 **두 도메인을 관리**해야 하고. 하나를 고치면 다른 게 터지는 악순환이었습니다.
 
 결국 전부 갈아엎고 **Pages Functions**로 통합했습니다.
 

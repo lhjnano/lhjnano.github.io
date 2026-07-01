@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
-  <style>text{fill:#1e293b}</style>
+  <style>text{fill:#2c3e50}</style>
   <defs>
     <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
       <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
@@ -11,7 +11,7 @@
   </defs>
   <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700">⏳ Lifecycle 규칙 적용 예시</text>
 
-  <rect x="20" y="40" width="130" height="60" rx="10" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="20" y="40" width="130" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh)"/>
   <text x="85" y="68" text-anchor="middle" font-size="12" font-weight="700">📦 Standard</text>
   <text x="85" y="86" text-anchor="middle" font-size="9">활성 데이터</text>
 
@@ -25,7 +25,7 @@
   <line x1="354" y1="70" x2="414" y2="70" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
   <text x="384" y="62" text-anchor="middle" font-size="9" fill="#546e7a">90일</text>
 
-  <rect x="418" y="40" width="150" height="60" rx="10" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="418" y="40" width="150" height="60" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh)"/>
   <text x="493" y="62" text-anchor="middle" font-size="11" font-weight="700">🧊 Glacier</text>
   <text x="493" y="78" text-anchor="middle" font-size="10">Instant</text>
   <text x="493" y="92" text-anchor="middle" font-size="9">Retrieval</text>
@@ -33,7 +33,7 @@
   <line x1="568" y1="70" x2="600" y2="70" stroke="#546e7a" stroke-width="1.5" marker-end="url(#ar)"/>
   <text x="584" y="62" text-anchor="middle" font-size="9" fill="#546e7a">365일</text>
 
-  <rect x="604" y="40" width="104" height="60" rx="10" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="604" y="40" width="104" height="60" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" filter="url(#sh)"/>
   <text x="656" y="62" text-anchor="middle" font-size="10" font-weight="700">🗄️ Deep</text>
   <text x="656" y="78" text-anchor="middle" font-size="10" font-weight="700">Archive</text>
   <text x="656" y="92" text-anchor="middle" font-size="9">극장기 보관</text>
@@ -42,13 +42,13 @@
   <text x="690" y="130" font-size="9" fill="#546e7a">2555일</text>
   <text x="690" y="142" font-size="9" fill="#546e7a">(7년)</text>
 
-  <rect x="584" y="152" width="140" height="48" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="584" y="152" width="140" height="48" rx="10" fill="#2c3e50" stroke="#334155" stroke-width="1.5" filter="url(#sh)"/>
   <text x="654" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#e2e8f0">🗑️ 만료(삭제)</text>
 
   <text x="360" y="240" text-anchor="middle" font-size="13" font-weight="700">📋 Lifecycle 규칙 유형</text>
   <line x1="40" y1="252" x2="680" y2="252" stroke="#e2e8f0" stroke-width="1.5"/>
 
-  <rect x="60" y="268" width="600" height="38" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="60" y="268" width="600" height="38" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh)"/>
   <text x="80" y="292" font-size="11" font-weight="700">1️⃣ 전환 규칙 (Transition)</text>
   <text x="340" y="292" font-size="10">— 객체를 다른 스토리지 클래스로 자동 이동</text>
 
@@ -56,7 +56,7 @@
   <text x="80" y="340" font-size="11" font-weight="700">2️⃣ 만료 규칙 (Expiration)</text>
   <text x="340" y="340" font-size="10">— 객체를 자동 삭제, 버전 관리 시 삭제 마커 추가</text>
 
-  <rect x="60" y="364" width="600" height="38" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="60" y="364" width="600" height="38" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh)"/>
   <text x="80" y="388" font-size="11" font-weight="700">3️⃣ 미완료 멀티파트 업로드 정리</text>
   <text x="400" y="388" font-size="10">— 완료되지 않은 업로드 자동 정리, 스토리지 낭비 방지</text>
 </svg>

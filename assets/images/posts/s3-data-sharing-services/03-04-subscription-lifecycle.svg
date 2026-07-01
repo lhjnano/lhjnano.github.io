@@ -7,21 +7,21 @@
 <rect x="10" y="55" width="140" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
 <text x="80" y="80" font-size="11" font-weight="700" fill="#2563eb" text-anchor="middle">1. 검색</text>
 <text x="80" y="96" font-size="9" fill="#8b949e" text-anchor="middle">Marketplace</text>
-<line x1="150" y1="85" x2="175" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="150" y1="85" x2="175" y2="85" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
 <rect x="175" y="55" width="140" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
 <text x="245" y="80" font-size="11" font-weight="700" fill="#2563eb" text-anchor="middle">2. 구독 신청</text>
 <text x="245" y="96" font-size="9" fill="#8b949e" text-anchor="middle">요금제 선택</text>
-<line x1="315" y1="85" x2="340" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="315" y1="85" x2="340" y2="85" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
 <rect x="340" y="55" width="140" height="60" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
 <text x="410" y="80" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">3. 승인 대기</text>
 <text x="410" y="96" font-size="9" fill="#8b949e" text-anchor="middle">제공자 승인</text>
-<line x1="480" y1="85" x2="505" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<line x1="480" y1="85" x2="505" y2="85" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
 <rect x="505" y="55" width="140" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
 <text x="575" y="80" font-size="11" font-weight="700" fill="#16a34a" text-anchor="middle">4. 접근 활성</text>
 <text x="575" y="96" font-size="9" fill="#8b949e" text-anchor="middle">S3 API 접근</text>
-<line x1="645" y1="85" x2="670" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
-<rect x="670" y="55" width="140" height="60" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="2"/>
-<text x="740" y="80" font-size="11" font-weight="700" fill="#666666" text-anchor="middle">5. 갱신/만료</text>
+<line x1="645" y1="85" x2="670" y2="85" stroke="#666666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<rect x="670" y="55" width="140" height="60" rx="10" fill="#f0f4f8" stroke="#666666666" stroke-width="2"/>
+<text x="740" y="80" font-size="11" font-weight="700" fill="#666666666" text-anchor="middle">5. 갱신/만료</text>
 <text x="740" y="96" font-size="9" fill="#8b949e" text-anchor="middle">자동 권한 회수</text>
 <text x="410" y="145" font-size="10" fill="#8b949e" text-anchor="middle" font-style="italic">구독 → 승인 → 접근 → 갱신/만료의 전 주기 관리</text>
 </svg>

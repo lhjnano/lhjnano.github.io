@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
     <marker id="arrow-os1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
     <filter id="sh-os1" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
@@ -11,14 +11,14 @@
   <!-- Description -->
   <text x="350" y="62" text-anchor="middle" font-size="11" font-family="sans-serif" fill="#546e7a">제공자가 S3에 공유 데이터 저장 → 소비자가 S3 Files로 파일 시스템에 마운트</text>
   <!-- Data Provider -->
-  <rect x="50" y="80" width="120" height="60" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh-os1)"/>
+  <rect x="50" y="80" width="120" height="60" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh-os1)"/>
   <text x="110" y="102" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#1565c0">데이터 제공자</text>
   <text x="110" y="120" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#1565c0">업로드</text>
   <!-- Arrow to S3 -->
   <line x1="170" y1="110" x2="220" y2="110" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow-os1)"/>
   <!-- S3 Bucket -->
-  <rect x="230" y="75" width="210" height="130" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh-os1)"/>
-  <text x="335" y="97" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#e65100">S3 Bucket (공유 데이터)</text>
+  <rect x="230" y="75" width="210" height="130" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh-os1)"/>
+  <text x="335" y="97" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#92400e">S3 Bucket (공유 데이터)</text>
   <text x="250" y="120" font-size="10" font-family="monospace" fill="#bf360c">/shared/</text>
   <text x="260" y="136" font-size="10" font-family="monospace" fill="#bf360c">├── datasets/</text>
   <text x="260" y="151" font-size="10" font-family="monospace" fill="#bf360c">├── models/</text>
@@ -26,12 +26,12 @@
   <!-- Arrow to Consumer -->
   <line x1="440" y1="130" x2="490" y2="130" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arrow-os1)"/>
   <!-- Consumer -->
-  <rect x="500" y="80" width="150" height="80" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh-os1)"/>
+  <rect x="500" y="80" width="150" height="80" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh-os1)"/>
   <text x="575" y="102" text-anchor="middle" font-size="12" font-weight="bold" font-family="sans-serif" fill="#1565c0">소비자 EC2/EKS</text>
   <text x="575" y="120" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#1565c0">/mnt/s3 마운트</text>
   <text x="575" y="138" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#1565c0">파일처럼 직접 접근</text>
   <!-- Benefits -->
-  <rect x="50" y="220" width="600" height="95" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1" filter="url(#sh-os1)"/>
+  <rect x="50" y="220" width="600" height="95" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1" filter="url(#sh-os1)"/>
   <text x="70" y="242" font-size="12" font-weight="bold" font-family="sans-serif" fill="#1b5e20">장점:</text>
   <text x="70" y="262" font-size="10" font-family="sans-serif" fill="#2e7d32">• 데이터 다운로드/동기화 불필요</text>
   <text x="70" y="278" font-size="10" font-family="sans-serif" fill="#2e7d32">• 기존 파일 기반 애플리케이션 수정 없이 사용</text>

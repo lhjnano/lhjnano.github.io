@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
             <defs><marker id="arr4" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker><filter id="sh4" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter></defs>
             <rect width="800" height="380" fill="#f8fafb" rx="8"/>
             
 <text x="400" y="22" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif" fill="#37474f">Access Grants 설정 4단계</text>
 
 <!-- 4 Steps horizontal -->
-<rect x="30" y="45" width="160" height="70" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5" filter="url(#sh4)"/>
-<text x="110" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">Step 1</text>
-<text x="110" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">인스턴스 생성</text>
+<rect x="30" y="45" width="160" height="70" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh4)"/>
+<text x="110" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">Step 1</text>
+<text x="110" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">인스턴스 생성</text>
 <line x1="190" y1="80" x2="220" y2="80" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr4)"/>
 
-<rect x="220" y="45" width="160" height="70" rx="6" fill="#fff3e0" stroke="#ff9900" stroke-width="1.5" filter="url(#sh4)"/>
-<text x="300" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">Step 2</text>
-<text x="300" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">위치 등록</text>
+<rect x="220" y="45" width="160" height="70" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh4)"/>
+<text x="300" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">Step 2</text>
+<text x="300" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">위치 등록</text>
 <line x1="380" y1="80" x2="410" y2="80" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr4)"/>
 
-<rect x="410" y="45" width="160" height="70" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" filter="url(#sh4)"/>
-<text x="490" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">Step 3</text>
-<text x="490" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">Grant 생성</text>
+<rect x="410" y="45" width="160" height="70" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh4)"/>
+<text x="490" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">Step 3</text>
+<text x="490" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">Grant 생성</text>
 <line x1="570" y1="80" x2="600" y2="80" stroke="#546e7a" stroke-width="1.5" marker-end="url(#arr4)"/>
 
-<rect x="600" y="45" width="160" height="70" rx="6" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1.5" filter="url(#sh4)"/>
-<text x="680" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">Step 4</text>
-<text x="680" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#333">자격 증명 발급</text>
+<rect x="600" y="45" width="160" height="70" rx="6" fill="#f3e5f5" stroke="#7c3aed" stroke-width="1.5" filter="url(#sh4)"/>
+<text x="680" y="72" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">Step 4</text>
+<text x="680" y="88" text-anchor="middle" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2c3e50">자격 증명 발급</text>
 
 <!-- Step descriptions -->
 <rect x="30" y="140" width="730" height="220" rx="6" fill="white" stroke="#bdbdbd" stroke-width="1"/>
 
 <text x="50" y="162" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#1565c0">Step 1: Access Grants 인스턴스 생성</text>
-<text x="70" y="180" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">- IAM Identity Center 연동 (선택)</text>
-<text x="70" y="196" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">- 서비스 역할(IAM Role) 지정</text>
+<text x="70" y="180" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">- IAM Identity Center 연동 (선택)</text>
+<text x="70" y="196" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">- 서비스 역할(IAM Role) 지정</text>
 
-<text x="50" y="220" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#e65100">Step 2: 등록된 위치(Registered Location) 생성</text>
-<text x="70" y="238" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">- S3 버킷/접두사 경로 등록</text>
-<text x="70" y="254" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">- IAM Role 연결 (S3 접근용)</text>
+<text x="50" y="220" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#92400e">Step 2: 등록된 위치(Registered Location) 생성</text>
+<text x="70" y="238" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">- S3 버킷/접두사 경로 등록</text>
+<text x="70" y="254" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">- IAM Role 연결 (S3 접근용)</text>
 
 <text x="50" y="278" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#2e7d32">Step 3: Grant(권한 부여) 생성</text>
-<text x="70" y="296" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">- 대상: IAM 사용자/역할, 디렉토리 사용자/그룹</text>
-<text x="70" y="312" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">- 권한: READ, WRITE, READWRITE</text>
-<text x="70" y="328" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#333">- 범위: 등록된 위치 내 경로</text>
+<text x="70" y="296" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">- 대상: IAM 사용자/역할, 디렉토리 사용자/그룹</text>
+<text x="70" y="312" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">- 권한: READ, WRITE, READWRITE</text>
+<text x="70" y="328" text-anchor="start" font-size="10" font-weight="normal" font-family="sans-serif" fill="#2c3e50">- 범위: 등록된 위치 내 경로</text>
 
-<text x="50" y="352" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#7b1fa2">Step 4: 임시 자격 증명 발급 — GetGrant API → 최대 1시간 유효 STS 자격 증명</text>
+<text x="50" y="352" text-anchor="start" font-size="11" font-weight="bold" font-family="sans-serif" fill="#7c3aed">Step 4: 임시 자격 증명 발급 — GetGrant API → 최대 1시간 유효 STS 자격 증명</text>
 
             </svg>

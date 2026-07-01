@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
-  <style>text{fill:#1e293b}</style>
+  <style>text{fill:#2c3e50}</style>
   <defs>
     <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
       <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
@@ -9,27 +9,27 @@
       <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
     </marker>
   </defs>
-  <rect x="60" y="10" width="600" height="440" rx="12" fill="#e8f5e9" stroke="#22c55e" stroke-width="2" filter="url(#sh)"/>
+  <rect x="60" y="10" width="600" height="440" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2" filter="url(#sh)"/>
   <text x="360" y="40" text-anchor="middle" font-size="14" font-weight="700">📦 S3 Object</text>
-  <rect x="100" y="58" width="520" height="375" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="100" y="58" width="520" height="375" rx="10" fill="#ffffff" stroke="#8b949e" stroke-width="1"/>
   <rect x="120" y="72" width="480" height="60" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
   <text x="140" y="96" font-size="12" font-weight="700">🔑 Key (키)</text>
   <text x="140" y="116" font-size="10">"photos/2026/vacation/beach.jpg" — 버킷 내 객체의 고유 식별자</text>
   <line x1="120" y1="140" x2="600" y2="140" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="120" y="148" width="480" height="55" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="120" y="148" width="480" height="55" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>
   <text x="140" y="172" font-size="12" font-weight="700">📄 Value (값)</text>
   <text x="140" y="192" font-size="10">실제 데이터 (1byte ~ 5TB)</text>
   <line x1="120" y1="210" x2="600" y2="210" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="120" y="218" width="480" height="55" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="120" y="218" width="480" height="55" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
   <text x="140" y="242" font-size="12" font-weight="700">🔄 Version ID (버전 ID)</text>
   <text x="140" y="262" font-size="10">버전 관리 활성화 시 자동 생성</text>
   <line x1="120" y1="280" x2="600" y2="280" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="120" y="288" width="480" height="65" rx="8" fill="#fce4ec" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="120" y="288" width="480" height="65" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
   <text x="140" y="312" font-size="12" font-weight="700">🏷️ Metadata (메타데이터)</text>
   <text x="140" y="332" font-size="10">• 시스템 메타데이터 (크기, 수정일시 등)</text>
   <text x="140" y="346" font-size="10">• 사용자 정의 메타데이터 (x-amz-meta-*)</text>
   <line x1="120" y1="360" x2="600" y2="360" stroke="#e2e8f0" stroke-width="1"/>
-  <rect x="120" y="368" width="480" height="55" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="120" y="368" width="480" height="55" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
   <text x="140" y="392" font-size="12" font-weight="700">🏷️ Tags (태그)</text>
   <text x="140" y="412" font-size="10">키-값 페어, 비용 추적 및 관리에 활용</text>
 </svg>

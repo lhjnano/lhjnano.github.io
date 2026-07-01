@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IAM & 보안 (5)] Kerberos & SSO — 비밀번호 없이 인증하는 기술"
+title: "[IAM & 보안 (5)] Kerberos & SSO: 비밀번호 없이 인증하는 기술"
 categories: [Security, IAM, Infrastructure]
 description: "Kerberos 3단계 인증 플로우와 SPNEGO/Negotiate 인증을 설명합니다. 도메인 가입 PC에서 비밀번호 입력 없이 자동 로그인되는 원리와, 비밀번호를 네트워크에 보내지 않고 인증하는 설계를 다룹니다."
 keywords: [Kerberos, SSO, SPNEGO, TGT, Active Directory, Negotiate, KDC]

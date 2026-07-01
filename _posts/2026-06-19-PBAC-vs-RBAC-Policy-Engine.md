@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[IAM & 보안 (2)] PBAC vs RBAC — 정책 기반 접근 제어 설계"
+title: "[IAM & 보안 (2)] PBAC vs RBAC: 정책 기반 접근 제어 설계"
 categories: [Security, IAM, Infrastructure]
 description: "RBAC의 한계에서 출발해 PBAC의 정책 문서 구조, 평가 알고리즘, 와일드카드 매칭, 내장 정책 설계까지 단계적으로 살펴봅니다."
 keywords: [PBAC, RBAC, Policy Engine, Access Control, Wildcard, Authorization]

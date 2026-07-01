@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[AI 개발 거버넌스 (6)] 기계가 규칙을 지킨다 — 데드 버튼 탐지와 3-Tier CI"
+title: "[AI 개발 거버넌스 (6)] 기계가 규칙을 지킨다: 데드 버튼 탐지와 3-Tier CI"
 categories: [AI, Development, Governance]
 description: AI 에이전트가 만드는 데드 버튼과 목 데이터를 CI에서 자동 탐지하는 방법과, pre-commit부터 배포까지 3-Tier 게이트로 규칙을 기계적으로 강제하는 구조를 설명합니다.
 keywords: [CI/CD, 데드 버튼, 정적 분석, pre-commit, 자동화]
@@ -16,7 +16,7 @@ toc_sticky: true
 
 ## TL;DR
 
-- **사람은 판단에만 쓰고, 규칙 준수는 기계에 위임** — 3-Tier 게이트: 자동화(pre-commit+CI) → 인간 리뷰 → 보안/법률
+- **사람은 판단에만 쓰고, 규칙 준수는 기계에 위임**: 3-Tier 게이트: 자동화(pre-commit+CI) → 인간 리뷰 → 보안/법률
 - **데드 버튼 정적 탐지**: 빈 `onclick`, `href="#"`, TODO 인터랙티브 요소를 CI가 자동 차단
 - **목 데이터 정적 탐지**: `mock/dummy/fake/sample` 변수명 패턴으로 프로덕션 잔류 차단
 - **의존성 없는 검증 스크립트**(`tools/check.js`)가 CI/로컬/hook 3곳에서 동일 실행
@@ -93,7 +93,7 @@ Gate 2.5: 보안/법률
 
 ## 핵심 기능 1: 데드 버튼 정적 탐지
 
-AI가 만드는 가장 흔한 안티패턴 — **반응 없는 버튼**을 CI에서 정적 탐지합니다:
+AI가 만드는 가장 흔한 안티패턴. **반응 없는 버튼**을 CI에서 정적 탐지합니다:
 
 ```javascript
 // tools/check.js — 데드 버튼 탐지 로직 (개념)

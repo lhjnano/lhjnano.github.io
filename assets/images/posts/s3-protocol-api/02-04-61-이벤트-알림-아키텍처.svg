@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
   <defs>
     <marker id="arrow9" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
     <filter id="shadow9"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
   </defs>
   <rect width="760" height="620" fill="#f8fafb" rx="8"/>
-  <text x="380" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">S3 이벤트 알림 아키텍처</text>
-  <rect x="230" y="50" width="300" height="55" rx="10" fill="#fff3e0" stroke="#ff9900" stroke-width="2" filter="url(#shadow9)"/>
-  <text x="380" y="75" text-anchor="middle" font-size="13" font-weight="bold" fill="#e65100">Amazon S3 (이벤트 소스)</text>
-  <text x="380" y="95" text-anchor="middle" font-size="10" fill="#666">객체 업로드/삭제/복원 등 이벤트 발생</text>
+  <text x="380" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">S3 이벤트 알림 아키텍처</text>
+  <rect x="230" y="50" width="300" height="55" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#shadow9)"/>
+  <text x="380" y="75" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">Amazon S3 (이벤트 소스)</text>
+  <text x="380" y="95" text-anchor="middle" font-size="10" fill="#666666">객체 업로드/삭제/복원 등 이벤트 발생</text>
   <text x="380" y="130" text-anchor="middle" font-size="11" fill="#546e7a">▼ 이벤트 전달 ▼</text>
-  <rect x="50" y="155" width="180" height="75" rx="8" fill="#ffffff" stroke="#4285f4" stroke-width="1.5" filter="url(#shadow9)"/>
+  <rect x="50" y="155" width="180" height="75" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5" filter="url(#shadow9)"/>
   <text x="140" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565c0">SNS (알림)</text>
   <line x1="50" y1="230" x2="50" y2="280" stroke="#546e7a" stroke-width="1"/>
   <line x1="230" y1="230" x2="230" y2="280" stroke="#546e7a" stroke-width="1"/>
   <line x1="50" y1="280" x2="230" y2="280" stroke="#546e7a" stroke-width="1"/>
   <line x1="140" y1="280" x2="140" y2="300" stroke="#546e7a" stroke-width="1" marker-end="url(#arrow9)"/>
-  <rect x="50" y="300" width="180" height="60" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <rect x="50" y="300" width="180" height="60" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
   <text x="140" y="325" text-anchor="middle" font-size="10" fill="#1565c0">이메일 / SMS / HTTP</text>
-  <rect x="290" y="155" width="180" height="75" rx="8" fill="#ffffff" stroke="#43a047" stroke-width="1.5" filter="url(#shadow9)"/>
+  <rect x="290" y="155" width="180" height="75" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow9)"/>
   <text x="380" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e7d32">SQS (큐잉)</text>
   <line x1="380" y1="230" x2="380" y2="300" stroke="#546e7a" stroke-width="1" marker-end="url(#arrow9)"/>
-  <rect x="290" y="300" width="180" height="60" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="1"/>
+  <rect x="290" y="300" width="180" height="60" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
   <text x="380" y="325" text-anchor="middle" font-size="10" fill="#2e7d32">워커 프로세스 / 배치</text>
-  <rect x="530" y="155" width="180" height="75" rx="8" fill="#ffffff" stroke="#9c27b0" stroke-width="1.5" filter="url(#shadow9)"/>
-  <text x="620" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#7b1fa2">Lambda (자동 처리)</text>
+  <rect x="530" y="155" width="180" height="75" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow9)"/>
+  <text x="620" y="180" text-anchor="middle" font-size="12" font-weight="bold" fill="#7c3aed">Lambda (자동 처리)</text>
   <line x1="620" y1="230" x2="620" y2="300" stroke="#546e7a" stroke-width="1" marker-end="url(#arrow9)"/>
-  <rect x="530" y="300" width="180" height="60" rx="6" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1"/>
-  <text x="620" y="325" text-anchor="middle" font-size="10" fill="#7b1fa2">데이터 처리 / 변환 / 분석 / 알림</text>
-  <line x1="290" y1="420" x2="290" y2="420" stroke="#546e7a" stroke-width="1"/>
-  <rect x="80" y="400" width="600" height="180" rx="10" fill="#fff8e1" stroke="#ffc107" stroke-width="2" filter="url(#shadow9)"/>
+  <rect x="530" y="300" width="180" height="60" rx="6" fill="#f3e5f5" stroke="#7c3aed" stroke-width="1"/>
+  <text x="620" y="325" text-anchor="middle" font-size="10" fill="#7c3aed">데이터 처리 / 변환 / 분석 / 알림</text>
+  
+  <rect x="80" y="400" width="600" height="180" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="2" filter="url(#shadow9)"/>
   <text x="380" y="428" text-anchor="middle" font-size="13" font-weight="bold" fill="#f57f17">Amazon EventBridge (고급 이벤트 라우팅)</text>
-  <text x="380" y="455" text-anchor="middle" font-size="10" fill="#555">S3 이벤트 → EventBridge 버스 → 규칙 평가 → 타겟 (다중 타겟 가능)</text>
-  <text x="380" y="485" text-anchor="middle" font-size="11" font-weight="bold" fill="#795548">필터링:</text>
-  <text x="280" y="508" text-anchor="middle" font-size="10" fill="#555">• 특정 prefix/key만</text>
-  <text x="480" y="508" text-anchor="middle" font-size="10" fill="#555">• 특정 이벤트 유형만</text>
-  <text x="280" y="530" text-anchor="middle" font-size="10" fill="#555">• 메타데이터 조건</text>
-  <text x="480" y="530" text-anchor="middle" font-size="10" fill="#555">• 시간 기반 라우팅</text>
+  <text x="380" y="455" text-anchor="middle" font-size="10" fill="#495057">S3 이벤트 → EventBridge 버스 → 규칙 평가 → 타겟 (다중 타겟 가능)</text>
+  <text x="380" y="485" text-anchor="middle" font-size="11" font-weight="bold" fill="#8b949e">필터링:</text>
+  <text x="280" y="508" text-anchor="middle" font-size="10" fill="#495057">• 특정 prefix/key만</text>
+  <text x="480" y="508" text-anchor="middle" font-size="10" fill="#495057">• 특정 이벤트 유형만</text>
+  <text x="280" y="530" text-anchor="middle" font-size="10" fill="#495057">• 메타데이터 조건</text>
+  <text x="480" y="530" text-anchor="middle" font-size="10" fill="#495057">• 시간 기반 라우팅</text>
 </svg>
