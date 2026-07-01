@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 320" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+  <defs>
+<marker id="ah-dc2626" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+<marker id="ah-16a34a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+  </defs>
+<text x="410" y="28" font-size="15" font-weight="700" fill="#2c3e50" text-anchor="middle">왜 Access Points가 필요한가?</text>
+<text x="195" y="55" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">기존: 단일 버킷 정책</text>
+<rect x="20" y="65" width="350" height="22" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1" opacity="0.9"/>
+<text x="35" y="80" font-size="9" fill="#dc2626">IF 사용자 == TeamA → /team-a/</text>
+<rect x="20" y="91" width="350" height="22" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1" opacity="0.8"/>
+<text x="35" y="106" font-size="9" fill="#dc2626">IF 사용자 == TeamB → /team-b/</text>
+<rect x="20" y="117" width="350" height="22" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1" opacity="0.7"/>
+<text x="35" y="132" font-size="9" fill="#dc2626">IF 사용자 == Public → /public/</text>
+<rect x="20" y="143" width="350" height="22" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1" opacity="0.6"/>
+<text x="35" y="158" font-size="9" fill="#dc2626">IF VPC == prod → 쓰기 허용</text>
+<rect x="20" y="169" width="350" height="22" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1" opacity="0.5"/>
+<text x="35" y="184" font-size="9" fill="#dc2626">... (규칙 계속 증가)</text>
+<text x="195" y="210" font-size="11" fill="#dc2626" font-weight="600" text-anchor="middle">❌ 관리 어려움, 실수 위험</text>
+<text x="410" y="120" font-size="20" fill="#16a34a" text-anchor="middle">→</text>
+<text x="410" y="140" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="600">개선</text>
+<text x="615" y="55" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">Access Points: 정책 분산</text>
+<rect x="450" y="65" width="160" height="65" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="530" y="92" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">AP 정책 A</text>
+<text x="530" y="108" font-size="9" fill="#8b949e" text-anchor="middle">TeamA용
+깔끔! ✅</text>
+<rect x="450" y="145" width="160" height="65" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="530" y="172" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">AP 정책 B</text>
+<text x="530" y="188" font-size="9" fill="#8b949e" text-anchor="middle">TeamB용
+깔끔! ✅</text>
+<rect x="450" y="225" width="160" height="65" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="530" y="252" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">AP 정책 C</text>
+<text x="530" y="268" font-size="9" fill="#8b949e" text-anchor="middle">Public용
+깔끔! ✅</text>
+</svg>

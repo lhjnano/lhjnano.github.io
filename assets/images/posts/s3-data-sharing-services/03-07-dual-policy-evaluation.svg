@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 365" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+  <defs>
+<marker id="ah-666" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#666"/></marker>
+<marker id="ah-dc2626" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+<marker id="ah-16a34a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker>
+  </defs>
+<text x="410" y="28" font-size="15" font-weight="700" fill="#2c3e50" text-anchor="middle">이중 정책 평가 흐름</text>
+<rect x="300" y="50" width="220" height="40" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="2"/>
+<text x="410" y="70" font-size="12" font-weight="700" fill="#666666" text-anchor="middle">요청 수신</text>
+<line x1="410" y1="90" x2="410" y2="115" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<rect x="250" y="120" width="320" height="55" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="410" y="147" font-size="12" font-weight="700" fill="#2563eb" text-anchor="middle">1. Access Point 정책 평가</text>
+<text x="590" y="140" font-size="10" fill="#dc2626">Deny? ──YES──► ❌ 거부</text>
+<text x="590" y="158" font-size="10" fill="#16a34a">No (Allow) ↓</text>
+<line x1="410" y1="175" x2="410" y2="200" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<rect x="250" y="205" width="320" height="55" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="410" y="232" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">2. 버킷 정책 평가</text>
+<text x="590" y="225" font-size="10" fill="#dc2626">Deny? ──YES──► ❌ 거부</text>
+<text x="590" y="243" font-size="10" fill="#16a34a">No (Allow) ↓</text>
+<line x1="410" y1="260" x2="410" y2="285" stroke="#666" stroke-width="1.5" marker-end="url(#ah-666)"/>
+<rect x="320" y="290" width="180" height="40" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="410" y="310" font-size="13" font-weight="700" fill="#16a34a" text-anchor="middle">✅ 허용</text>
+<text x="410" y="350" font-size="10" fill="#8b949e" text-anchor="middle" font-style="italic">두 정책이 모두 Allow여야 최종 허용</text>
+</svg>
