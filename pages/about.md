@@ -20,6 +20,8 @@ permalink: /about/
 
 최근에는 볼륨 생성 중 간헐적으로 `EBUSY`가 뜨는 문제를 추적하다가, OpenZFS 커널 내부의 잠금 레이스까지 파고들어갔습니다. 결국 업스트림에 [패치를 기여](https://github.com/openzfs/zfs/pull/18611)하게 됐는데, 버그 증상부터 잠금 계층 분석, 패치 작성, 리뷰 통과까지 꽤 긴 여정이었습니다.
 
+그 여정의 연장선에서, `zpool export`를 실행할 때 마운트된 zvol 블록 장치가 있으면 명령이 D-state에 빠져 **재부팅 외에는 복구할 수 없는** hang을 잡았습니다. 마운트된 ZFS 데이터셋은 이미 `EBUSY`로 막아두고 있었는데, zvol은 그 검사가 빠져 있어 `zvol_remove_minors_impl()`이 open count가 0이 될 때까지 무한 대기한 것이 원인이었습니다. 비차단(non-blocking) 검사를 `spa_export_common()`에 추가해 zvol이 사용 중이면 즉시 `EBUSY`를 반환하도록 고쳤고, 이 패치는 [PR #18841](https://github.com/openzfs/zfs/pull/18841)로 **OpenZFS master에 병합**되었습니다.
+
 ![Career Evolution](/assets/images/about/career-timeline.svg)
 
 ## 왜 블로그를 쓰는가
