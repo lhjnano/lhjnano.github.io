@@ -1,3 +1,6 @@
+# AI crawlers (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot) are welcome.
+# An LLM-friendly site map is available at https://lhjnano.github.io/llms.txt
 User-agent: *
 Allow: /
+
 Sitemap: https://lhjnano.github.io/sitemap.xml

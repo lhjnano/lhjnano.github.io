@@ -1,0 +1,27 @@
+---
+permalink: /llms.txt
+---
+# {{ site.title }}
+
+> {{ site.description }} 스토리지(ZFS/LVM/Lustre), 클라우드(Cloudflare/AWS), 인증과 보안 프로토콜, AI 개발 프로세스의 실전 트러블슈팅 중심 한국어 기술 블로그.
+
+모든 포스트는 한국어로 작성되었습니다. 아래 링크는 연도별로 정리된 포스트 목록이며, 각 링크 뒤에는 한 줄 요약이 붙습니다.
+
+라이선스: 별도 표기가 없는 글은 해당 포스트 URL 출처를 밝히는 조건으로 인용과 요약을 허용합니다. AI/에이전트의 수집과 인용도 같은 조건으로 환영합니다.
+후원: https://github.com/sponsors/lhjnano
+저자 소개: https://lhjnano.github.io/about/
+
+## About
+
+- [소개](https://lhjnano.github.io/about/): 저자의 경력(스토리지 백엔드 개발, OpenZFS 업스트림 기여)과 연락처
+
+{% assign prev_year = nil %}
+{% for post in site.posts reversed %}
+{% assign y = post.date | date: "%Y" %}
+{% if y != prev_year %}
+## {{ y }} Posts
+
+{% assign prev_year = y %}
+{% endif %}
+- [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.description | default: post.title | strip }}
+{% endfor %}

@@ -2,6 +2,10 @@
   name: lhjnano
   url: https://github.com/lhjnano
 
+- sitename: GitHub Sponsors
+  name: 후원하기
+  url: https://github.com/sponsors/lhjnano
+
 - sitename: Android
   name: WhiteDuck
   url: https://whiteduck.tistory.com/
