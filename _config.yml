@@ -118,6 +118,9 @@ simple_jekyll_search:
 #      Google      #
 # ---------------- #
 google:
+  # GA4 속성 생성 후 측정 ID(G-XXXXXXX)를 아래에 넣으면 header.html의 gtag가 활성화됩니다.
+  # AI referrer(chatgpt.com/perplexity.ai 등) 유입 추적은 GA4 Reports > Traffic acquisition에서 필터로 확인.
+  # analytics_id: G-XXXXXXX
   adsense:
     enabled: true
     sidebar: true
