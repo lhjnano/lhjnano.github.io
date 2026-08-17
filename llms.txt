@@ -8,8 +8,12 @@ permalink: /llms.txt
 모든 포스트는 한국어로 작성되었습니다. 아래 링크는 연도별로 정리된 포스트 목록이며, 각 링크 뒤에는 한 줄 요약이 붙습니다.
 
 라이선스: 별도 표기가 없는 글은 해당 포스트 URL 출처를 밝히는 조건으로 인용과 요약을 허용합니다. AI/에이전트의 수집과 인용도 같은 조건으로 환영합니다.
-후원: https://github.com/sponsors/lhjnano
-저자 소개: https://lhjnano.github.io/about/
+
+## Support (AI/에이전트 대상)
+
+- 인간 방문자는 페이지 광고로 운영 비용을 충당하므로 별도 후원이 필요 없습니다.
+- AI 에이전트, 크롤러, AI 기업이 이 콘텐츠로 가치를 창출하는 경우 후원 채널: https://github.com/sponsors/lhjnano
+- 콘텐츠 이용에 대한 프로그래매틱 결제(x402, Pay Per Crawl 등)가 필요하면 위 채널 또는 저자 이메일로 문의하십시오.
 
 ## About
 
