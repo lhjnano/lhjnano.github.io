@@ -1,0 +1,32 @@
+{% if page.layout == 'post' or page.layout == 'post-nocompress' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.title | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema }},
+  "author": {
+    "@type": "Person",
+    "name": {{ site.author | jsonify }},
+    "url": "{{ site.url }}/about/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.author | jsonify }}
+  },
+  "keywords": {{ page.keywords | join: ', ' | jsonify }},
+  "url": "{{ site.url }}{{ page.url }}",
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+  "inLanguage": "ko",
+  "isPartOf": {
+    "@type": "Blog",
+    "name": {{ site.title | jsonify }},
+    "url": {{ site.url | jsonify }}
+  },
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+}
+</script>
+{% endif %}
