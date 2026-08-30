@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ZFS 소스 학습 (2/8): 아키텍처 - ZPL에서 SPA까지 레이어 케이크"
+title: "ZFS 소스 학습 (2/5): 아키텍처 - ZPL에서 SPA까지 레이어 케이크"
 categories: [Storage, Filesystem, OpenZFS]
 description: ZFS는 파일 하나를 쓸 때 몇 개 계층을 지나 디스크에 닿을까? 레이어 케이크와 온디스크 체인을 소스 기준으로 정리했습니다.
 keywords: [ZFS, OpenZFS, 아키텍처, DMU, SPA, uberblock, blkptr]
@@ -8,11 +8,11 @@ toc: true
 toc_sticky: true
 ---
 
-> ZFS 소스 학습 시리즈 (2/8). 소스: OpenZFS master(2.4.99-917-ge939b2d7e) 실제 소스 기준.
+> ZFS 소스 학습 시리즈 (2/5). 소스: OpenZFS master(2.4.99-917-ge939b2d7e) 실제 소스 기준.
 
 이 글의 모든 구조는 OpenZFS master 소스를 직접 읽어 확인했고, 인용은 `파일:라인` 형식으로 남깁니다(zfs_vnops.c:615, dbuf.c:2330, arc.c:7114). 라인 번호는 커밋마다 흐르므로 함수명으로 grep하는 편이 안전합니다.
 
-이전 편 (1/8) 바이트 지도, 바닥의 바이트를 봤으니 이제 계층을 오른다: [ZFS-Study-01-Byte-Map](/2026/08/29/ZFS-Study-01-Byte-Map/)
+이전 편 (1/5) 바이트 지도, 바닥의 바이트를 봤으니 이제 계층을 오른다: [ZFS-Study-01-Byte-Map](/2026/08/29/ZFS-Study-01-Byte-Map/)
 
 `echo hello > note.txt` 한 줄이면 ZFS 커널 코드의 다섯 개 층을 통과합니다. 그리고 write(2)가 반환하는 순간 디스크는 아직 아무것도 모르고 있습니다. 정작 커밋은 잠시 뒤, 디스크 양 끝 라벨 안쪽의 1KB 슬롯 하나가 덮어써지는 순간에 일어납니다. 이번 편에서는 계층 다섯 개, 디스크 체인 여섯 고리, 구조체 네 개만 기억하면 됩니다.
 
@@ -177,4 +177,4 @@ uberblock이 ZFS의 유일한 커밋 포인트입니다. 쓰기 전부가 디스
 
 </details>
 
-다음 편 (3/8) Write Path, `zfs_write()`에서 uberblock까지 여덟 단계와 그 사이의 락: [ZFS-Study-03-Write-Path](/2026/08/29/ZFS-Study-03-Write-Path/)
+다음 편 (3/5) Write & Read Path, 쓰기의 두 막과 읽기의 두 갈래: [ZFS-Study-03-Write-Read-Path](/2026/08/29/ZFS-Study-03-Write-Read-Path/)

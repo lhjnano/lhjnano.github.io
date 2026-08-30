@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ZFS 소스 학습 (1/8): 라벨·GUID·uberblock - 디스크 바이트 지도부터"
+title: "ZFS 소스 학습 (1/5): 라벨·GUID·uberblock - 디스크 바이트 지도부터"
 categories: [OpenZFS, Filesystem]
 description: "ZFS 라벨 4개는 디스크 어디에 있을까요? 256KiB 라벨 내부와 pool GUID 0x40B8 계산법을 그림으로 정리했습니다."
 keywords: [ZFS, OpenZFS, vdev label, uberblock, nvlist, XDR, zdb]
@@ -8,7 +8,7 @@ toc: true
 toc_sticky: true
 ---
 
-> ZFS 소스 학습 시리즈 (1/8). 소스: OpenZFS master(2.4.99-917-ge939b2d7e) 실제 소스 기준.
+> ZFS 소스 학습 시리즈 (1/5). 소스: OpenZFS master(2.4.99-917-ge939b2d7e) 실제 소스 기준.
 
 디스크의 첫 512바이트부터 ZFS가 시작됩니다. 파티션 테이블을 기대하고 덤프하면 나오는 건 0의 연속인데, 이 0조차 ZFS가 예약해 둔 라벨(label)의 첫 영역 pad1입니다.
 
@@ -296,4 +296,4 @@ sudo zdb -C tank
 4. **L0/L1과 L2/L3의 갱신 시점은 다릅니다.** 갱신은 L2/L3에만 쓰입니다. L0/L1이 과거 트리를 담고 있어도 정상이며, import는 전부 읽고 체섬과 txg로 최선을 고릅니다.
 5. **슬롯 크기는 디스크마다 다릅니다.** 1KiB 간격으로 훑다가 4KiB 슬롯 디스크를 만나면 4개를 하나로 세는 실수를 합니다. `zdb -l`을 쓰면 이 산수를 건너뛸 수 있습니다.
 
-**다음 편 예고**: [ZFS 소스 학습 (2/8): 아키텍처](/2026/08/29/ZFS-Study-02-Architecture/)에서 uberblock의 ub_rootbp가 가리키던 MOS가 풀 전체를 어떻게 조립하는지 봅니다.
+**다음 편 예고**: [ZFS 소스 학습 (2/5): 아키텍처](/2026/08/29/ZFS-Study-02-Architecture/)에서 uberblock의 ub_rootbp가 가리키던 MOS가 풀 전체를 어떻게 조립하는지 봅니다.
