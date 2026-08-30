@@ -16,8 +16,6 @@ toc_sticky: true
 
 이전 편 (1/8) 바이트 지도: [ZFS-Study-01-Byte-Map](/2026/08/29/ZFS-Study-01-Byte-Map/). 1편의 바이트 지도를 봤다면 resilver가 어디를 고치는지 바로 보입니다. 복사는 원래 DVA 오프셋 그대로 돌아가니까요.
 
-## Hook: 디스크 교체는 사고가 아니라 절차다
-
 미러나 raidz에서 디스크 한 장이 죽는 일은 예정된 이벤트입니다. 교체 디스크를 꽂으면 resilver가 장부를 펴고 그 만큼만 다시 씁니다. 질문은 무엇을, 얼마나, 어디부터 다시 쓰는가이고 답은 DTL 장부와 두 경로에 있습니다.
 
 ## TL;DR
@@ -58,6 +56,8 @@ vdev마다 잃은 데이터를 range_tree로 들고 있고 운영상 의미 있�
 네 번째 DTL_OUTAGE는 detach용 임시 장부로 평소 비어 있습니다. 핵심은 단위입니다. DTL은 "블록 12345가 없다"가 아니라 "txg 100~250에 쓴 데이터가 없다"고 적습니다. 블록 포인터가 태어난 txg(blk_birth)를 달고 있으니 birth가 구간 안인가만 보면 되고 시간 구간 하나로 수천 블록을 대신하니 장부가 작습니다.
 
 장부는 이탈 순간부터 쌓입니다. 죽은 순간의 txg부터 DTL_MISSING에 구간이 자라고, 죽어 있던 동안의 쓰기가 없으니 돌아와도 그대로입니다. 풀이 통째로 죽어 있었다면 import 시 마지막 정상 txg부터 깔립니다. 아래 그림이 장부의 일생입니다.
+
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 512" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="DTL 장부의 일생을 시간순으로 보여주는 다이어그램. t0 정상 운영에서는 DTL이 비어 있고 txg 0부터 99까지 복제본이 온전하다. t1 txg 100에 미러 한쪽 디스크가 이탈하면 이탈 순간의 txg부터 DTL_MISSING 구간이 자라기 시작한다. t2 txg 250에 디스크가 복귀하면 resilver가 시작되는데 재접속이면 이탈 구간 100~250만, 새 디스크 교체면 전 구간으로 장부가 확대된다. t3 복구 진행 중에는 blk_birth가 100~250 안에 드는 live 블록만 선별해 복사하며 초록 구간이 자라고 200~250 빨간 구간이 잔여로 남는다. t4 완료하면 vdev_dtl_reassess가 구간을 excise해 장부가 비고, 오류 흔적이 남으면 scn_errors 0 초과 조건으로 재시작한다.">
   <defs>
     <marker id="zs5-ar" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
@@ -115,6 +115,8 @@ vdev마다 잃은 데이터를 range_tree로 들고 있고 운영상 의미 있�
   </g>
   <text x="380" y="500" text-anchor="middle" font-size="10.5" fill="#8b949e">장부의 단위는 txg 구간 - 블록 하나하나가 아니라 "언제 쓴 데이터인지"만 기록합니다.</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 1 - DTL 장부의 일생. 이탈 순간(txg 100)부터 복구 완료(excise)까지, 장부의 단위는 txg 구간</figcaption>
+</figure>
 
 장부가 목록이 아니라 구간임이 요점입니다. 시작 판정부터 봅니다.
 
@@ -183,6 +185,7 @@ if (!vdev_dtl_need_resilver(vd, dva, psize, phys_birth))
 
 왼쪽은 트리를 걷는 healing, 오른쪽은 디스크를 채우는 sequential입니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 590" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="재구성 두 경로의 구조 비교 다이어그램. 왼쪽 healing resilver는 MOS와 메타 트리를 순회해 live 블록 포인터를 만나면 DTL 필터로 blk_birth가 구간 안인 블록만 선별하고, 살아 있는 복제본에서 읽어 체크섬을 검증한 뒤 원래 DVA 위치로 재기록하며 scan_io_queue가 오프셋 순으로 정렬 발급한다. 장점은 raidz 포함 전 구성 지원과 읽는 복제본 전부를 대상으로 하는 체크섬 검증이고, 단점은 메타 트리 전체 순회 비용이다. 오른쪽 sequential resilver는 space map으로 할당 범위 지도를 만들고 합성 블록 포인터로 범위를 통째로 읽어 새 디스크에 오프셋 순서대로 순차 기록하며, 완료 시 DTL excise와 함께 자동 scrub을 예약한다. 장점은 완전 순차 I/O의 속도와 거대 메타 풀과 무관한 성능, 단점은 top-level mirror만 지원하고 진행 중 새 디스크 attach 시 처음부터 재시작한다는 점이다.">
   <defs>
     <marker id="zs5-ah" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
@@ -252,6 +255,8 @@ if (!vdev_dtl_need_resilver(vd, dva, psize, phys_birth))
 
   <text x="380" y="572" text-anchor="middle" font-size="10.5" fill="#8b949e">sequential이 실패·중단되면 DTL 잔존분은 healing이 이어받습니다 - 폴백은 호출이 아니라 장부 잔존의 결과(spa.c:6268)</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 2 - 두 경로의 대비. healing은 트리를 걷고(raidz 포함), sequential은 디스크를 순서대로 채운다(mirror)</figcaption>
+</figure>
 
 실패와 전환도 장부가 결정합니다. COMPLETE 외의 종료는 DTL을 지우지 않으므로 장부가 남으면 필요 판정(spa.c:6268)이 healing을 이어서 일으킵니다. 새 디스크 attach 시 처음부터 재시작하는 것도 동시 교체 시 비용이고, DDT 풀의 재구성은 이 시리즈 범위 밖입니다.
 

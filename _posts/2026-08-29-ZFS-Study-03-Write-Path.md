@@ -30,6 +30,7 @@ ZFS에서 파일 한 번 쓰기는 두 막입니다. 앱이 기다리는 **막 1
 
 이전 편의 CoW가 출발점입니다. 블록을 수정하면 간접 블록부터 dnode, objset, MOS까지 연쇄가 올라갑니다. 매 write마다 디스크까지 하면 쓰기 증폭이 재앙이라 수천에서 수백만 건을 txg로 묶어 연쇄를 공유합니다. 대가는 반환 시점의 내구성 보장이 ZIL 기록뿐이라는 점입니다. 아래 그림이 이 분리 전부입니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 352" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="Write Path 2막 타임라인. 위 파란 밴드는 호출 스레드가 기다리는 막 1, 즉 동기 액트로 write(2) 진입과 rangelock 획득, dmu_tx 배정, dbuf_dirty의 ARC 기록을 지나 write(2)가 반환되고, fsync 계열이면 zil_commit이 이 막의 유일한 디스크 I/O로 추가된다. 가운데 점선 화살표는 txg 닫힘(기본 5초 또는 dirty 한도)이다. 아래 초록 밴드는 txg 동기화 스레드의 막 2, 즉 비동기 액트로 txg OPEN에서 더티를 축적하고 QUIESCING에서 새 assign을 차단하며 SYNCING에서 dsl_pool_sync와 zio로 디스크에 기록해 uberblock을 교체하면 커밋된다. 디스크 반영 시점은 앱이 제어하지 않는다.">
   <defs>
     <marker id="zs3-ar-blue" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
@@ -84,6 +85,8 @@ ZFS에서 파일 한 번 쓰기는 두 막입니다. 앱이 기다리는 **막 1
   <line x1="533" y1="276" x2="549" y2="276" stroke="#16a34a" stroke-width="1.5" marker-end="url(#zs3-ar-green)"/>
   <text x="50" y="325" font-size="10.5" fill="#2c3e50">디스크 반영 시점은 앱이 제어하지 않습니다. 내구성 보험은 ZIL에 쓴 것뿐입니다.</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 1 - 두 막의 경계. 앱이 기다리는 곳은 파란 막 1뿐이고, 파란 막의 유일한 디스크 I/O는 fsync의 ZIL 기록</figcaption>
+</figure>
 
 그림의 경계선이 이번 편의 목차입니다.
 
@@ -131,6 +134,7 @@ txg는 번호가 매겨진 쓰기 묶음이며 세 상태가 항상 **동시에*
 
 타이머는 `zfs_txg_timeout`(기본 5초)과 dirty 총량 조기 닫힘 둘입니다. 핵심은 **quiesce가 open과 겹친다**는 설계로, 싱크 중인 txg(N-2) 위에 이미 열린 txg(N)가 있어 쓰기는 싱크를 기다리지 않습니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="txg 상태머신 순환도. 파란 OPEN 상태는 모든 쓰기 스레드가 dmu_tx assign과 dbuf_dirty로 더티를 축적하는 상태다. txg가 닫히면 노란 QUIESCING으로 넘어가 새 assign을 차단하고 남은 트랜잭션 커밋을 기다린 뒤 다음 txg를 연다. 초록 SYNCING에서는 dsl_pool_sync와 zio로 모든 더티를 디스크에 기록하고 uberblock을 커밋한다. 커밋이 끝난 txg는 역할을 마치고 다음 txg는 이미 열려 있어 쓰기는 싱크 동안에도 멈추지 않는다. 세 상태는 항상 동시에 존재한다.">
   <defs>
     <marker id="zs3-ar2" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
@@ -158,6 +162,8 @@ txg는 번호가 매겨진 쓰기 묶음이며 세 상태가 항상 **동시에*
   <text x="380" y="232" text-anchor="middle" font-size="10.5" fill="#495057">쓰기 스레드는 SYNCING을 기다리지 않고 항상 열린 txg에 assign합니다.</text>
   <text x="380" y="250" text-anchor="middle" font-size="10.5" fill="#495057">관찰: /proc/spl/kstat/zfs/ 아래 txgs 통계에서 txg별 체류 시간과 기록량이 실시간으로 보입니다.</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 2 - 세 상태의 동시 공존. 싱크(N-2) 위에 이미 열린 txg(N)가 있어 쓰기는 멈추지 않는다</figcaption>
+</figure>
 
 SYNCING에 들어선 txg는 정해진 순서로 일합니다.
 
@@ -194,26 +200,26 @@ VERIFY0(zio_wait(rio));                  /* 블록 발급 완료 대기 */
 
 모든 zio 완료와 sync pass가 끝나면 `uberblock_sync()`가 라벨마다(최대 4개) 링의 다음 슬롯을 **제자리 덮어쓰기**합니다. 이 순간이 커밋입니다. 이전 txg의 세계는 그대로 남아 롤백이 가능하고, 이전 블록들은 다음 txg에 회수됩니다. 이 쓰기도 MUSTSUCCEED라 실패하면 풀이 suspend, 곧 "커밋 불능"입니다.
 
-두 막 전체의 함수 체인입니다.
+두 막 전체의 함수 체인을 표로 남깁니다.
 
-```text
-[막 1 · 동기 액트 - 호출 스레드가 걸리는 구간]
-zfs_write()                       zfs_vnops.c:615   rangelock, 블록 크기 결정, 쿼터 사전 체크
-zfs_log_write()                   zfs_vnops.c       fsync 대상 쓰기를 itx로 ZIL 큐에 적립
-dmu_tx_create/hold/assign         dmu_tx.c:1249     txg 자리 예약, dirty 한도에서 스로틀
-dbuf_dirty()                      dbuf.c:2330       ARC 더티 등록, dnode→pool 연쇄 전파
-zil_commit()                      zil.c:3967        fsync의 유일한 디스크 I/O, 완료 대기
-[막 2 · 비동기 액트 - txg 동기화 스레드]
-txg_quiesce_thread()              txg.c:114         OPEN을 QUIESCING으로, 다음 txg 개방
-txg_sync_thread()                 txg.c:520         SYNCING 진입, spa_sync() 호출
-spa_sync() → dsl_pool_sync()      dsl_pool.c:683    데이터 → 쿼터 정산 → 2차 싱크 → deadlist
-dnode_sync()                      dnode_sync.c      bp 교체 연쇄, 이전 bp는 free 예약
-arc_write()                       arc.c:7114        더티 ARC 버퍼를 zio 트리로 발급
-zio_write() → zio_dva_allocate()  zio.c             transform → ready 게이트 → DVA 할당
-metaslab_alloc_dva()              metaslab.c:5517   normal/special/dedup 클래스 자리 배정
-vdev mirror/raidz 계층            vdev_*.c          자식 zio 분할·복제, leaf에서 bio 발급
-uberblock_sync()                  spa.c             링 다음 슬롯 제자리 덮어쓰기 = 커밋
-```
+| 함수 | 위치 | 역할 |
+|---|---|---|
+| **막 1 · 동기 액트 (호출 스레드)** | | |
+| `zfs_write()` | zfs_vnops.c:615 | rangelock, 블록 크기 결정, 쿼터 사전 체크 |
+| `zfs_log_write()` | zfs_vnops.c | fsync 대상 쓰기를 itx로 ZIL 큐에 적립 |
+| `dmu_tx_create/hold/assign` | dmu_tx.c:1249 | txg 자리 예약, dirty 한도에서 스로틀 |
+| `dbuf_dirty()` | dbuf.c:2330 | ARC 더티 등록, dnode→pool 연쇄 전파 |
+| `zil_commit()` | zil.c:3967 | fsync의 유일한 디스크 I/O, 완료 대기 |
+| **막 2 · 비동기 액트 (txg 동기화 스레드)** | | |
+| `txg_quiesce_thread()` | txg.c:114 | OPEN을 QUIESCING으로, 다음 txg 개방 |
+| `txg_sync_thread()` | txg.c:520 | SYNCING 진입, spa_sync() 호출 |
+| `spa_sync()` → `dsl_pool_sync()` | dsl_pool.c:683 | 데이터 → 쿼터 정산 → 2차 싱크 → deadlist |
+| `dnode_sync()` | dnode_sync.c | bp 교체 연쇄, 이전 bp는 free 예약 |
+| `arc_write()` | arc.c:7114 | 더티 ARC 버퍼를 zio 트리로 발급 |
+| `zio_write()` → `zio_dva_allocate()` | zio.c | transform → ready 게이트 → DVA 할당 |
+| `metaslab_alloc_dva()` | metaslab.c:5517 | normal/special/dedup 클래스 자리 배정 |
+| vdev mirror/raidz 계층 | vdev_*.c | 자식 zio 분할·복제, leaf에서 bio 발급 |
+| `uberblock_sync()` | spa.c | 링 다음 슬롯 제자리 덮어쓰기 = 커밋 |
 
 읽기 전에는 write(2)가 반환하면 디스크에 있다고 믿었습니다. 지나고 보니 반환은 "ARC에 있음"이고, 디스크는 5초 뒤 uberblock 슬롯이 덮어써지는 순간의 일입니다. `/proc/spl/kstat/zfs/<pool>/txgs`를 열어두고 큰 파일을 복사하면 막 2가 한 줄씩 확인됩니다.
 

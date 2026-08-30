@@ -68,6 +68,7 @@ mintime 이전에는 아무 조건도 검사하지 않습니다. `zfs_scrub_min_
 
 아래 그림이 한 txg의 시간축을 펼친 것입니다. 위쪽 노란 블록은 foreground 쓰기, 아래쪽 파란 블록은 scrub 발급입니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="한 txg 안의 scrub 시간 배분 타임라인. txg open부터 sync 마감까지 시간축에서, 위쪽 노란 블록은 foreground 쓰기가 전 구간에 유입되고, 아래쪽 파란 블록은 scrub 발급이 zfs_scrub_min_time_ms 동안은 무조건 보장된 뒤, dirty 데이터 상한 초과나 sync 대기 또는 sync 타임아웃 조건이 하나라도 걸리면 sync 마감선 앞에서 스스로 발급을 중단하고 길을 양보한다. 조건부 연장 구간은 점선 테두리로 구분된다.">
   <defs>
     <marker id="zs7-arr-gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
@@ -100,6 +101,8 @@ mintime 이전에는 아무 조건도 검사하지 않습니다. `zfs_scrub_min_
   <rect x="80" y="272" width="720" height="0" fill="none"/>
   <text x="440" y="288" text-anchor="middle" font-size="10" fill="#dc2626">양보 조건(dsl_scan.c:1790): dirty 상한 초과 · sync 대기 · sync 타임아웃 중 하나</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 1 - 한 txg의 시간 배분. mintime까지는 보장, 이후에는 조건 하나라도 걸리면 즉시 양보하는 손님 설계</figcaption>
+</figure>
 
 mintime이 scrub의 권리라면 양보 조건은 scrub의 예의입니다. 이 설계가 3편의 txg 상태머신과 만나는 지점도 자연스럽습니다. scrub이 sync를 늘어지게 하는 주범이 되지 않도록 자기 발급을 스스로 끊는 것입니다. 그럼 스캔이 블록을 읽고 난 뒤에는 무슨 일이 벌어질까요.
 
@@ -117,6 +120,7 @@ DTL_SCRUB은 5편에서 본 DTL 장부 시스템의 세 번째 페이지입니�
 
 여기서 5편과의 중요한 대비가 나옵니다. resilver는 오류가 쌓이면 스스로 재시작하지만(dsl_scan.c:708-719), **scrub은 재시작하지 않습니다.** 오류가 나도 끝까지 순회를 마치고 수집된 오류를 보고하는 것으로 종료합니다. 검증 스캔이 실패 블록에서 무한 루프에 빠지지 않게 하는 절제 장치입니다. 아래 그림이 블록 하나의 운명을 정리합니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="scrub 오류 처리 분기 플로우. 블록 읽기와 체크섬 검증에서 시작해, 체크섬이 맞으면 조용히 다음 블록으로 통과하고(초록), 불일치하면 mirror 반대편이나 raidz 패리티로 다른 복제본을 대조하는 self-healing 재구성을 시도하며(노랑), 성공하면 원위치 재기록 후 수선 카운터를 올리고 순회를 계속하고(초록), 실패하면 scn_errors 카운터 증가와 errlog 기록, DTL_SCRUB 장부 마킹이 남는다(빨강). 어느 갈래든 scrub은 멈추지 않으며 오류 재시작은 resilver 전용 동작이다.">
   <defs>
     <marker id="zs7-f-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
@@ -169,6 +173,8 @@ DTL_SCRUB은 5편에서 본 DTL 장부 시스템의 세 번째 페이지입니�
 
   <text x="440" y="424" text-anchor="middle" font-size="10" fill="#8b949e">어느 갈래든 scrub은 멈추지 않습니다. 재시작은 resilver 전용(dsl_scan.c:708-719)</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 2 - 블록 하나의 운명. 초록은 조용한 통과와 수선, 빨강은 errlog와 DTL_SCRUB 장부에 기록된 뒤 순회에 합류</figcaption>
+</figure>
 
 실패가 스캔을 중단시키지 않고 장부로 넘어가는 구조. 이것이 검증 스캔의 절제입니다. 그런데 못 고친 블록을 다시 보고 싶을 때는 어떻게 할까요.
 

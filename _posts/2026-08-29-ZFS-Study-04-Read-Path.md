@@ -16,8 +16,6 @@ toc_sticky: true
 
 이전 편 (2/8) 아키텍처, 다섯 층 레이어 케이크와 온디스크 체인: [ZFS-Study-02-Architecture](/2026/08/29/ZFS-Study-02-Architecture/)
 
-## Hook: 읽기는 쓰기보다 짧다, 그러나 갈래가 둘
-
 쓰기가 여덟 단계와 배경막까지 동원했다면 읽기의 사양은 한 문장입니다. 아무것도 변경하지 않는다(atime 제외). 대신 질문 하나가 전부를 갈라놓습니다. 이 블록이 캐시에 있는가. 있으면 디스크는 잠들어 있고, 없으면 zio 파이프라인이 깨어납니다.
 
 ## TL;DR
@@ -32,6 +30,7 @@ toc_sticky: true
 
 읽기의 쇠문은 dbuf 하나입니다. read(2)가 zfs_read()로 진입해 dmu_buf_hold_array()가 블록 단위 dbuf를 확보하면 dbuf_read()가 상태를 봅니다. DB_CACHED면 ARC 버퍼를 바로 쓰고, 그 외면 zio를 발급합니다. 아래 그림이 읽기의 전부입니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 556" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 읽기 경로 플로우다. 앱의 read(2)가 zfs_read로 진입해 rangelock을 잡고, dmu_buf_hold_array가 (objset, object, level, blkid) 키로 dbuf를 확보하며, dbuf_read가 db_state가 DB_CACHED인지 판정한다. 히트면 초록 갈래로 ARC 버퍼를 arc_untransform로 압축 해제해 uiomove로 바로 복사해 반환한다(디스크 I/O 0회). 미스면 빨간 갈래로 DB_UNCACHED에서 arc_read가 zio read를 발급해 vdev를 거쳐 디스크에서 읽고, 256비트 체크섬 검증과 압축 해제를 거쳐 ARC에 적재한 뒤 DB_CACHED로 전이해 같은 방식으로 반환한다. 미스 사실은 dmu_zfetch에 보고되어 다음 블록을 미리 예약한다.">
   <defs>
     <marker id="zs4-ar" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
@@ -74,6 +73,8 @@ toc_sticky: true
   <text x="560" y="500" text-anchor="middle" font-size="10.5" fill="#666">대기자를 깨우고 uiomove. 다음 읽기는 히트</text>
   <text x="380" y="546" text-anchor="middle" font-size="10.5" fill="#8b949e">미스였다는 사실은 dmu_zfetch에 보고되어 다음 블록을 미리 예약합니다.</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 1 - 읽기의 전부. 초록 히트 갈래는 디스크 I/O 0회, 빨강 미스 갈래는 체크섬 검증과 self-healing을 거쳐 합류</figcaption>
+</figure>
 
 두 갈래의 반환점은 같은 uiomove이고 차이는 디스크 I/O 0회 여부뿐입니다. 판정이 짧으니 진입부가 오히려 놀랍습니다. 읽기에서 ZIL이 나오거든요.
 

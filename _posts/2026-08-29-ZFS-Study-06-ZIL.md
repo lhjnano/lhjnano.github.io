@@ -74,6 +74,7 @@ zil_header가 objset_phys 안에 산다는 점이 눈여겨볼 곳입니다. ZIL
 
 앱의 write(2)는 ZPL의 zfs_log_write()를 거쳐 itx가 되어 큐에 쌓입니다. 이어 fsync(2)가 오면 zil_commit()(zil.c:3967)이 commit itx를 넣고, zil_process_commit_list(zil.c:3146)가 itx를 lwb로 직렬화하며 waiter를 등록합니다. lwb는 zio로 디스크에 쓰인 뒤 flush(FUA/barrier)를 치르고, flush까지 포함된 완료 ack가 오면 waiter가 깨어나(zcw_done) fsync가 반환됩니다. 크래시 내구성의 판정 기준은 lwb 블록이 디스크에 flush됐는가 하나입니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1070 650" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="fsync 시퀀스 다이어그램. 앱, ZPL, ZIL, 디스크 네 액터의 라이프라인이 있다. 앱이 write를 호출하면 ZPL의 zfs_log_write가 쓰기를 itx로 만들며 기록 방식을 판정한다. 앱이 fsync를 호출하면 ZPL은 zil_commit으로 commit itx를 ZIL에 넘기고, ZIL은 zil_process_commit_list로 itx를 lwb 블록에 직렬화해 waiter를 등록한 뒤 디스크에 lwb를 기록하고 flush한다. 디스크에서 flush를 포함한 완료 ack가 돌아오면 대기하던 waiter가 깨어나 앱의 fsync가 반환된다. WR_INDIRECT면 lwb에는 blkptr만 기록되고 데이터는 같은 txg의 dmu_sync 결과물이 담당하며 fsync 대기는 lwb flush 완료로 풀린다.">
   <defs>
     <marker id="zs6-fgray" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
@@ -138,6 +139,8 @@ zil_header가 objset_phys 안에 산다는 점이 눈여겨볼 곳입니다. ZIL
   <text x="70" y="606" font-size="10.5" fill="#495057">단계 5~6의 lwb에는 blkptr만 기록됩니다. 데이터는 같은 txg의 dmu_sync() 결과물이 담당하고,</text>
   <text x="70" y="622" font-size="10.5" fill="#495057">replay는 blkptr 생존 검증 후 재연결할 뿐입니다. fsync 대기는 어느 쪽이든 lwb flush 완료로 풀립니다.</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 1 - fsync 한 번의 여정. 크래시 내구성의 판정 기준은 lwb 블록의 flush 완료 하나입니다</figcaption>
+</figure>
 
 정상 운영에서는 이렇게 쌓은 로그가 커밋과 함께 무효화됩니다. 그런데 크래시 직후에는 이 로그가 디스크에 남은 유일한 진실이 됩니다. 생애주기의 다음 단계입니다.
 
@@ -145,6 +148,7 @@ zil_header가 objset_phys 안에 산다는 점이 눈여겨볼 곳입니다. ZIL
 
 크래시가 나면 메모리의 zilog, itx, lwb는 전부 소실되고 디스크의 로그 블록과 zil_header만 남습니다. import가 이 잔해를 어떻게 청산하는지가 ZIL 생애주기의 후반부입니다.
 
+<figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 440" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="크래시에서 replay까지 ZIL 타임라인. 정상 운영 단계에서는 동기 쓰기를 lwb에 적재하고 txg 커밋분은 zil_sync가 무효화해 로그를 짧게 유지한다. 크래시 단계에서는 메모리의 zilog와 itx, lwb가 소실되고 디스크 로그만 남는다. import 단계에서는 uberblock을 선택해 first_txg를 확정해 미반영 경계를 획정한다. ZIL claim 단계에서는 zil_claim이 birth가 first_txg 이상인 블록만 소유 확정하며 zh_claim_txg를 남긴다. replay 완료 단계에서는 미반영 레코드만 순서대로 재실행하고 zil_destroy로 헤더를 정리해 빈 로그로 재출발한다. 하단의 3규칙은 txg 반영분 스킵, 미반영분만 순서 재생, 실패 레코드는 재시도 1회 후 경고하고 계속 진행함을 담는다.">
   <defs>
     <marker id="zs6-bgray" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
@@ -216,6 +220,8 @@ zil_header가 objset_phys 안에 산다는 점이 눈여겨볼 곳입니다. ZIL
   <text x="40" y="372" font-size="11" fill="#2c3e50">2. 미반영분만 순서대로 - lrc_seq &gt; zh_replay_seq인 레코드부터 로그 순서대로 재실행 (zil.c:4708)</text>
   <text x="40" y="396" font-size="11" fill="#2c3e50">3. 실패한 레코드는 스킵하고 계속 - 재시도 1회 후 경고만 남기고 import는 중단되지 않는다</text>
 </svg>
+<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 2 - 크래시에서 재출발까지. claim이 미반영 경계를 획정하고 replay가 미반영분만 순서대로 재생합니다</figcaption>
+</figure>
 
 claim이 먼저입니다. `zil_claim()`(zil.c:1142)이 zh_log 체인을 훑며 블록 단위로 소유를 확정합니다. 이때 birth가 first_txg 이상인 블록만 클레임합니다. birth가 first_txg보다 작으면 이미 이전 txg에 커밋된 블록이므로 제외합니다. "재생할 필요가 있는가"라는 판별이 replay 이전의 claim 단계에서 이미 이뤄집니다.
 
