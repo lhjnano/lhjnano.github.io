@@ -16,11 +16,11 @@ toc_sticky: true
 
 ## TL;DR
 
-- **라벨은 디스크마다 4개 × 256KiB.** 시작에 2개, 끝에 2개. 한쪽 끝이 깎여도 살아남는 배치입니다.
-- **라벨 내부는 4층.** pad1 8KiB + bootenv 8KiB + 설정 nvlist 112KiB + uberblock 링 128KiB.
-- **설정은 XDR(big-endian) nvlist.** hexdump에서 풀 이름 "tank"가 ASCII 그대로 보입니다.
-- **pool GUID 위치는 상수가 아니라 공식.** 풀 이름이 tank(4글자)면 L0의 0x40B8.
-- **uberblock 링은 txg마다 순환 기록.** txg가 가장 큰 유효 슬롯이 현재 커밋입니다.
+- 라벨은 4개 × 256KiB. 시작 2개, 끝 2개
+- 내부 4층: pad1 + bootenv + nvlist 112KiB + 링 128KiB
+- 설정은 XDR nvlist. hexdump에 "tank"가 그대로 보임
+- GUID 위치는 공식. tank면 L0의 0x40B8
+- 링은 txg마다 순환. txg 최대 슬롯이 현재 커밋
 
 ## 라벨 4개의 위치: 양 끝에 2개씩
 

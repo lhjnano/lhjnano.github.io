@@ -20,15 +20,19 @@ toc_sticky: true
 
 ## TL;DR
 
-- **ZIL은 동기 쓰기만 기록하는 약속 장부**입니다. fsync는 commit itx를 넣고 lwb flush 완료를 기다렸다가 반환합니다.
-- 기록 방식은 셋입니다. 복사(WR_COPIED), 분할(WR_NEED_COPY), blkptr만(WR_INDIRECT). **slog가 있으면 INDIRECT가 금지**됩니다.
-- **resilver와 scrub은 같은 스캔 기계**입니다. 콜백까지 동일하고(dsl_scan.c:255) 차이는 복사냐 검증이냐입니다.
-- 장부 DTL은 블록 목록이 아니라 **txg 구간**입니다. healing은 메타 트리를 순회해 필요한 블록만, sequential은 mirror에서 디스크를 순차 복사합니다.
-- scrub의 오류 처리는 **self-healing → errlog → DTL_SCRUB → error scrub(-e)**의 순환입니다. scrub은 재시작하지 않습니다.
+- ZIL = 동기 쓰기만의 약속 장부. fsync는 lwb flush로 판정
+- 기록 3방식: COPIED / NEED_COPY / INDIRECT(slog 시 금지)
+- resilver와 scrub은 같은 콜백 공유(dsl_scan.c:255)
+- DTL은 txg 구간 장부. healing 순회 vs sequential 순차
+- scrub 오류: self-healing → errlog → error scrub 순환
 
 ## ZIL: 크래시까지 유효한 약속 장부
 
-앞 편(3/5)에서 write(2)의 반환은 ARC까지만 가고 디스크 반영은 txg 싱크(기본 최대 5초)의 몫이라고 했습니다. 그런데 POSIX fsync는 반환 후 크래시가 나도 이 데이터는 살아 있어야 한다고 요구합니다. fsync를 txg 완료로 구현하면 건당 수 초의 지연이고, 데이터베이스 WAL이나 메일큐 같은 동기 워크로드는 못 견딥니다. txg는 효율을 위한 묶음이고 POSIX는 개별 보장입니다. 이 간극이 ZIL(ZFS Intent Log)을 낳았습니다. 무엇을 썼는지만 적는 작은 저널로, txg 커밋을 기다리지 않고 크래시 내구성을 보장합니다.
+앞 편(3/5)에서 write(2)의 반환은 ARC까지만 가고 디스크 반영은 txg 싱크(기본 최대 5초)의 몫이라고 했습니다. 그런데 POSIX fsync는 반환 후 크래시가 나도 이 데이터는 살아 있어야 한다고 요구합니다.
+
+fsync를 txg 완료로 구현하면 건당 수 초의 지연이고, 데이터베이스 WAL이나 메일큐 같은 동기 워크로드는 못 견딥니다. txg는 효율을 위한 묶음이고 POSIX는 개별 보장입니다.
+
+이 간극이 ZIL(ZFS Intent Log)을 낳았습니다. 무엇을 썼는지만 적는 작은 저널로, txg 커밋을 기다리지 않고 크래시 내구성을 보장합니다.
 
 주의할 점 하나를 먼저 박아둡니다. ZIL에는 동기 의미론이 필요한 쓰기만 기록됩니다. 비동기 쓰기는 ZIL을 전혀 거치지 않고 ARC 더티에서 txg로 직행합니다. 그래서 "ZIL이 느리다"는 말은 항상 "동기 쓰기 워크로드가 느리다"는 뜻이고 async 쓰기 성능과는 무관합니다.
 
@@ -59,7 +63,11 @@ zil_header가 objset_phys 안에 산다는 점이 눈여겨볼 곳입니다. ZIL
 
 ### 세 가지 기록 방식: 복사할까, 가리킬까
 
-모든 동기 쓰기가 데이터를 로그에 복사하는 것은 아닙니다. 쓰기마다 `zil_write_state()`(zil.c:2213)가 복사할지, 가리키기만 할지 정합니다. 분기는 짧습니다. logbias=throughput이거나 O_DIRECT면 논쟁 없이 WR_INDIRECT입니다. 크기가 zfs_immediate_write_sz(기본 32K) 이상이면서 블록 크기의 절반 이상이거나 commit 대상이 아니면 INDIRECT 후보입니다. 나머지는 commit 여부로 갈라져 WR_COPIED(fsync 대기 중) 또는 WR_NEED_COPY(나중에 묶음)가 됩니다.
+모든 동기 쓰기가 데이터를 로그에 복사하는 것은 아닙니다. 쓰기마다 `zil_write_state()`(zil.c:2213)가 복사할지, 가리키기만 할지 정합니다.
+
+분기는 짧습니다. logbias=throughput이거나 O_DIRECT면 논쟁 없이 WR_INDIRECT입니다. 크기가 zfs_immediate_write_sz(기본 32K) 이상이거나 commit 대상이 아니면 INDIRECT 후보입니다.
+
+나머지는 commit 여부로 갈라져 WR_COPIED(fsync 대기 중) 또는 WR_NEED_COPY(나중에 묶음)가 됩니다.
 
 여기에 역설이 하나 있습니다. **slog가 있으면 spa_has_slogs()가 indirect를 무조건 꺼버립니다.** slog는 작은 복사형 쓰기의 지연을 줄이는 전용 공간이므로, slog를 다느냐 마느냐가 기록 방식 자체를 바꿉니다. "전용 로그 디바이스가 있으면 큰 쓰기도 로그로 옮겨가겠거니"라는 직감과 반대 방향입니다. special vdev는 zil_special_is_slog(기본 1) 설정에 따라 slog처럼 취급할지 결정합니다.
 
@@ -76,7 +84,9 @@ zil_header가 objset_phys 안에 산다는 점이 눈여겨볼 곳입니다. ZIL
 
 ### fsync 한 번의 관찰 프레임
 
-앱의 write(2)는 ZPL의 zfs_log_write()를 거쳐 itx가 되어 큐에 쌓입니다. 이어 fsync(2)가 오면 zil_commit()(zil.c:3967)이 commit itx를 넣고, zil_process_commit_list(zil.c:3146)가 itx를 lwb로 직렬화하며 waiter를 등록합니다. lwb는 zio로 디스크에 쓰인 뒤 flush(FUA/barrier)를 치르고, flush까지 포함된 완료 ack가 오면 waiter가 깨어나(zcw_done) fsync가 반환됩니다. 크래시 내구성의 판정 기준은 lwb 블록이 디스크에 flush됐는가 하나입니다.
+앱의 write(2)는 ZPL의 zfs_log_write()를 거쳐 itx가 되어 큐에 쌓입니다. 이어 fsync(2)가 오면 zil_commit()(zil.c:3967)이 commit itx를 넣고, zil_process_commit_list(zil.c:3146)가 itx를 lwb로 직렬화하며 waiter를 등록합니다.
+
+lwb는 zio로 디스크에 쓰인 뒤 flush(FUA/barrier)를 치르고, flush까지 포함된 완료 ack가 오면 waiter가 깨어나(zcw_done) fsync가 반환됩니다. 크래시 내구성의 판정 기준은 lwb 블록이 디스크에 flush됐는가 하나입니다.
 
 <figure>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1070 650" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="fsync 시퀀스 다이어그램. 앱, ZPL, ZIL, 디스크 네 액터의 라이프라인이 있다. 앱이 write를 호출하면 ZPL의 zfs_log_write가 쓰기를 itx로 만들며 기록 방식을 판정한다. 앱이 fsync를 호출하면 ZPL은 zil_commit으로 commit itx를 ZIL에 넘기고, ZIL은 zil_process_commit_list로 itx를 lwb 블록에 직렬화해 waiter를 등록한 뒤 디스크에 lwb를 기록하고 flush한다. 디스크에서 flush를 포함한 완료 ack가 돌아오면 대기하던 waiter가 깨어나 앱의 fsync가 반환된다. WR_INDIRECT면 lwb에는 blkptr만 기록되고 데이터는 같은 txg의 dmu_sync 결과물이 담당하며 fsync 대기는 lwb flush 완료로 풀린다.">
@@ -251,7 +261,11 @@ ZIL은 동기 의미론을 로그로 지키지만, 반대 방향의 스위치도
 | zfs get logbias | latency(기본)면 복사형, throughput이면 크기 무관 무조건 WR_INDIRECT |
 | zfs get sync | always면 모든 쓰기가 ZIL 행. disabled면 ZIL 회피(크래시 보장 상실) |
 
-점검 순서는 이렇게 잡습니다. 먼저 zpool status의 logs 항목으로 slog 유무를 봅니다. 없으면 작은 복사형 쓰기도 일반 vdev에서 flush를 치릅니다. 다음으로 logbias입니다. throughput이면 전부 indirect라 fsync가 txg 싱크 근처까지 끌립니다. 세 번째로 sync 속성과 앱의 fsync 빈도, 마지막으로 kstat의 needcopy 비중입니다. 비정상적으로 높으면 작은 동기 쓰기 폭풍이라 slog 추가가 정석 처방입니다. 감각 수치 하나를 남기면, logbias=latency에서 8KB 동기 쓰기 1만 건은 ZIL에 약 80MB입니다.
+점검 순서는 이렇게 잡습니다. 먼저 zpool status의 logs 항목으로 slog 유무를 봅니다. 없으면 작은 복사형 쓰기도 일반 vdev에서 flush를 치릅니다.
+
+다음은 logbias입니다. throughput이면 전부 indirect라 fsync가 txg 싱크 근처까지 끌립니다. 세 번째로 sync 속성과 앱의 fsync 빈도, 마지막으로 kstat의 needcopy 비중을 봅니다.
+
+비정상적으로 높으면 작은 동기 쓰기 폭풍이라 slog 추가가 정석 처방입니다. 감각 수치 하나를 남기면, logbias=latency에서 8KB 동기 쓰기 1만 건은 ZIL에 약 80MB입니다.
 
 Write Path를 쓸 때는 ZIL을 디스크에 빨리 쓰는 장치쯤으로 이해했습니다. 소스를 읽고 보니 실체는 크래시까지 유효한 약속 장부에 가깝습니다. 약속(itx)을 어떻게 운반(lwb)하고 파기(zil_sync)하고 청산(replay)하는지가 전부였고, 약속의 형태가 세 가지인 것도 크기와 매체에 따른 절약의 결과였습니다. 약속 장부라는 관점에서 보면 slog 역설도, suspend가 로그를 끄고 txg로 대체하는 설계도 자연스럽게 읽힙니다.
 

@@ -18,11 +18,11 @@ toc_sticky: true
 
 ## TL;DR
 
-- **ZFS는 5층 레이어 케이크.** ZPL이 POSIX 시맨틱을 접수하면 DMU가 트랜잭션으로 묶고, SPA가 공간을 내고, ZIO가 변환해 발급하며, vdev가 실제 디스크에 I/O를 날립니다.
-- **온디스크의 모든 것은 하나의 CoW 트리.** uberblock → MOS → 데이터셋 → dnode → blkptr → 데이터 블록.
-- **커밋은 uberblock 교체 한 번.** 데이터를 쓰는 행위가 아니라 포인터를 옮기는 행위입니다.
-- **write(2)의 빠른 반환은 ARC까지만.** 디스크 반영은 txg(기본 5초) 싱크가 비동기로 처리합니다. fsync만 ZIL이 예외로 즉시 갑니다.
-- **구조체 네 개**(blkptr, dnode, objset, uberblock)가 온디스크 포맷의 90%입니다.
+- 5층 케이크: ZPL → DMU → SPA → ZIO → vdev
+- 온디스크는 CoW 트리 하나: uberblock → MOS → dnode → 블록
+- 커밋은 uberblock 교체 한 번 = 포인터 이동
+- write(2) 반환은 ARC까지. 디스크는 txg(5초) 싱크의 몫
+- 구조체 4개(blkptr/dnode/objset/uberblock)가 포맷의 90%
 
 ## 레이어 케이크: 호출은 항상 한 층 아래로
 
@@ -137,7 +137,11 @@ uberblock이 ZFS의 유일한 커밋 포인트입니다. 쓰기 전부가 디스
 <details>
 <summary>📖 블록 트리 사다리와 용량 산수 보기</summary>
 
-**3단계 사다리.** 파일 크기에 따라 트리는 세 단계로 자랍니다. 약 112바이트까지(압축 후)는 데이터가 blkptr 안에 통째로 들어가는 embedded bp라 메타 블록이 0개입니다. 직접 블록만 쓰는 단계(최대 3블록, recordsize 128KB 기준 384KB)도 간접 블록이 없습니다. 그 이상부터 "blkptr 배열만 담은 블록"인 간접 블록이 L1, L2 식으로 자랍니다. ext2의 direct/indirect pointer와 같은 발상이고, 차이는 blkptr이 주소가 아니라 체크섬과 birth txg까지 담는 128바이트라는 점과 깊이가 고정이 아니라 계속 자란다는 점뿐입니다.
+**3단계 사다리.** 파일 크기에 따라 트리는 세 단계로 자랍니다. 약 112바이트까지(압축 후)는 데이터가 blkptr 안에 통째로 들어가는 embedded bp라 메타 블록이 0개입니다.
+
+직접 블록만 쓰는 단계(최대 3블록, recordsize 128KB 기준 384KB)도 간접 블록이 없습니다. 그 이상부터 "blkptr 배열만 담은 블록"인 간접 블록이 L1, L2 식으로 자랍니다.
+
+ext2의 direct/indirect pointer와 같은 발상입니다. 차이는 blkptr이 주소가 아니라 체크섬과 birth txg까지 담는 128바이트라는 점, 깊이가 고정이 아니라 계속 자란다는 점뿐입니다.
 
 **용량 산수.** 간접 블록 하나가 담는 포인터 수는 2^(간접블록크기로그 - 7)로, 16KB면 128개, 128KB면 1024개입니다. recordsize 128KB와 간접 블록 16KB 기준으로 nlevels 2는 약 48MB까지, 3은 약 6GB까지, 4에서 5로 100TB급까지 담습니다. 이 master부터 신규 오브젝트의 간접 블록 기본값이 128KB로 커졌습니다(dnode.c:83, DN_MAX_INDBLKSHIFT). 같은 레벨에서 8배 큰 파일을 담을 수 있게 된 셈입니다.
 

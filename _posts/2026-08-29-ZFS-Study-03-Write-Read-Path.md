@@ -18,11 +18,11 @@ ZFS에서 파일 한 번 쓰기는 두 막입니다. 앱이 기다리는 **막 1
 
 ## TL;DR
 
-- 쓰기는 **두 막**입니다. 막 1은 rangelock, dmu_tx assign, dbuf_dirty를 거쳐 ARC에 더티를 남기고 반환까지. 막 2는 txg 스레드가 디스크로 옮깁니다.
-- **hold는 선언, assign은 자리 배정**입니다. dirty 총량이 `zfs_dirty_data_max`(RAM의 약 10%, 최소 128MB)에 닿으면 assign이 대기합니다. ZFS의 쓰기 백프레셔입니다.
-- **fsync의 내구성 보험은 ZIL뿐**입니다. 막 1의 유일한 디스크 I/O이고 나머지는 txg를 기다립니다.
-- 읽기는 **요청 스레드 안에서** 끝까지 처리됩니다. 배경막이 없고 판정은 dbuf.c:1760의 **한 줄 비교**입니다.
-- 히트여도 ARC가 블록을 **압축된 채** 저장하므로 압축 해제가 일어나고, 미스면 **256비트 체크섬** 검증과 self-healing이 동작합니다.
+- 쓰기는 두 막. 막 1(동기)은 ARC 더티까지만
+- assign이 백프레셔: dirty 한도 초과 시 대기
+- fsync의 보험은 ZIL뿐 = 막 1의 유일한 디스크 I/O
+- 읽기 판정은 dbuf 한 줄 비교(DB_CACHED?)
+- 미스면 256비트 체크섬 검증 + self-healing
 
 ## 쓰기: zfs_write()에서 uberblock까지
 
@@ -196,7 +196,11 @@ VERIFY0(zio_wait(rio));                  /* 블록 발급 완료 대기 */
 
 ### zio 파이프라인과 uberblock 커밋
 
-`arc_write()`(arc.c:7114)의 zio는 네 단계를 통과합니다. **transform**에서 압축과 암호화, 체크섬을 마치고, **ready 게이트**에서 압축 후 크기(psize)를 확정하고, **issue**에서 `zio_dva_allocate()`가 metaslab에 공간을 요청해(metaslab.c:5517) 자리를 확정하고, **vdev 계층**에서 mirror는 복제, raidz는 스트라이프로 분할해 leaf가 bio를 발급합니다. 핵심은 **압축 크기 확정 후 공간 할당** 순서이고, 쓰기는 항상 블록 전체를 새로 쓰므로 raidz는 read-modify-write 없이 항상 full-stripe입니다.
+`arc_write()`(arc.c:7114)의 zio는 네 단계를 통과합니다. **transform**에서 압축과 암호화, 체크섬을 마치고 **ready 게이트**에서 압축 후 크기(psize)를 확정합니다.
+
+이어 **issue**에서 `zio_dva_allocate()`가 metaslab에 공간을 요청해(metaslab.c:5517) 자리를 확정하고, **vdev 계층**에서 mirror는 복제, raidz는 스트라이프로 분할합니다.
+
+핵심은 **압축 크기 확정 후 공간 할당** 순서입니다. 쓰기는 항상 블록 전체를 새로 쓰므로 raidz는 read-modify-write 없이 항상 full-stripe입니다.
 
 모든 zio 완료와 sync pass가 끝나면 `uberblock_sync()`가 라벨마다(최대 4개) 링의 다음 슬롯을 **제자리 덮어쓰기**합니다. 이 순간이 커밋입니다. 이전 txg의 세계는 그대로 남아 롤백이 가능하고, 이전 블록들은 다음 txg에 회수됩니다. 이 쓰기도 MUSTSUCCEED라 실패하면 풀이 suspend, 곧 "커밋 불능"입니다.
 
@@ -277,7 +281,7 @@ VERIFY0(zio_wait(rio));                  /* 블록 발급 완료 대기 */
 <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 3 - 읽기의 전부. 초록 히트 갈래는 디스크 I/O 0회, 빨강 미스 갈래는 체크섬 검증과 self-healing을 거쳐 합류</figcaption>
 </figure>
 
-두 갈래의 반환점은 같은 uiomove이고 차이는 디스크 I/O 0회 여부뿐입니다. 판정이 짧으니 진입부가 오히려 놀랍습니다. 읽기에서 ZIL이 나오거든요.
+두 갈래의 반환점은 같은 uiomove이고 차이는 디스크 I/O 0회 여부뿐입니다. 판정이 짧으니 진입부가 눈에 듭니다. 읽기에서 ZIL이 나옵니다.
 
 ### zfs_read() 진입: 읽기인데 zil_commit가 나온다
 
