@@ -630,12 +630,12 @@
     border-radius: 14px;
     background:
         radial-gradient(ellipse 80% 50% at 50% 0%,
-            rgba(99, 102, 241, 0.15),
+            rgba(99, 102, 241, 0.10),
             transparent 60%),
         linear-gradient(180deg,
-            #1a1f2e 0%,
-            #141824 40%,
-            #0f1220 100%);
+            #222839 0%,
+            #1c2130 40%,
+            #181c29 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
         0 0 30px rgba(99, 102, 241, 0.12),
@@ -693,9 +693,9 @@
 .markdown-body .language-c pre {
     background:
         radial-gradient(ellipse 80% 50% at 50% 0%,
-            rgba(99, 102, 241, 0.18),
+            rgba(99, 102, 241, 0.12),
             transparent 60%),
-        linear-gradient(180deg, #1a1f2e, #141824 40%, #0f1220);
+        linear-gradient(180deg, #222839, #1c2130 40%, #181c29);
 }
 .markdown-body .language-bash .highlight pre,
 .markdown-body .language-bash pre,
@@ -703,9 +703,9 @@
 .markdown-body .language-sh pre {
     background:
         radial-gradient(ellipse 80% 50% at 50% 0%,
-            rgba(34, 211, 238, 0.15),
+            rgba(34, 211, 238, 0.10),
             transparent 60%),
-        linear-gradient(180deg, #1a1f2e, #141824 40%, #0f1220);
+        linear-gradient(180deg, #222839, #1c2130 40%, #181c29);
 }
 .markdown-body .language-plaintext .highlight pre,
 .markdown-body .language-plaintext pre,
@@ -713,22 +713,42 @@
 .markdown-body .language-text pre {
     background:
         radial-gradient(ellipse 80% 50% at 50% 0%,
-            rgba(168, 85, 247, 0.12),
+            rgba(168, 85, 247, 0.08),
             transparent 60%),
-        linear-gradient(180deg, #1a1f2e, #141824 40%, #0f1220);
+        linear-gradient(180deg, #222839, #1c2130 40%, #181c29);
 }
 
-/* 코드 토큰 네온 발광 (Rouge 클래스) */
+/* 코드 토큰 색상 (Rouge) — text-shadow 제거, 가독성 우선 */
 .markdown-body .highlight pre .k,
-.markdown-body pre .k { text-shadow: 0 0 6px rgba(192,132,252,0.5); }
+.markdown-body pre .k { color: #c084fc; }
 .markdown-body .highlight pre .s,
-.markdown-body pre .s { text-shadow: 0 0 6px rgba(134,239,172,0.4); }
+.markdown-body pre .s,
+.markdown-body .highlight pre .s1,
+.markdown-body pre .s1,
+.markdown-body .highlight pre .s2,
+.markdown-body pre .s2 { color: #86efac; }
 .markdown-body .highlight pre .mi,
-.markdown-body pre .mi { text-shadow: 0 0 6px rgba(251,191,36,0.4); }
+.markdown-body pre .mi { color: #fbbf24; }
 .markdown-body .highlight pre .nf,
-.markdown-body pre .nf { text-shadow: 0 0 6px rgba(125,211,252,0.4); }
+.markdown-body pre .nf { color: #7dd3fc; }
 .markdown-body .highlight pre .nt,
-.markdown-body pre .nt { text-shadow: 0 0 6px rgba(103,232,249,0.3); }
+.markdown-body pre .nt { color: #67e8f9; }
+.markdown-body .highlight pre .c,
+.markdown-body pre .c,
+.markdown-body .highlight pre .cm,
+.markdown-body pre .cm,
+.markdown-body .highlight pre .c1,
+.markdown-body pre .c1 { color: #7f8c9b; font-style: italic; }
+.markdown-body .highlight pre .o,
+.markdown-body pre .o,
+.markdown-body .highlight pre .p,
+.markdown-body pre .p { color: #b8c4d0; }
+.markdown-body .highlight pre .n,
+.markdown-body pre .n,
+.markdown-body .highlight pre .nb,
+.markdown-body pre .nb,
+.markdown-body .highlight pre .nv,
+.markdown-body pre .nv { color: #e2e8f0; }
 
 .markdown-body .highlight pre {
     margin-bottom: 0;
