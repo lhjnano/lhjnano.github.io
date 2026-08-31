@@ -1004,10 +1004,15 @@ pre[class*="language-"] {
     margin: 1em 0;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+:not(pre) > code[class*="language-"] {
     background: transparent;
     border-radius: 14px
+}
+
+/* pre[class*="language-"]의 background 덮어쓰기 방지 */
+pre[class*="language-"] {
+    border-radius: 14px;
+    /* background는 .markdown-body pre의 다크 그라디언트가 적용됨 */
 }
 
 :not(pre) > code[class*="language-"] {

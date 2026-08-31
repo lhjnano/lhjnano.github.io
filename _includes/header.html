@@ -78,7 +78,9 @@
 
     <script src="{{ assets_base_url }}/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="{{ assets_base_url }}/assets/js/main.js"></script>
-    <script src="{{ assets_base_url }}/assets/js/prism.js"></script>
+    <!-- Prism 제거: Rouge(kramdown)가 서버사이드 하이라이팅을 담당.
+         Prism JS가 pre에 language-* 클래스를 추가해 CSS 충돌 유발 -->
+    <!-- <script src="{{ assets_base_url }}/assets/js/prism.js"></script> -->
 
     {% if site.google.adsense.enabled and site.url contains 'lhjnano' %}
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4400417412070787" crossorigin="anonymous"></script>
