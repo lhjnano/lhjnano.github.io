@@ -617,13 +617,118 @@
     margin-bottom: 16px
 }
 
-.markdown-body .highlight pre,.markdown-body pre {
-    padding: 16px 20px;
+/* ═══ Neon Glass Terminal ═══
+   흰 배경 위 glassmorphism 불가 → 내부 그라디언트로 유리 깊이감 + 네온 */
+.markdown-body .highlight pre,
+.markdown-body pre {
+    position: relative;
+    margin: 1.5rem 0;
+    padding: 48px 20px 18px;
     overflow: auto;
     font-size: 85%;
-    line-height: 1.5;
-    border-radius: var(--radius-md)
+    line-height: 1.65;
+    border-radius: 14px;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 0%,
+            rgba(99, 102, 241, 0.15),
+            transparent 60%),
+        linear-gradient(180deg,
+            #1a1f2e 0%,
+            #141824 40%,
+            #0f1220 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 0 30px rgba(99, 102, 241, 0.12),
+        0 0 60px rgba(34, 211, 238, 0.06),
+        0 8px 32px rgba(0, 0, 0, 0.20);
+    transition: box-shadow 0.3s ease;
+    color: #e2e8f0;
 }
+
+.markdown-body .highlight pre:hover,
+.markdown-body pre:hover {
+    box-shadow:
+        0 0 40px rgba(99, 102, 241, 0.20),
+        0 0 80px rgba(34, 211, 238, 0.10),
+        0 12px 40px rgba(0, 0, 0, 0.30);
+}
+
+/* 맥 트래픽 라이트 (하나의 ::before + box-shadow 3색) */
+.markdown-body .highlight pre::before,
+.markdown-body pre::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f56;
+    box-shadow:
+        20px 0 0 #ffbd2e,
+        40px 0 0 #27c93f;
+    pointer-events: none;
+}
+
+/* 상단 유리 edge 하이라이트 */
+.markdown-body .highlight pre::after,
+.markdown-body pre::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255,255,255,0.30) 30%,
+        rgba(125,211,252,0.45) 50%,
+        rgba(255,255,255,0.30) 70%,
+        transparent);
+    pointer-events: none;
+}
+
+/* 언어별 앰비언트 컬러 */
+.markdown-body .language-c .highlight pre,
+.markdown-body .language-c pre {
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 0%,
+            rgba(99, 102, 241, 0.18),
+            transparent 60%),
+        linear-gradient(180deg, #1a1f2e, #141824 40%, #0f1220);
+}
+.markdown-body .language-bash .highlight pre,
+.markdown-body .language-bash pre,
+.markdown-body .language-sh .highlight pre,
+.markdown-body .language-sh pre {
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 0%,
+            rgba(34, 211, 238, 0.15),
+            transparent 60%),
+        linear-gradient(180deg, #1a1f2e, #141824 40%, #0f1220);
+}
+.markdown-body .language-plaintext .highlight pre,
+.markdown-body .language-plaintext pre,
+.markdown-body .language-text .highlight pre,
+.markdown-body .language-text pre {
+    background:
+        radial-gradient(ellipse 80% 50% at 50% 0%,
+            rgba(168, 85, 247, 0.12),
+            transparent 60%),
+        linear-gradient(180deg, #1a1f2e, #141824 40%, #0f1220);
+}
+
+/* 코드 토큰 네온 발광 (Rouge 클래스) */
+.markdown-body .highlight pre .k,
+.markdown-body pre .k { text-shadow: 0 0 6px rgba(192,132,252,0.5); }
+.markdown-body .highlight pre .s,
+.markdown-body pre .s { text-shadow: 0 0 6px rgba(134,239,172,0.4); }
+.markdown-body .highlight pre .mi,
+.markdown-body pre .mi { text-shadow: 0 0 6px rgba(251,191,36,0.4); }
+.markdown-body .highlight pre .nf,
+.markdown-body pre .nf { text-shadow: 0 0 6px rgba(125,211,252,0.4); }
+.markdown-body .highlight pre .nt,
+.markdown-body pre .nt { text-shadow: 0 0 6px rgba(103,232,249,0.3); }
 
 .markdown-body .highlight pre {
     margin-bottom: 0;
@@ -750,8 +855,8 @@
 }
 
 pre {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md)
+    /* 글래스 스타일은 .markdown-body pre에서 정의 */
+    border-radius: 14px
 }
 
 /* ===== TOOLS (scroll-to-top) ===== */
@@ -880,8 +985,8 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-    background: #1e293b;
-    border-radius: var(--radius-md)
+    background: transparent;
+    border-radius: 14px
 }
 
 :not(pre) > code[class*="language-"] {
