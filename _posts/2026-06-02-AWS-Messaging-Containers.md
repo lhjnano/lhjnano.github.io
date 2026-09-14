@@ -12,9 +12,12 @@ toc_sticky: true
 
 > 주문이 들어오면 결제, 재고, 배송, 알림이 차례로 기다려야 합니다. 하나라도 실패하면 전체가 멈춥니다. 이 강결합을 끊어주는 것이 메시징이고, 늘어난 마이크로서비스를 가볍게 띄워주는 것이 컨테이너입니다.
 
-분산 시스템에서 서비스 간 통신은 동기식과 비동기식으로 나뉩니다. SQS/SNS/Kinesis/EventBridge는 통신을 비동기화하여 시스템을 디커플링하고, ECS/EKS/Fargate는 컨테이너 단위로 애플리케이션을 가볍고 빠르게 배포합니다. 이 글에서는 Part 1에서 SQS의 큐 유형과 가시성 제한, SNS의 Pub/Sub, Fan-out 패턴, Kinesis의 Streams/Firehose/Analytics, EventBridge와 MSK까지 정리하고, Part 2에서 VM과 컨테이너의 차이, Docker 기초, ECS의 Fargate/EC2 시작 유형, ECR, Kubernetes 핵심 개념, EKS, Fargate 비교까지 다룹니다.
+분산 시스템에서 서비스 간 통신은 동기식과 비동기식으로 나뉩니다. SQS/SNS/Kinesis/EventBridge는 통신을 비동기화하여 시스템을 디커플링하고, ECS/EKS/Fargate는 컨테이너 단위로 애플리케이션을 가볍고 빠르게 배포한다. 이 글에서는 Part 1에서 SQS의 큐 유형과 가시성 제한, SNS의 Pub/Sub, Fan-out 패턴, Kinesis의 Streams/Firehose/Analytics, EventBridge와 MSK까지 정리하고, Part 2에서 VM과 컨테이너의 차이, Docker 기초, ECS의 Fargate/EC2 시작 유형, ECR, Kubernetes 핵심 개념, EKS, Fargate 비교까지 다룹니다.
 
 ---
+
+처음 이 조합을 접했을 때 가장 헷갈렸던 게 "언제 SQS를 쓰고 언제 Kinesis를 쓰나"였다.
+정리하고 보니 기준은 단순하다: 메시지를 나중에 처리해도 되면 SQS, 실시간 흐름이면 Kinesis.
 
 ## TL;DR
 
@@ -41,7 +44,9 @@ toc_sticky: true
 | 확장성 | 제한적 | 우수 |
 | AWS 서비스 | API Gateway, 직접 호출 | SQS, SNS, Kinesis, EventBridge |
 
-### SQS (Simple Queue Service)
+#사실 메시징 서비스 선택은 대부분 SQS로 수렴한다. 나머지는 특수 케이스다.
+
+## SQS (Simple Queue Service)
 
 완전관리형 메시지 큐 서비스입니다. **Pull 기반**으로 소비자가 큐에서 메시지를 가져옵니다.
 
@@ -65,7 +70,7 @@ toc_sticky: true
 | Long Polling | 최대 20초 | 빈 응답 감소, API 호출 비용 절감 |
 | 지연 큐 | 최대 15분 | 메시지 전달 지연 |
 
-> 가시성 시간 제한(Visibility Timeout)은 한 소비자가 메시지를 처리하는 동안 다른 소비자가 같은 메시지를 꺼내지 못하게 숨깁니다. 처리가 끝나면 삭제하고, 시간 초과 시 다시 노출되어 재시도됩니다.
+> 가시성 시간 제한(Visibility Timeout)은 한 소비자가 메시지를 처리하는 동안 다른 소비자가 같은 메시지를 꺼내지 못하게 숨깁니다. 처리가 끝나면 삭제하고, 시간 초과 시 다시 노출되어 재시도된다.
 
 **보안:**
 - 전송 중 암호화: HTTPS (TLS)
@@ -93,7 +98,7 @@ toc_sticky: true
 
 ### SNS + SQS Fan-out 패턴
 
-하나의 이벤트를 **여러 소비자에게 병렬로 전달**하는 아키텍처 패턴입니다.
+하나의 이벤트를 **여러 소비자에게 병렬로 전달**하는 아키텍처 패턴이다.
 
 <details markdown="1">
 <summary>SNS + SQS Fan-out 패턴</summary>
@@ -123,13 +128,13 @@ toc_sticky: true
 ```
 </details>
 
-- 각 소비자는 독립적으로 메시지를 처리합니다
+- 각 소비자는 독립적으로 메시지를 처리한다
 - 한 소비자의 장애가 다른 소비자에게 영향을 주지 않습니다
 - SQS의 재시도 및 DLQ(Dead Letter Queue)를 활용할 수 있습니다
 
 ### Kinesis Data Streams
 
-대규모 **실시간 데이터 스트리밍** 서비스입니다. 데이터를 수집, 저장, 처리할 수 있습니다.
+대규모 **실시간 데이터 스트리밍** 서비스이다. 데이터를 수집, 저장, 처리할 수 있다.
 
 | 개념 | 설명 |
 |------|------|
@@ -139,11 +144,11 @@ toc_sticky: true
 | 보존 기간 | 24시간 ~ 365일 (기본 24시간) |
 | 레코드 크기 | 최대 1MB |
 
-> 💡 **Kinesis vs SQS:** Kinesis는 실시간 스트리밍과 데이터 재생이 필요한 경우, SQS는 작업 큐와 비동기 메시징에 적합합니다.
+> 💡 **Kinesis vs SQS:** Kinesis는 실시간 스트리밍과 데이터 재생이 필요한 경우, SQS는 작업 큐와 비동기 메시징에 적합한다.
 
 ### Kinesis Data Firehose
 
-스트리밍 데이터를 **변환 및 전송**하는 완전관리형 서비스입니다. 실시간보다는 **준실시간(Near Real-time)** 처리에 적합합니다.
+스트리밍 데이터를 **변환 및 전송**하는 완전관리형 서비스이다. 실시간보다는 **준실시간(Near Real-time)** 처리에 적합합니다.
 
 ```
 ┌──────────┐     ┌─────────────────────┐     ┌─────────────┐
@@ -161,7 +166,7 @@ toc_sticky: true
 
 ### Kinesis Data Analytics
 
-스트리밍 데이터를 **SQL 또는 Python(Apache Flink)**로 실시간 분석합니다.
+스트리밍 데이터를 **SQL 또는 Python(Apache Flink)**로 실시간 분석한다.
 
 - SQL 기반 실시간 쿼리
 - Apache Flink 기반 Python 애플리케이션
@@ -171,7 +176,7 @@ toc_sticky: true
 
 ### Amazon EventBridge: 2026 핵심
 
-서버리스 **이벤트 버스** 서비스로, 이벤트 기반 아키텍처의 핵심입니다.
+서버리스 **이벤트 버스** 서비스로, 이벤트 기반 아키텍처의 핵심이다.
 
 | 구분 | EventBridge | SNS |
 |------|-------------|-----|
@@ -229,7 +234,7 @@ toc_sticky: true
 
 ### Amazon MSK (Managed Streaming for Apache Kafka)
 
-Apache Kafka 클러스터를 완전관리형으로 제공합니다. Kafka 네이티브 API를 그대로 사용할 수 있습니다.
+Apache Kafka 클러스터를 완전관리형으로 제공한다. Kafka 네이티브 API를 그대로 사용할 수 있다.
 
 | 비교 항목 | Kinesis | MSK |
 |-----------|---------|-----|
@@ -297,7 +302,7 @@ CMD ["node", "server.js"]
 
 ### ECS (Elastic Container Service)
 
-AWS의 **관리형 컨테이너 오케스트레이션** 서비스입니다. Kubernetes 없이 간단하게 컨테이너를 실행할 수 있습니다.
+AWS의 **관리형 컨테이너 오케스트레이션** 서비스이다. Kubernetes 없이 간단하게 컨테이너를 실행할 수 있습니다.
 
 **핵심 구성 요소:**
 
@@ -330,7 +335,7 @@ AWS의 **관리형 컨테이너 오케스트레이션** 서비스입니다. Kube
 
 ### ECR (Elastic Container Registry)
 
-완전관리형 **Docker 컨테이너 이미지 저장소**입니다.
+완전관리형 **Docker 컨테이너 이미지 저장소**이다.
 
 - 이미지 저장, 버전 관리, 취약점 스캔
 - 프라이빗 / 퍼블릭 레지스트리 지원
@@ -355,7 +360,7 @@ AWS의 **관리형 컨테이너 오케스트레이션** 서비스입니다. Kube
 
 ### EKS (Elastic Kubernetes Service)
 
-AWS의 **관리형 Kubernetes** 서비스입니다. Control Plane을 AWS가 완전 관리합니다.
+AWS의 **관리형 Kubernetes** 서비스입니다. Control Plane을 AWS가 완전 관리한다.
 
 **관리형 컨트롤 플레인:**
 - 고가용성: 여러 AZ에 걸쳐 배포
@@ -472,7 +477,7 @@ AWS의 **관리형 Kubernetes** 서비스입니다. Control Plane을 AWS가 완�
 
 ## 마치며
 
-메시징 서비스를 처음 공부할 때는 SQS, SNS, Kinesis, EventBridge의 차이를 외우는 데 급급했습니다. 하지만 이 서비스들을 "결합도를 어떻게 낮추는가"라는 하나의 렌즈로 바라보니 전혀 다르게 보이기 시작했습니다. 동기 호출은 수신자가 죽으면 호출자도 죽는 강결합의 연쇄이고, 비동기 메시징은 그 연쇄를 끊어내는 행위입니다. SQS의 가시성 제한, SNS의 Fan-out, EventBridge의 콘텐츠 기반 라우팅은 모두 "장애를 격리하고, 메시지를 보존하여 복구할 기회를 남기는" 서로 다른 전략이었습니다. DLQ 하나 설정하는 것도 "실패를 무시하지 않고 격리하는" 설계 의도의 표현이라는 점이 새로웠습니다.
+메시징 서비스를 처음 공부할 때는 SQS, SNS, Kinesis, EventBridge의 차이를 외우는 데 급급했습니다. 하지만 이 서비스들을 "결합도를 어떻게 낮추는가"라는 하나의 렌즈로 바라보니 전혀 다르게 보이기 시작했습니다. 동기 호출은 수신자가 죽으면 호출자도 죽는 강결합의 연쇄이고, 비동기 메시징은 그 연쇄를 끊어내는 행위이다. SQS의 가시성 제한, SNS의 Fan-out, EventBridge의 콘텐츠 기반 라우팅은 모두 "장애를 격리하고, 메시지를 보존하여 복구할 기회를 남기는" 서로 다른 전략이었습니다. DLQ 하나 설정하는 것도 "실패를 무시하지 않고 격리하는" 설계 의도의 표현이라는 점이 새로웠습니다.
 
 컨테이너를 접하면서 놀랐던 것은 "OS 커널을 공유한다"는 한 문장이 가져오는 결과의 크기였습니다. GB 단위의 Guest OS를 포함하던 VM이 MB 단위로 줄어들고, 시작 시간이 분에서 초로 단축되며, 동일 호스트에 여러 컨테이너가 올라가는 밀도 효율이 극적으로 향상됩니다. 이는 단순한 기술적 차이가 아니라, 마이크로서비스 아키텍처가 경제적으로 가능해지는 전제 조건이었습니다. ECS+Fargate로 서버 관리 부담을 없애거나, EKS로 Kubernetes 생태계를 활용하거나, Karpenter로 노드 프로비저닝을 자동화하는 선택지는 모두 "어디까지 관리를 위임하고 어디까지 직접 제어할 것인가"에 대한 답이라고 느꼈습니다.
 

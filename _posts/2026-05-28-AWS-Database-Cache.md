@@ -2,7 +2,7 @@
 layout: post
 title: "[AWS 7/16] 데이터베이스 & 캐시: RDS, Aurora, ElastiCache"
 categories: [AWS, Database]
-description: AWS 관리형 데이터베이스 RDS/Aurora의 Multi-AZ 구조부터 ElastiCache(Redis/Memcached) 캐싱 전략까지 정리합니다.
+description: AWS 관리형 데이터베이스 RDS/Aurora의 Multi-AZ 구조부터 ElastiCache(Redis/Memcached) 캐싱 전략까지 정리한다.
 keywords: [RDS, Aurora, ElastiCache, Redis, Memcached, AWS]
 toc: true
 toc_sticky: true
@@ -10,9 +10,9 @@ toc_sticky: true
 
 ## Hook
 
-데이터베이스는 애플리케이션의 심장이고, 캐시는 그 심장에 가해지는 부하를 줄여주는 완충재입니다. AWS는 이 두 영역 모두에서 관리형 서비스를 제공하여, 인프라 운영이 아닌 데이터 모델링과 쿼리 최적화에 집중할 수 있게 합니다.
+데이터베이스는 애플리케이션의 심장이고, 캐시는 그 심장에 가해지는 부하를 줄여주는 완충재이다. AWS는 이 두 영역 모두에서 관리형 서비스를 제공하여, 인프라 운영이 아닌 데이터 모델링과 쿼리 최적화에 집중할 수 있게 한다.
 
-이 글에서는 Part 1에서 RDS/Aurora의 고가용성 아키텍처, 보안, 백업, 모니터링, RDS Proxy, 비용 최적화를 다루고, Part 2에서 ElastiCache의 Memcached vs Redis 비교와 캐싱 전략(Lazy Loading, Write-Through, TTL)을 정리합니다.
+이 글에서는 Part 1에서 RDS/Aurora의 고가용성 아키텍처, 보안, 백업, 모니터링, RDS Proxy, 비용 최적화를 다루고, Part 2에서 ElastiCache의 Memcached vs Redis 비교와 캐싱 전략(Lazy Loading, Write-Through, TTL)을 정리한다.
 
 ---
 
@@ -30,19 +30,19 @@ toc_sticky: true
 
 ### RDS 개요
 
-Amazon RDS(Relational Database Service)는 AWS가 OS 패치, 자동 백업, 소프트웨어 업그레이드, 장애 감지 및 복구를 대신 처리하는 관리형 관계형 데이터베이스 서비스입니다. 지원 엔진은 MySQL, PostgreSQL, MariaDB, Oracle, SQL Server입니다.
+Amazon RDS(Relational Database Service)는 AWS가 OS 패치, 자동 백업, 소프트웨어 업그레이드, 장애 감지 및 복구를 대신 처리하는 관리형 관계형 데이터베이스 서비스이다. 지원 엔진은 MySQL, PostgreSQL, MariaDB, Oracle, SQL Server이다.
 
 관리형 서비스의 핵심 이점은 **데이터베이스 관리 부담을 줄이고 애플리케이션 개발에 집중**할 수 있다는 점입니다. 프로비저닝부터 백업, 패치, 스케일링까지 자동화됩니다.
 
 ### RDS 아키텍처: Multi-AZ vs Read Replica
 
-RDS의 가용성과 성능은 두 가지 복제 방식으로 확보합니다. 두 방식은 목적이 완전히 다릅니다.
+RDS의 가용성과 성능은 두 가지 복제 방식으로 확보한다. 두 방식은 목적이 완전히 다릅니다.
 
 ![RDS Multi-AZ 배포. 동기 복제로 데이터 손실 없는 자동 장애 조치](/assets/images/posts/aws-database-cache/09-01-multi-az-배포-동기-복제.svg)
 
 #### Multi-AZ 배포 (동기 복제)
 
-프라이머리 DB 인스턴스가 다른 가용 영역(AZ)에 대기(Standby) 복제본을 동기식으로 유지합니다.
+프라이머리 DB 인스턴스가 다른 가용 영역(AZ)에 대기(Standby) 복제본을 동기식으로 유지한다.
 
 - 프라이머리 장애 시 자동으로 대기 인스턴스로 장애 조치 (60~120초)
 - 데이터 손실 없음 (동기 복제)
@@ -127,7 +127,7 @@ RDS Proxy는 데이터베이스 연결을 풀(Pool)로 관리하여 재사용하
 |------|----------|
 | **Reserved Instances** | 1~3년 약정으로 온디맨드 대비 최대 69% 할인. No/Partial/All Upfront |
 | **Multi-AZ 전략** | 프로덕션은 Multi-AZ 필수, 개발/테스트는 단일 AZ |
-| **스토리지** | gp3 볼륨으로 비용 절감 (gp2 대비 성능 향상 + 저렴). 자동 조정 한도 설정 |
+| 스토리지 | gp3 볼륨으로 비용 절감 (gp2 대비 성능 향상 + 저렴). 자동 조정 한도 설정 |
 | **인스턴스 타입** | 워크로드에 맞는 적정 사이즈 선택 |
 | **유휴 인스턴스** | 사용하지 않는 인스턴스 정리 |
 
