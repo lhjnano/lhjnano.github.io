@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<svg width="734" viewBox="-7 -14.5 734 404.5" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><rect x="-7" y="-14.5" width="734" height="404.5" fill="#ffffff"/>
 <defs>
 <filter id="sh" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
-<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#546e7a"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#546e7a"/></marker>
 </defs>
-<style>text{font-family:'Segoe UI',system-ui,sans-serif}</style>
+<style>text{font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif}</style>
 <text x="360" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">🗄️ 데이터 레이크 계층 구조</text>
 <rect x="15" y="28" width="690" height="340" rx="12" fill="#f0f4f8" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh)"/>
 <text x="360" y="50" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">🏗️ S3 데이터 레이크</text>

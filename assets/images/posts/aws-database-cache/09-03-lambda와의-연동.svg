@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 350" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<svg width="666" viewBox="26 -8.5 666 358.5" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="26" y="-8.5" width="666" height="358.5" fill="#ffffff"/>
 <defs>
 <filter id="ds"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
-<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
+<marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker>
 </defs>
 <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🔗 RDS Proxy 커넥션 풀링</text>
 <text x="360" y="48" text-anchor="middle" font-size="11" fill="#64748b">Lambda 함수들 (수백~수천)</text>

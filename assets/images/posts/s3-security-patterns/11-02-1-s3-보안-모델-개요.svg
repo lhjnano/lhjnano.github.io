@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 540" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
-<defs><filter id="sh_보안모델개요" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_보안모델개요" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<svg width="664" viewBox="58 -5.3 664 547.8" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="58" y="-5.3" width="664" height="547.8" fill="#ffffff"/>
+<defs><filter id="sh_보안모델개요" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_보안모델개요" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
 <rect x="0" y="0" width="720" height="540" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
 <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#2c3e50">🔐 보안 결정 흐름 (요청 → 허용/거부)</text>
 <rect x="280" y="42" width="160" height="48" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" filter="url(#sh_보안모델개요)"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
-<defs><filter id="sh_버킷정책패턴" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_버킷정책패턴" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<svg width="724" viewBox="-2 -5.3 724 395.3" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="-2" y="-5.3" width="724" height="395.3" fill="#ffffff"/>
+<defs><filter id="sh_버킷정책패턴" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_버킷정책패턴" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
 <rect x="0" y="0" width="720" height="380" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
 <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#2c3e50">🛡️ 버킷 정책 패턴 분류</text>
 <rect x="20" y="44" width="680" height="324" rx="10" fill="#f0f4f8" stroke="#e2e8f0" stroke-width="1.5" filter="url(#sh_버킷정책패턴)"/>

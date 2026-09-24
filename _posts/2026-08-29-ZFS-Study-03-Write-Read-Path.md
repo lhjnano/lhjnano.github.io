@@ -31,8 +31,8 @@ ZFS에서 파일 한 번 쓰기는 두 막입니다. 앱이 기다리는 **막 1
 이전 편의 CoW가 출발점입니다. 블록을 수정하면 간접 블록부터 dnode, objset, MOS까지 연쇄가 올라갑니다. 매 write마다 디스크까지 하면 쓰기 증폭이 재앙이라 수천에서 수백만 건을 txg로 묶어 연쇄를 공유합니다. 대가는 반환 시점의 내구성 보장이 ZIL 기록뿐이라는 점입니다. 아래 그림이 이 분리 전부입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372"
-     width="760" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="Write Path 2막 타임라인. 위 파란 밴드는 호출 스레드가 기다리는 막 1, 즉 동기 액트로 write(2) 진입과 rangelock 획득, dmu_tx 배정, dbuf_dirty의 ARC 기록을 지나 write(2)가 반환되고, fsync 계열이면 zil_commit이 이 막의 유일한 디스크 I/O로 추가된다. 가운데 점선 화살표는 txg 닫힘(기본 5초 또는 dirty 한도)이다. 아래 초록 밴드는 txg 동기화 스레드의 막 2, 즉 비동기 액트로 txg OPEN에서 더티를 축적하고 QUIESCING에서 새 assign을 차단하며 SYNCING에서 dsl_pool_sync와 zio로 디스크에 기록해 uberblock을 교체하면 커밋된다. 디스크 반영 시점은 앱이 제어하지 않는다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 -9.3 744 367.3"
+     width="744" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="Write Path 2막 타임라인. 위 파란 밴드는 호출 스레드가 기다리는 막 1, 즉 동기 액트로 write(2) 진입과 rangelock 획득, dmu_tx 배정, dbuf_dirty의 ARC 기록을 지나 write(2)가 반환되고, fsync 계열이면 zil_commit이 이 막의 유일한 디스크 I/O로 추가된다. 가운데 점선 화살표는 txg 닫힘(기본 5초 또는 dirty 한도)이다. 아래 초록 밴드는 txg 동기화 스레드의 막 2, 즉 비동기 액트로 txg OPEN에서 더티를 축적하고 QUIESCING에서 새 assign을 차단하며 SYNCING에서 dsl_pool_sync와 zio로 디스크에 기록해 uberblock을 교체하면 커밋된다. 디스크 반영 시점은 앱이 제어하지 않는다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="8" y="-9.3" width="744" height="367.3" fill="#ffffff"/>
   <defs>
     <marker id="zs3-ar-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
     <marker id="zs3-ar-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#16a34a"/></marker>
@@ -136,8 +136,8 @@ txg는 번호가 매겨진 쓰기 묶음이며 세 상태가 항상 **동시에*
 타이머는 `zfs_txg_timeout`(기본 5초)과 dirty 총량 조기 닫힘 둘입니다. 핵심은 **quiesce가 open과 겹친다**는 설계로, 싱크 중인 txg(N-2) 위에 이미 열린 txg(N)가 있어 쓰기는 싱크를 기다리지 않습니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300"
-     width="760" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="txg 상태머신 순환도. 파란 OPEN 상태는 모든 쓰기 스레드가 dmu_tx assign과 dbuf_dirty로 더티를 축적하는 상태다. txg가 닫히면 노란 QUIESCING으로 넘어가 새 assign을 차단하고 남은 트랜잭션 커밋을 기다린 뒤 다음 txg를 연다. 초록 SYNCING에서는 dsl_pool_sync와 zio로 모든 더티를 디스크에 기록하고 uberblock을 커밋한다. 커밋이 끝난 txg는 역할을 마치고 다음 txg는 이미 열려 있어 쓰기는 싱크 동안에도 멈추지 않는다. 세 상태는 항상 동시에 존재한다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="33 -9.3 695 283.9"
+     width="695" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="txg 상태머신 순환도. 파란 OPEN 상태는 모든 쓰기 스레드가 dmu_tx assign과 dbuf_dirty로 더티를 축적하는 상태다. txg가 닫히면 노란 QUIESCING으로 넘어가 새 assign을 차단하고 남은 트랜잭션 커밋을 기다린 뒤 다음 txg를 연다. 초록 SYNCING에서는 dsl_pool_sync와 zio로 모든 더티를 디스크에 기록하고 uberblock을 커밋한다. 커밋이 끝난 txg는 역할을 마치고 다음 txg는 이미 열려 있어 쓰기는 싱크 동안에도 멈추지 않는다. 세 상태는 항상 동시에 존재한다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="33" y="-9.3" width="695" height="283.9" fill="#ffffff"/>
   <defs>
     <marker id="zs3-ar2" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
   </defs>
@@ -238,8 +238,8 @@ VERIFY0(zio_wait(rio));                  /* 블록 발급 완료 대기 */
 읽기의 쇠문은 dbuf 하나입니다. read(2)가 zfs_read()로 진입해 dmu_buf_hold_array()가 블록 단위 dbuf를 확보하면 dbuf_read()가 상태를 봅니다. DB_CACHED면 ARC 버퍼를 바로 쓰고, 그 외면 zio를 발급합니다. 아래 그림이 읽기의 전부입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 568"
-     width="760" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 읽기 경로 플로우다. 앱의 read(2)가 zfs_read로 진입해 rangelock을 잡고, dmu_buf_hold_array가 (objset, object, level, blkid) 키로 dbuf를 확보하며, dbuf_read가 db_state가 DB_CACHED인지 판정한다. 히트면 초록 갈래로 ARC 버퍼를 arc_untransform로 압축 해제해 uiomove로 바로 복사해 반환한다(디스크 I/O 0회). 미스면 빨간 갈래로 DB_UNCACHED에서 arc_read가 zio read를 발급해 vdev를 거쳐 디스크에서 읽고, 256비트 체크섬 검증과 압축 해제를 거쳐 ARC에 적재한 뒤 DB_CACHED로 전이해 같은 방식으로 반환한다. 미스 사실은 dmu_zfetch에 보고되어 다음 블록을 미리 예약한다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 -9.3 724 579.9"
+     width="724" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 읽기 경로 플로우다. 앱의 read(2)가 zfs_read로 진입해 rangelock을 잡고, dmu_buf_hold_array가 (objset, object, level, blkid) 키로 dbuf를 확보하며, dbuf_read가 db_state가 DB_CACHED인지 판정한다. 히트면 초록 갈래로 ARC 버퍼를 arc_untransform로 압축 해제해 uiomove로 바로 복사해 반환한다(디스크 I/O 0회). 미스면 빨간 갈래로 DB_UNCACHED에서 arc_read가 zio read를 발급해 vdev를 거쳐 디스크에서 읽고, 256비트 체크섬 검증과 압축 해제를 거쳐 ARC에 적재한 뒤 DB_CACHED로 전이해 같은 방식으로 반환한다. 미스 사실은 dmu_zfetch에 보고되어 다음 블록을 미리 예약한다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="-9.3" width="724" height="579.9" fill="#ffffff"/>
   <defs>
     <marker id="zs4-ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
     <marker id="zs4-arh" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#16a34a"/></marker>

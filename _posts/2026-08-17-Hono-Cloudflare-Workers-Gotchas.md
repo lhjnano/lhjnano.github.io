@@ -60,8 +60,8 @@ app.post('/upload', async (c) => {
 
 두 경로의 차이를 그림으로 보면 다음과 같습니다. 입력은 완전히 같습니다. 경유하는 API 하나가 결과를 가립니다.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 434"
-     width="800" role="img" aria-label="parseBody 경로와 raw.formData 경로의 다중 파일 처리 비교" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="48 -4 704 440.8"
+     width="704" role="img" aria-label="parseBody 경로와 raw.formData 경로의 다중 파일 처리 비교" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="48" y="-4" width="704" height="440.8" fill="#ffffff"/>
   <defs>
     <marker id="hcg-arr-red" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/>

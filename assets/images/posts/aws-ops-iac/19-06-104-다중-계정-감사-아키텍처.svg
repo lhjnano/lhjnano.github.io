@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 430" xmlns="http://www.w3.org/2000/svg">
+<svg width="704" viewBox="8 -14 704 436" xmlns="http://www.w3.org/2000/svg"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="8" y="-14" width="704" height="436" fill="#ffffff"/>
 <defs>
 <filter id="ds" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/></filter>
-<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
 </defs>
 <rect x="220" y="8" width="250" height="42" rx="8" fill="#fff3e0" stroke="#f59e0b" stroke-width="1.5" filter="url(#ds)"/>
 <text x="345" y="34" text-anchor="middle" font-size="13" font-weight="bold" font-family="sans-serif">🏢 AWS Organizations</text>

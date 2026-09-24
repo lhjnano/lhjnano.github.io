@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<svg width="655" viewBox="-2 -7 655 307" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="-2" y="-7" width="655" height="307" fill="#ffffff"/>
 <defs>
             <filter id="sh5"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
-            <marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+            <marker id="ar5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
 </defs>
 <rect x="20" y="15" width="160" height="40" rx="8" fill="#f3e8ff" stroke="#8b5cf6" stroke-width="2" filter="url(#sh5)"/>
 <text x="100" y="40" text-anchor="middle" font-size="12" font-weight="bold" fill="#7c3aed">🌐 API Gateway</text>

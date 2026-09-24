@@ -5,11 +5,13 @@ on:
     paths:
       - '_posts/**/*.md'
       - 'assets/images/**/*.svg'
+      - 'tools/svg-lint/**'
   push:
     branches: [master]
     paths:
       - '_posts/**/*.md'
       - 'assets/images/**/*.svg'
+      - 'tools/svg-lint/**'
 
 jobs:
   svg-lint:
@@ -22,76 +24,15 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Extract SVGs from markdown
-        run: |
-          mkdir -p /tmp/svg-check
-          node -e "
-            const fs = require('fs');
-            const path = require('path');
-            const files = fs.readdirSync('_posts').filter(f => f.endsWith('.md'));
-            let count = 0;
-            for (const fn of files) {
-              const src = fs.readFileSync(path.join('_posts', fn), 'utf8');
-              const svgs = src.match(/<svg[^>]*>[\s\S]*?<\/svg>/g) || [];
-              svgs.forEach((svg, i) => {
-                const out = '/tmp/svg-check/' + fn.replace('.md','') + '_' + i + '.svg';
-                fs.writeFileSync(out, svg);
-                count++;
-              });
-            }
-            console.log('Extracted ' + count + ' SVG blocks from ' + files.length + ' posts');
-          "
+      # Baseline-ratchet 모드: 기존 부채(baseline.json) 대비 악화·신규 에러만 실패.
+      # 개선된 경우 통과. 부채를 줄이면 --update로 baseline을 내려 굳힌다.
+      - name: Run svg-lint (ratchet)
+        run: node tools/svg-lint/ci-ratchet.mjs
 
-      - name: Run svg-lint
-        run: |
-          # standalone .svg 파일도 포함
-          find assets/images -name "*.svg" -exec cp {} /tmp/svg-check/ \; 2>/dev/null || true
-
-          FILES=$(find /tmp/svg-check -name "*.svg" | sort)
-          if [ -z "$FILES" ]; then
-            echo "검사할 SVG가 없음"
-            exit 0
-          fi
-
-          echo "검사 대상: $(echo "$FILES" | wc -l)개 SVG"
-          echo ""
-
-          # 에러만 실패로 처리 (warning은 정보로)
-          ERROR_COUNT=0
-          WARNING_COUNT=0
-
-          for f in $FILES; do
-            OUTPUT=$(node tools/svg-lint/bin/svg-lint.mjs "$f" 2>&1) || true
-            ERRORS=$(echo "$OUTPUT" | grep -c "error" || true)
-            WARNINGS=$(echo "$OUTPUT" | grep -c "warning" || true)
-            ERROR_COUNT=$((ERROR_COUNT + ERRORS))
-            WARNING_COUNT=$((WARNING_COUNT + WARNINGS))
-
-            BASENAME=$(basename "$f")
-            if [ "$ERRORS" -gt 0 ]; then
-              echo "❌ $BASENAME ($ERRORS errors, $WARNINGS warnings)"
-              echo "$OUTPUT" | head -10 | sed 's/^/  /'
-            fi
-          done
-
-          echo ""
-          echo "─── 요약 ───"
-          echo "총 에러: $ERROR_COUNT"
-          echo "총 경고: $WARNING_COUNT"
-
-          # 에러가 있으면 실패
-          if [ "$ERROR_COUNT" -gt 0 ]; then
-            echo ""
-            echo "::error::$ERROR_COUNT개 SVG 에러 발생"
-            exit 1
-          fi
-
-          echo "✅ 모든 SVG 통과 (경고 $WARNING_COUNT개)"
-
-      - name: Upload results
+      - name: Upload baseline
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: svg-lint-report
-          path: /tmp/svg-check/
+          name: svg-lint-baseline
+          path: tools/svg-lint/baseline.json
           retention-days: 7

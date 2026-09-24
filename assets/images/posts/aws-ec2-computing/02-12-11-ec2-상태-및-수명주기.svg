@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg">
+<svg width="515" viewBox="91 -10.5 515 530.5" xmlns="http://www.w3.org/2000/svg"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="91" y="-10.5" width="515" height="530.5" fill="#ffffff"/>
   <defs>
     <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
-    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
   </defs>
 
   <text x="360" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">🔄 EC2 인스턴스 수명주기</text>

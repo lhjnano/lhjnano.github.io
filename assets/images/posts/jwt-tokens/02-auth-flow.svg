@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 480" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<svg width="494" xmlns="http://www.w3.org/2000/svg" viewBox="43 -7 494 484" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="43" y="-7" width="494" height="484" fill="#ffffff"/>
   <defs>
     <marker id="ah" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L9,3 z" fill="#666"/>

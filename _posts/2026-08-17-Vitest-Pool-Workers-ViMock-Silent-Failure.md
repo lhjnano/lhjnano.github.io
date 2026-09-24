@@ -51,8 +51,8 @@ mock이 적용됐다면 외부 요청은 일어나지 않았어야 합니다. �
 > **vi.mock이 소리 없이 죽는 이유**: 테스트 러너(Node)와 테스트 대상(workerd)이 서로 다른 프로세스
 > 경계에 있어서, 모듈 레벨 모킹이 전달되지 않기 때문입니다.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460"
-     width="860" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="vi.mock은 Node 프로세스에 갇히고 workerd의 fetch는 외부 API로 나가는 실패 흐름 시퀀스 다이어그램">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13 -5.3 834 467.3"
+     width="834" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="vi.mock은 Node 프로세스에 갇히고 workerd의 fetch는 외부 API로 나가는 실패 흐름 시퀀스 다이어그램"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="13" y="-5.3" width="834" height="467.3" fill="#ffffff"/>
   <defs>
     <marker id="vpw-arrow-blue" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 740 280" xmlns="http://www.w3.org/2000/svg">
+<svg width="726" viewBox="26 -6.5 726 303.5" xmlns="http://www.w3.org/2000/svg"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="26" y="-6.5" width="726" height="303.5" fill="#ffffff"/>
   <defs>
     <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
-    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
   </defs>
   <rect width="740" height="280" fill="#f8fafc" rx="8"/>
   <text x="370" y="26" text-anchor="middle" font-size="14" font-weight="700" font-family="sans-serif" fill="#37474f">📈 스팟 인스턴스 중단 흐름</text>

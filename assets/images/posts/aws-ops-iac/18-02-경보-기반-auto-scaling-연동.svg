@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 390" xmlns="http://www.w3.org/2000/svg">
+<svg width="919" viewBox="-2 -8.5 919 345.5" xmlns="http://www.w3.org/2000/svg"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="-2" y="-8.5" width="919" height="345.5" fill="#ffffff"/>
 <defs>
 <filter id="ds" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/></filter>
-<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
 </defs>
 <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="bold" font-family="sans-serif">📊 CloudWatch 기반 자동 스케일링 아키텍처</text>
 <rect x="20" y="48" width="150" height="55" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" filter="url(#ds)"/>

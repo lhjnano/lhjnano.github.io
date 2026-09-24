@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+<svg width="584" viewBox="58 -2.5 584 427.5" xmlns="http://www.w3.org/2000/svg"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="58" y="-2.5" width="584" height="427.5" fill="#ffffff"/>
   <defs>
-    <marker id="arrow-d1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+    <marker id="arrow-d1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
     <filter id="shadow"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
   </defs>
   <rect width="700" height="420" fill="#f8fafb" rx="8"/>

@@ -37,8 +37,8 @@ zresmon은 ZFS 커널 모듈 위에서 동작하는 TUI입니다. 테스트하�
 아래 그림이 전체 아키텍처입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480"
-     width="880" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="zresmon CI 아키텍처. GitHub Actions ubuntu-latest 러너에서 qemu-boot.sh가 distro 클라우드 이미지를 다운로드하고 QEMU VM을 부팅한 뒤, vm-payload.sh를 VM에 전송하여 실행한다. VM 내부에서는 빌드 의존성 설치, OpenZFS 2.4.1 소스빌드, Rust 툴체인 설치, zresmon 클론, 유닛 테스트, 랩 매트릭스 17케이스 실행이 순서대로 진행된다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 -7.3 784 487.8"
+     width="784" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="zresmon CI 아키텍처. GitHub Actions ubuntu-latest 러너에서 qemu-boot.sh가 distro 클라우드 이미지를 다운로드하고 QEMU VM을 부팅한 뒤, vm-payload.sh를 VM에 전송하여 실행한다. VM 내부에서는 빌드 의존성 설치, OpenZFS 2.4.1 소스빌드, Rust 툴체인 설치, zresmon 클론, 유닛 테스트, 랩 매트릭스 17케이스 실행이 순서대로 진행된다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="-7.3" width="784" height="487.8" fill="#ffffff"/>
   <defs>
     <marker id="ci-arr" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
@@ -82,13 +82,13 @@ zresmon은 ZFS 커널 모듈 위에서 동작하는 TUI입니다. 테스트하�
 
   <rect x="550" y="220" width="230" height="200" rx="8" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.3"/>
   <text x="665" y="246" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">소요 시간 (VM당)</text>
-  <text x="565" y="270" font-size="9.5" fill="#8b949e">이미지 다운로드</text><text x="780" y="270" text-anchor="end" font-size="9.5" fill="#666666">~30초</text>
-  <text x="565" y="290" font-size="9.5" fill="#8b949e">부팅 + SSH 대기</text><text x="780" y="290" text-anchor="end" font-size="9.5" fill="#666666">~2분</text>
-  <text x="565" y="310" font-size="9.5" fill="#8b949e">ZFS 소스빌드</text><text x="780" y="310" text-anchor="end" font-size="9.5" fill="#666666">~5분</text>
-  <text x="565" y="330" font-size="9.5" fill="#8b949e">유닛 테스트</text><text x="780" y="330" text-anchor="end" font-size="9.5" fill="#666666">~30초</text>
-  <text x="565" y="350" font-size="9.5" fill="#8b949e">랩 매트릭스 17케이스</text><text x="780" y="350" text-anchor="end" font-size="9.5" fill="#666666">~15분</text>
+  <text x="565" y="270" font-size="9.5" fill="#8b949e">이미지 다운로드</text><text x="774" y="270" text-anchor="end" font-size="9.5" fill="#666666">~30초</text>
+  <text x="565" y="290" font-size="9.5" fill="#8b949e">부팅 + SSH 대기</text><text x="774" y="290" text-anchor="end" font-size="9.5" fill="#666666">~2분</text>
+  <text x="565" y="310" font-size="9.5" fill="#8b949e">ZFS 소스빌드</text><text x="774" y="310" text-anchor="end" font-size="9.5" fill="#666666">~5분</text>
+  <text x="565" y="330" font-size="9.5" fill="#8b949e">유닛 테스트</text><text x="774" y="330" text-anchor="end" font-size="9.5" fill="#666666">~30초</text>
+  <text x="565" y="350" font-size="9.5" fill="#8b949e">랩 매트릭스 17케이스</text><text x="774" y="350" text-anchor="end" font-size="9.5" fill="#666666">~15분</text>
   <rect x="565" y="368" width="200" height="1" fill="#e2e8f0"/>
-  <text x="565" y="390" font-size="10" font-weight="700" fill="#666666">합계</text><text x="780" y="390" text-anchor="end" font-size="10" font-weight="700" fill="#666666">~12-25분</text>
+  <text x="565" y="390" font-size="10" font-weight="700" fill="#666666">합계</text><text x="774" y="390" text-anchor="end" font-size="10" font-weight="700" fill="#666666">~12-25분</text>
 
   <line x1="530" y1="196" x2="395" y2="216" stroke="#666666" stroke-width="1.4" marker-end="url(#ci-arr)"/>
   <line x1="530" y1="196" x2="665" y2="216" stroke="#666666" stroke-width="1.4" marker-end="url(#ci-arr)"/>

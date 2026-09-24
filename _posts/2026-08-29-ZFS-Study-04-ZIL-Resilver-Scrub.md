@@ -89,8 +89,8 @@ zil_header가 objset_phys 안에 산다는 점이 눈여겨볼 곳입니다. ZIL
 lwb는 zio로 디스크에 쓰인 뒤 flush(FUA/barrier)를 치르고, flush까지 포함된 완료 ack가 오면 waiter가 깨어나(zcw_done) fsync가 반환됩니다. 크래시 내구성의 판정 기준은 lwb 블록이 디스크에 flush됐는가 하나입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1070 650"
-     width="1070" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="fsync 시퀀스 다이어그램. 앱, ZPL, ZIL, 디스크 네 액터의 라이프라인이 있다. 앱이 write를 호출하면 ZPL의 zfs_log_write가 쓰기를 itx로 만들며 기록 방식을 판정한다. 앱이 fsync를 호출하면 ZPL은 zil_commit으로 commit itx를 ZIL에 넘기고, ZIL은 zil_process_commit_list로 itx를 lwb 블록에 직렬화해 waiter를 등록한 뒤 디스크에 lwb를 기록하고 flush한다. 디스크에서 flush를 포함한 완료 ack가 돌아오면 대기하던 waiter가 깨어나 앱의 fsync가 반환된다. WR_INDIRECT면 lwb에는 blkptr만 기록되고 데이터는 같은 txg의 dmu_sync 결과물이 담당하며 fsync 대기는 lwb flush 완료로 풀린다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 -11.3 1014 666.3"
+     width="1014" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="fsync 시퀀스 다이어그램. 앱, ZPL, ZIL, 디스크 네 액터의 라이프라인이 있다. 앱이 write를 호출하면 ZPL의 zfs_log_write가 쓰기를 itx로 만들며 기록 방식을 판정한다. 앱이 fsync를 호출하면 ZPL은 zil_commit으로 commit itx를 ZIL에 넘기고, ZIL은 zil_process_commit_list로 itx를 lwb 블록에 직렬화해 waiter를 등록한 뒤 디스크에 lwb를 기록하고 flush한다. 디스크에서 flush를 포함한 완료 ack가 돌아오면 대기하던 waiter가 깨어나 앱의 fsync가 반환된다. WR_INDIRECT면 lwb에는 blkptr만 기록되고 데이터는 같은 txg의 dmu_sync 결과물이 담당하며 fsync 대기는 lwb flush 완료로 풀린다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="28" y="-11.3" width="1014" height="666.3" fill="#ffffff"/>
   <defs>
     <marker id="zs6-fgray" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
     <marker id="zs6-fgreen" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#16a34a"/></marker>
@@ -164,8 +164,8 @@ lwb는 zio로 디스크에 쓰인 뒤 flush(FUA/barrier)를 치르고, flush까�
 크래시가 나면 메모리의 zilog, itx, lwb는 전부 소실되고 디스크의 로그 블록과 zil_header만 남습니다. import가 이 잔해를 어떻게 청산하는지가 ZIL 생애주기의 후반부입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 440"
-     width="1020" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="크래시에서 replay까지 ZIL 타임라인. 정상 운영 단계에서는 동기 쓰기를 lwb에 적재하고 txg 커밋분은 zil_sync가 무효화해 로그를 짧게 유지한다. 크래시 단계에서는 메모리의 zilog와 itx, lwb가 소실되고 디스크 로그만 남는다. import 단계에서는 uberblock을 선택해 first_txg를 확정해 미반영 경계를 획정한다. ZIL claim 단계에서는 zil_claim이 birth가 first_txg 이상인 블록만 소유 확정하며 zh_claim_txg를 남긴다. replay 완료 단계에서는 미반영 레코드만 순서대로 재실행하고 zil_destroy로 헤더를 정리해 빈 로그로 재출발한다. 하단의 3규칙은 txg 반영분 스킵, 미반영분만 순서 재생, 실패 레코드는 재시도 1회 후 경고하고 계속 진행함을 담는다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -9.3 1014 451.3"
+     width="1014" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="크래시에서 replay까지 ZIL 타임라인. 정상 운영 단계에서는 동기 쓰기를 lwb에 적재하고 txg 커밋분은 zil_sync가 무효화해 로그를 짧게 유지한다. 크래시 단계에서는 메모리의 zilog와 itx, lwb가 소실되고 디스크 로그만 남는다. import 단계에서는 uberblock을 선택해 first_txg를 확정해 미반영 경계를 획정한다. ZIL claim 단계에서는 zil_claim이 birth가 first_txg 이상인 블록만 소유 확정하며 zh_claim_txg를 남긴다. replay 완료 단계에서는 미반영 레코드만 순서대로 재실행하고 zil_destroy로 헤더를 정리해 빈 로그로 재출발한다. 하단의 3규칙은 txg 반영분 스킵, 미반영분만 순서 재생, 실패 레코드는 재시도 1회 후 경고하고 계속 진행함을 담는다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="-2" y="-9.3" width="1014" height="451.3" fill="#ffffff"/>
   <defs>
     <marker id="zs6-bgray" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
   </defs>
@@ -311,8 +311,8 @@ vdev마다 잃은 데이터를 range_tree로 들고 있고 운영상 의미 있�
 장부는 이탈 순간부터 쌓입니다. 죽은 순간의 txg부터 DTL_MISSING에 구간이 자라고, 죽어 있던 동안의 쓰기가 없으니 돌아와도 그대로입니다. 풀이 통째로 죽어 있었다면 import 시 마지막 정상 txg부터 깔립니다. 아래 그림이 장부의 일생입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 522"
-     width="760" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="DTL 장부의 일생을 시간순으로 보여주는 다이어그램. t0 정상 운영에서는 DTL이 비어 있고 txg 0부터 99까지 복제본이 온전하다. t1 txg 100에 미러 한쪽 디스크가 이탈하면 이탈 순간의 txg부터 DTL_MISSING 구간이 자라기 시작한다. t2 txg 250에 디스크가 복귀하면 resilver가 시작되는데 재접속이면 이탈 구간 100~250만, 새 디스크 교체면 전 구간으로 장부가 확대된다. t3 복구 진행 중에는 blk_birth가 100~250 안에 드는 live 블록만 선별해 복사하며 초록 구간이 자라고 200~250 빨간 구간이 잔여로 남는다. t4 완료하면 vdev_dtl_reassess가 구간을 excise해 장부가 비고, 오류 흔적이 남으면 scn_errors 0 초과 조건으로 재시작한다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 -9.3 724 533.9"
+     width="724" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="DTL 장부의 일생을 시간순으로 보여주는 다이어그램. t0 정상 운영에서는 DTL이 비어 있고 txg 0부터 99까지 복제본이 온전하다. t1 txg 100에 미러 한쪽 디스크가 이탈하면 이탈 순간의 txg부터 DTL_MISSING 구간이 자라기 시작한다. t2 txg 250에 디스크가 복귀하면 resilver가 시작되는데 재접속이면 이탈 구간 100~250만, 새 디스크 교체면 전 구간으로 장부가 확대된다. t3 복구 진행 중에는 blk_birth가 100~250 안에 드는 live 블록만 선별해 복사하며 초록 구간이 자라고 200~250 빨간 구간이 잔여로 남는다. t4 완료하면 vdev_dtl_reassess가 구간을 excise해 장부가 비고, 오류 흔적이 남으면 scn_errors 0 초과 조건으로 재시작한다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="-9.3" width="724" height="533.9" fill="#ffffff"/>
   <defs>
     <marker id="zs5-ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
   </defs>
@@ -362,8 +362,8 @@ vdev마다 잃은 데이터를 range_tree로 들고 있고 운영상 의미 있�
   <text x="388" y="431.5" text-anchor="middle" font-size="9.5" fill="#16a34a">DTL 비어 있음 - 복제 완전</text>
 
   <g font-size="10" fill="#666">
-    <rect x="56" y="462" width="14" height="14" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="76" y="473">복제본 온전·복구 완료</text>
-    <rect x="230" y="462" width="14" height="14" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/><text x="250" y="473">DTL_MISSING(복제본 없음)</text>
+    <rect x="56" y="462" width="14" height="14" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="84" y="473">복제본 온전·복구 완료</text>
+    <rect x="230" y="462" width="14" height="14" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/><text x="258" y="473">DTL_MISSING(복제본 없음)</text>
     <line x1="450" y1="462" x2="450" y2="476" stroke="#fbbf24" stroke-width="3"/><text x="458" y="473">복귀 시점</text>
     <text x="560" y="473" fill="#8b949e">점선 = 아직 오지 않은 txg</text>
   </g>
@@ -440,8 +440,8 @@ if (!vdev_dtl_need_resilver(vd, dva, psize, phys_birth))
 왼쪽은 트리를 걷는 healing, 오른쪽은 디스크를 채우는 sequential입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 594"
-     width="760" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="재구성 두 경로의 구조 비교 다이어그램. 왼쪽 healing resilver는 MOS와 메타 트리를 순회해 live 블록 포인터를 만나면 DTL 필터로 blk_birth가 구간 안인 블록만 선별하고, 살아 있는 복제본에서 읽어 체크섬을 검증한 뒤 원래 DVA 위치로 재기록하며 scan_io_queue가 오프셋 순으로 정렬 발급한다. 장점은 raidz 포함 전 구성 지원과 읽는 복제본 전부를 대상으로 하는 체크섬 검증이고, 단점은 메타 트리 전체 순회 비용이다. 오른쪽 sequential resilver는 space map으로 할당 범위 지도를 만들고 합성 블록 포인터로 범위를 통째로 읽어 새 디스크에 오프셋 순서대로 순차 기록하며, 완료 시 DTL excise와 함께 자동 scrub을 예약한다. 장점은 완전 순차 I/O의 속도와 거대 메타 풀과 무관한 성능, 단점은 top-level mirror만 지원하고 진행 중 새 디스크 attach 시 처음부터 재시작한다는 점이다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 -9.3 724 605.9"
+     width="724" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="재구성 두 경로의 구조 비교 다이어그램. 왼쪽 healing resilver는 MOS와 메타 트리를 순회해 live 블록 포인터를 만나면 DTL 필터로 blk_birth가 구간 안인 블록만 선별하고, 살아 있는 복제본에서 읽어 체크섬을 검증한 뒤 원래 DVA 위치로 재기록하며 scan_io_queue가 오프셋 순으로 정렬 발급한다. 장점은 raidz 포함 전 구성 지원과 읽는 복제본 전부를 대상으로 하는 체크섬 검증이고, 단점은 메타 트리 전체 순회 비용이다. 오른쪽 sequential resilver는 space map으로 할당 범위 지도를 만들고 합성 블록 포인터로 범위를 통째로 읽어 새 디스크에 오프셋 순서대로 순차 기록하며, 완료 시 DTL excise와 함께 자동 scrub을 예약한다. 장점은 완전 순차 I/O의 속도와 거대 메타 풀과 무관한 성능, 단점은 top-level mirror만 지원하고 진행 중 새 디스크 attach 시 처음부터 재시작한다는 점이다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="-9.3" width="724" height="605.9" fill="#ffffff"/>
   <defs>
     <marker id="zs5-ah" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
   </defs>
@@ -591,8 +591,8 @@ mintime 이전에는 아무 조건도 검사하지 않습니다. `zfs_scrub_min_
 아래 그림이 한 txg의 시간축을 펼친 것입니다. 위쪽 노란 블록은 foreground 쓰기, 아래쪽 파란 블록은 scrub 발급입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 310"
-     width="880" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="한 txg 안의 scrub 시간 배분 타임라인. txg open부터 sync 마감까지 시간축에서, 위쪽 노란 블록은 foreground 쓰기가 전 구간에 유입되고, 아래쪽 파란 블록은 scrub 발급이 zfs_scrub_min_time_ms 동안은 무조건 보장된 뒤, dirty 데이터 상한 초과나 sync 대기 또는 sync 타임아웃 조건이 하나라도 걸리면 sync 마감선 앞에서 스스로 발급을 중단하고 길을 양보한다. 조건부 연장 구간은 점선 테두리로 구분된다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="58 -5.3 764 317.8"
+     width="764" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="한 txg 안의 scrub 시간 배분 타임라인. txg open부터 sync 마감까지 시간축에서, 위쪽 노란 블록은 foreground 쓰기가 전 구간에 유입되고, 아래쪽 파란 블록은 scrub 발급이 zfs_scrub_min_time_ms 동안은 무조건 보장된 뒤, dirty 데이터 상한 초과나 sync 대기 또는 sync 타임아웃 조건이 하나라도 걸리면 sync 마감선 앞에서 스스로 발급을 중단하고 길을 양보한다. 조건부 연장 구간은 점선 테두리로 구분된다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="58" y="-5.3" width="764" height="317.8" fill="#ffffff"/>
   <defs>
     <marker id="zs7-arr-gray" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
@@ -644,8 +644,8 @@ DTL_SCRUB은 5편에서 본 DTL 장부 시스템의 세 번째 페이지입니�
 여기서 5편과의 중요한 대비가 나옵니다. resilver는 오류가 쌓이면 스스로 재시작하지만(dsl_scan.c:708-719), **scrub은 재시작하지 않습니다.** 오류가 나도 끝까지 순회를 마치고 수집된 오류를 보고하는 것으로 종료합니다. 검증 스캔이 실패 블록에서 무한 루프에 빠지지 않게 하는 절제 장치입니다. 아래 그림이 블록 하나의 운명을 정리합니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 446"
-     width="880" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="scrub 오류 처리 분기 플로우. 블록 읽기와 체크섬 검증에서 시작해, 체크섬이 맞으면 조용히 다음 블록으로 통과하고(초록), 불일치하면 mirror 반대편이나 raidz 패리티로 다른 복제본을 대조하는 self-healing 재구성을 시도하며(노랑), 성공하면 원위치 재기록 후 수선 카운터를 올리고 순회를 계속하고(초록), 실패하면 scn_errors 카운터 증가와 errlog 기록, DTL_SCRUB 장부 마킹이 남는다(빨강). 어느 갈래든 scrub은 멈추지 않으며 오류 재시작은 resilver 전용 동작이다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="38 -7.3 804 455.8"
+     width="804" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="scrub 오류 처리 분기 플로우. 블록 읽기와 체크섬 검증에서 시작해, 체크섬이 맞으면 조용히 다음 블록으로 통과하고(초록), 불일치하면 mirror 반대편이나 raidz 패리티로 다른 복제본을 대조하는 self-healing 재구성을 시도하며(노랑), 성공하면 원위치 재기록 후 수선 카운터를 올리고 순회를 계속하고(초록), 실패하면 scn_errors 카운터 증가와 errlog 기록, DTL_SCRUB 장부 마킹이 남는다(빨강). 어느 갈래든 scrub은 멈추지 않으며 오류 재시작은 resilver 전용 동작이다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="38" y="-7.3" width="804" height="455.8" fill="#ffffff"/>
   <defs>
     <marker id="zs7-f-green" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>

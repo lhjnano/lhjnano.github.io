@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 750 440" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
+<svg width="758" viewBox="-2 -14.5 758 456.5" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><rect x="-2" y="-14.5" width="758" height="456.5" fill="#ffffff"/>
 <defs>
 <filter id="sh" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.1"/></filter>
-<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#546e7a"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#546e7a"/></marker>
 </defs>
-<style>text{font-family:'Segoe UI',system-ui,sans-serif}</style>
+<style>text{font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif}</style>
 <text x="375" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">⚡ 패턴 6: 이벤트 기반 데이터 공유</text>
 <rect x="20" y="34" width="160" height="80" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh)"/>
 <text x="100" y="58" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">📤 데이터 제공자</text>

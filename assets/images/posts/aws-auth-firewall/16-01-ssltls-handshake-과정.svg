@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 740 380" xmlns="http://www.w3.org/2000/svg">
+<svg width="624" viewBox="58 -6.5 624 305.8" xmlns="http://www.w3.org/2000/svg"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style>
                 <defs>
                   <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
                     <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
                   </filter>
-                  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto" markerUnits="userSpaceOnUse">
                     <path d="M0 0 L10 5 L0 10z" fill="#546e7a"/>
                   </marker>
-                  <marker id="ah-left" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <marker id="ah-left" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto" markerUnits="userSpaceOnUse">
                     <path d="M10 0 L0 5 L10 10z" fill="#546e7a"/>
                   </marker>
                 </defs>

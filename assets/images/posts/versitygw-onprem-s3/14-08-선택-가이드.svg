@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 750 460" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+<svg width="694" viewBox="68 -9.8 694 391.8" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="68" y="-9.8" width="694" height="391.8" fill="#ffffff"/>
 <defs>
 <filter id="sh"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity=".12"/></filter>
-<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
 </defs>
 <text x="375" y="22" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">S3 솔루션 선택 플로우차트</text>
 

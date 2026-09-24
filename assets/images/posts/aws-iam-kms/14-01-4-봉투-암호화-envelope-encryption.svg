@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<svg width="724" viewBox="-2 -12 724 424" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="-2" y="-12" width="724" height="424" fill="#ffffff"/>
 <defs>
   <filter id="sh1"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
-  <marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+  <marker id="ar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
 </defs>
 <rect x="20" y="10" width="680" height="170" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
 <text x="360" y="32" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">🔒 암호화 과정</text>

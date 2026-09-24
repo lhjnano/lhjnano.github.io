@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+<svg width="634" viewBox="8 3 634 297" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="8" y="3" width="634" height="297" fill="#ffffff"/>
 <defs>
   <filter id="sh2"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
-  <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
+  <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10z" fill="#546e7a"/></marker>
 </defs>
 <rect x="30" y="25" width="190" height="42" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" filter="url(#sh2)"/>
 <text x="125" y="51" text-anchor="middle" font-size="13" font-weight="bold" fill="#0284c7">💻 Windows EC2</text>

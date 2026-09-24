@@ -41,8 +41,8 @@ toc_sticky: true
 아래 그림이 전체 데이터 흐름입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380"
-     width="880" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="zresmon 아키텍처 데이터 흐름. 왼쪽에 세 개의 데이터 소스( proc 스캔 kstat, zpool status -v, zpool events -fv)가 있고, 가운데 3단 폴백 파서(kstat 1단, scan 라인 2단, rebuild 문구 프로브 3단)가 이 소스들을 같은 상태 모델로 정규화하며, 오른쪽 TUI가 진행 게이지, vdev 트리, 에러 서페이스 맵, 멀티풀 탭바 네 패널로 출력한다. 모든 화살표는 읽기 방향뿐이고 풀에 대한 쓰기 경로는 없다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 -7.3 844 387.8"
+     width="844" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="zresmon 아키텍처 데이터 흐름. 왼쪽에 세 개의 데이터 소스( proc 스캔 kstat, zpool status -v, zpool events -fv)가 있고, 가운데 3단 폴백 파서(kstat 1단, scan 라인 2단, rebuild 문구 프로브 3단)가 이 소스들을 같은 상태 모델로 정규화하며, 오른쪽 TUI가 진행 게이지, vdev 트리, 에러 서페이스 맵, 멀티풀 탭바 네 패널로 출력한다. 모든 화살표는 읽기 방향뿐이고 풀에 대한 쓰기 경로는 없다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="-7.3" width="844" height="387.8" fill="#ffffff"/>
   <defs>
     <marker id="zs8-arr-gray" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>

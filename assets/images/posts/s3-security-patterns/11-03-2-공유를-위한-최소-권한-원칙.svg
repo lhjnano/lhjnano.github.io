@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 740 460" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
-<defs><filter id="sh_최소권한원칙" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_최소권한원칙" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<svg width="744" viewBox="-2 -4.5 744 468.5" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="-2" y="-4.5" width="744" height="468.5" fill="#ffffff"/>
+<defs><filter id="sh_최소권한원칙" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_최소권한원칙" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
 <rect x="0" y="0" width="740" height="460" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
 <text x="370" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50">🔑 최소 권한 원칙: 공유 시나리오별 권한 매트릭스</text>
 <rect x="20" y="42" width="200" height="30" rx="6" fill="#fbbf24"/>

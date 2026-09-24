@@ -34,8 +34,8 @@ select와 poll이 매번 목록 전체를 다시 건넬 때, kqueue는 커널이
 
 말로는 추상적입니다. 구조를 그림으로 펼치면 세 축이 한 번에 보입니다.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560"
-     width="900" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="kqueue 구조 다이어그램: 이질적 이벤트 소스 5종이 커널의 kqueue에 필터로 등록되고, 애플리케이션이 kevent 호출 하나로 등록과 반출을 동시에 수행하는 구조">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 -5.3 854 565.3"
+     width="854" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="kqueue 구조 다이어그램: 이질적 이벤트 소스 5종이 커널의 kqueue에 필터로 등록되고, 애플리케이션이 kevent 호출 하나로 등록과 반출을 동시에 수행하는 구조"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="28" y="-5.3" width="854" height="565.3" fill="#ffffff"/>
   <defs>
     <marker id="kq-arr-gray" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
@@ -89,7 +89,7 @@ select와 poll이 매번 목록 전체를 다시 건넬 때, kqueue는 커널이
   <text x="775" y="304" text-anchor="middle" font-size="10" fill="#2563eb">struct kevent 배열로 수신</text>
 
   <line x1="690" y1="260" x2="590" y2="260" stroke="#2563eb" stroke-width="1.5" marker-end="url(#kq-arr-blue)"/>
-  <text x="640" y="252" text-anchor="middle" font-size="10" fill="#2563eb">changelist 등록/변경</text>
+  <text x="640" y="252" text-anchor="middle" font-size="10" fill="#2563eb">changelist 등록</text>
   <line x1="590" y1="320" x2="690" y2="320" stroke="#16a34a" stroke-width="1.5" marker-end="url(#kq-arr-green)"/>
   <text x="640" y="312" text-anchor="middle" font-size="10" fill="#16a34a">eventlist 반출</text>
 

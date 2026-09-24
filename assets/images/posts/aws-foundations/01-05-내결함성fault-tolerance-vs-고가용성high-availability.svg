@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 740 480" xmlns="http://www.w3.org/2000/svg">
+<svg width="744" viewBox="-2 -12 744 506.8" xmlns="http://www.w3.org/2000/svg"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="-2" y="-12" width="744" height="506.8" fill="#ffffff"/>
   <defs>
     <filter id="sh"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/></filter>
-    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/></marker>
   </defs>
   <rect width="740" height="480" fill="#f8fafc" rx="8"/>
   <rect x="20" y="10" width="700" height="225" rx="8" fill="#e8f5e9" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>

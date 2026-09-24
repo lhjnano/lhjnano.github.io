@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 530" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif">
-<defs><filter id="sh_보안모델개요" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_보안모델개요" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
+<svg width="704" viewBox="8 -5.3 704 553.8" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="8" y="-5.3" width="704" height="553.8" fill="#ffffff"/>
+<defs><filter id="sh_보안모델개요" x="-2%" y="-2%" width="104%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter><marker id="ar_보안모델개요" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,10 3.5,0 7" fill="#546e7a"/></marker></defs>
 <rect x="0" y="0" width="720" height="530" rx="12" fill="#fafbfc" stroke="#e2e8f0"/>
 <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#2c3e50">🛡️ S3 보안 레이어 모델 (Defense in Depth)</text>
 <rect x="30" y="42" width="660" height="60" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" filter="url(#sh_보안모델개요)"/>

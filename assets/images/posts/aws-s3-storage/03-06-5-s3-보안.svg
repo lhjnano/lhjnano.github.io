@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 720 410" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif">
+<svg width="604" viewBox="58 -8.5 604 408.5" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif"><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="58" y="-8.5" width="604" height="408.5" fill="#ffffff"/>
   <style>text{fill:#2c3e50}</style>
   <defs>
     <filter id="sh" x="-4%" y="-4%" width="108%" height="108%">
       <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
     </filter>
-    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
       <polygon points="0 0, 10 3.5, 0 7" fill="#546e7a"/>
     </marker>
   </defs>

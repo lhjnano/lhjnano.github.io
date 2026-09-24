@@ -36,8 +36,8 @@ toc_sticky: true
 왜 앞 2개, 뒤 2개로 갈라 놓았을까요? 헤드 크래시로 앞이 깎이거나 파티션 테이블이 손상돼도 **한쪽 끝만 살아있으면 라벨이 남는** 배치이기 때문입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 190"
-     width="860" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 디스크 배치도(1GiB 예시): 디스크 시작에 라벨 0과 라벨 1이 각 256KiB씩 붙고, 3.5MiB boot 예약 영역이 이어지며, 디스크의 대부분은 데이터와 메타데이터가 차지합니다. 디스크 끝 512KiB에는 라벨 2와 라벨 3이 붙습니다. 양 끝에 라벨을 배치해 한쪽 끝이 손상돼도 라벨이 살아남는 구조입니다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 28 824 166.8"
+     width="824" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 디스크 배치도(1GiB 예시): 디스크 시작에 라벨 0과 라벨 1이 각 256KiB씩 붙고, 3.5MiB boot 예약 영역이 이어지며, 디스크의 대부분은 데이터와 메타데이터가 차지합니다. 디스크 끝 512KiB에는 라벨 2와 라벨 3이 붙습니다. 양 끝에 라벨을 배치해 한쪽 끝이 손상돼도 라벨이 살아남는 구조입니다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="28" width="824" height="166.8" fill="#ffffff"/>
   <rect x="40" y="50" width="80" height="60" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.4"/>
   <text x="80" y="77" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">라벨 0</text>
   <text x="80" y="96" text-anchor="middle" font-size="10" fill="#92400e">256KiB</text>
@@ -68,8 +68,8 @@ toc_sticky: true
 라벨 하나는 `vdev_label_t` 구조체를 디스크에 그대로 눕힌 정확히 256KiB입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 190"
-     width="860" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="라벨 하나의 내부 256KiB가 4층 구조인 그림. pad1 8KiB(0 채움), bootenv 8KiB(GRUB 부트 환경), 설정 nvlist 112KiB(XDR 인코딩, pool GUID 포함, 초록 강조), uberblock 링 128KiB(슬롯 배열, 노랑 강조) 순서로 이어집니다. 오프셋은 +0x0000, +0x2000, +0x4000, +0x20000, +0x40000입니다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 24 824 168.8"
+     width="824" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="라벨 하나의 내부 256KiB가 4층 구조인 그림. pad1 8KiB(0 채움), bootenv 8KiB(GRUB 부트 환경), 설정 nvlist 112KiB(XDR 인코딩, pool GUID 포함, 초록 강조), uberblock 링 128KiB(슬롯 배열, 노랑 강조) 순서로 이어집니다. 오프셋은 +0x0000, +0x2000, +0x4000, +0x20000, +0x40000입니다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="24" width="824" height="168.8" fill="#ffffff"/>
   <rect x="40" y="46" width="120" height="64" rx="6" fill="#f0f4f8" stroke="#666666" stroke-width="1.3"/>
   <text x="100" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#666666">pad1</text>
   <text x="100" y="92" text-anchor="middle" font-size="10" fill="#666666">8KiB · 0 채움</text>
@@ -105,8 +105,8 @@ toc_sticky: true
 풀 이름이 tank(4글자)면 엔트리 크기를 하나씩 더해 pool GUID의 자리를 정확히 계산할 수 있습니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 200"
-     width="860" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="nvlist 바이트 산책 그림. 라벨 내 오프셋 0x4000에서 시작해 nvlist 헤더 8바이트, version 엔트리, name 엔트리(문자열 tank 포함), state 엔트리, txg 엔트리를 차례로 지나 pool_guid 엔트리의 값에 도달합니다. 각 단계 아래 누적 오프셋(0x4000, 0x4008, 0x402C, 0x4054, 0x4078, 0x4098)이 표시되고 pool_guid의 값은 8바이트 뒤인 절대 주소 0x40B8에 있음이 초록 박스로 강조됩니다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 28 824 166.8"
+     width="824" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="nvlist 바이트 산책 그림. 라벨 내 오프셋 0x4000에서 시작해 nvlist 헤더 8바이트, version 엔트리, name 엔트리(문자열 tank 포함), state 엔트리, txg 엔트리를 차례로 지나 pool_guid 엔트리의 값에 도달합니다. 각 단계 아래 누적 오프셋(0x4000, 0x4008, 0x402C, 0x4054, 0x4078, 0x4098)이 표시되고 pool_guid의 값은 8바이트 뒤인 절대 주소 0x40B8에 있음이 초록 박스로 강조됩니다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="28" width="824" height="166.8" fill="#ffffff"/>
   <defs>
     <marker id="zs1-a" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#999999"/>
@@ -207,8 +207,8 @@ XDR nvlist 문법과 각 엔트리의 크기 계산, 그리고 실제 덤프에�
 링은 라벨 내 0x20000부터 128KiB입니다. 슬롯 크기와 개수는 **ashift가 결정**합니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 220"
-     width="860" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="uberblock 링의 순환 그림. 슬롯 0부터 127까지 배열에서 쓰기는 매 트랜잭션 그룹(txg)마다 다음 슬롯으로 이동합니다. 슬롯 55는 txg 2999(과거, 초록), 슬롯 56은 txg 3000(현재 커밋, 노랑 강조), 슬롯 57은 txg 3001(다음, 점선)이고, 슬롯 127 다음에는 다시 슬롯 0으로 순환하는 화살표가 그려져 있습니다. 모든 유효 슬롯은 매직 넘버 00 ba b1 0c로 시작합니다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 28 714 194.8"
+     width="714" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="uberblock 링의 순환 그림. 슬롯 0부터 127까지 배열에서 쓰기는 매 트랜잭션 그룹(txg)마다 다음 슬롯으로 이동합니다. 슬롯 55는 txg 2999(과거, 초록), 슬롯 56은 txg 3000(현재 커밋, 노랑 강조), 슬롯 57은 txg 3001(다음, 점선)이고, 슬롯 127 다음에는 다시 슬롯 0으로 순환하는 화살표가 그려져 있습니다. 모든 유효 슬롯은 매직 넘버 00 ba b1 0c로 시작합니다."><style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style><rect x="18" y="28" width="714" height="194.8" fill="#ffffff"/>
   <defs>
     <marker id="zs1-b" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
