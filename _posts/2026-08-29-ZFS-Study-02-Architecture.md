@@ -29,9 +29,10 @@ toc_sticky: true
 ZFS는 엄격한 레이어드 아키텍처입니다. 각 층은 바로 아래 층의 API만 호출하고, 층을 건너뛰거나 거슬러 올라가지 않습니다. 이 규칙을 모르면 소스에서 길을 잃습니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 484" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 레이어 케이크 구조도: 위에서부터 ZPL이 POSIX 파일 시맨틱으로 쓰기를 접수하고, DMU가 객체 단위 트랜잭션으로 블록을 더티로 만들며, SPA가 풀에서 공간을 할당하고, ZIO가 압축과 체크섬 변환을 거쳐 발급하면, vdev가 미러와 RAIDZ 논리로 실제 디스크에 I/O를 발급한다. 호출 방향은 항상 한 층 아래로만 향하고, ARC와 ZIL은 층이 아니라 옆에 붙는 횡단 서비스다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 488"
+     width="760" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 레이어 케이크 구조도: 위에서부터 ZPL이 POSIX 파일 시맨틱으로 쓰기를 접수하고, DMU가 객체 단위 트랜잭션으로 블록을 더티로 만들며, SPA가 풀에서 공간을 할당하고, ZIO가 압축과 체크섬 변환을 거쳐 발급하면, vdev가 미러와 RAIDZ 논리로 실제 디스크에 I/O를 발급한다. 호출 방향은 항상 한 층 아래로만 향하고, ARC와 ZIL은 층이 아니라 옆에 붙는 횡단 서비스다.">
   <defs>
-    <marker id="zs2-ar1" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
+    <marker id="zs2-ar1" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
   </defs>
   <text x="380" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#2c3e50">ZFS 레이어 케이크: 호출은 항상 한 층 아래로</text>
   <rect x="40" y="40" width="680" height="65" rx="6" fill="#f0f4f8" stroke="#666" stroke-width="1.5"/>
@@ -73,9 +74,10 @@ ZFS는 엄격한 레이어드 아키텍처입니다. 각 층은 바로 아래 �
 ZFS 디스크의 모든 것은 **"블록 포인터(blkptr)로 연결된 CoW 트리"** 한 문장으로 요약됩니다. 부팅이든 읽기든 결국 이 체인을 타고 내려갑니다. 시작점은 1편에서 바이트 단위로 봤던 라벨 속 uberblock 슬롯 링입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 578" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 온디스크 체인 도식: uberblock의 ub_rootbp가 MOS(objset 0)을 가리키고, MOS의 DSL 디렉터리가 데이터셋 objset을 가리키며, objset의 os_meta_dnode가 dnode를 가리키고, dnode의 dn_blkptr이 blkptr과 간접 블록을 거쳐 L0 데이터 블록에 닿는다. 각 화살표의 실체는 128바이트 blkptr이고, uberblock 슬롯 교체가 곧 커밋이다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 588"
+     width="760" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="ZFS 온디스크 체인 도식: uberblock의 ub_rootbp가 MOS(objset 0)을 가리키고, MOS의 DSL 디렉터리가 데이터셋 objset을 가리키며, objset의 os_meta_dnode가 dnode를 가리키고, dnode의 dn_blkptr이 blkptr과 간접 블록을 거쳐 L0 데이터 블록에 닿는다. 각 화살표의 실체는 128바이트 blkptr이고, uberblock 슬롯 교체가 곧 커밋이다.">
   <defs>
-    <marker id="zs2-ar2" markerWidth="8" markerHeight="8" refX="6.5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
+    <marker id="zs2-ar2" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L0,6 L7,3 z" fill="#666"/></marker>
   </defs>
   <text x="380" y="22" text-anchor="middle" font-size="15" font-weight="700" fill="#2c3e50">온디스크 체인: uberblock에서 데이터 블록까지</text>
   <rect x="40" y="40" width="520" height="65" rx="6" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.5"/>

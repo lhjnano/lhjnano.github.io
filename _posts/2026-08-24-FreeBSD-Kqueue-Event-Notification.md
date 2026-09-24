@@ -34,15 +34,16 @@ select와 poll이 매번 목록 전체를 다시 건넬 때, kqueue는 커널이
 
 말로는 추상적입니다. 구조를 그림으로 펼치면 세 축이 한 번에 보입니다.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="kqueue 구조 다이어그램: 이질적 이벤트 소스 5종이 커널의 kqueue에 필터로 등록되고, 애플리케이션이 kevent 호출 하나로 등록과 반출을 동시에 수행하는 구조">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560"
+     width="900" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="kqueue 구조 다이어그램: 이질적 이벤트 소스 5종이 커널의 kqueue에 필터로 등록되고, 애플리케이션이 kevent 호출 하나로 등록과 반출을 동시에 수행하는 구조">
   <defs>
-    <marker id="kq-arr-gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="kq-arr-gray" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
     </marker>
-    <marker id="kq-arr-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="kq-arr-blue" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
     </marker>
-    <marker id="kq-arr-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="kq-arr-green" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
     </marker>
   </defs>

@@ -37,12 +37,13 @@ zresmon은 ZFS 커널 모듈 위에서 동작하는 TUI입니다. 테스트하�
 아래 그림이 전체 아키텍처입니다.
 
 <figure>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="zresmon CI 아키텍처. GitHub Actions ubuntu-latest 러너에서 qemu-boot.sh가 distro 클라우드 이미지를 다운로드하고 QEMU VM을 부팅한 뒤, vm-payload.sh를 VM에 전송하여 실행한다. VM 내부에서는 빌드 의존성 설치, OpenZFS 2.4.1 소스빌드, Rust 툴체인 설치, zresmon 클론, 유닛 테스트, 랩 매트릭스 17케이스 실행이 순서대로 진행된다.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480"
+     width="880" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="zresmon CI 아키텍처. GitHub Actions ubuntu-latest 러너에서 qemu-boot.sh가 distro 클라우드 이미지를 다운로드하고 QEMU VM을 부팅한 뒤, vm-payload.sh를 VM에 전송하여 실행한다. VM 내부에서는 빌드 의존성 설치, OpenZFS 2.4.1 소스빌드, Rust 툴체인 설치, zresmon 클론, 유닛 테스트, 랩 매트릭스 17케이스 실행이 순서대로 진행된다.">
   <defs>
-    <marker id="ci-arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="ci-arr" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
     </marker>
-    <marker id="ci-arr-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="ci-arr-green" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
     </marker>
   </defs>

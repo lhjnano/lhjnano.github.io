@@ -45,12 +45,13 @@ netmap(4)은 FreeBSD의 커널 바이패스 패킷 I/O 프레임워크입니다.
 
 netmap은 이 경로를 우회합니다. `/dev/netmap`을 열어 링을 mmap으로 직접 얻고, **netmap을 인식하는 드라이버 훅**을 통해 NIC의 DMA와 만납니다. 아래 그림에서 두 경로를 나란히 보겠습니다.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="FreeBSD 네트워크 스택에서 netmap의 위치: 기존 소켓 경로와 netmap 우회 경로의 비교">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620"
+     width="880" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="FreeBSD 네트워크 스택에서 netmap의 위치: 기존 소켓 경로와 netmap 우회 경로의 비교">
   <defs>
-    <marker id="nmp-arr-gray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="nmp-arr-gray" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#666666"/>
     </marker>
-    <marker id="nmp-arr-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="nmp-arr-green" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
     </marker>
   </defs>
@@ -129,12 +130,13 @@ netmap의 설계에서 좋은 부분은 다섯 종류의 포트가 전부 같은
 
 아래 그림은 이 구조를 세 계층으로 펼친 것입니다. 사용자 공간과 커널이 mmap 영역 하나를 사이에 두고 만납니다.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 548" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="netmap 구조 다이어그램: 사용자 공간과 커널이 mmap 공유 영역의 TX 링, 버퍼 풀, RX 링을 사이에 두고 만나는 3계층 구조">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 548"
+     width="860" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="netmap 구조 다이어그램: 사용자 공간과 커널이 mmap 공유 영역의 TX 링, 버퍼 풀, RX 링을 사이에 두고 만나는 3계층 구조">
   <defs>
-    <marker id="nm1-arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="nm1-arrow-blue" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
     </marker>
-    <marker id="nm1-arrow-purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="nm1-arrow-purple" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/>
     </marker>
   </defs>
@@ -295,15 +297,16 @@ ioctl(fd_tx, NIOCREGIF, &req_tx);     // 등록, 이제 두 포트는 같은 할
 
 아래 시퀀스 다이어그램이 규칙 1 적용 전과 후를 대비합니다. 전에는 패킷이 스위치에서 증발하고, 후에는 8개 전부 도착합니다.
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="VALE 규칙 1 시퀀스 다이어그램: memid 불일치 때 패킷이 스위치에서 소멸하는 실패 흐름과 첫 포트 memid 고정 후 8개 전부 전달되는 성공 흐름의 대비">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600"
+     width="860" font-family="'Segoe UI','Noto Sans KR',system-ui,sans-serif" role="img" aria-label="VALE 규칙 1 시퀀스 다이어그램: memid 불일치 때 패킷이 스위치에서 소멸하는 실패 흐름과 첫 포트 memid 고정 후 8개 전부 전달되는 성공 흐름의 대비">
   <defs>
-    <marker id="nm2-arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="nm2-arrow-blue" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
     </marker>
-    <marker id="nm2-arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="nm2-arrow-red" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/>
     </marker>
-    <marker id="nm2-arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+    <marker id="nm2-arrow-green" markerWidth="10" markerHeight="10" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
     </marker>
   </defs>
