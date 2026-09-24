@@ -878,6 +878,15 @@ pre {
     border-radius: 14px
 }
 
+/* 인라인 SVG 다이어그램: svg-lint용 width 속성이 있어도 컨테이너 폭에 맞게 축소.
+   viewBox 비율 유지(height:auto), 가로 넘침 방지. */
+figure svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 /* ===== TOOLS (scroll-to-top) ===== */
 .tools-wrapper {
     position: fixed;
