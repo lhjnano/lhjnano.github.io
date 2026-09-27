@@ -1,23 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 760 222" width="760" role="img" aria-label="스터디 Q&amp;A 카드: PF가 ConnectX-6인데 VF를 ConnectX-4로 지정할 수 있나요? VF는 PF 칩에서 잘린 분할 자원이라 세대·기능·Device ID를 전부 상속하므로 불가능하다.">
-  <style>
-    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
-  </style>
-
-  <!-- header label: centered on content center x=380 -->
-  <text x="380" y="30.5" text-anchor="middle" font-size="10" fill="#8b949e">STUDY Q&amp;A</text>
-
-  <!-- question block: y=50..96 -->
-  <rect x="20" y="50" width="720" height="46" rx="8" fill="#eff6ff"/>
-  <circle cx="30" cy="73.65" r="9" fill="#2563eb"/>
-  <text x="30" y="77.5" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Q</text>
-  <text x="43" y="77.5" font-size="13" font-weight="600" fill="#1f2937">PF가 ConnectX-6인데 VF를 ConnectX-4로 지정할 수 있나요?</text>
-
-  <!-- answer block: y=121..205 -->
-  <rect x="20" y="121" width="720" height="84" rx="8" fill="#f0fdf4"/>
-  <circle cx="30" cy="136.35" r="9" fill="#16a34a"/>
-  <text x="30" y="140.2" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">A</text>
-  <text x="43" y="140.2" font-size="12" fill="#334155">불가능 — VF는 PF 칩에서 잘린 분할 자원이라 세대·기능·Device ID를 전부 상속</text>
-  <text x="43" y="158.2" font-size="12" fill="#334155">mlx5 공통 드라이버도 capability 비트맵으로 세대 구분 — VF에도 노출</text>
-  <text x="43" y="176.2" font-size="12" fill="#334155">확인: lspci -nn(15b3=Mellanox), ibv_devinfo</text>
-  <text x="43" y="194.2" font-size="12" fill="#334155">VF라서 PF보다 좋아지는 일은 없음 — 관리 권한만 제한</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 221" width="760" role="img" aria-label="질문: PF가 ConnectX-6인데 VF를 ConnectX-4로 지정할 수 있나요? 답변: VF는 PF 칩의 분할 자원이라 세대·기능·Device ID를 전부 상속하므로 불가능하다.">
+  <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+  <circle cx="30" cy="45.5" r="6.5" fill="#2563eb"/>
+  <path d="M20 62.5 C20 53.5, 40 53.5, 40 62.5 Z" fill="#2563eb"/>
+  <rect x="75" y="20" width="660" height="56" rx="12" fill="#eff6ff"/>
+  <path d="M75 40.0 L62 47.0 L75 54.0 Z" fill="#eff6ff"/>
+  <text x="98" y="52.5" font-size="13" font-weight="600" fill="#1f2937">PF가 ConnectX-6인데 VF를 ConnectX-4로 지정할 수 있나요?</text>
+  <circle cx="30" cy="110.2" r="2" fill="#16a34a"/>
+  <line x1="30" y1="112.2" x2="30" y2="116.2" stroke="#16a34a" stroke-width="1.8"/>
+  <path d="M20 116.2 L40 116.2 L40 130.2 L20 130.2 Z" fill="#16a34a"/>
+  <circle cx="25" cy="123.2" r="1.9" fill="#dcfce7"/>
+  <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
+  <rect x="75" y="102" width="660" height="98" rx="12" fill="#f0fdf4"/>
+  <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
+  <text x="98" y="128.2" font-size="12" fill="#334155">불가능 — VF는 PF 칩에서 잘린 분할 자원이라 세대·기능·Device ID를 전부 상속</text>
+  <text x="98" y="146.2" font-size="12" fill="#334155">mlx5 공통 드라이버도 capability 비트맵으로 세대 구분 — VF에도 노출</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">확인: lspci -nn(15b3=Mellanox), ibv_devinfo</text>
+  <text x="98" y="182.2" font-size="12" fill="#334155">VF라서 PF보다 좋아지는 일은 없음 — 관리 권한만 제한</text>
 </svg>

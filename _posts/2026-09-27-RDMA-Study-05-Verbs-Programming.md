@@ -71,11 +71,8 @@ struct ibv_mr *mr = ibv_reg_mr(pd, buf, size,
 | MR (Memory Region) | 등록된 사용자 버퍼. 등록 과정에서 페이지가 피닝(고정)되고 가상→물리 변환표가 NIC에 내려간다 |
 | lkey / rkey | lkey는 로컬(자기 QP의 송신) 접근용, rkey는 원격(RDMA READ/WRITE) 접근용 키. rkey는 연결 상대에게 미리 알려줘야 한다 — cuObject 토큰으로 전달된다(6편 §2) |
 
-시리즈를 진행하며 실제 학습에서 나온 질문 하나를 카드로 남겨둔다. 초기화 코드가 C라는 점이 궁금했던 지점이었다.
-
 <figure>
   <img src="/assets/images/posts/rdma-study/qa-ch05-q01.svg" alt="스터디 Q&A 카드 — RDMA 클라이언트는 보통 어떤 언어로 구현하나요? 검증 클라이언트는 Go+C 하이브리드: verbs 데이터 경로는 표준 libibverbs만 쓰는 C, 제어 경로는 Go" />
-  <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문</figcaption>
 </figure>
 
 ## 2. QP 상태 머신

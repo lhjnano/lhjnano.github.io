@@ -66,7 +66,6 @@ Lustre의 두 축은 메타데이터와 데이터입니다. 메타데이터 서�
 
 <figure>
 <img src="/assets/images/posts/rdma-study/qa-ch07-q10.svg" alt="스터디 Q&A 카드 — LNet도 RDMA를 쓰는데 사용법이 다른 건 없을 텐데 래퍼라서 그런가요? RDMA를 소유하는 계층의 차이" />
-<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (10)</figcaption>
 </figure>
 
 ## 2. LNet NID와 o2ib
@@ -102,7 +101,6 @@ lnetctl export > /etc/lnet.conf       # 재부팅 대비 저장
 
 <figure>
 <img src="/assets/images/posts/rdma-study/qa-ch07-q06.svg" alt="스터디 Q&A 카드 — LNet 등록 거부 couldn't query intf는 무슨 뜻인가요? 등록 전 인터페이스 조회 단계의 실패와 원인 후보, 규명 사다리" />
-<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (6)</figcaption>
 </figure>
 
 ## 3. 클라이언트 마운트와 함정
@@ -313,12 +311,10 @@ RC의 자리는 그래서 ① AMD/ROCm 워크로드 ② 비-ConnectX NIC·CX4 �
 
 <figure>
 <img src="/assets/images/posts/rdma-study/qa-ch07-q02.svg" alt="스터디 Q&A 카드 — 보통 RDMA S3 클라이언트로 뭘 쓰나요? 범용 클라이언트는 사실상 존재하지 않고 실존 조합과 실무 선택지" />
-<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (2)</figcaption>
 </figure>
 
 <figure>
 <img src="/assets/images/posts/rdma-study/qa-ch07-q18.svg" alt="스터디 Q&A 카드 — 분산 풀 RDMA와 S3 RDMA는 관점이 다르지 않나요? 닫힌 내부 데이터플레인과 공개 프로토콜의 가속 옵션, 두 관점의 조합" />
-<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (18)</figcaption>
 </figure>
 
 ## 마무리

@@ -1,35 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 5 760 304" width="760">
-  <style>
-    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
-  </style>
-
-  <!-- canvas -->
-  <rect x="0" y="5" width="760" height="304" fill="#ffffff"/>
-
-  <!-- top label -->
-  <text x="380" y="32.5" font-size="10" fill="#8b949e" text-anchor="middle">STUDY Q&amp;A</text>
-
-  <!-- question block: x=25, y=56, w=710, h=64 -->
-  <g fill="#eff6ff">
-    <rect x="25" y="56" width="710" height="64" rx="10"/>
-  </g>
-  <rect x="45" y="70" width="36" height="36" rx="8" fill="#2563eb"/>
-  <text x="63" y="92.2" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Q</text>
-  <g fill="#1f2937">
-    <text x="101" y="92.5" font-size="13">분산 풀 RDMA와 S3 RDMA는 관점이 다르지 않나요?</text>
-  </g>
-
-  <!-- answer block: x=25, y=145, w=710, h=144 -->
-  <g fill="#f0fdf4">
-    <rect x="25" y="145" width="710" height="144" rx="10"/>
-  </g>
-  <rect x="45" y="199" width="36" height="36" rx="8" fill="#16a34a"/>
-  <text x="63" y="221.2" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
-  <g fill="#334155">
-    <text x="101" y="185.2" font-size="12">정확한 구분이다 — 두 관점은 경쟁이 아니라 조합된다</text>
-    <text x="101" y="203.2" font-size="12">풀 RDMA = 닫힌 내부 데이터플레인 — 신뢰된 rkey 교환, 시스템이 RDMA를 소유</text>
-    <text x="101" y="221.2" font-size="12">S3 RDMA = 공개 프로토콜의 데이터 경로 교체 — SigV4 인증 경계, 없어도 동작하는 가속 옵션</text>
-    <text x="101" y="239.2" font-size="12">기계적 뼈대(QP·MR·좌표교환·imm)는 두 경우가 동일</text>
-    <text x="101" y="257.2" font-size="12">[VRAM] ←풀 RDMA→ [핫 계층] →티어링→ [S3 = capacity 계층]</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 239" width="760" role="img" aria-label="질문: 분산 풀 RDMA와 S3 RDMA는 관점이 다르지 않나요? 답변: 두 관점은 경쟁이 아니라 조합된다.">
+  <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+  <circle cx="30" cy="45.5" r="6.5" fill="#2563eb"/>
+  <path d="M20 62.5 C20 53.5, 40 53.5, 40 62.5 Z" fill="#2563eb"/>
+  <rect x="75" y="20" width="660" height="56" rx="12" fill="#eff6ff"/>
+  <path d="M75 40.0 L62 47.0 L75 54.0 Z" fill="#eff6ff"/>
+  <text x="98" y="52.5" font-size="13" font-weight="600" fill="#1f2937">분산 풀 RDMA와 S3 RDMA는 관점이 다르지 않나요?</text>
+  <circle cx="30" cy="110.2" r="2" fill="#16a34a"/>
+  <line x1="30" y1="112.2" x2="30" y2="116.2" stroke="#16a34a" stroke-width="1.8"/>
+  <path d="M20 116.2 L40 116.2 L40 130.2 L20 130.2 Z" fill="#16a34a"/>
+  <circle cx="25" cy="123.2" r="1.9" fill="#dcfce7"/>
+  <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
+  <rect x="75" y="102" width="660" height="116" rx="12" fill="#f0fdf4"/>
+  <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
+  <text x="98" y="128.2" font-size="12" fill="#334155">정확한 구분이다 — 두 관점은 경쟁이 아니라 조합된다</text>
+  <text x="98" y="146.2" font-size="12" fill="#334155">풀 RDMA = 닫힌 내부 데이터플레인 — 신뢰된 rkey 교환, 시스템이 RDMA를 소유</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">S3 RDMA = 공개 프로토콜의 데이터 경로 교체 — SigV4 인증 경계, 없어도 동작하는 가속 옵션</text>
+  <text x="98" y="182.2" font-size="12" fill="#334155">기계적 뼈대(QP·MR·좌표교환·imm)는 두 경우가 동일</text>
+  <text x="98" y="200.2" font-size="12" fill="#334155">[VRAM] ←풀 RDMA→ [핫 계층] →티어링→ [S3 = capacity 계층]</text>
 </svg>

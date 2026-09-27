@@ -1,18 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 297" width="760" role="img" aria-label="스터디 Q&amp;A 카드 — 질문: imm은 commit 같은 개념이군요? 답변 요점: 절반만 맞음. RC 순서 보장 위 마지막 신호로 확정하는 패턴은 커밋과 유사하고 쿠키 매칭은 트랜잭션 ID 확인. 단 imm은 내구성·원자성 보장이 없는 전달 완료 영수증이며 실제 커밋은 그 뒤 백엔드 기록 — imm=준비 신호, publish=커밋에 가까움.">
-<style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style>
-<rect x="0" y="0" width="760" height="297" fill="#ffffff"/>
-<rect x="22" y="22" width="716" height="253" rx="10" fill="#ffffff" stroke="#30363d" stroke-width="1"/>
-<text x="46" y="52" font-size="10" fill="#8b949e">STUDY Q&amp;A</text>
-<rect x="38" y="70" width="684" height="52" rx="8" fill="#eff6ff"/>
-<rect x="53" y="81" width="30" height="30" rx="7" fill="#2563eb"/>
-<text x="68" y="99.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">Q</text>
-<text x="95" y="100.5" font-size="13" font-weight="700" fill="#1f2937">imm은 commit 같은 개념이군요?</text>
-<rect x="38" y="147" width="684" height="110" rx="8" fill="#f0fdf4"/>
-<rect x="53" y="152.2" width="30" height="30" rx="7" fill="#16a34a"/>
-<text x="68" y="170.7" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">A</text>
-<text x="95" y="170.2" font-size="12" fill="#334155">절반만 맞습니다 — RC 순서 보장 위 "마지막 신호로 확정" 패턴은 커밋과 유사하고,</text>
-<text x="95" y="188.2" font-size="12" fill="#334155">쿠키 매칭은 트랜잭션 ID 확인에 가깝습니다.</text>
-<text x="95" y="206.2" font-size="12" fill="#334155">단 imm은 내구성·원자성 보장이 없는 "전달 완료 영수증"입니다.</text>
-<text x="95" y="224.2" font-size="12" fill="#334155">실제 커밋은 그 뒤 백엔드 기록이 맡습니다.</text>
-<text x="95" y="242.2" font-size="12" fill="#334155">"imm=준비 신호, publish=커밋"에 가까운 구조입니다.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 239" width="760" role="img" aria-label="질문: imm은 commit 같은 개념이군요? 답변: 절반만 맞다. imm은 전달 완료 영수증이고 실제 커밋은 백엔드 기록이다.">
+  <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+  <circle cx="30" cy="45.5" r="6.5" fill="#2563eb"/>
+  <path d="M20 62.5 C20 53.5, 40 53.5, 40 62.5 Z" fill="#2563eb"/>
+  <rect x="75" y="20" width="660" height="56" rx="12" fill="#eff6ff"/>
+  <path d="M75 40.0 L62 47.0 L75 54.0 Z" fill="#eff6ff"/>
+  <text x="98" y="52.5" font-size="13" font-weight="600" fill="#1f2937">imm은 commit 같은 개념이군요?</text>
+  <circle cx="30" cy="110.2" r="2" fill="#16a34a"/>
+  <line x1="30" y1="112.2" x2="30" y2="116.2" stroke="#16a34a" stroke-width="1.8"/>
+  <path d="M20 116.2 L40 116.2 L40 130.2 L20 130.2 Z" fill="#16a34a"/>
+  <circle cx="25" cy="123.2" r="1.9" fill="#dcfce7"/>
+  <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
+  <rect x="75" y="102" width="660" height="116" rx="12" fill="#f0fdf4"/>
+  <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
+  <text x="98" y="128.2" font-size="12" fill="#334155">절반만 맞습니다 — RC 순서 보장 위 "마지막 신호로 확정" 패턴은 커밋과 유사하고,</text>
+  <text x="98" y="146.2" font-size="12" fill="#334155">쿠키 매칭은 트랜잭션 ID 확인에 가깝습니다.</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">단 imm은 내구성·원자성 보장이 없는 "전달 완료 영수증"입니다.</text>
+  <text x="98" y="182.2" font-size="12" fill="#334155">실제 커밋은 그 뒤 백엔드 기록이 맡습니다.</text>
+  <text x="98" y="200.2" font-size="12" fill="#334155">"imm=준비 신호, publish=커밋"에 가까운 구조입니다.</text>
 </svg>

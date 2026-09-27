@@ -37,7 +37,6 @@ toc_sticky: true
 
 <figure>
 <img src="/assets/images/posts/rdma-study/qa-ch06-q03.svg" alt="스터디 Q&A 카드 — S3 over RDMA는 API가 아닌가 보네요? 라는 질문에 API가 아니라 구현(전송 계층)의 문제이고 API는 그대로 유지되며 전송 부분은 아직 미표준이라고 답한다"/>
-<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (3)</figcaption>
 </figure>
 
 ## 2. 서버 — libcuobjserver와 게이트웨이 구축
@@ -103,7 +102,6 @@ GPUDirect RDMA는 GPU 메모리를 BAR1 창으로 매핑해서 DMA를 걸고 갑
 
 <figure>
 <img src="/assets/images/posts/rdma-study/qa-ch06-q15.svg" alt="스터디 Q&A 카드 — NVIDIA 쪽 데이터플레인은 VRAM을 활용한 RDMA인가요? 라는 질문에 네, GPUDirect로 호스트 RAM 경유 없이 VRAM에 직접 닿으며 RC 계열은 호스트 메모리 MR을 쓴다고 답한다"/>
-<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (15)</figcaption>
 </figure>
 
 ## 4. 실증 — 개통 증거와 성능
@@ -164,7 +162,6 @@ register with RDMA success mr_size: 67108864               # GPU HBM 64 MiB RDMA
 
 <figure>
 <img src="/assets/images/posts/rdma-study/qa-ch06-q16.svg" alt="스터디 Q&A 카드 — AI용이면 VRAM RDMA는 필요 없나요? 라는 질문에 일반론은 반대로 AI일수록 가치가 올라가며, 필요 없어지는 조건과 DC 전송 외 대안이 있다고 답한다"/>
-<figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (16)</figcaption>
 </figure>
 
 ### 6편 총정리

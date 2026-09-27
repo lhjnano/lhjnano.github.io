@@ -127,7 +127,6 @@ VF는 "카드를 쪼갠 조각"이므로 링크 모드(InfiniBand/Ethernet)를 �
 
 <figure>
   <img src="/assets/images/posts/rdma-study/qa-ch01-q07.svg" alt="스터디 Q&A: PF와 VF 세대 상속"/>
-  <figcaption>스터디 Q&amp;A — 실제 학습 중 나눈 질문 (1)</figcaption>
 </figure>
 
 ## 4. GPU와 RDMA — GPUDirect
@@ -285,7 +284,6 @@ QSFP(Quad Small Form-factor Pluggable)는 신호를 4개의 차동쌍, 즉 4레�
 
 <figure>
   <img src="/assets/images/posts/rdma-study/qa-ch01-q08.svg" alt="스터디 Q&A: ConnectX 세대와 케이블 폼팩터"/>
-  <figcaption>스터디 Q&amp;A — 실제 학습 중 나눈 질문 (2)</figcaption>
 </figure>
 
 ## 7. 검증 환경 하드웨어 총정리

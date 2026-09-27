@@ -159,16 +159,12 @@ GET 방향에서 이 패턴이 특히 빛납니다. 클라이언트는 받을 �
 
 용어 세 가지로 마무리합니다. imm은 WRITE_WITH_IMM·SEND에 실어 보내는 32비트 완료 신호로 수신측 recv CQE의 imm_data로 드러납니다(3절). 쿠키 매칭은 송신측이 발급한 쿠키와 수신 CQE의 imm_data 일치를 검사해 완료의 소속을 확정하는 절차로, 일치 시 버퍼 확정·불일치 시 폐기 — 여러 세션의 완료가 공유 CQ에 뒤섞이는 환경의 필수 안전장치입니다. zero-SGE recv는 SGE 없이 게시하는 recv WQE로 수신 버퍼 지정 없이 imm 수신만 담당합니다(보고서 §7.2).
 
-학습 중에 실제로 주고받았던 질문 두 개를 옮겨 둡니다. imm의 위치를 헷갈리기 쉬운 두 지점을 짚고 지나가는 데 도움이 됩니다.
-
 <figure>
   <img src="/assets/images/posts/rdma-study/qa-ch04-q13.svg" alt="스터디 Q&A 카드 — 질문: imm은 SR-IOV 때문에 있는 건가요? 답변: 완전히 별개의 개념. imm은 IB 스펙의 verbs 기능으로 one-sided WRITE의 알림 없음을 메우는 32비트 완료 신호 채널이고 SR-IOV는 PCIe 가상화(PF·VF 분할). PF든 VF든 imm은 동일하게 동작" loading="lazy">
-  <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (13)</figcaption>
 </figure>
 
 <figure>
   <img src="/assets/images/posts/rdma-study/qa-ch04-q14.svg" alt="스터디 Q&A 카드 — 질문: imm은 commit 같은 개념이군요? 답변: 절반만 맞음. RC 순서 보장 위 마지막 신호로 확정하는 패턴은 커밋과 유사하고 쿠키 매칭은 트랜잭션 ID 확인. 단 imm은 내구성·원자성 보장이 없는 전달 완료 영수증이며 실제 커밋은 그 뒤 백엔드 기록 — imm=준비 신호, publish=커밋에 가까움" loading="lazy">
-  <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">스터디 Q&amp;A — 실제 학습 중 나눈 질문 (14)</figcaption>
 </figure>
 
 ## 마무리 — 4편 총정리, 여섯 개의 톱니가 맞물리는 곳
