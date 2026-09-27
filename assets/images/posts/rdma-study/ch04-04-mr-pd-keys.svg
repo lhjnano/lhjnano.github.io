@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="38 0 760 532" width="760">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#bc8cff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="38" y="0" width="760" height="532" fill="#161b22"/>
+
+  <!-- title: content center x=418 (content spans 60..775) -->
+  <text x="418" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">MR·PD — 메모리 등록(고정과 매핑), 두 개의 열쇠</text>
+
+  <!-- ── Zone A: registration pipeline, boxes x=60 w=345 ── -->
+  <rect x="60" y="60" width="345" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="232.5" y="84" font-size="12" fill="#e6edf3" text-anchor="middle">① 앱 — ibv_reg_mr()</text>
+  <text x="232.5" y="99" font-size="10" fill="#8b949e" text-anchor="middle">addr · len · access(권한) 제시</text>
+  <text x="232.5" y="114" font-size="10" fill="#8b949e" text-anchor="middle">커널 바이패스의 대가를 치르는 시작</text>
+
+  <path d="M232.5,135 L232.5,149" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <rect x="60" y="160" width="345" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="232.5" y="184" font-size="12" fill="#e6edf3" text-anchor="middle">② 커널 — 페이지 고정(pinning)</text>
+  <text x="232.5" y="199" font-size="10" fill="#8b949e" text-anchor="middle">버퍼 페이지를 물리 메모리에 묶음</text>
+  <text x="232.5" y="214" font-size="10" fill="#8b949e" text-anchor="middle">스왑아웃되면 NIC가 주소를 잃음</text>
+
+  <path d="M232.5,235 L232.5,249" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <rect x="60" y="260" width="345" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="232.5" y="284" font-size="12" fill="#e6edf3" text-anchor="middle">③ HCA — MTT에 매핑 기록</text>
+  <text x="232.5" y="299" font-size="10" fill="#8b949e" text-anchor="middle">가상 주소 → 물리 주소 변환표</text>
+  <text x="232.5" y="314" font-size="10" fill="#8b949e" text-anchor="middle">이제 NIC가 스스로 주소를 해석</text>
+
+  <!-- ── Zone B: PD container, x=435 w=340, y=60..250 ── -->
+  <rect x="435" y="60" width="340" height="190" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="447" y="74" font-size="11" fill="#78909c">PD (Protection Domain) — 격리 울타리</text>
+
+  <rect x="450" y="95" width="310" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="605" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">큐 페어(QP) — §1의 통신 창구</text>
+  <text x="605" y="134" font-size="10" fill="#8b949e" text-anchor="middle">SQ·RQ를 소유</text>
+
+  <rect x="450" y="172" width="310" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="605" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">MR — 등록된 메모리 영역</text>
+  <text x="605" y="211" font-size="10" fill="#8b949e" text-anchor="middle">버퍼 좌표·권한을 보유 · lkey/rkey 발급</text>
+
+  <!-- ── Zone C: key usage row, y=360..430 ── -->
+  <path d="M232.5,335 L232.5,349" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <rect x="60" y="360" width="210" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="165" y="384" font-size="12" fill="#e6edf3" text-anchor="middle">MR 등록 완료</text>
+  <text x="165" y="399" font-size="10" fill="#8b949e" text-anchor="middle">고정(pin)+매핑된 버퍼</text>
+  <text x="165" y="414" font-size="10" fill="#8b949e" text-anchor="middle">두 개의 열쇠가 발급됨</text>
+
+  <path d="M275,395 L289,395" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="360" width="210" height="70" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="405" y="384" font-size="12" fill="#e6edf3" text-anchor="middle">lkey — 로컬의 열쇠</text>
+  <text x="405" y="399" font-size="10" fill="#8b949e" text-anchor="middle">자신의 WQE·SGE에 실림</text>
+  <text x="405" y="414" font-size="10" fill="#8b949e" text-anchor="middle">권한: 로컬 읽기·쓰기</text>
+
+  <path d="M515,395 L529,395" fill="none" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <rect x="540" y="360" width="235" height="70" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="657.5" y="384" font-size="12" fill="#e6edf3" text-anchor="middle">rkey — 원격으로 전달</text>
+  <text x="657.5" y="399" font-size="10" fill="#8b949e" text-anchor="middle">rkey+addr+len 받은 노드만</text>
+  <text x="657.5" y="414" font-size="10" fill="#8b949e" text-anchor="middle">원격 WRITE·READ 가능</text>
+
+  <!-- ── bottom note container, x=60 w=715, y=460..512 ── -->
+  <rect x="60" y="460" width="715" height="52" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="72" y="476" font-size="11" fill="#78909c">⚠ 미등록·권한 밖 접근 = LOC 계열 로컬 오류의 단골 원인</text>
+  <text x="72" y="503" font-size="10" fill="#8b949e">LOC_LEN_ERR · LOC_PROT_ERR (5편 §6) · rc-v2의 44B 토큰에 실리는 rkey(4B)+addr(8B)+len(8B)가 바로 이 MR 좌표 — 6편 §2</text>
+</svg>

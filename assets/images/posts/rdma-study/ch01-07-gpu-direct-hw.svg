@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 0 828 456" width="828">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="28" y="0" width="828" height="456" fill="#161b22"/>
+
+  <!-- title -->
+  <text x="442" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">GPU-direct 하드웨어 경로 — 2차 검증 실측(CX6 네이티브 IB)</text>
+
+  <!-- group captions -->
+  <text x="254" y="66" font-size="11" fill="#78909c" text-anchor="middle">gpu-1 — S3/cuObject 클라이언트(Rocky 9.8)</text>
+  <text x="739" y="66" font-size="11" fill="#78909c" text-anchor="middle">stg-node1/2 — 게이트웨이</text>
+
+  <!-- GPU box: x=50..240, y=96..172 -->
+  <rect x="50" y="96" width="190" height="76" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="145" y="123" font-size="12" fill="#e6edf3" text-anchor="middle">GPU — RTX A6000</text>
+  <text x="145" y="138" font-size="10" fill="#e3f2fd" text-anchor="middle">HBM → BAR1 매핑 · peermem 등록</text>
+  <text x="145" y="153" font-size="10" fill="#e3f2fd" text-anchor="middle">PCIe Gen4 ×16 · 위상 PHB</text>
+
+  <!-- client NIC box: x=268..458, y=96..172 -->
+  <rect x="268" y="96" width="190" height="76" rx="6" fill="#0d47a1" stroke="#58a6ff"/>
+  <text x="363" y="123" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX-6 (mlx5_0)</text>
+  <text x="363" y="138" font-size="10" fill="#e3f2fd" text-anchor="middle">200G HDR · LID 13 · GID idx0</text>
+  <text x="363" y="153" font-size="10" fill="#e3f2fd" text-anchor="middle">IPoIB 100.64.33.192</text>
+
+  <!-- IB fabric bus: x=486..616, y=96..190 -->
+  <rect x="486" y="96" width="130" height="94" rx="8" fill="#0d47a1" stroke="#58a6ff"/>
+  <text x="551" y="132" font-size="12" fill="#e6edf3" text-anchor="middle">네이티브 IB</text>
+  <text x="551" y="147" font-size="10" fill="#e3f2fd" text-anchor="middle">패브릭 · HDR 200G</text>
+  <text x="551" y="162" font-size="10" fill="#e3f2fd" text-anchor="middle">SM lid 8 · MTU 4096</text>
+
+  <!-- aic1 box: x=644..834, y=96..172 -->
+  <rect x="644" y="96" width="190" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="739" y="123" font-size="12" fill="#e6edf3" text-anchor="middle">stg-node1 — 게이트웨이</text>
+  <text x="739" y="138" font-size="10" fill="#8b949e" text-anchor="middle">CX-6 ×2 · LID 12/11</text>
+  <text x="739" y="153" font-size="10" fill="#8b949e" text-anchor="middle">Lustre MGS·MDT0·OST0 · /vol0</text>
+
+  <!-- aic2 box: x=644..834, y=200..256 -->
+  <rect x="644" y="200" width="190" height="56" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="739" y="223" font-size="12" fill="#e6edf3" text-anchor="middle">stg-node2 — 게이트웨이</text>
+  <text x="739" y="241" font-size="10" fill="#8b949e" text-anchor="middle">CX-6 ×2 · Lustre 클라 · IPoIB .244</text>
+
+  <!-- GPU <-> NIC PCIe arrows -->
+  <path d="M245,124 L257,124" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M263,140 L251,140" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- NIC <-> fabric arrows -->
+  <path d="M463,124 L475,124" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M481,140 L469,140" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- fabric <-> aic1 arrows -->
+  <path d="M621,124 L633,124" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M639,140 L627,140" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- fabric <-> aic2 curves: bus bottom(190) -> aic2 left(644), y=200..256 -->
+  <path d="M568,195 Q568,224 633,224" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M639,242 Q592,242 592,201" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- BAR1 window detail: bar x=50..240, y=300..314; ruler ticks below at 64/192/224 MiB -->
+  <rect x="50" y="300" width="190" height="14" fill="#263238" stroke="#546e7a"/>
+  <path d="M98,317 L98,327" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+  <path d="M193,317 L193,327" fill="none" stroke="#3fb950" stroke-width="1.5"/>
+  <path d="M216,317 L216,327" fill="none" stroke="#f85149" stroke-width="1.5"/>
+  <text x="98" y="348" font-size="10" fill="#58a6ff" text-anchor="middle">64 MiB 등록 성공</text>
+  <text x="193" y="348" font-size="10" fill="#3fb950" text-anchor="middle">192 MiB OK</text>
+  <text x="193" y="375" font-size="10" fill="#f85149" text-anchor="middle">224 MiB부터 실패</text>
+  <text x="50" y="402" font-size="10" fill="#8b949e">BAR1 창 256 MiB(NVML 실측) · H100(BAR1 128 GiB)은 해당 없음 — 전송 크기 ≤ BAR1 여유</text>
+
+  <!-- legend -->
+  <text x="50" y="429" font-size="10" fill="#58a6ff">① 파랑 — GPU↔NIC 직접 DMA(PCIe·BAR1)</text>
+  <text x="253" y="429" font-size="10" fill="#3fb950">② 초록 — IB 패브릭 링크(HDR 200G)</text>
+  <text x="420" y="429" font-size="10" fill="#f85149">③ 빨강 — BAR1 실패 경계(224 MiB~)</text>
+</svg>

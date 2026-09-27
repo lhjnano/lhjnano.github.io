@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 640 483" width="640">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="90" y="0" width="640" height="483" fill="#161b22"/>
+
+  <!-- title: content center x=410 -->
+  <text x="410" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">IPoIB — IB 링크 위의 IP 계층</text>
+
+  <!-- encapsulation label above the node row -->
+  <text x="410" y="60" font-size="10" fill="#8b949e" text-anchor="middle">IPoIB — IP 패킷을 IB 프레임에 캡슐화해 ib0로 주고받는다</text>
+
+  <!-- node row: y=78 h=76 -->
+  <rect x="110" y="78" width="180" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="200" y="104" font-size="12" fill="#e6edf3" text-anchor="middle">노드 .40</text>
+  <text x="200" y="121" font-size="10" fill="#58a6ff" text-anchor="middle">ib0 172.16.44.40/24</text>
+  <text x="200" y="136" font-size="10" fill="#8b949e" text-anchor="middle">커널 IP 스택 경유</text>
+
+  <rect x="320" y="78" width="180" height="76" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="410" y="104" font-size="12" fill="#e6edf3" text-anchor="middle">IB 스위치</text>
+  <text x="410" y="121" font-size="10" fill="#8b949e" text-anchor="middle">IB 프레임으로만 전달</text>
+  <text x="410" y="136" font-size="10" fill="#8b949e" text-anchor="middle">IP 서브넷을 모름</text>
+
+  <rect x="530" y="78" width="180" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="620" y="104" font-size="12" fill="#e6edf3" text-anchor="middle">노드 .41</text>
+  <text x="620" y="121" font-size="10" fill="#58a6ff" text-anchor="middle">ib0 172.16.44.41/24</text>
+  <text x="620" y="136" font-size="10" fill="#8b949e" text-anchor="middle">같은 IPoIB 서브넷</text>
+
+  <!-- node row arrows -->
+  <path d="M295,116 L309,116" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M505,116 L519,116" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- mode comparison row: y=180 h=76 -->
+  <rect x="110" y="180" width="280" height="76" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="250" y="206" font-size="12" fill="#e6edf3" text-anchor="middle">데이터그램 모드 — 기본</text>
+  <text x="250" y="223" font-size="10" fill="#8b949e" text-anchor="middle">UD 전송 · 멀티캐스트 ARP</text>
+  <text x="250" y="238" font-size="10" fill="#8b949e" text-anchor="middle">MTU 2048(4K 링크 대표값)</text>
+
+  <rect x="420" y="180" width="280" height="76" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="560" y="206" font-size="12" fill="#e6edf3" text-anchor="middle">커넥티드 모드 — 선택</text>
+  <text x="560" y="223" font-size="10" fill="#8b949e" text-anchor="middle">RC 전송 · 가상 점대점 재조립</text>
+  <text x="560" y="238" font-size="10" fill="#8b949e" text-anchor="middle">MTU 최대 65520 확장</text>
+
+  <!-- IPoIB is not RDMA: y=282 h=52 -->
+  <rect x="110" y="282" width="600" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="410" y="303" font-size="12" fill="#f85149" text-anchor="middle">IPoIB는 RDMA가 아니다</text>
+  <text x="410" y="321" font-size="10" fill="#8b949e" text-anchor="middle">커널 네트워크 스택을 경유하는 일반 IP 전송 — CPU 복사가 있고, RDMA 하드웨어 경로와는 무관</text>
+
+  <!-- bottom annotations -->
+  <text x="110" y="370" font-size="10" fill="#8b949e">보고서 실측 — ib0 = 172.16.44.x/24(IPoIB), MTU 4096: 관리망 10.0.35.x(virtio)과 분리된 스토리지 패브릭(§2)</text>
+  <text x="110" y="400" font-size="10" fill="#8b949e">IPoIB ping 통과는 RDMA 동작이 아니다 — ping은 IP 스택 경로(L2), raw RC 전송은 별개의 관문(L4)이다(§7)</text>
+  <text x="110" y="430" font-size="10" fill="#8b949e">MTU — 링크 MTU 4096 위에서 IPoIB는 모드별 IP MTU를 갖는다: datagram 2048 / connected 최대 65520</text>
+  <text x="110" y="460" font-size="10" fill="#8b949e">모드 전환 — /sys/class/net/ib0/mode에 datagram 또는 connected 기록(재부팅 시 기본값 복귀 주의)</text>
+</svg>

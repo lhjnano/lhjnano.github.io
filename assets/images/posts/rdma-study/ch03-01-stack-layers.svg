@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595 580" width="595">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-green-lg" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 L3,6 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="595" height="580" fill="#161b22"/>
+
+  <!-- title: content center x=297.5 (blocks span 25..570) -->
+  <text x="297.5" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">RDMA 소프트웨어 스택 — 제어 경로와 데이터 경로</text>
+
+  <!-- user space group: x=25..470, y=60..219 -->
+  <rect x="25" y="60" width="445" height="159" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="71" font-size="11" fill="#78909c">사용자 공간 (User Space)</text>
+
+  <!-- app box: x=55..440, y=90..134, center x=248 -->
+  <rect x="55" y="90" width="385" height="44" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="248" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">애플리케이션 — vgwrdma · rcx · perftest</text>
+
+  <!-- libs box (single): x=55..440, y=159..203 -->
+  <rect x="55" y="159" width="385" height="44" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="248" y="185" font-size="12" fill="#e6edf3" text-anchor="middle">libibverbs · librdmacm — verbs API·연결 관리</text>
+
+  <!-- kernel space group: x=25..470, y=244..422 -->
+  <rect x="25" y="244" width="445" height="178" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="254" font-size="11" fill="#78909c">커널 공간 (Kernel Space)</text>
+
+  <!-- uverbs box: x=55..440, y=274..328 -->
+  <rect x="55" y="274" width="385" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="248" y="296" font-size="12" fill="#e6edf3" text-anchor="middle">/dev/infiniband/uverbsN</text>
+  <text x="248" y="313" font-size="10" fill="#8b949e" text-anchor="middle">디바이스 노드 — verbs ioctl 경계</text>
+
+  <!-- mlx5_core box: x=55..440, y=353..407 -->
+  <rect x="55" y="353" width="385" height="54" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="248" y="375" font-size="12" fill="#e6edf3" text-anchor="middle">mlx5_core</text>
+  <text x="248" y="392" font-size="10" fill="#8b949e" text-anchor="middle">커널 RDMA 드라이버 — QP·MR 커널 리소스 관리</text>
+
+  <!-- HCA box: x=55..440, y=447..501 -->
+  <rect x="55" y="447" width="385" height="54" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="248" y="469" font-size="12" fill="#e6edf3" text-anchor="middle">HCA 하드웨어 — ConnectX-4 (VF)</text>
+  <text x="248" y="486" font-size="10" fill="#e3f2fd" text-anchor="middle">RDMA 엔진 · QP 컨텍스트 · MTT</text>
+
+  <!-- control path (blue): 설정만 커널 경유 -->
+  <path d="M248,139 L248,148" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M248,208 L248,263" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M248,333 L248,342" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M248,412 L248,436" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- data path (green): 사용자 버퍼 ↔ HCA 직접 DMA, 커널 미경유 -->
+  <path d="M445,108 C 495,108 530,150 530,190 L530,425 C530,462 498,462 454,462" fill="none" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-green-lg)"/>
+  <path d="M445,483 C 495,483 570,444 570,395 L570,160 C570,120 498,120 454,120" fill="none" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-green-lg)"/>
+
+  <!-- legend -->
+  <text x="25" y="527" font-size="10" fill="#3fb950">데이터 경로(초록) — 등록된 사용자 버퍼 ↔ HCA 간 직접 DMA, 커널·복사 미경유</text>
+  <text x="25" y="553" font-size="10" fill="#58a6ff">제어 경로(파랑) — QP 생성·MR 등록 등 설정만 uverbs ioctl로 커널을 경유</text>
+</svg>

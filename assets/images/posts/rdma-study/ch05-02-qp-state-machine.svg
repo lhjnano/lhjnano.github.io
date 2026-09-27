@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 609" width="680">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="680" height="609" fill="#161b22"/>
+
+  <!-- title: content center x=340 -->
+  <text x="340" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">RC QP 상태 머신 — RESET에서 RTS까지</text>
+
+  <!-- Row 1: top y=64, state box x=25..325, transition box x=355..655 -->
+  <rect x="25" y="64" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="94.35" font-size="12" fill="#e6edf3" text-anchor="middle">RESET</text>
+  <text x="175" y="109.35" font-size="10" fill="#8b949e" text-anchor="middle">초기 상태 — 큐 비움</text>
+  <rect x="355" y="64" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="94.35" font-size="12" fill="#e6edf3" text-anchor="middle">RESET → IDLE (생성)</text>
+  <text x="505" y="109.35" font-size="10" fill="#8b949e" text-anchor="middle">ibv_create_qp(pd, init_attr) 반환 — 속성 불필요</text>
+
+  <!-- transition RESET->IDLE: bottom 132 -> top 157, x=175 -->
+  <path d="M175,137 L175,146" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 2: top y=157 -->
+  <rect x="25" y="157" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="187.35" font-size="12" fill="#e6edf3" text-anchor="middle">IDLE</text>
+  <text x="175" y="202.35" font-size="10" fill="#8b949e" text-anchor="middle">생성 직후 대기 — 통신 불가</text>
+  <rect x="355" y="157" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="187.35" font-size="12" fill="#e6edf3" text-anchor="middle">IBV_QPS_INIT</text>
+  <text x="505" y="202.35" font-size="10" fill="#8b949e" text-anchor="middle">PKEY_INDEX · PORT · QKEY</text>
+
+  <!-- transition IDLE->INIT -->
+  <path d="M175,230 L175,239" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 3: top y=250 -->
+  <rect x="25" y="250" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="280.35" font-size="12" fill="#e6edf3" text-anchor="middle">INIT</text>
+  <text x="175" y="295.35" font-size="10" fill="#8b949e" text-anchor="middle">초기화 — 포트·PKEY 지정</text>
+  <rect x="355" y="250" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="272.73" font-size="12" fill="#e6edf3" text-anchor="middle">IBV_QPS_RTR</text>
+  <text x="505" y="287.73" font-size="10" fill="#8b949e" text-anchor="middle">DEST_QPN · AH · RQ_PSN</text>
+  <text x="505" y="302.73" font-size="10" fill="#8b949e" text-anchor="middle">PATH_MTU · MIN_RNR_TIMER</text>
+
+  <!-- transition INIT->RTR -->
+  <path d="M175,323 L175,332" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 4: top y=343 -->
+  <rect x="25" y="343" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="373.35" font-size="12" fill="#e6edf3" text-anchor="middle">RTR</text>
+  <text x="175" y="388.35" font-size="10" fill="#8b949e" text-anchor="middle">Ready to Receive — 수신 가능</text>
+  <rect x="355" y="343" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="365.73" font-size="12" fill="#e6edf3" text-anchor="middle">IBV_QPS_RTS</text>
+  <text x="505" y="380.73" font-size="10" fill="#8b949e" text-anchor="middle">TIMEOUT · RETRY_CNT · RNR_RETRY</text>
+  <text x="505" y="395.73" font-size="10" fill="#8b949e" text-anchor="middle">SQ_PSN · MAX_RD_ATOMIC</text>
+
+  <!-- transition RTR->RTS -->
+  <path d="M175,416 L175,425" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 5: top y=436 -->
+  <rect x="25" y="436" width="300" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="175" y="466.35" font-size="12" fill="#e6edf3" text-anchor="middle">RTS</text>
+  <text x="175" y="481.35" font-size="10" fill="#8b949e" text-anchor="middle">Ready to Send — 전송 개시</text>
+  <rect x="355" y="436" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="466.35" font-size="12" fill="#e6edf3" text-anchor="middle">RTS 도달 — 데이터플레인 가동</text>
+  <text x="505" y="481.35" font-size="10" fill="#8b949e" text-anchor="middle">이제 WR 게시 → RC 전송 개시 (§4)</text>
+
+  <!-- legend -->
+  <text x="25" y="534" font-size="10" fill="#58a6ff">세로 화살표 — 상태 전이 · 우측 박스는 그 전이의 ibv_modify_qp attr_mask 항목 (RESET→IDLE은 생성 직후)</text>
+  <text x="25" y="559" font-size="10" fill="#8b949e">양단 모두 RESET→…→RTS를 완료해야 데이터가 흐른다 — 클라이언트는 PREPARE 응답 후, 서버는 READY 요청을 받으며 RTR·RTS 완성</text>
+  <text x="25" y="584" font-size="10" fill="#bc8cff">보고서 실측(§8): path_mtu=active · min_rnr=12 | timeout=14 · retry_cnt=7 · rnr_retry=7(무한) · max_rd_atomic=1</text>
+</svg>

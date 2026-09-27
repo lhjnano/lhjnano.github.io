@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 345" width="740">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="740" height="345" fill="#161b22"/>
+
+  <!-- title: content center x=370 (containers span 25..715) -->
+  <text x="370" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">두 가지 verbs 스택 — MLNX_OFED와 inbox</text>
+
+  <!-- MLNX_OFED group: x=25..355, y=60..240 -->
+  <rect x="25" y="60" width="330" height="180" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#78909c">MLNX_OFED (벤더 스택)</text>
+
+  <!-- OFED user libs: x=45..335, y=92..146 -->
+  <rect x="45" y="92" width="290" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="57" y="114.3" font-size="12" fill="#e6edf3">사용자 공간 — OFED 라이브러리</text>
+  <text x="57" y="131.3" font-size="10" fill="#8b949e">libibverbs · provider (벤더 버전)</text>
+
+  <!-- OFED kernel modules: y=171..225 -->
+  <rect x="45" y="171" width="290" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="57" y="193.3" font-size="12" fill="#e6edf3">커널 모듈 — dkms 재빌드로 교체</text>
+  <text x="57" y="210.3" font-size="10" fill="#8b949e">mlx5_core — MLNX_OFED 24.10-3.2.5.0</text>
+
+  <!-- inbox group: x=385..715, y=60..240 -->
+  <rect x="385" y="60" width="330" height="180" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="397" y="74" font-size="11" fill="#78909c">inbox (커널 내장 스택)</text>
+
+  <!-- inbox user libs: x=405..695, y=92..146 -->
+  <rect x="405" y="92" width="290" height="54" rx="6" fill="#263238" stroke="#78909c"/>
+  <text x="417" y="114.3" font-size="12" fill="#e6edf3">사용자 공간 — 배포판 라이브러리</text>
+  <text x="417" y="131.3" font-size="10" fill="#8b949e">libibverbs (배포판 패키지)</text>
+
+  <!-- inbox kernel modules: y=171..225 -->
+  <rect x="405" y="171" width="290" height="54" rx="6" fill="#263238" stroke="#78909c"/>
+  <text x="417" y="193.3" font-size="12" fill="#e6edf3">커널 모듈 — 커널 소스 트리 내장</text>
+  <text x="417" y="210.3" font-size="10" fill="#8b949e">mlx5_core — 커널 4.18.0-553 포함</text>
+
+  <!-- provider → kernel module arrows -->
+  <path d="M190,151 L190,160" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M550,151 L550,160" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- traits -->
+  <text x="25" y="266" font-size="10" fill="#3fb950">＋ 최신 기능·신형 HCA 지원 우선</text>
+  <text x="25" y="292" font-size="10" fill="#f85149">－ 커널 업데이트마다 dkms 재빌드 수반</text>
+  <text x="385" y="266" font-size="10" fill="#3fb950">＋ 배포판 QA를 거친 안정성</text>
+  <text x="385" y="292" font-size="10" fill="#f85149">－ 신기능 수용이 커널 릴리스에 종속</text>
+
+  <!-- shared conclusion -->
+  <text x="25" y="320" font-size="10" fill="#8b949e">표준 verbs API는 양쪽 동일 — 보고서도 MOFED(.40) ↔ inbox(.41·.42) 혼용 양단 간 전송을 성공시켰다</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 588" width="620">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="620" height="588" fill="#161b22"/>
+
+  <!-- title: content center x=310 -->
+  <text x="310" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">verbs 초기화 시퀀스 — 여섯 단계의 호출과 생성 객체</text>
+
+  <!-- Row 1: tops y=64, call box x=25..275, object box x=305..595 -->
+  <rect x="25" y="64" width="250" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="150" y="94" font-size="12" fill="#e6edf3" text-anchor="middle">① ibv_get_device_list</text>
+  <rect x="305" y="64" width="290" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="450" y="85" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_device[]</text>
+  <text x="450" y="103" font-size="10" fill="#8b949e" text-anchor="middle">장치 목록 — mlx5_0 · mlx5_1</text>
+  <path d="M280,90 L294,90" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 2: top y=142 -->
+  <path d="M150,121 L150,131" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <rect x="25" y="142" width="250" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="150" y="172" font-size="12" fill="#e6edf3" text-anchor="middle">② ibv_open_device(dev)</text>
+  <rect x="305" y="142" width="290" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="450" y="163" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_context</text>
+  <text x="450" y="181" font-size="10" fill="#8b949e" text-anchor="middle">컨텍스트 — 이후 모든 호출의 첫 인자</text>
+  <path d="M280,168 L294,168" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 3: top y=220 -->
+  <path d="M150,199 L150,209" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <rect x="25" y="220" width="250" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="150" y="250" font-size="12" fill="#e6edf3" text-anchor="middle">③ ibv_alloc_pd(ctx)</text>
+  <rect x="305" y="220" width="290" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="450" y="241" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_pd</text>
+  <text x="450" y="259" font-size="10" fill="#8b949e" text-anchor="middle">보호 도메인 — MR·QP의 소속</text>
+  <path d="M280,246 L294,246" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 4: top y=298 -->
+  <path d="M150,277 L150,287" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <rect x="25" y="298" width="250" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="150" y="328" font-size="12" fill="#e6edf3" text-anchor="middle">④ ibv_create_cq(ctx, cqe)</text>
+  <rect x="305" y="298" width="290" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="450" y="319" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_cq</text>
+  <text x="450" y="337" font-size="10" fill="#8b949e" text-anchor="middle">완료 큐 — CQE 적재, poll_cq로 소비</text>
+  <path d="M280,324 L294,324" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 5: top y=376 -->
+  <path d="M150,355 L150,365" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <rect x="25" y="376" width="250" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="150" y="406" font-size="12" fill="#e6edf3" text-anchor="middle">⑤ ibv_create_qp(pd, cq)</text>
+  <rect x="305" y="376" width="290" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="450" y="397" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_qp</text>
+  <text x="450" y="415" font-size="10" fill="#8b949e" text-anchor="middle">큐 페어 — init_attr에 pd·send_cq 전달</text>
+  <path d="M280,402 L294,402" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 6: top y=454 -->
+  <path d="M150,433 L150,443" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <rect x="25" y="454" width="250" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="150" y="484" font-size="12" fill="#e6edf3" text-anchor="middle">⑥ ibv_reg_mr(pd, buf, len)</text>
+  <rect x="305" y="454" width="290" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="450" y="475" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_mr</text>
+  <text x="450" y="493" font-size="10" fill="#8b949e" text-anchor="middle">등록 메모리 — lkey(로컬)·rkey(원격)</text>
+  <path d="M280,480 L294,480" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- legend -->
+  <text x="25" y="536" font-size="10" fill="#58a6ff">세로 화살표 — 호출 순서: 아래 단계는 위 단계가 반환한 핸들을 인자로 사용</text>
+  <text x="25" y="561" font-size="10" fill="#8b949e">가로 화살표 — 각 호출이 생성해 반환하는 객체 (사용자 공간 핸들)</text>
+</svg>

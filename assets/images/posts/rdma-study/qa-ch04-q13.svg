@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 279" width="760" role="img" aria-label="스터디 Q&amp;A 카드 — 질문: imm은 SR-IOV 때문에 있는 건가요? 답변 요점: 완전히 별개의 개념. imm은 IB 스펙의 verbs 기능으로 one-sided WRITE의 알림 없음을 메우는 32비트 완료 신호 채널. SR-IOV는 PF·VF로 NIC를 분할하는 PCIe 가상화. PF든 VF든 imm은 동일하게 동작.">
+<style>text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}</style>
+<rect x="0" y="0" width="760" height="279" fill="#ffffff"/>
+<rect x="22" y="22" width="716" height="235" rx="10" fill="#ffffff" stroke="#30363d" stroke-width="1"/>
+<text x="46" y="52" font-size="10" fill="#8b949e">STUDY Q&amp;A</text>
+<rect x="38" y="70" width="684" height="52" rx="8" fill="#eff6ff"/>
+<rect x="53" y="81" width="30" height="30" rx="7" fill="#2563eb"/>
+<text x="68" y="99.5" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">Q</text>
+<text x="95" y="100.5" font-size="13" font-weight="700" fill="#1f2937">imm은 SR-IOV 때문에 있는 건가요?</text>
+<rect x="38" y="147" width="684" height="92" rx="8" fill="#f0fdf4"/>
+<rect x="53" y="152.2" width="30" height="30" rx="7" fill="#16a34a"/>
+<text x="68" y="170.7" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">A</text>
+<text x="95" y="170.2" font-size="12" fill="#334155">완전히 별개의 개념입니다 — imm은 IB 스펙의 verbs 기능입니다.</text>
+<text x="95" y="188.2" font-size="12" fill="#334155">imm은 one-sided WRITE의 "알림 없음"을 메우는 32비트 완료 신호 채널이고,</text>
+<text x="95" y="206.2" font-size="12" fill="#334155">SR-IOV는 PCIe 가상화(PF·VF 분할)입니다.</text>
+<text x="95" y="224.2" font-size="12" fill="#334155">PF든 VF든 imm은 동일하게 동작합니다.</text>
+</svg>

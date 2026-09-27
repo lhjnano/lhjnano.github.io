@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="80 0 690 559" width="690">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content x=100..750, center 425 -->
+  <rect x="80" y="0" width="690" height="559" fill="#161b22"/>
+
+  <!-- title / subtitle -->
+  <text x="425" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">MTU의 이중구조 — 같은 링크, 다른 실효 상한</text>
+  <text x="425" y="60" font-size="10" fill="#8b949e" text-anchor="middle">HTTP는 IPoIB netdev MTU에 묶이고 RDMA verbs는 링크 MTU 4096으로 직행 — 2차 검증(네이티브 IB) 실측</text>
+
+  <!-- ══ HTTP lane container: x=100 y=78 w=650 h=123 (boxes y=110 h=76, bottom 186) ══ -->
+  <rect x="100" y="78" width="650" height="123" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="110" y="92" font-size="11" fill="#f85149">HTTP 경로 — 커널 스택과 IPoIB netdev를 거친다</text>
+
+  <rect x="115" y="110" width="110" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="170" y="136" font-size="12" fill="#e6edf3" text-anchor="middle">애플리케이션</text>
+  <text x="170" y="153" font-size="10" fill="#8b949e" text-anchor="middle">HTTP 클라이언트</text>
+  <text x="170" y="168" font-size="10" fill="#8b949e" text-anchor="middle">소켓 송수신</text>
+
+  <rect x="250" y="110" width="145" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="322" y="136" font-size="12" fill="#e6edf3" text-anchor="middle">커널 TCP/IP 스택</text>
+  <text x="322" y="153" font-size="10" fill="#8b949e" text-anchor="middle">소켓 버퍼 복사</text>
+  <text x="322" y="168" font-size="10" fill="#8b949e" text-anchor="middle">CPU 사용</text>
+
+  <rect x="420" y="110" width="165" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="502" y="136" font-size="12" fill="#e6edf3" text-anchor="middle">IPoIB netdev</text>
+  <text x="502" y="153" font-size="10" fill="#f85149" text-anchor="middle">netdev MTU 1500</text>
+  <text x="502" y="168" font-size="10" fill="#8b949e" text-anchor="middle">큰 전송을 조각으로 분할</text>
+
+  <rect x="610" y="110" width="125" height="76" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="672" y="136" font-size="12" fill="#e6edf3" text-anchor="middle">IB 링크</text>
+  <text x="672" y="153" font-size="10" fill="#8b949e" text-anchor="middle">링크 MTU 4096</text>
+  <text x="672" y="168" font-size="10" fill="#8b949e" text-anchor="middle">전 노드 일치</text>
+
+  <!-- lane 1 arrows: y=148 -->
+  <path d="M230,148 L239,148" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M400,148 L409,148" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M590,148 L599,148" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- ══ RDMA lane container: x=100 y=229 w=650 h=123 (boxes y=261 h=76, bottom 337) ══ -->
+  <rect x="100" y="229" width="650" height="123" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="110" y="243" font-size="11" fill="#3fb950">RDMA 경로 — 커널 스택과 IPoIB를 건너뛴다</text>
+
+  <rect x="115" y="261" width="110" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="170" y="287" font-size="12" fill="#e6edf3" text-anchor="middle">애플리케이션</text>
+  <text x="170" y="304" font-size="10" fill="#8b949e" text-anchor="middle">RDMA 클라이언트</text>
+  <text x="170" y="319" font-size="10" fill="#8b949e" text-anchor="middle">verbs API</text>
+
+  <rect x="250" y="261" width="145" height="76" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="322" y="287" font-size="12" fill="#e6edf3" text-anchor="middle">RDMA verbs</text>
+  <text x="322" y="304" font-size="10" fill="#8b949e" text-anchor="middle">QP·MR 등록</text>
+  <text x="322" y="319" font-size="10" fill="#8b949e" text-anchor="middle">커널 바이패스</text>
+
+  <rect x="420" y="261" width="165" height="76" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="502" y="287" font-size="12" fill="#e6edf3" text-anchor="middle">직행 전송</text>
+  <text x="502" y="304" font-size="10" fill="#8b949e" text-anchor="middle">커널·IPoIB 경유 0회</text>
+  <text x="502" y="319" font-size="10" fill="#3fb950" text-anchor="middle">링크 MTU 4096 그대로</text>
+
+  <rect x="610" y="261" width="125" height="76" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="672" y="287" font-size="12" fill="#e6edf3" text-anchor="middle">IB 링크</text>
+  <text x="672" y="304" font-size="10" fill="#8b949e" text-anchor="middle">링크 MTU 4096</text>
+  <text x="672" y="319" font-size="10" fill="#3fb950" text-anchor="middle">200G HDR(CX6)</text>
+
+  <!-- lane 2 arrows: y=299 -->
+  <path d="M230,299 L239,299" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M400,299 L409,299" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M590,299 L599,299" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- ══ result row: y=380 h=68, bottom 448 ══ -->
+  <rect x="115" y="380" width="295" height="68" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="262" y="402" font-size="12" fill="#e6edf3" text-anchor="middle">HTTP over IPoIB</text>
+  <text x="262" y="418" font-size="10" fill="#8b949e" text-anchor="middle">실효 상한 = netdev MTU 1500(aic)</text>
+  <text x="262" y="434" font-size="10" fill="#f85149" text-anchor="middle">GET 2.2 GB/s @64MiB</text>
+
+  <rect x="440" y="380" width="295" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="587" y="402" font-size="12" fill="#e6edf3" text-anchor="middle">RDMA verbs 직행</text>
+  <text x="587" y="418" font-size="10" fill="#8b949e" text-anchor="middle">링크 MTU 4096 그대로</text>
+  <text x="587" y="434" font-size="10" fill="#3fb950" text-anchor="middle">GET 3.6 GB/s @64MiB</text>
+
+  <!-- bottom annotations -->
+  <text x="115" y="472" font-size="10" fill="#8b949e">실측(2차) — aic1 · 64MiB · n=10: RDMA GET 3.6 vs HTTP GET 2.2 GB/s, RDMA PUT ~1.8× · GET ~1.7× 우위(보고서 §4.2)</text>
+  <text x="115" y="502" font-size="10" fill="#8b949e">이중구조 — 링크 MTU는 전 노드 4096으로 동일하나, HTTP가 타는 IPoIB netdev MTU는 aic 1500 / gpu-1 2044다(보고서 §2)</text>
+  <text x="115" y="532" font-size="10" fill="#8b949e">대비 — 이전 RoCE(400GbE) 검증에서는 GET이 HTTP 승이었다. 패브릭이 바뀌면 HTTP와 RDMA의 승부도 뒤집힌다(§5·§6)</text>
+</svg>

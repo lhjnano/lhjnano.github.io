@@ -73,6 +73,11 @@ export const USER_COLORS = new Set([
   '#ede9fe',  // 네트워크 fill (4회)
   '#cbd5e1',  // 점선 (2회)
   '#e2e8f0',  // 구분선 (1회)
+  // ── Q&A card palette (RDMA study series) ──
+  '#eff6ff',  // Q 블록 배경
+  '#f0fdf4',  // A 블록 배경
+  '#1f2937',  // 질문 텍스트
+  '#334155',  // 답변 텍스트
 ]);
 // CSS custom properties (var(--accent), …) resolve in the embedding HTML page,
 // not inside the SVG file — the linter cannot judge them, so it doesn't.

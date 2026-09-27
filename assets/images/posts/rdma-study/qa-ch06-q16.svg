@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 265" width="760" role="img" aria-label="스터디 Q&amp;A 카드 — 질문: AI용이면 VRAM RDMA는 필요 없나요? 답변: 일반론은 오히려 반대로 AI일수록 체크포인트 로드와 텐서 스트리밍 때문에 가치가 올라간다. 필요 없어지는 조건은 전처리 필수 파이프라인, 컴퓨트 병목, 소형 랜덤 액세스이고, VRAM 직행이 DC 전송 필수는 아니며 GDS의 다른 백엔드는 표준 RDMA READ로 직행을 구현한다.">
+<style>
+text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}
+.q-block{fill:#eff6ff;stroke:#2563eb;stroke-width:1.5;}
+.a-block{fill:#f0fdf4;stroke:#16a34a;stroke-width:1.5;}
+.q-text{fill:#1f2937;}
+.a-text{fill:#334155;}
+</style>
+  <rect x="0" y="0" width="760" height="265" fill="#ffffff"/>
+  <text x="380" y="27.5" text-anchor="middle" font-size="10" fill="#8b949e" letter-spacing="1">STUDY Q&amp;A</text>
+  <rect x="20" y="48" width="720" height="197" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="36" y="64" width="688" height="50" rx="8" class="q-block"/>
+  <rect x="50" y="71" width="36" height="36" rx="8" fill="#2563eb"/>
+  <text x="68" y="93.2" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Q</text>
+  <g class="q-text">
+    <text x="94" y="93.6" font-size="13" font-weight="700">AI용이면 VRAM RDMA는 필요 없나요?</text>
+  </g>
+  <rect x="36" y="139" width="688" height="90" rx="8" class="a-block"/>
+  <rect x="50" y="166" width="36" height="36" rx="8" fill="#16a34a"/>
+  <text x="68" y="188.2" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+  <g class="a-text">
+    <text x="94" y="161" font-size="12">· 일반론은 오히려 반대 — AI일수록 VRAM RDMA의 가치는 올라갑니다</text>
+    <text x="94" y="179" font-size="12">· 체크포인트 로드, 텐서 스트리밍이 대표 수혜 워크로드입니다</text>
+    <text x="94" y="197" font-size="12">· 필요 없어지는 조건: 전처리 필수 파이프라인, 컴퓨트 병목, 소형 랜덤 액세스</text>
+    <text x="94" y="215" font-size="12">· VRAM 직행이 DC 전송 필수는 아닙니다 — GDS의 다른 백엔드는 표준 RDMA READ로 직행을 구현합니다</text>
+  </g>
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 550" width="740">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="740" height="550" fill="#161b22"/>
+
+  <!-- title: content center x=370 (groups span 25..715) -->
+  <text x="370" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">podman 컨테이너에서 RDMA — S3 게이트웨이 구성</text>
+
+  <!-- host group: x=25..335, y=60..477 -->
+  <rect x="25" y="60" width="310" height="417" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#78909c">호스트 — 게이트웨이 노드 (.41)</text>
+
+  <!-- host /dev/infiniband: y=92..146 -->
+  <rect x="45" y="92" width="270" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="57" y="114.3" font-size="12" fill="#e6edf3">/dev/infiniband/</text>
+  <text x="57" y="131.3" font-size="10" fill="#8b949e">uverbs0·1 · rdma_cm · umad · issm</text>
+
+  <!-- host /sys: y=171..225 -->
+  <rect x="45" y="171" width="270" height="54" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="57" y="193.3" font-size="12" fill="#e6edf3">/sys/class/infiniband/</text>
+  <text x="57" y="210.3" font-size="10" fill="#8b949e">mlx5_0 · mlx5_1 — verbs 열거의 출처</text>
+
+  <!-- host source tree: y=250..304 -->
+  <rect x="45" y="250" width="270" height="54" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="57" y="272.3" font-size="12" fill="#e6edf3">/opt/versitygw</text>
+  <text x="57" y="289.3" font-size="10" fill="#8b949e">게이트웨이 소스·빌드 트리 — master</text>
+
+  <!-- host lustre mount: y=329..383 -->
+  <rect x="45" y="329" width="270" height="54" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="57" y="351.3" font-size="12" fill="#e6edf3">/mnt/lustre</text>
+  <text x="57" y="368.3" font-size="10" fill="#8b949e">Lustre 클라이언트 마운트 — lmcfs</text>
+
+  <!-- host capabilities: y=408..462 -->
+  <rect x="45" y="408" width="270" height="54" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="57" y="430.3" font-size="12" fill="#e6edf3">호스트 능력 부여</text>
+  <text x="57" y="447.3" font-size="10" fill="#8b949e">--net host · memlock=-1 · IPC_LOCK</text>
+
+  <!-- container group: x=365..715, y=60..477 -->
+  <rect x="365" y="60" width="350" height="417" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="377" y="74" font-size="11" fill="#78909c">컨테이너 — podman 4.9.4</text>
+
+  <!-- container devices: y=92..146 -->
+  <rect x="385" y="92" width="310" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="397" y="114.3" font-size="12" fill="#e6edf3">/dev/infiniband/ — 노드 단위</text>
+  <text x="397" y="131.3" font-size="10" fill="#8b949e">--device 개별 전달</text>
+
+  <!-- container /sys: y=171..225 -->
+  <rect x="385" y="171" width="310" height="54" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="397" y="193.3" font-size="12" fill="#e6edf3">/sys — 읽기 전용 마운트</text>
+  <text x="397" y="210.3" font-size="10" fill="#8b949e">verbs 디바이스 열거에 필수</text>
+
+  <!-- container workspace: y=250..304 -->
+  <rect x="385" y="250" width="310" height="54" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="397" y="272.3" font-size="12" fill="#e6edf3">/workspace</text>
+  <text x="397" y="289.3" font-size="10" fill="#8b949e">게이트웨이 빌드·실행 공간 — bind</text>
+
+  <!-- container lustre: y=329..383 -->
+  <rect x="385" y="329" width="310" height="54" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="397" y="351.3" font-size="12" fill="#e6edf3">/lustre</text>
+  <text x="397" y="368.3" font-size="10" fill="#8b949e">posix 백엔드 gwroot — S3 객체 (bind)</text>
+
+  <!-- vgwrdma process: y=408..462 -->
+  <rect x="385" y="408" width="310" height="54" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="397" y="430.3" font-size="12" fill="#e6edf3">vgwrdma — :7071 · --rdma-rc-enable</text>
+  <text x="397" y="447.3" font-size="10" fill="#e3f2fd">rc-v2 RC 데이터플레인 · 표준 verbs (dlopen shim)</text>
+
+  <!-- connectors: host → container (mapping types named in the container-side boxes) -->
+  <path d="M320,119 L374,119" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M320,198 L374,198" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M320,277 L374,277" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M320,356 L374,356" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M320,435 L374,435" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- bottom annotations -->
+  <text x="25" y="501" font-size="10" fill="#8b949e">이미지 vgwrdma-builder:local (rhel9 + CUDA) — 빌드와 실행을 한 컨테이너에서</text>
+  <text x="25" y="527" font-size="10" fill="#58a6ff">실행 — vgwrdma --port :7071 --rdma-rc-enable posix /lustre (보고서 §4)</text>
+</svg>

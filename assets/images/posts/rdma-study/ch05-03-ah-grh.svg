@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 401" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="401" fill="#161b22"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">AH와 GRH — IB는 LID·LRH, RoCE는 GID·GRH</text>
+
+  <!-- GRH field labels above the strip (row B = y70, row A = y96, staggered for narrow segments) -->
+  <text x="25" y="96" font-size="10" fill="#e6edf3">ver·TClass·flow · 4B</text>
+  <text x="230" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">next hdr · 1B</text>
+  <text x="450" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">SGID · 16B</text>
+  <text x="640" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">DGID · 16B</text>
+  <text x="160" y="70" font-size="10" fill="#e6edf3" text-anchor="middle">paylen · 2B</text>
+  <text x="310" y="70" font-size="10" fill="#f85149" text-anchor="middle">hop limit = 64</text>
+
+  <!-- GRH byte strip: thick colored segments, y=115, boundaries 25/125/195/265/355/545/735 -->
+  <path d="M25,115 L 125,115" stroke="#8b949e" stroke-width="14"/>
+  <path d="M125,115 L 195,115" stroke="#1976d2" stroke-width="14"/>
+  <path d="M195,115 L 265,115" stroke="#1565c0" stroke-width="14"/>
+  <path d="M265,115 L 355,115" stroke="#f85149" stroke-width="14"/>
+  <path d="M355,115 L 545,115" stroke="#58a6ff" stroke-width="14"/>
+  <path d="M545,115 L 735,115" stroke="#bc8cff" stroke-width="14"/>
+
+  <!-- strip caption -->
+  <text x="25" y="140" font-size="10" fill="#78909c">GRH(Global Routing Header) 40바이트 — is_global=1이면 모든 패킷에 포함</text>
+
+  <!-- left: ibv_ah_attr box x=25..305, y=165..298 (7 lines) -->
+  <rect x="25" y="165" width="280" height="133" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="165" y="190.1" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_ah_attr — 실측 (보고서 §8)</text>
+  <text x="165" y="205.1" font-size="10" fill="#e6edf3" text-anchor="middle">is_global = 1 — GRH 항상 포함</text>
+  <text x="165" y="220.1" font-size="10" fill="#e6edf3" text-anchor="middle">grh.dgid = 피어 GID (fe80::…)</text>
+  <text x="165" y="235.1" font-size="10" fill="#e6edf3" text-anchor="middle">grh.sgid_index = 0 (rcx -gid)</text>
+  <text x="165" y="250.1" font-size="10" fill="#e6edf3" text-anchor="middle">grh.hop_limit = 64</text>
+  <text x="165" y="265.1" font-size="10" fill="#e6edf3" text-anchor="middle">dlid = 피어 LID (예: 0x3FA)</text>
+  <text x="165" y="280.1" font-size="10" fill="#8b949e" text-anchor="middle">→ ibv_create_ah(pd, &amp;ah_attr)</text>
+
+  <!-- branch arrows: ah_attr -> IB (y=191) / RoCE (y=268) -->
+  <path d="M310,191 L324,191" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M310,268 L324,268" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- right top: IB box x=335..735, y=165..217 -->
+  <rect x="335" y="165" width="400" height="52" rx="6" fill="#263238" stroke="#1976d2"/>
+  <text x="535" y="187.35" font-size="12" fill="#e6edf3" text-anchor="middle">IB 패브릭 — LRH 라우팅 (LID 필수)</text>
+  <text x="535" y="202.35" font-size="10" fill="#8b949e" text-anchor="middle">스위치가 LRH의 DLID(16비트)로 전달 — GID는 부가 정보</text>
+
+  <!-- right bottom: RoCE box x=335..735, y=242..294 -->
+  <rect x="335" y="242" width="400" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="535" y="264.35" font-size="12" fill="#e6edf3" text-anchor="middle">RoCE 패브릭 — GRH(IP) 라우팅 (GID만)</text>
+  <text x="535" y="279.35" font-size="10" fill="#8b949e" text-anchor="middle">이더넷 스위치가 IP(GID)로 전달 — DLID 불요 (0이어도 동작)</text>
+
+  <!-- warn box: x=25..735, y=324..376 -->
+  <rect x="25" y="324" width="710" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="380" y="346.35" font-size="12" fill="#f85149" text-anchor="middle">IB에서 DLID=0 — 패킷 드랍 (보고서 이슈⑤)</text>
+  <text x="380" y="361.35" font-size="10" fill="#e6edf3" text-anchor="middle">서버가 dlid=0 하드코딩(RoCE 가정) → 스위치 라우팅 불가·패킷 소실 — "write: transport retry"의 원인, 6곳 패치로 해결</text>
+</svg>

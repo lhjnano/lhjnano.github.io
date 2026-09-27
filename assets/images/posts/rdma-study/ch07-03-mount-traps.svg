@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 770 627" width="770">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="20" y="0" width="770" height="627" fill="#161b22"/>
+
+  <!-- title: content center x=405 -->
+  <text x="405" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">클라이언트 마운트와 두 개의 함정 — 옛 주소 잔재</text>
+
+  <!-- mount command: x=40, y=60, w=730, h=44 -->
+  <rect x="40" y="60" width="730" height="44" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="405" y="86.2" font-size="12" fill="#e6edf3" text-anchor="middle">mount -t lustre -o user_xattr 172.16.44.41@o2ib:/lmcfs /mnt/lustre</text>
+
+  <!-- connectors: command → targets -->
+  <path d="M160,109 L160,123" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M390,109 L390,123" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M620,109 L620,123" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- targets: y=134, w=210, h=52 -->
+  <rect x="60" y="134" width="210" height="52" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="72" y="155.4" font-size="12" fill="#e6edf3">MGS + MDT0000</text>
+  <text x="72" y="172.4" font-size="10" fill="#e3f2fd">172.16.44.41 — 설정 로그 보유</text>
+
+  <rect x="300" y="134" width="210" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="312" y="155.4" font-size="12" fill="#e6edf3">OST0000</text>
+  <text x="312" y="172.4" font-size="10" fill="#8b949e">172.16.44.41 — ZFS 속성 보유</text>
+
+  <rect x="540" y="134" width="210" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="552" y="155.4" font-size="12" fill="#e6edf3">OST0001</text>
+  <text x="552" y="172.4" font-size="10" fill="#8b949e">172.16.44.42 — ZFS 속성 보유</text>
+
+  <!-- red trap lines: targets → traps -->
+  <path d="M160,191 L160,212" fill="none" stroke="#f85149" stroke-width="1.5"/>
+  <path d="M390,191 L390,212" fill="none" stroke="#f85149" stroke-width="1.5"/>
+  <path d="M620,191 L620,212" fill="none" stroke="#f85149" stroke-width="1.5"/>
+
+  <!-- trap 2: MDT config log, x=40, y=216, w=240, h=94 -->
+  <rect x="40" y="216" width="240" height="94" rx="10" fill="none" stroke="#f85149" stroke-dasharray="6,4"/>
+  <text x="52" y="240" font-size="11" fill="#f85149">함정 ② — MDT 설정 로그의 옛 NID</text>
+  <text x="52" y="266" font-size="10" fill="#e6edf3">재생성 전 로그에는 과거 NID가 남아</text>
+  <text x="52" y="292" font-size="10" fill="#e6edf3">새 클라이언트가 옛 주소를 참조한다</text>
+
+  <!-- trap 1: OST ZFS property, x=320, y=216, w=450, h=94 -->
+  <rect x="320" y="216" width="450" height="94" rx="10" fill="none" stroke="#f85149" stroke-dasharray="6,4"/>
+  <text x="332" y="240" font-size="11" fill="#f85149">함정 ① — OST ZFS 속성 lustre:mgsnode가 옛 MGS 지목</text>
+  <text x="332" y="266" font-size="10" fill="#e6edf3">lustre:mgsnode=172.16.44.1 — mount.lustre가 옛 MGS를 찾음</text>
+  <text x="332" y="292" font-size="10" fill="#e6edf3">writeconf로 재생성되지 않는다 — ZFS 사용자 속성은 별도</text>
+
+  <!-- green fix arrows: traps → fixes -->
+  <path d="M160,315 L160,325" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M545,315 L545,325" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- fix 2: rewrite config log, x=40, y=336, w=240, h=146 -->
+  <rect x="40" y="336" width="240" height="146" rx="10" fill="none" stroke="#3fb950" stroke-dasharray="6,4"/>
+  <text x="52" y="360" font-size="11" fill="#3fb950">수정 ② — 설정 로그 재생성</text>
+  <text x="52" y="386" font-size="10" fill="#e6edf3">tunefs.lustre --writeconf</text>
+  <text x="52" y="412" font-size="10" fill="#e6edf3">  lustre-mdt0/mdt0 (ost0·ost1 동일)</text>
+  <text x="52" y="438" font-size="10" fill="#e6edf3">lctl --device lmcfs-MDT0000</text>
+  <text x="52" y="464" font-size="10" fill="#e6edf3">  abort_recovery</text>
+
+  <!-- fix 1: fix ZFS property, x=320, y=336, w=450, h=146 -->
+  <rect x="320" y="336" width="450" height="146" rx="10" fill="none" stroke="#3fb950" stroke-dasharray="6,4"/>
+  <text x="332" y="360" font-size="11" fill="#3fb950">수정 ① — ZFS 속성 직접 수정</text>
+  <text x="332" y="386" font-size="10" fill="#e6edf3">zfs set lustre:mgsnode=172.16.44.41@o2ib lustre-ost0/ost0</text>
+  <text x="332" y="412" font-size="10" fill="#e6edf3">zfs set lustre:mgsnode=172.16.44.41@o2ib lustre-ost1/ost1</text>
+  <text x="332" y="438" font-size="10" fill="#8b949e">속성 수정 후 MDT(MGS) → OST 순서로 서버 마운트</text>
+  <text x="332" y="464" font-size="10" fill="#8b949e">MDT가 WAITING_FOR_CLIENTS 리커버리에 남으면 abort_recovery</text>
+
+  <!-- user_xattr bar: x=40, y=508, w=730, h=94 -->
+  <rect x="40" y="508" width="730" height="94" rx="10" fill="none" stroke="#58a6ff" stroke-dasharray="6,4"/>
+  <text x="405" y="532" font-size="11" fill="#58a6ff" text-anchor="middle">-o user_xattr — remount로는 안 되는 필수 옵션</text>
+  <text x="405" y="558" font-size="10" fill="#e6edf3" text-anchor="middle">Lustre 클라이언트 기본값은 nouser_xattr — versitygw는 기동 시 xattr 검사에서 실패한다</text>
+  <text x="405" y="584" font-size="10" fill="#8b949e" text-anchor="middle">remount로는 반영되지 않는다 — 완전히 umount한 뒤 -o user_xattr로 다시 마운트</text>
+</svg>

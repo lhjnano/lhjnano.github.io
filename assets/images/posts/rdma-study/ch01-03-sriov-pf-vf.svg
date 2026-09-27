@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 760 342" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="10" y="0" width="760" height="342" fill="#161b22"/>
+
+  <!-- title: content center x=390 -->
+  <text x="390" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">SR-IOV — PF와 VF: PVE 호스트와 게스트 VM</text>
+
+  <!-- IB switch: x=30..140, y=60..112 (staggered above the host row) -->
+  <rect x="30" y="60" width="110" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="85" y="81" font-size="12" fill="#e6edf3" text-anchor="middle">IB 스위치</text>
+  <text x="85" y="99" font-size="10" fill="#8b949e" text-anchor="middle">QSFP28 · EDR</text>
+
+  <!-- PVE host group: x=166..436, y=85..205 -->
+  <rect x="166" y="85" width="270" height="120" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="176" y="99" font-size="11" fill="#78909c">PVE 호스트 (하이퍼바이저)</text>
+
+  <!-- PF box: x=186..416, y=120..188 -->
+  <rect x="186" y="120" width="230" height="68" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="301" y="141" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX-4 PF</text>
+  <text x="301" y="158" font-size="10" fill="#e3f2fd" text-anchor="middle">SR-IOV · 물리 포트 소유</text>
+  <text x="301" y="173" font-size="10" fill="#e3f2fd" text-anchor="middle">링크 타입 = IB (고정)</text>
+
+  <!-- Guest VM group: x=462..750, y=85..285 -->
+  <rect x="462" y="85" width="288" height="200" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="472" y="99" font-size="11" fill="#78909c">게스트 VM — 10.0.35.40</text>
+
+  <!-- VF0 box: x=482..730, y=120..188 -->
+  <rect x="482" y="120" width="248" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="606" y="141" font-size="12" fill="#e6edf3" text-anchor="middle">VF 0 → mlx5_0</text>
+  <text x="606" y="158" font-size="10" fill="#8b949e" text-anchor="middle">ib0 · 172.16.44.40/24</text>
+  <text x="606" y="173" font-size="10" fill="#8b949e" text-anchor="middle">LID 0x3FA · MTU 4096</text>
+
+  <!-- VF1 box: x=482..730, y=213..265 -->
+  <rect x="482" y="213" width="248" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="606" y="234" font-size="12" fill="#e6edf3" text-anchor="middle">VF 1 → mlx5_1</text>
+  <text x="606" y="252" font-size="10" fill="#8b949e" text-anchor="middle">미사용 — LNet 등록 거부</text>
+
+  <!-- connectors -->
+  <!-- IB switch -> PF (wire enters the host) -->
+  <path d="M85,117 C 85,148 158,154 175,154" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- PF -> VF0 (PCIe passthrough, straight) -->
+  <path d="M421,154 L 471,154" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <!-- PF -> VF1 (PCIe passthrough, curved) -->
+  <path d="M421,170 C 442,170 452,239 471,239" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- bottom annotations -->
+  <text x="30" y="315" font-size="10" fill="#8b949e">① 파란 실선: PCIe 패스스루 — PF가 생성한 VF를 게스트에 직접 할당</text>
+  <text x="330" y="315" font-size="10" fill="#bc8cff">② VF의 링크 타입은 PF를 따름 → IB 모드 고정, 전환은 PVE 호스트 작업</text>
+</svg>

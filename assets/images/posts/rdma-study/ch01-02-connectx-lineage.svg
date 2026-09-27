@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 0 798 300" width="798">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="8" y="0" width="798" height="300" fill="#161b22"/>
+
+  <!-- title: content center x=407 -->
+  <text x="407" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">ConnectX 제품 계보와 mlx5 드라이버</text>
+
+  <!-- CX-3 -->
+  <rect x="30" y="98" width="130" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="95" y="120" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX-3</text>
+  <text x="95" y="135" font-size="10" fill="#8b949e" text-anchor="middle">2013 · FDR 56G</text>
+  <text x="95" y="150" font-size="10" fill="#8b949e" text-anchor="middle">PCIe Gen3</text>
+
+  <!-- CX-4 (report hardware) -->
+  <rect x="186" y="98" width="130" height="68" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="251" y="120" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX-4</text>
+  <text x="251" y="135" font-size="10" fill="#e3f2fd" text-anchor="middle">2014 · EDR 100G</text>
+  <text x="251" y="150" font-size="10" fill="#e3f2fd" text-anchor="middle">IB + RoCE v1/v2</text>
+
+  <!-- CX-5 -->
+  <rect x="342" y="98" width="130" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="407" y="120" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX-5</text>
+  <text x="407" y="135" font-size="10" fill="#8b949e" text-anchor="middle">2016 · 100/200G</text>
+  <text x="407" y="150" font-size="10" fill="#8b949e" text-anchor="middle">eMPI 오프로드</text>
+
+  <!-- CX-6 Dx -->
+  <rect x="498" y="98" width="130" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="563" y="120" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX-6 Dx</text>
+  <text x="563" y="135" font-size="10" fill="#8b949e" text-anchor="middle">2020 · 200/400G</text>
+  <text x="563" y="150" font-size="10" fill="#8b949e" text-anchor="middle">IPsec·TLS 암호화</text>
+
+  <!-- CX-7 -->
+  <rect x="654" y="98" width="130" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="719" y="120" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX-7</text>
+  <text x="719" y="135" font-size="10" fill="#8b949e" text-anchor="middle">2021 · 400G</text>
+  <text x="719" y="150" font-size="10" fill="#8b949e" text-anchor="middle">NVLink 확장</text>
+
+  <!-- generation arrows -->
+  <path d="M165,132 L175,132" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M321,132 L331,132" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M477,132 L487,132" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M633,132 L643,132" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- mlx5 driver band -->
+  <rect x="186" y="192" width="440" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="406" y="213" font-size="12" fill="#e6edf3" text-anchor="middle">mlx5 코어 드라이버 — CX-4·5·6·7 공통</text>
+  <text x="406" y="231" font-size="10" fill="#8b949e" text-anchor="middle">디바이스 파일: /dev/infiniband/mlx5_0 · mlx5_1 (포트별)</text>
+
+  <!-- CX-4 uses mlx5 -->
+  <path d="M251,171 L251,181" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- report annotation -->
+  <text x="30" y="275" font-size="10" fill="#bc8cff">보고서 환경: ConnectX-4 VF 2개 — mlx5_0(포트0)·mlx5_1(포트1), IB EDR 100G</text>
+</svg>

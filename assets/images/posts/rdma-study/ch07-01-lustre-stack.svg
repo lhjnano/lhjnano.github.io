@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 770 704" width="770">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="20" y="0" width="770" height="704" fill="#161b22"/>
+
+  <!-- title: content center x=405 -->
+  <text x="405" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">Lustre 클라이언트 스택과 서버 토폴로지 — ptlrpc와 LNet</text>
+
+  <!-- ── client node container: x=40, y=58, w=290, h=568 ── -->
+  <rect x="40" y="58" width="290" height="568" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="50" y="72" font-size="11" fill="#78909c">클라이언트 노드 (.40 · .41 루프백 포함)</text>
+
+  <!-- ── server node container: x=520, y=58, w=250, h=320 ── -->
+  <rect x="520" y="58" width="250" height="320" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="530" y="72" font-size="11" fill="#78909c">서버 노드 — 파일시스템 lmcfs</text>
+
+  <!-- connectors: client layer stack (x=185, box centers) -->
+  <path d="M185,147 L185,157" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M185,225 L185,235" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M185,303 L185,313" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M185,381 L185,391" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M185,459 L185,469" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M185,537 L185,547" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- connectors: down to fabric -->
+  <path d="M185,615 L185,633" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <path d="M645,383 L645,633" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── client stack boxes: x=55, w=260, h=52 ── -->
+  <!-- VFS: y=90 -->
+  <rect x="55" y="90" width="260" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="67" y="111.4" font-size="12" fill="#e6edf3">VFS</text>
+  <text x="67" y="128.4" font-size="10" fill="#8b949e">리눅스 커널 가상 파일시스템</text>
+
+  <!-- llite: y=168 -->
+  <rect x="55" y="168" width="260" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="67" y="189.4" font-size="12" fill="#e6edf3">llite</text>
+  <text x="67" y="206.4" font-size="10" fill="#8b949e">Lustre의 VFS 접착 계층</text>
+
+  <!-- lmv/lov: y=246 -->
+  <rect x="55" y="246" width="260" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="67" y="267.4" font-size="12" fill="#e6edf3">lmv · lov</text>
+  <text x="67" y="284.4" font-size="10" fill="#8b949e">MDT·OST 스트라이프 논리</text>
+
+  <!-- mdc/osc: y=324 -->
+  <rect x="55" y="324" width="260" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="67" y="345.4" font-size="12" fill="#e6edf3">mdc · osc</text>
+  <text x="67" y="362.4" font-size="10" fill="#8b949e">메타데이터·데이터 타깃 클라이언트</text>
+
+  <!-- ptlrpc: y=402 -->
+  <rect x="55" y="402" width="260" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="67" y="423.4" font-size="12" fill="#e6edf3">ptlrpc</text>
+  <text x="67" y="440.4" font-size="10" fill="#8b949e">Lustre RPC 의미론 · 복구 처리</text>
+
+  <!-- LNet: y=480 -->
+  <rect x="55" y="480" width="260" height="52" rx="6" fill="#0d47a1" stroke="#58a6ff"/>
+  <text x="67" y="501.4" font-size="12" fill="#e6edf3">LNet</text>
+  <text x="67" y="518.4" font-size="10" fill="#e3f2fd">전송 독립 메시지 계층 · NID 라우팅</text>
+
+  <!-- LND: y=558 -->
+  <rect x="55" y="558" width="260" height="52" rx="6" fill="#37474f" stroke="#22d3ee"/>
+  <text x="67" y="579.4" font-size="12" fill="#e6edf3">LND 플러그인</text>
+  <text x="67" y="596.4" font-size="10" fill="#8b949e">socklnd · o2iblnd(ko2iblnd)</text>
+
+  <!-- ── server boxes: x=535, w=220, h=68 ── -->
+  <!-- MGS+MDT0000: y=90 -->
+  <rect x="535" y="90" width="220" height="68" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="547" y="111" font-size="12" fill="#e6edf3">MGS + MDT0000</text>
+  <text x="547" y="128" font-size="10" fill="#e3f2fd">172.16.44.41@o2ib</text>
+  <text x="547" y="144" font-size="10" fill="#e3f2fd">설정 서비스 + 메타데이터 관리</text>
+
+  <!-- OST0000: y=184 -->
+  <rect x="535" y="184" width="220" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="547" y="205" font-size="12" fill="#e6edf3">OST0000</text>
+  <text x="547" y="222" font-size="10" fill="#8b949e">172.16.44.41@o2ib</text>
+  <text x="547" y="238" font-size="10" fill="#8b949e">데이터 저장 — ZFS lustre-ost0</text>
+
+  <!-- OST0001: y=278 -->
+  <rect x="535" y="278" width="220" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="547" y="299" font-size="12" fill="#e6edf3">OST0001</text>
+  <text x="547" y="316" font-size="10" fill="#8b949e">172.16.44.42@o2ib</text>
+  <text x="547" y="332" font-size="10" fill="#8b949e">데이터 저장 — ZFS lustre-ost1</text>
+
+  <!-- server note: inside the container, below OST0001 -->
+  <text x="535" y="369" font-size="10" fill="#78909c">서버도 동일한 ptlrpc + LNet 스택 구동</text>
+
+  <!-- annotation beside the long server→fabric connector (x=645) -->
+  <text x="662" y="490" font-size="10" fill="#78909c">모든 Lustre RPC는</text>
+  <text x="662" y="516" font-size="10" fill="#78909c">LNet 메시지로 운반</text>
+
+  <!-- ── fabric bar: x=40, y=644, w=730, h=38 ── -->
+  <rect x="40" y="644" width="730" height="38" rx="8" fill="#37474f" stroke="#8b949e"/>
+  <text x="405" y="668" font-size="12" fill="#e6edf3" text-anchor="middle">물리 패브릭 — InfiniBand · IPoIB 172.16.44.0/24 · MTU 4096 (mlx5_0)</text>
+</svg>

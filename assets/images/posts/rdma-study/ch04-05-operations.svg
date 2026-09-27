@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 885 618" width="885">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="885" height="618" fill="#161b22"/>
+
+  <!-- title: content center x=442.5 (columns span 25..860) -->
+  <text x="442.5" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">RDMA 오퍼레이션 4총사 — 누가 CPU를 쓰고 누가 RQ를 쓰나</text>
+
+  <!-- common base bar: x=25..860, y=64..100 -->
+  <rect x="25" y="64" width="835" height="36" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="442.5" y="86" font-size="12" fill="#e6edf3" text-anchor="middle">WQE의 opcode가 고르는 네 갈래 — §2의 송신 WQE에서 opcode 필드에 넣는 값</text>
+
+  <!-- drop arrows to the four column headers (end = header top 130 - 11) -->
+  <path d="M120,105 L120,119" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M335,105 L335,119" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M550,105 L550,119" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M765,105 L765,119" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- header row: y=130..182, columns x=25/240/455/670 w=190 -->
+  <rect x="25" y="130" width="190" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="120" y="151" font-size="12" fill="#e6edf3" text-anchor="middle">SEND / RECV</text>
+  <text x="120" y="169" font-size="10" fill="#8b949e" text-anchor="middle">two-sided — 양측 CPU</text>
+
+  <rect x="240" y="130" width="190" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="335" y="151" font-size="12" fill="#e6edf3" text-anchor="middle">RDMA WRITE</text>
+  <text x="335" y="169" font-size="10" fill="#8b949e" text-anchor="middle">one-sided — 직접 쓰기</text>
+
+  <rect x="455" y="130" width="190" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="550" y="151" font-size="12" fill="#e6edf3" text-anchor="middle">WRITE_WITH_IMM</text>
+  <text x="550" y="169" font-size="10" fill="#8b949e" text-anchor="middle">one-sided + imm 통지</text>
+
+  <rect x="670" y="130" width="190" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="765" y="151" font-size="12" fill="#e6edf3" text-anchor="middle">RDMA READ</text>
+  <text x="765" y="169" font-size="10" fill="#8b949e" text-anchor="middle">one-sided — 당겨 읽기</text>
+
+  <!-- flow row: y=212..280 -->
+  <rect x="25" y="212" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="120" y="234" font-size="12" fill="#e6edf3" text-anchor="middle">클라 → 서버</text>
+  <text x="120" y="252" font-size="10" fill="#8b949e" text-anchor="middle">메시지 — 상대 좌표 불필요</text>
+  <text x="120" y="267" font-size="10" fill="#8b949e" text-anchor="middle">착지는 수신측 recv가 정함</text>
+
+  <rect x="240" y="212" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="335" y="234" font-size="12" fill="#e6edf3" text-anchor="middle">클라 → 서버 메모리</text>
+  <text x="335" y="252" font-size="10" fill="#8b949e" text-anchor="middle">rkey·addr로 직접 쓴다</text>
+  <text x="335" y="267" font-size="10" fill="#8b949e" text-anchor="middle">수신측은 아무것도 안 한다</text>
+
+  <rect x="455" y="212" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="550" y="234" font-size="12" fill="#e6edf3" text-anchor="middle">클라 → 서버 + imm</text>
+  <text x="550" y="252" font-size="10" fill="#8b949e" text-anchor="middle">WRITE에 32비트 imm 동봉</text>
+  <text x="550" y="267" font-size="10" fill="#8b949e" text-anchor="middle">데이터와 신호를 함께 보냄</text>
+
+  <rect x="670" y="212" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="765" y="234" font-size="12" fill="#e6edf3" text-anchor="middle">서버 → 클라 (당김)</text>
+  <text x="765" y="252" font-size="10" fill="#8b949e" text-anchor="middle">클라가 개시해 당겨 읽기</text>
+  <text x="765" y="267" font-size="10" fill="#8b949e" text-anchor="middle">원본 좌표는 상대의 MR</text>
+
+  <!-- engagement row: y=310..378 -->
+  <rect x="25" y="310" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="120" y="332" font-size="12" fill="#e6edf3" text-anchor="middle">양측 CPU 모두 관여</text>
+  <text x="120" y="350" font-size="10" fill="#8b949e" text-anchor="middle">수신측 recv 게시 필수</text>
+  <text x="120" y="365" font-size="10" fill="#8b949e" text-anchor="middle">RQ 소비 — 있음</text>
+
+  <rect x="240" y="310" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="335" y="332" font-size="12" fill="#e6edf3" text-anchor="middle">상대측 CPU 참여 없음</text>
+  <text x="335" y="350" font-size="10" fill="#8b949e" text-anchor="middle">RQ 소비 — 없음</text>
+  <text x="335" y="365" font-size="10" fill="#8b949e" text-anchor="middle">완료는 송신측 CQE뿐</text>
+
+  <rect x="455" y="310" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="550" y="332" font-size="12" fill="#e6edf3" text-anchor="middle">쓰기는 몰라도 통지 온다</text>
+  <text x="550" y="350" font-size="10" fill="#8b949e" text-anchor="middle">RQ 소비 — 있음 (recv)</text>
+  <text x="550" y="365" font-size="10" fill="#8b949e" text-anchor="middle">imm_data가 CQE에 실림</text>
+
+  <rect x="670" y="310" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="765" y="332" font-size="12" fill="#e6edf3" text-anchor="middle">상대측 CPU 참여 없음</text>
+  <text x="765" y="350" font-size="10" fill="#8b949e" text-anchor="middle">RQ 소비 — 없음</text>
+  <text x="765" y="365" font-size="10" fill="#8b949e" text-anchor="middle">완료는 개시측 CQE뿐</text>
+
+  <!-- rc-v2 usage row: y=408..476 -->
+  <rect x="25" y="408" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="120" y="430" font-size="12" fill="#e6edf3" text-anchor="middle">rc-v2 — 미사용</text>
+  <text x="120" y="448" font-size="10" fill="#8b949e" text-anchor="middle">제어는 HTTP, 데이터는</text>
+  <text x="120" y="463" font-size="10" fill="#8b949e" text-anchor="middle">RDMA — 자리가 없다</text>
+
+  <rect x="240" y="408" width="190" height="68" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="335" y="430" font-size="12" fill="#e6edf3" text-anchor="middle">단독이면 완료 신호 없음</text>
+  <text x="335" y="448" font-size="10" fill="#8b949e" text-anchor="middle">데이터는 가지만 끝났다는</text>
+  <text x="335" y="463" font-size="10" fill="#8b949e" text-anchor="middle">표시가 수신측에 안 온다</text>
+
+  <rect x="455" y="408" width="190" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="550" y="430" font-size="12" fill="#e6edf3" text-anchor="middle">PUT·GET 모두 이것</text>
+  <text x="550" y="448" font-size="10" fill="#8b949e" text-anchor="middle">imm=쿠키 → recv CQE</text>
+  <text x="550" y="463" font-size="10" fill="#8b949e" text-anchor="middle">대조로 착지 확정 (§7.2)</text>
+
+  <rect x="670" y="408" width="190" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="765" y="430" font-size="12" fill="#e6edf3" text-anchor="middle">rc-v2 — 미사용</text>
+  <text x="765" y="448" font-size="10" fill="#8b949e" text-anchor="middle">당겨 읽기 대신 받아 놓기</text>
+  <text x="765" y="463" font-size="10" fill="#8b949e" text-anchor="middle">(서버가 밀어 쓰기) 선택</text>
+
+  <!-- legend and annotations -->
+  <text x="25" y="510" font-size="10" fill="#8b949e">테두리(헤더) — 회색 two-sided(양측 CPU) · 파랑 one-sided(상대 CPU 무관) · 보라 one-sided + imm 통지 · 아랫줄 초록 = rc-v2 채택, 빨강 = rc-v2에서 불가</text>
+  <text x="25" y="537" font-size="10" fill="#8b949e">RQ 소비의 대칭 — SEND와 WRITE_WITH_IMM은 상대 RQ의 recv WQE를 소비하고, plain WRITE·READ는 상대 RQ를 거치지 않는다 (§1 그림 1)</text>
+  <text x="25" y="564" font-size="10" fill="#3fb950">rc-v2 매핑 — PUT = 클라의 WRITE_WITH_IMM(imm=쿠키) · GET = 클라 zero-SGE recv 후 서버의 WRITE_WITH_IMM (보고서 §7.2·§8)</text>
+  <text x="25" y="591" font-size="10" fill="#58a6ff">왜 plain WRITE가 아닌가 — imm 없이는 수신측이 착지를 알 수 없다: rc-v2는 완료 통지 수단으로 32비트 imm를 쓴다 (§6)</text>
+</svg>

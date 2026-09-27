@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 770 536" width="770">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="20" y="0" width="770" height="536" fill="#161b22"/>
+
+  <!-- title: content center x=405 -->
+  <text x="405" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">S3-over-RDMA의 두 경로 — cuObject(DC)와 hipobj-rc-v2(RC)</text>
+
+  <!-- ── card row: y=60, h=114 ── -->
+  <rect x="40" y="60" width="355" height="114" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="52" y="81" font-size="12" fill="#e6edf3">cuObject (DC) — 1차 타겟 · NVIDIA</text>
+  <text x="52" y="97" font-size="10" fill="#e3f2fd">출처: NVIDIA 폐쇄 라이브러리 — CUDA ≥ 13.1.1</text>
+  <text x="52" y="113" font-size="10" fill="#e3f2fd">정본 클라: libcuobjclient — GPU-direct</text>
+  <text x="52" y="129" font-size="10" fill="#e3f2fd">소비자: NIXL OBJ 엔진 · elbencho --cuobj</text>
+  <text x="52" y="145" font-size="10" fill="#e3f2fd">클라 NIC: ConnectX 계열 + peermem/dma-buf</text>
+  <text x="52" y="161" font-size="10" fill="#e3f2fd">스토리지 서버: libcuobjserver만 — MOFED 불필요</text>
+
+  <rect x="425" y="60" width="345" height="114" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="437" y="81" font-size="12" fill="#e6edf3">hipobj-rc-v2 (RC) — 2차 타겟 · 커버리지 확장</text>
+  <text x="437" y="97" font-size="10" fill="#8b949e">출처: AMD ROCm hipObject (2026-08-22 early access)</text>
+  <text x="437" y="113" font-size="10" fill="#8b949e">정본 클라: ROCm/hipObject PR #32 — 아직 open</text>
+  <text x="437" y="129" font-size="10" fill="#8b949e">소비자: AMD GPU(ROCm) · 비-ConnectX NIC(ERNIC)</text>
+  <text x="437" y="145" font-size="10" fill="#8b949e">클라 NIC: 표준 RC verbs — CX4 · 타사 NIC 포함</text>
+  <text x="437" y="161" font-size="10" fill="#8b949e">스토리지 서버: 표준 verbs만 — MOFED 불필요</text>
+
+  <!-- ── relation box (dashed): x=40, y=204, w=730, h=126 ── -->
+  <rect x="40" y="204" width="730" height="126" rx="10" fill="none" stroke="#f85149" stroke-dasharray="6,4"/>
+  <text x="52" y="228" font-size="11" fill="#f85149">RC는 cuObject의 대체가 아니다 — 2차 타겟 · 커버리지 확장</text>
+  <text x="52" y="254" font-size="10" fill="#e6edf3">NVIDIA 타겟의 KV 오프로드(vLLM · LMCache · NIXL)는 전부 cuObject 바인딩</text>
+  <text x="52" y="280" font-size="10" fill="#e6edf3">hipObject를 NVIDIA GPU에서 쓰면 host-memory 전송만 가능 — GPU-direct 불가</text>
+  <text x="52" y="306" font-size="10" fill="#8b949e">RC의 자리: ① AMD/ROCm GPU ② 비-ConnectX NIC · CX4 ③ CPU host-memory S3-over-RDMA</text>
+
+  <!-- connector: relation → recommendation -->
+  <path d="M405,336 L405,350" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── recommendation box (dashed): x=40, y=360, w=730, h=126 ── -->
+  <rect x="40" y="360" width="730" height="126" rx="10" fill="none" stroke="#3fb950" stroke-dasharray="6,4"/>
+  <text x="52" y="384" font-size="11" fill="#3fb950">같은 vgwrdma가 두 데이터플레인을 동시 기동 — --rdma-ip + --rdma-rc-enable</text>
+  <text x="52" y="410" font-size="10" fill="#e6edf3">제품 구조상 양립 — 게이트웨이 하나로 NVIDIA(cuObject)와 AMD/비-ConnectX(RC)를 모두 서비스</text>
+  <text x="52" y="436" font-size="10" fill="#e6edf3">권고 1차 — cuObject 제품화: versitygw main + libcuobjserver 스토리지 패키징 (el8 검증 완료)</text>
+  <text x="52" y="462" font-size="10" fill="#8b949e">권고 2차 — RC: upstream PR 4건 제출 · hipObject PR #32 상호운용 · 성능·동시성 측정</text>
+
+  <!-- footnote: standalone row -->
+  <text x="405" y="510" font-size="10" fill="#78909c" text-anchor="middle">전망: NIXL #2241이 벤더 중립 전송으로 확장되면 RC가 NVIDIA 스택에도 닿는다 — 현재는 cuObject 전용</text>
+</svg>

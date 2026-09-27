@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 670 440" width="670">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="90" y="0" width="670" height="440" fill="#161b22"/>
+
+  <!-- title: content center x=425 -->
+  <text x="425" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">보고서 환경의 패브릭 — 상태 확인과 계층 진단</text>
+
+  <!-- terminal excerpt: x=110..430, y=64..148 -->
+  <rect x="110" y="64" width="320" height="84" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="120" y="87" font-size="12" fill="#e6edf3">mlx5_0 — ibstatus/ibstat 발췌</text>
+  <text x="120" y="102" font-size="10" fill="#3fb950">state: PORT_ACTIVE · LINK_UP</text>
+  <text x="120" y="117" font-size="10" fill="#8b949e">rate: 100 Gb/sec · lid 0x3FA</text>
+  <text x="120" y="132" font-size="10" fill="#8b949e">link_layer: InfiniBand · MTU 4096</text>
+
+  <!-- LNet registration outcomes -->
+  <rect x="460" y="64" width="280" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="600" y="86" font-size="12" fill="#e6edf3" text-anchor="middle">mlx5_0 → ib0</text>
+  <text x="600" y="104" font-size="10" fill="#8b949e" text-anchor="middle">LNet 등록 성공 — o2ib</text>
+  <text x="600" y="119" font-size="10" fill="#8b949e" text-anchor="middle">NID 172.16.44.x@o2ib로 사용</text>
+
+  <rect x="460" y="158" width="280" height="68" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="600" y="180" font-size="12" fill="#e6edf3" text-anchor="middle">mlx5_1 → ib1</text>
+  <text x="600" y="198" font-size="10" fill="#8b949e" text-anchor="middle">LNet 등록 거부</text>
+  <text x="600" y="213" font-size="10" fill="#8b949e" text-anchor="middle">couldn't query intf — 원인 미규명</text>
+
+  <!-- layered diagnosis ladder: y=252 h=52 -->
+  <rect x="110" y="252" width="190" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="205" y="273" font-size="12" fill="#e6edf3" text-anchor="middle">Layer 1 — 링크</text>
+  <text x="205" y="291" font-size="10" fill="#8b949e" text-anchor="middle">ibstat: ACTIVE · MTU 4096</text>
+
+  <rect x="330" y="252" width="190" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="425" y="273" font-size="12" fill="#e6edf3" text-anchor="middle">Layer 2 — IPoIB</text>
+  <text x="425" y="291" font-size="10" fill="#8b949e" text-anchor="middle">ping 172.16.44.x 통과</text>
+
+  <rect x="550" y="252" width="190" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="645" y="273" font-size="12" fill="#e6edf3" text-anchor="middle">Layer 4 — raw RC</text>
+  <text x="645" y="291" font-size="10" fill="#58a6ff" text-anchor="middle">ib_write_bw 91 Gb/s</text>
+
+  <!-- ladder arrows -->
+  <path d="M305,278 L319,278" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M525,278 L539,278" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- bottom annotations -->
+  <text x="110" y="327" font-size="10" fill="#8b949e">확인 도구 — ibstat·ibstatus가 링크 상태·LID·MTU를 알려준다(§4). Active + LID 정상 = 패브릭 초기화 완료의 신호</text>
+  <text x="110" y="357" font-size="10" fill="#8b949e">mlx5_0만 LNet 등록 — ib1은 "couldn't query intf"로 거부(원인 미규명, 보고서 §2). 단일 포트로 검증에는 무관했다</text>
+  <text x="110" y="387" font-size="10" fill="#8b949e">계층 사다리 — L1 ACTIVE → L2 IPoIB ping → L4 raw RC 91 Gb/s. L3(Lustre o2ib)도 통과, L5(cuObject DC)만 실패</text>
+  <text x="110" y="417" font-size="10" fill="#8b949e">그 L5 실패(rc=-1)가 8편 트러블슈팅의 출발점 — 계층 진단의 전체 서사는 8편에서 이어진다</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 682 475" width="682">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="90" y="0" width="682" height="475" fill="#161b22"/>
+
+  <!-- title: content center x=431 -->
+  <text x="431" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">InfiniBand 프로토콜 스택 — 계층과 헤더</text>
+
+  <!-- left container: stack layers -->
+  <rect x="110" y="62" width="292" height="336" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="120" y="76" font-size="11" fill="#78909c">InfiniBand 스택 — 계층별 역할</text>
+
+  <!-- right container: packet composition -->
+  <rect x="460" y="62" width="292" height="336" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="470" y="76" font-size="11" fill="#78909c">패킷 구성 — 헤더와 와이어</text>
+
+  <!-- encapsulation arrows (left column, x=256) -->
+  <path d="M256,155 L256,165" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M256,233 L256,243" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M256,311 L256,321" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- layer-to-header mapping connectors -->
+  <path d="M391,124 L465,124" fill="none" stroke="#78909c" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <path d="M391,202 L465,202" fill="none" stroke="#78909c" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <path d="M391,280 L465,280" fill="none" stroke="#78909c" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <path d="M391,358 L465,358" fill="none" stroke="#78909c" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+
+  <!-- left column bars: x=126 w=260 h=52, rows y=98/176/254/332 -->
+  <rect x="126" y="98" width="260" height="52" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="256" y="119" font-size="12" fill="#e6edf3" text-anchor="middle">전송 계층</text>
+  <text x="256" y="137" font-size="10" fill="#e3f2fd" text-anchor="middle">RC 등 전송 서비스 수행</text>
+
+  <rect x="126" y="176" width="260" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="256" y="197" font-size="12" fill="#e6edf3" text-anchor="middle">네트워크 계층</text>
+  <text x="256" y="215" font-size="10" fill="#8b949e" text-anchor="middle">서브넷 간 경로 연결</text>
+
+  <rect x="126" y="254" width="260" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="256" y="275" font-size="12" fill="#e6edf3" text-anchor="middle">링크 계층</text>
+  <text x="256" y="293" font-size="10" fill="#8b949e" text-anchor="middle">서브넷 내 스위칭 · SL/VL</text>
+
+  <rect x="126" y="332" width="260" height="52" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="256" y="353" font-size="12" fill="#e6edf3" text-anchor="middle">물리 계층</text>
+  <text x="256" y="371" font-size="10" fill="#8b949e" text-anchor="middle">레인 신호 · 8b10b / 64b66b</text>
+
+  <!-- right column bars: x=476 w=260 h=52, same rows -->
+  <rect x="476" y="98" width="260" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="606" y="119" font-size="12" fill="#e6edf3" text-anchor="middle">BTH (Base Transport Header)</text>
+  <text x="606" y="137" font-size="10" fill="#8b949e" text-anchor="middle">Op · QPN(24b) · PSN(24b)</text>
+
+  <rect x="476" y="176" width="260" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="606" y="197" font-size="12" fill="#e6edf3" text-anchor="middle">GRH (Global Route Header)</text>
+  <text x="606" y="215" font-size="10" fill="#8b949e" text-anchor="middle">SGID · DGID(128b) · hop limit</text>
+
+  <rect x="476" y="254" width="260" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="606" y="275" font-size="12" fill="#e6edf3" text-anchor="middle">LRH (Local Route Header)</text>
+  <text x="606" y="293" font-size="10" fill="#8b949e" text-anchor="middle">DLID(16b) · SL(4b) · VL · LEN</text>
+
+  <rect x="476" y="332" width="260" height="52" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="606" y="353" font-size="12" fill="#e6edf3" text-anchor="middle">완성 패킷 (와이어)</text>
+  <text x="606" y="371" font-size="10" fill="#8b949e" text-anchor="middle">LRH · GRH · BTH · 데이터 · ICRC</text>
+
+  <!-- bottom annotations -->
+  <text x="110" y="422" font-size="10" fill="#8b949e">캡슐화 — 각 계층은 상위 데이터에 자기 헤더를 앞에 붙인다. 링크에 가까울수록 와이어 앞쪽에 실린다</text>
+  <text x="110" y="452" font-size="10" fill="#8b949e">보고서 실측 — 링크 MTU 4096 · GRH hop_limit = 64 (5편 전송 실전에서 실측값으로 다시 등장)</text>
+</svg>

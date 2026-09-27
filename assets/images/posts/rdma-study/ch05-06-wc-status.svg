@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 452" width="760">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="452" fill="#161b22"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">WC 상태 — CQE status의 네 계급과 오류 후 플러시</text>
+
+  <!-- verdict box: x=25..735, y=64..116 -->
+  <rect x="25" y="64" width="710" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="380" y="85" font-size="12" fill="#e6edf3" text-anchor="middle">완료 항목(CQE) — wc.status가 판정 창구</text>
+  <text x="380" y="103" font-size="10" fill="#8b949e" text-anchor="middle">ibv_poll_cq로 꺼낸 뒤 status==0(SUCCESS) 확인 — 0이 아니면 오류 완료(opcode·byte_len·flags는 미정의값)</text>
+
+  <!-- branch arrows: verdict box -> row A (left col x=195, right col x=565) -->
+  <path d="M195,121 L195,130" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M565,121 L565,130" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row A: y=141..193, left x=25..365, right x=395..735 -->
+  <rect x="25" y="141" width="340" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="195" y="162" font-size="12" fill="#3fb950" text-anchor="middle">성공 — IBV_WC_SUCCESS (0)</text>
+  <text x="195" y="180" font-size="10" fill="#e6edf3" text-anchor="middle">opcode·byte_len·imm_data 비로소 유효 — wr_id로 원래 WR 매칭</text>
+  <rect x="395" y="141" width="340" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="565" y="162" font-size="12" fill="#f85149" text-anchor="middle">로컬 오류 — LOC_* (내 측 WQE)</text>
+  <text x="565" y="180" font-size="10" fill="#e6edf3" text-anchor="middle">LOC_LEN_ERR 길이 초과 · LOC_PROT_ERR MR 범위 밖</text>
+
+  <!-- Row B: y=218..270 -->
+  <rect x="25" y="218" width="340" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="195" y="239" font-size="12" fill="#58a6ff" text-anchor="middle">전송 오류 — 재전송 소진</text>
+  <text x="195" y="257" font-size="10" fill="#e6edf3" text-anchor="middle">RETRY_EXC_ERR = transport retry exceeded · RNR_RETRY_EXC_ERR</text>
+  <rect x="395" y="218" width="340" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="565" y="239" font-size="12" fill="#bc8cff" text-anchor="middle">원격 오류 — REM_* (상대측 기각)</text>
+  <text x="565" y="257" font-size="10" fill="#e6edf3" text-anchor="middle">REM_INV_REQ_ERR · REM_ACCESS_ERR — 요청 형식·rkey·권한</text>
+
+  <!-- flush band: x=25..735, y=295..347 -->
+  <rect x="25" y="295" width="710" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="380" y="316" font-size="12" fill="#22d3ee" text-anchor="middle">큐 플러시 — 오류 뒤 잔여 WQE의 배출</text>
+  <text x="380" y="334" font-size="10" fill="#e6edf3" text-anchor="middle">SQ/RQ의 남은 WQE가 WR_FLUSH_ERR CQE로 배출 — QP는 SQE(송신 오류) 또는 ERROR(원격·수신 오류)로 전이</text>
+
+  <!-- legend: report case mapping + diagnostics -->
+  <text x="25" y="377" font-size="10" fill="#f85149">보고서 §9 이슈⑤ — remote invalid request / transport retry = REM_* + RETRY_EXC_ERR → 원인은 서버 AH dlid=0 (상세 8편 §4)</text>
+  <text x="25" y="402" font-size="10" fill="#bc8cff">보고서 §10 — LOC_LEN_ERR(로그 status=5) ≈47MiB+ 대형 PUT 502 간헐 — 응답자 상태 의존, 보류 (상세 8편 §5)</text>
+  <text x="25" y="427" font-size="10" fill="#8b949e">진단 순서 — ibv_query_qp(IBV_QP_STATE)로 SQE·ERROR 확인 → 오류 CQE 전량 배출 후 RESET→INIT→RTR→RTS 재전이</text>
+</svg>

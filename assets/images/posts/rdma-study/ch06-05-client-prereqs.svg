@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 404" width="800">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..775, margins 25/25 -->
+  <rect x="0" y="0" width="800" height="404" fill="#161b22"/>
+
+  <!-- title: content center x=400 -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">클라이언트 요건 — peermem 관문과 BAR1 한계</text>
+
+  <!-- ── left panel: peermem gate, x=25..390, y=56..380 ── -->
+  <rect x="25" y="56" width="365" height="324" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#78909c">peermem 관문 — GPU-direct 개통 조건 (§5)</text>
+
+  <!-- problem box P: x=40..375, y=94..170 -->
+  <rect x="40" y="94" width="335" height="76" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="52" y="113.4" font-size="11" fill="#e6edf3">독점 드라이버 — dmaBufCapable: 0</text>
+  <text x="52" y="128.4" font-size="10" fill="#e3f2fd">nvidia_peermem 없으면 cuFile RDMA 비활성</text>
+  <text x="52" y="143.4" font-size="10" fill="#f85149">"nvidia_peermem.ko is not loaded.</text>
+  <text x="52" y="158.4" font-size="10" fill="#f85149">Disabling UserSpace RDMA access"</text>
+
+  <!-- fan-out arrows: P bottom(170) -> card tops(196), at each card center x -->
+  <path d="M 117,175 L 117,185" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 297.5,175 L 297.5,185" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- solution card B': x=40..194, y=196..288 -->
+  <rect x="40" y="196" width="154" height="92" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="52" y="215.7" font-size="11" fill="#3fb950">B' — MOFED+dkms (채택)</text>
+  <text x="52" y="230.7" font-size="10" fill="#e6edf3">modprobe nvidia_peermem</text>
+  <text x="52" y="245.7" font-size="10" fill="#8b949e">일회성 부팅 5.14.0-570.32</text>
+  <text x="52" y="260.7" font-size="10" fill="#8b949e">dkms build 후 재부팅</text>
+  <text x="52" y="275.7" font-size="10" fill="#8b949e">복귀 129초 · IB 30초 재개</text>
+
+  <!-- solution card A: x=220..375, y=196..288 -->
+  <rect x="220" y="196" width="155" height="92" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="232" y="215.7" font-size="11" fill="#22d3ee">A — open-dkms·dma-buf</text>
+  <text x="232" y="230.7" font-size="10" fill="#e6edf3">CUFILE_DMABUF_ENABLE</text>
+  <text x="232" y="245.7" font-size="10" fill="#8b949e">ibv_reg_dmabuf_mr</text>
+  <text x="232" y="260.7" font-size="10" fill="#8b949e">MOFED 불필요 — inbox만</text>
+  <text x="232" y="275.7" font-size="10" fill="#22d3ee">미검증 — 제품 방향 유력</text>
+
+  <!-- notes -->
+  <text x="40" y="311" font-size="10" fill="#78909c">peermem은 MOFED ib_core의</text>
+  <text x="40" y="337" font-size="10" fill="#78909c">ib_register_peer_memory_client 요구</text>
+  <text x="40" y="363" font-size="10" fill="#e6edf3">MOFED는 클라 요건 — 스토리지 서버는 inbox</text>
+
+  <!-- ── right panel: BAR1 limit, x=410..775, y=56..380 ── -->
+  <rect x="410" y="56" width="365" height="324" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="422" y="74" font-size="11" fill="#78909c">BAR1 한계 — 창 크기가 전송 크기를 가른다 (§4.3)</text>
+
+  <text x="425" y="102" font-size="10" fill="#8b949e">RTX A6000 BAR1 256 MiB — GPUDirect RDMA가</text>
+  <text x="425" y="128" font-size="10" fill="#8b949e">GPU 메모리를 BAR1 창으로 매핑</text>
+
+  <!-- BAR1 window bar: x=425..760, y=148..174, segments 192:32:32 MiB = 251:42:42 px -->
+  <path d="M425,148 h251 v26 h-251 z" fill="#263238" stroke="#3fb950"/>
+  <path d="M676,148 h42 v26 h-42 z" fill="#30363d" stroke="#555555"/>
+  <path d="M718,148 h42 v26 h-42 z" fill="#263238" stroke="#f85149"/>
+
+  <!-- boundary scale -->
+  <text x="425" y="197" font-size="10" fill="#8b949e">0 MiB</text>
+  <text x="676" y="197" font-size="10" fill="#8b949e" text-anchor="middle">192</text>
+  <text x="718" y="197" font-size="10" fill="#8b949e" text-anchor="middle">224</text>
+  <text x="760" y="197" font-size="10" fill="#8b949e" text-anchor="end">256</text>
+
+  <!-- verdicts -->
+  <text x="425" y="223" font-size="10" fill="#3fb950">✓ 192 MiB까지 전송 성공 · checksum OK</text>
+  <text x="425" y="249" font-size="10" fill="#f85149">✗ 224 MiB부터 실패 — cuMemObjGetDescriptor rc=1</text>
+  <text x="425" y="275" font-size="10" fill="#8b949e">"BAR 1 size detected via NVML API: 256 MiB"</text>
+  <text x="425" y="301" font-size="10" fill="#8b949e">H100(BAR1 128 GiB) 등은 해당 없음</text>
+
+  <!-- guidance box: x=425..760, y=330..366 -->
+  <rect x="425" y="330" width="335" height="36" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="592.5" y="351.9" font-size="11" fill="#bc8cff" text-anchor="middle">고객 안내 — GPU-direct 전송 크기 ≤ BAR1 여유</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 678" width="760">
+  <defs>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-green-lg" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 L3,6 z" fill="#3fb950"/>
+    </marker>
+    <marker id="arrow-red-lg" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 L3,6 z" fill="#f85149"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="678" fill="#161b22"/>
+
+  <!-- title: content bbox x=25..735, center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">imm(32비트)과 쿠키 매칭 — 완료를 확정하는 손도장</text>
+
+  <!-- actor boxes y=56..108: client x=65..265, legend x=290..470, server x=495..695 -->
+  <rect x="65" y="56" width="200" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="165" y="78.2" font-size="12" fill="#e6edf3" text-anchor="middle">클라이언트 rcx</text>
+  <text x="165" y="94.2" font-size="10" fill="#8b949e" text-anchor="middle">쿠키 발급 · WRITE_WITH_IMM</text>
+
+  <rect x="290" y="56" width="180" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="380" y="78.5" font-size="10" fill="#3fb950" text-anchor="middle">초록 화살 — RDMA 데이터 + imm</text>
+  <text x="380" y="92.5" font-size="10" fill="#8b949e" text-anchor="middle">imm 32비트 = 완료 신호</text>
+
+  <rect x="495" y="56" width="200" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="595" y="78.2" font-size="12" fill="#e6edf3" text-anchor="middle">vgwrdma 게이트웨이</text>
+  <text x="595" y="94.2" font-size="10" fill="#8b949e" text-anchor="middle">READY 중 recv로 imm 대기</text>
+
+  <!-- lifelines: client x=165, server x=595 (segments broken at local boxes) -->
+  <path d="M165,113 L165,134" stroke="#8b949e" stroke-dasharray="4,4"/>
+  <path d="M165,190 L165,262" stroke="#8b949e" stroke-dasharray="4,4"/>
+  <path d="M595,113 L595,277" stroke="#8b949e" stroke-dasharray="4,4"/>
+  <path d="M595,333 L595,363" stroke="#8b949e" stroke-dasharray="4,4"/>
+
+  <!-- step 1: client local box x=25..305, y=134..190 -->
+  <rect x="25" y="134" width="280" height="56" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="165" y="151.5" font-size="10" fill="#e6edf3" text-anchor="middle">① 클라 rcx — 쿠키 발급</text>
+  <text x="165" y="165.5" font-size="10" fill="#e6edf3" text-anchor="middle">cookie = 0x9F (세션 식별값)</text>
+  <text x="165" y="179.5" font-size="10" fill="#8b949e" text-anchor="middle">전송마다 쿠키를 imm에 실어 보낸다</text>
+
+  <!-- step 2: WRITE_WITH_IMM (green data plane) -->
+  <text x="380" y="214" font-size="10" fill="#3fb950" text-anchor="middle">② WRITE_WITH_IMM — 데이터는 토큰의 rkey·addr 버퍼로 직행</text>
+  <text x="380" y="239" font-size="10" fill="#3fb950" text-anchor="middle">imm = cookie 0x9F — 완료 신호만 수신측으로</text>
+  <path d="M170,252 L581,252" fill="none" stroke="#3fb950" stroke-width="2.5" marker-end="url(#arrow-green-lg)"/>
+
+  <!-- step 3: server local box x=455..735, y=277..333 -->
+  <rect x="455" y="277" width="280" height="56" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="595" y="294.5" font-size="10" fill="#e6edf3" text-anchor="middle">③ 서버 — recv CQE 도착</text>
+  <text x="595" y="308.5" font-size="10" fill="#e6edf3" text-anchor="middle">imm_data = 0x9F — 게시돼 있던 recv WQE 소비</text>
+  <text x="595" y="322.5" font-size="10" fill="#8b949e" text-anchor="middle">imm이 recv 경로로 돌아온 순간</text>
+
+  <path d="M595,338 L595,352" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+
+  <!-- step 4: verdict box x=455..735, y=363..419 -->
+  <rect x="455" y="363" width="280" height="56" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="595" y="380.5" font-size="10" fill="#e6edf3" text-anchor="middle">④ 판정 — imm == 내가 기다리던 쿠키?</text>
+  <text x="595" y="394.5" font-size="10" fill="#e6edf3" text-anchor="middle">recv CQE의 imm_data를 기대 쿠키와 대조</text>
+  <text x="595" y="408.5" font-size="10" fill="#8b949e" text-anchor="middle">이 대조가 어느 전송의 완료인지 확정한다</text>
+
+  <!-- branches: match (green, straight down) / mismatch (red, fan-out left) -->
+  <path d="M595,424 L595,435" fill="none" stroke="#3fb950" stroke-width="2.5" marker-end="url(#arrow-green-lg)"/>
+  <path d="M450,390 C400,390 186,400 186,506" fill="none" stroke="#f85149" stroke-width="2.5" marker-end="url(#arrow-red-lg)"/>
+
+  <!-- match result box x=455..735, y=449..505 -->
+  <rect x="455" y="449" width="280" height="56" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="595" y="466.5" font-size="10" fill="#3fb950" text-anchor="middle">일치 → 버퍼 확정 · 세션 완료</text>
+  <text x="595" y="480.5" font-size="10" fill="#e6edf3" text-anchor="middle">imm이 증명한다: 데이터가 토큰 버퍼에 착지</text>
+  <text x="595" y="494.5" font-size="10" fill="#8b949e" text-anchor="middle">rc-v2 PUT — 서버가 이 판정으로 publish 진행</text>
+
+  <!-- mismatch result box x=25..305, y=520..576 -->
+  <rect x="25" y="520" width="280" height="56" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="165" y="537.5" font-size="10" fill="#f85149" text-anchor="middle">불일치 → 폐기 (엉뚱한 완료)</text>
+  <text x="165" y="551.5" font-size="10" fill="#e6edf3" text-anchor="middle">다른 세션의 신호를 잘못 수령한 상태</text>
+  <text x="165" y="565.5" font-size="10" fill="#8b949e" text-anchor="middle">쿠키 매칭이 이 혼동을 원천 차단</text>
+
+  <!-- bottom note container x=25..735, y=606..658 -->
+  <rect x="25" y="606" width="710" height="52" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="622" font-size="11" fill="#78909c">⚠ zero-SGE recv — SGE 없이 imm 수신만 담당하는 recv WQE — GET 경로에서 클라가 게시(§2·§5)</text>
+  <text x="37" y="649" font-size="10" fill="#8b949e">rc-v2 실측 — PUT: 서버가 staging에 SGE 있는 recv 게시 · GET: 클라가 zero-SGE recv 후 서버의 write+imm을 받아 imm==쿠키로 확정 (§7.2·§8, §11 재현)</text>
+</svg>

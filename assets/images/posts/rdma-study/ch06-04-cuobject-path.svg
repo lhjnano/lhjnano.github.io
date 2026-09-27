@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 760 557" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 40..760, margins 20/20 -->
+  <rect x="20" y="0" width="760" height="557" fill="#161b22"/>
+
+  <!-- title: content center x=400 -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">S3-over-RDMA — cuObject 데이터플레인 전체 경로</text>
+
+  <!-- ── tier 1: client GPU node, x=40..760, y=56..140 ── -->
+  <rect x="40" y="56" width="720" height="84" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="52" y="78.3" font-size="12" fill="#e6edf3">고객 GPU 노드 = S3/cuObject 클라이언트 — gpu-1 · LID 13 · IPoIB 100.64.33.192</text>
+  <text x="52" y="95.3" font-size="10" fill="#8b949e">RTX A6000 (BAR1 256MiB) · ConnectX-6 200G HDR (mlx5_0) · Rocky 9.8</text>
+  <text x="52" y="110.3" font-size="10" fill="#8b949e">libcuobjclient 1.2.0.68 + cuFile (CUDA Toolkit ≥ 13.1.1)</text>
+  <text x="52" y="125.3" font-size="10" fill="#8b949e">GPU-direct 전송 크기는 BAR1 여유 이하 — 192 MiB까지 OK · 256 MiB 실패 (§4)</text>
+
+  <!-- ── tier 2: two lanes, control x=270 gray / data x=530 cyan ── -->
+  <path d="M270,145 L270,245" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M530,145 L530,245" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- lane legend box: x=300..500, y=167..229 -->
+  <rect x="300" y="167" width="200" height="62" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="400" y="186.5" font-size="10" fill="#8b949e" text-anchor="middle">제어 — HTTP · SigV4 (버킷/세션)</text>
+  <text x="400" y="201.5" font-size="10" fill="#22d3ee" text-anchor="middle">데이터 — cuObject DC</text>
+  <text x="400" y="216.5" font-size="10" fill="#78909c" text-anchor="middle">GPU HBM peermem 등록 또는 host MR</text>
+
+  <!-- ── tier 3: 스토리지 gateway, x=40..760, y=256..340 ── -->
+  <rect x="40" y="256" width="720" height="84" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="52" y="278.4" font-size="12" fill="#e6edf3">게이트웨이 — stg-node1 · LID 12/11 · VGW_RDMA_IP 100.64.33.243</text>
+  <text x="52" y="295.4" font-size="10" fill="#e3f2fd">ConnectX-6 · Rocky 8.10 · inbox OFED — 배포는 바이너리 2파일 (2차 보고서 §3)</text>
+  <text x="52" y="310.4" font-size="10" fill="#e3f2fd">libcuobjserver 1.2 :7071 · 2.0 :7072 — 제어(:7070)와 데이터 포트 분리</text>
+  <text x="52" y="325.4" font-size="10" fill="#e3f2fd">vgwrdma posix 백엔드 — DC QP INIT→RTR→RTS 통과 (el8 inbox verbs)</text>
+
+  <!-- gateway → lustre -->
+  <path d="M400,345 L400,358" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- ── tier 4: Lustre, x=40..760, y=369..437 ── -->
+  <rect x="40" y="369" width="720" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="52" y="390" font-size="12" fill="#3fb950">Lustre /vol0 — MGS/MDT0/OST0 (ZFS)</text>
+  <text x="52" y="407" font-size="10" fill="#8b949e">Lustre 2.15.8 · OST 1개 · stripe 1 — gwroot /lustre/agent/vol0/kvcache-s3-&lt;host&gt;</text>
+  <text x="52" y="422" font-size="10" fill="#8b949e">user_xattr 활성 — RDMA로 실린 객체는 Lustre 실파일</text>
+
+  <!-- lustre → fabric -->
+  <path d="M400,442 L400,455" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- fabric bar: x=40..760, y=466..504 -->
+  <rect x="40" y="466" width="720" height="38" rx="8" fill="#37474f" stroke="#8b949e"/>
+  <text x="400" y="489.5" font-size="12" fill="#e6edf3" text-anchor="middle">물리 패브릭 — IB 200G HDR (SM lid 8) · active_mtu 4096 전 노드 일치</text>
+
+  <!-- footnote: standalone row -->
+  <text x="400" y="532" font-size="10" fill="#78909c" text-anchor="middle">* IPoIB netdev는 제어(HTTP) 전용 — aic MTU 1500 / gpu-1 2044 · HTTP는 이 MTU에 묶임 (RDMA 대비 HTTP 불리의 원인)</text>
+</svg>

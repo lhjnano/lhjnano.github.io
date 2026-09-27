@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 481" width="800">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..775, margins 25/25 -->
+  <rect x="0" y="0" width="800" height="481" fill="#161b22"/>
+
+  <!-- title: content center x=400 -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">동시성 스케일과 ~7 GB/s 천장 (2차 보고서 §6)</text>
+
+  <!-- ── left panel: concurrency bars, x=25..387, y=60..456 ── -->
+  <rect x="25" y="60" width="362" height="396" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="78" font-size="11" fill="#78909c">동시성 스케일 — 64 MiB 동시 GET · sum-of-rates (GB/s)</text>
+
+  <text x="40" y="104" font-size="10" fill="#58a6ff">■ RDMA</text>
+  <text x="100" y="104" font-size="10" fill="#8892aa">■ HTTP (IPoIB MTU 1500)</text>
+
+  <text x="40" y="134" font-size="10" fill="#f85149">≈7 GB/s 천장 —</text>
+  <text x="40" y="159" font-size="10" fill="#8b949e">C=4 → C=8 증가 둔화</text>
+
+  <!-- bars: baseline y=392, 30px per GB/s -->
+  <path d="M40,392 v-96.3 h26 v96.3 z" fill="#58a6ff"/>
+  <path d="M72,392 v-68.4 h26 v68.4 z" fill="#8892aa"/>
+  <path d="M131,392 v-181.2 h26 v181.2 z" fill="#58a6ff"/>
+  <path d="M163,392 v-114 h26 v114 z" fill="#8892aa"/>
+  <path d="M222,392 v-211.5 h26 v211.5 z" fill="#58a6ff"/>
+  <path d="M254,392 v-174.3 h26 v174.3 z" fill="#8892aa"/>
+  <path d="M313,392 v-220.2 h26 v220.2 z" fill="#58a6ff"/>
+  <path d="M345,392 v-210.6 h26 v210.6 z" fill="#8892aa"/>
+
+  <line x1="40" y1="392" x2="372" y2="392" stroke="#8b949e" stroke-width="1.5"/>
+
+  <text x="53" y="277.7" font-size="10" fill="#58a6ff" text-anchor="middle">3.21</text>
+  <text x="85" y="305.6" font-size="10" fill="#8892aa" text-anchor="middle">2.28</text>
+  <text x="144" y="192.8" font-size="10" fill="#58a6ff" text-anchor="middle">6.04</text>
+  <text x="176" y="260" font-size="10" fill="#8892aa" text-anchor="middle">3.80</text>
+  <text x="235" y="162.5" font-size="10" fill="#58a6ff" text-anchor="middle">7.05</text>
+  <text x="267" y="199.7" font-size="10" fill="#8892aa" text-anchor="middle">5.81</text>
+  <text x="326" y="153.8" font-size="10" fill="#58a6ff" text-anchor="middle">7.34</text>
+  <text x="358" y="163.4" font-size="10" fill="#8892aa" text-anchor="middle">7.02</text>
+
+  <text x="69" y="416" font-size="10" fill="#e6edf3" text-anchor="middle">C=1</text>
+  <text x="160" y="416" font-size="10" fill="#e6edf3" text-anchor="middle">C=2</text>
+  <text x="251" y="416" font-size="10" fill="#e6edf3" text-anchor="middle">C=4</text>
+  <text x="342" y="416" font-size="10" fill="#e6edf3" text-anchor="middle">C=8</text>
+
+  <text x="40" y="442" font-size="10" fill="#8b949e">C=1 → C=8 배수 —</text>
+  <text x="134" y="442" font-size="10" fill="#58a6ff">RDMA 2.29×</text>
+  <text x="204" y="442" font-size="10" fill="#8892aa">· HTTP 3.08×</text>
+
+  <!-- ── right panel: ceiling isolation, x=413..775, y=60..456 ── -->
+  <rect x="413" y="60" width="362" height="396" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="425" y="78" font-size="11" fill="#78909c">천장 격리 — 가설 6종을 배제하면 한 곳이 남는다</text>
+
+  <!-- context card: x=428..760, y=96..146 -->
+  <rect x="428" y="96" width="332" height="50" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="440" y="116" font-size="10" fill="#e6edf3">측정 — 64 MiB 동시 GET · sum-of-rates · 게이트웨이 aic1</text>
+  <text x="440" y="131" font-size="10" fill="#8b949e">클라 = versitygw 자체 호스트 클라 — 호스트 메모리 경로</text>
+
+  <!-- eliminated hypotheses: y=176..284, rows pitch 15 -->
+  <rect x="428" y="176" width="332" height="108" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="440" y="196" font-size="10" fill="#f85149">✗</text>
+  <text x="462" y="196" font-size="10" fill="#8b949e">패브릭 — raw ib_write_bw 8QP 196.1 Gb/s ≈ 24.5 GB/s</text>
+  <text x="440" y="211" font-size="10" fill="#f85149">✗</text>
+  <text x="462" y="211" font-size="10" fill="#8b949e">백엔드 — 8-way warm Lustre read 75.5 GB/s</text>
+  <text x="440" y="226" font-size="10" fill="#f85149">✗</text>
+  <text x="462" y="226" font-size="10" fill="#8b949e">게이트웨이 CPU — C=8에서 0.72 CPU-초</text>
+  <text x="440" y="241" font-size="10" fill="#f85149">✗</text>
+  <text x="462" y="241" font-size="10" fill="#8b949e">버퍼풀 — 4 → 16 × 256 MiB 증설해도 7.25</text>
+  <text x="440" y="256" font-size="10" fill="#f85149">✗</text>
+  <text x="462" y="256" font-size="10" fill="#8b949e">게이트웨이당 한계 — 2게이트 4+4 분산 7.27 (단일 7.05)</text>
+  <text x="440" y="271" font-size="10" fill="#f85149">✗</text>
+  <text x="462" y="271" font-size="10" fill="#8b949e">op 오버헤드 — 256 MiB(4배) C=8 6.95 · 레이턴시 비례</text>
+
+  <path d="M 594,289 L 594,303" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- survivor: y=314..370 -->
+  <rect x="428" y="314" width="332" height="56" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="446" y="338" font-size="12" fill="#3fb950">✅ 남는 유일 후보 — 클라이언트 측 전송경로</text>
+  <text x="446" y="354" font-size="10" fill="#e3f2fd">CPU 5.71 CPU-초(≈6.6코어) · softirq 0.11 · PCIe Gen4 x16</text>
+
+  <!-- unresolved split note: y=395..446 -->
+  <rect x="428" y="395" width="332" height="51" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="440" y="417" font-size="10" fill="#bc8cff">미분리 — 호스트 클라 구현 탓인지 cuObject 공통 경로 탓인지</text>
+  <text x="440" y="432" font-size="10" fill="#bc8cff">가릴 과제 — GPU-direct 경로 · 2번째 클라 노드</text>
+</svg>

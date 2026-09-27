@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="29 0 722 381" width="722">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="29" y="0" width="722" height="381" fill="#161b22"/>
+
+  <!-- title: content center x=390 -->
+  <text x="390" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">QSFP28 케이블과 커넥터 — 4레인 집선과 전송 매체</text>
+
+  <!-- A: connector cross-section container: x=51..351, y=64..198 -->
+  <rect x="51" y="64" width="300" height="134" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="61" y="78" font-size="11" fill="#78909c">QSFP28 커넥터 단면(개념)</text>
+
+  <!-- TX box: x=61..191, y=98..150 -->
+  <rect x="61" y="98" width="130" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="126" y="120" font-size="12" fill="#e6edf3" text-anchor="middle">TX 레인 1–4</text>
+  <text x="126" y="135" font-size="10" fill="#8b949e" text-anchor="middle">송신 차동쌍 4개</text>
+
+  <!-- RX box: x=216..346, y=98..150 -->
+  <rect x="216" y="98" width="130" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="281" y="120" font-size="12" fill="#e6edf3" text-anchor="middle">RX 레인 1–4</text>
+  <text x="281" y="135" font-size="10" fill="#8b949e" text-anchor="middle">수신 차동쌍 4개</text>
+
+  <text x="201" y="180" font-size="10" fill="#8b949e" text-anchor="middle">1차동쌍 = 1레인 · 총 8차동쌍 (4TX+4RX)</text>
+
+  <!-- B: lane aggregation container: x=379..729, y=64..198 -->
+  <rect x="379" y="64" width="350" height="134" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="389" y="78" font-size="11" fill="#78909c">4레인 집선 — 4 × 25 Gb/s = 100 Gb/s (EDR)</text>
+
+  <!-- lane list box: x=399..569, y=98..182 -->
+  <rect x="399" y="98" width="170" height="84" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="484" y="121" font-size="10" fill="#e6edf3" text-anchor="middle">Lane 0 · 25 Gb/s</text>
+  <text x="484" y="136" font-size="10" fill="#e6edf3" text-anchor="middle">Lane 1 · 25 Gb/s</text>
+  <text x="484" y="151" font-size="10" fill="#e6edf3" text-anchor="middle">Lane 2 · 25 Gb/s</text>
+  <text x="484" y="166" font-size="10" fill="#e6edf3" text-anchor="middle">Lane 3 · 25 Gb/s</text>
+
+  <!-- sum box: x=599..709, y=98..166 -->
+  <rect x="599" y="98" width="110" height="68" rx="6" fill="#0d47a1" stroke="#58a6ff"/>
+  <text x="654" y="121" font-size="12" fill="#e6edf3" text-anchor="middle">4 × 25 Gb/s</text>
+  <text x="654" y="136" font-size="10" fill="#e3f2fd" text-anchor="middle">= 100 Gb/s</text>
+  <text x="654" y="151" font-size="10" fill="#e3f2fd" text-anchor="middle">EDR 링크</text>
+
+  <path d="M574,140 L588,140" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- media boxes: y=240..324 -->
+  <rect x="51" y="240" width="300" height="84" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="201" y="271" font-size="12" fill="#e6edf3" text-anchor="middle">트윈액스 DAC (구리)</text>
+  <text x="201" y="286" font-size="10" fill="#8b949e" text-anchor="middle">구리 도선 4쌍 — 수동/능동</text>
+  <text x="201" y="301" font-size="10" fill="#8b949e" text-anchor="middle">랙 내 단거리(~2–3m) · 저전력·저가</text>
+
+  <rect x="379" y="240" width="300" height="84" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="529" y="271" font-size="12" fill="#e6edf3" text-anchor="middle">AOC · 광 트랜시버</text>
+  <text x="529" y="286" font-size="10" fill="#8b949e" text-anchor="middle">커넥터 끝에서 전기 → 광 변환</text>
+  <text x="529" y="301" font-size="10" fill="#8b949e" text-anchor="middle">랙간·장거리(수m~100m+) · 광모듈</text>
+
+  <!-- flow arrows: containers -> media -->
+  <path d="M201,203 L201,229" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M554,203 L554,229" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- annotations -->
+  <text x="51" y="356" font-size="10" fill="#8b949e">계보: CX4(4X SDR/DDR 구형) → QSFP+ → QSFP28(EDR) — 같은 4레인 계열</text>
+  <text x="387" y="356" font-size="10" fill="#8b949e">링크 MTU 4096 — 큰 프레임으로 전송 효율 향상 (IPoIB도 4096)</text>
+</svg>

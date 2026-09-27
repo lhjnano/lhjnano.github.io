@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 770 465" width="770">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="20" y="0" width="770" height="465" fill="#161b22"/>
+
+  <!-- title: content center x=405 -->
+  <text x="405" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">versitygw — S3 API와 POSIX 스토리지를 잇는 게이트웨이</text>
+
+  <!-- client bar: x=40, y=60, w=730, h=44 -->
+  <rect x="40" y="60" width="730" height="44" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="405" y="86.2" font-size="12" fill="#e6edf3" text-anchor="middle">S3 클라이언트 — .40 cuobjtest -std-s3 · HTTP(SigV4) → .41:7070</text>
+
+  <!-- connector: client → gateway -->
+  <path d="M405,109 L405,123" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- gateway box: x=40, y=134, w=730, h=68 -->
+  <rect x="40" y="134" width="730" height="68" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="52" y="155" font-size="12" fill="#e6edf3">versitygw — S3 API 게이트웨이</text>
+  <text x="52" y="172" font-size="10" fill="#e3f2fd">S3 API(SigV4) 수신 · 버킷/ACL 관리</text>
+  <text x="52" y="188" font-size="10" fill="#e3f2fd">posix 변환 — 객체 = 파일 · 메타데이터 = xattr</text>
+
+  <!-- connector: gateway → backend -->
+  <path d="M405,207 L405,221" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- backend box: x=40, y=232, w=730, h=52 -->
+  <rect x="40" y="232" width="730" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="52" y="253" font-size="12" fill="#e6edf3">posix 백엔드 — gwroot=/mnt/lustre (lmcfs 클라이언트 마운트)</text>
+  <text x="52" y="270" font-size="10" fill="#8b949e">버킷 = 디렉터리 · 메타데이터 저장에 user_xattr 필수(§3)</text>
+
+  <!-- build box (dashed): x=40, y=314, w=380, h=126 -->
+  <rect x="40" y="314" width="380" height="126" rx="10" fill="none" stroke="#58a6ff" stroke-dasharray="6,4"/>
+  <text x="52" y="338" font-size="11" fill="#58a6ff">빌드 — GitLab CI (exastor/versitygw)</text>
+  <text x="52" y="364" font-size="10" fill="#e6edf3">Rocky8 컨테이너 · make build (CGO=0 스태틱)</text>
+  <text x="52" y="390" font-size="10" fill="#e6edf3">rpmbuild → versitygw-1.6.0 RPM</text>
+  <text x="52" y="416" font-size="10" fill="#8b949e">빌드 커밋 6495f4b</text>
+
+  <!-- deploy box (dashed): x=450, y=314, w=320, h=126 -->
+  <rect x="450" y="314" width="320" height="126" rx="10" fill="none" stroke="#3fb950" stroke-dasharray="6,4"/>
+  <text x="462" y="338" font-size="11" fill="#3fb950">배포 — 두 노드 두 방식</text>
+  <text x="462" y="364" font-size="10" fill="#e6edf3">.41 systemd :7070 HTTP (RPM)</text>
+  <text x="462" y="390" font-size="10" fill="#e6edf3">RDMA vgwrdma :7071</text>
+  <text x="462" y="416" font-size="10" fill="#8b949e">--rdma-rc-enable posix /lustre</text>
+
+  <!-- connector: build → deploy -->
+  <path d="M425,377 L439,377" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

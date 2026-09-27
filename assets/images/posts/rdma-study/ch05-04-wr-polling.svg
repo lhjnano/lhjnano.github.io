@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 609" width="680">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="680" height="609" fill="#161b22"/>
+
+  <!-- title: content center x=340 -->
+  <text x="340" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">WR 제출과 완료 대기 — post_send에서 poll_cq까지</text>
+
+  <!-- Row 1: top y=64, stage box x=25..325, detail box x=355..655 -->
+  <rect x="25" y="64" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="94.35" font-size="12" fill="#e6edf3" text-anchor="middle">① WR 체인 구성</text>
+  <text x="175" y="109.35" font-size="10" fill="#8b949e" text-anchor="middle">무엇을·어디서·어떻게 연결</text>
+  <rect x="355" y="64" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="86.73" font-size="12" fill="#e6edf3" text-anchor="middle">struct ibv_send_wr — next로 체인</text>
+  <text x="505" y="101.73" font-size="10" fill="#e6edf3" text-anchor="middle">opcode — IBV_WR_RDMA_WRITE_WITH_IMM</text>
+  <text x="505" y="116.73" font-size="10" fill="#8b949e" text-anchor="middle">sg_list — SGE 배열 (lkey·addr·len)</text>
+
+  <!-- transition 1->2 -->
+  <path d="M175,137 L175,146" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 2: top y=157 -->
+  <rect x="25" y="157" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="187.35" font-size="12" fill="#e6edf3" text-anchor="middle">② ibv_post_send(qp, wr)</text>
+  <text x="175" y="202.35" font-size="10" fill="#8b949e" text-anchor="middle">커널 개입 없는 제출</text>
+  <rect x="355" y="157" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="187.35" font-size="12" fill="#e6edf3" text-anchor="middle">SQ 슬롯 복사 + doorbell 기록</text>
+  <text x="505" y="202.35" font-size="10" fill="#8b949e" text-anchor="middle">반환 0 = 성공 · bad_wr = 실패 지점</text>
+
+  <!-- transition 2->3 -->
+  <path d="M175,230 L175,239" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 3: top y=250 -->
+  <rect x="25" y="250" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="280.35" font-size="12" fill="#e6edf3" text-anchor="middle">③ NIC — WQE 소비</text>
+  <text x="175" y="295.35" font-size="10" fill="#8b949e" text-anchor="middle">도어벨 이후는 하드웨어 동작</text>
+  <rect x="355" y="250" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="280.35" font-size="12" fill="#e6edf3" text-anchor="middle">doorbell 신호에 WQE를 DMA로 인출</text>
+  <text x="505" y="295.35" font-size="10" fill="#8b949e" text-anchor="middle">패킷 조립·전송·ACK 처리 전부 NIC</text>
+
+  <!-- transition 3->4 -->
+  <path d="M175,323 L175,332" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 4: top y=343 -->
+  <rect x="25" y="343" width="300" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="175" y="373.35" font-size="12" fill="#e6edf3" text-anchor="middle">④ ACK → CQE</text>
+  <text x="175" y="388.35" font-size="10" fill="#8b949e" text-anchor="middle">완료 판정도 하드웨어가</text>
+  <rect x="355" y="343" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="373.35" font-size="12" fill="#e6edf3" text-anchor="middle">RC — 마지막 ACK 수신 시 CQE 적재</text>
+  <text x="505" y="388.35" font-size="10" fill="#8b949e" text-anchor="middle">성공 = IBV_WC_SUCCESS · 에러는 §6</text>
+
+  <!-- transition 4->5 -->
+  <path d="M175,416 L175,425" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Row 5: top y=436 -->
+  <rect x="25" y="436" width="300" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="175" y="466.35" font-size="12" fill="#e6edf3" text-anchor="middle">⑤ ibv_poll_cq 루프</text>
+  <text x="175" y="481.35" font-size="10" fill="#8b949e" text-anchor="middle">완료 소비 — 폴링 모델</text>
+  <rect x="355" y="436" width="300" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="505" y="458.73" font-size="12" fill="#e6edf3" text-anchor="middle">ibv_poll_cq(cq, n, wc) — 능동 소비</text>
+  <text x="505" y="473.73" font-size="10" fill="#8b949e" text-anchor="middle">반환값 = 꺼낸 CQE 수, 0 = 아직 없음</text>
+  <text x="505" y="488.73" font-size="10" fill="#8b949e" text-anchor="middle">wc.wr_id로 원래 WR 매칭 · status 확인</text>
+
+  <!-- legend -->
+  <text x="25" y="534" font-size="10" fill="#58a6ff">세로 화살표 — 제출에서 완료까지: ①②⑤는 사용자 공간(CPU), ③④는 NIC 하드웨어</text>
+  <text x="25" y="559" font-size="10" fill="#8b949e">ibv_post_recv — RQ에 수신 버퍼 게시: RDMA WRITE는 상대 버퍼에 직접 쓰므로 불요, imm 수신에만 zero-SGE recv</text>
+  <text x="25" y="584" font-size="10" fill="#bc8cff">rcx — rcx_write_imm(WRITE_WITH_IMM + imm=cookie) · rcx_wait_imm(poll_cq로 imm==cookie 확인) (보고서 §8)</text>
+</svg>

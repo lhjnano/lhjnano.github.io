@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="98 0 814 307" width="814">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#bc8cff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="98" y="0" width="814" height="307" fill="#161b22"/>
+
+  <!-- title: content center x=513 -->
+  <text x="505" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">RDMA NIC(HCA)의 내부 구조와 데이터 경로</text>
+
+  <!-- NIC group (port is physically on the card) -->
+  <rect x="120" y="62" width="600" height="185" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="130" y="76" font-size="11" fill="#78909c">RDMA NIC (HCA) — ConnectX 계열</text>
+
+  <!-- port -->
+  <rect x="136" y="98" width="96" height="52" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="184" y="119" font-size="12" fill="#e6edf3" text-anchor="middle">QSFP28 포트</text>
+  <text x="184" y="138" font-size="10" fill="#8b949e" text-anchor="middle">4레인 100Gb</text>
+
+  <!-- switch silicon -->
+  <rect x="258" y="98" width="104" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="310" y="119" font-size="12" fill="#e6edf3" text-anchor="middle">스위치 실리콘</text>
+  <text x="310" y="138" font-size="10" fill="#8b949e" text-anchor="middle">내부 패킷 경로</text>
+
+  <!-- RDMA engine -->
+  <rect x="388" y="98" width="140" height="52" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="458" y="119" font-size="12" fill="#e6edf3" text-anchor="middle">RDMA 엔진</text>
+  <text x="458" y="138" font-size="10" fill="#e3f2fd" text-anchor="middle">QP 컨텍스트 · PP 캐시</text>
+
+  <!-- MTT -->
+  <rect x="388" y="180" width="140" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="458" y="201" font-size="12" fill="#e6edf3" text-anchor="middle">MTT</text>
+  <text x="458" y="220" font-size="10" fill="#8b949e" text-anchor="middle">가상→물리 주소 변환</text>
+
+  <!-- PCIe -->
+  <rect x="554" y="98" width="150" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="629" y="119" font-size="12" fill="#e6edf3" text-anchor="middle">PCIe 인터페이스</text>
+  <text x="629" y="138" font-size="10" fill="#8b949e" text-anchor="middle">Gen3 ×16 레인</text>
+
+  <!-- host memory -->
+  <rect x="750" y="98" width="140" height="52" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="820" y="119" font-size="12" fill="#e6edf3" text-anchor="middle">호스트 메모리</text>
+  <text x="820" y="138" font-size="10" fill="#8b949e" text-anchor="middle">앱 버퍼(사용자 공간)</text>
+
+  <!-- connectors -->
+  <path d="M237,124 L247,124" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M367,124 L377,124" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M533,124 L543,124" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M709,124 L739,124" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M438,155 L438,169" fill="none" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <path d="M498,175 L498,161" fill="none" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- bottom annotations -->
+  <text x="136" y="282" font-size="10" fill="#8b949e">① 수신: 포트 → 스위치 실리콘 → RDMA 엔진 (QP 컨텍스트로 처리)</text>
+  <text x="480" y="282" font-size="10" fill="#8b949e">② MTT 변환 → PCIe DMA → 앱 버퍼 직접 접근 = 커널 바이패스</text>
+</svg>

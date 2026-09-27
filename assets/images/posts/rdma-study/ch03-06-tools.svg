@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="44 0 712 590" width="712">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="44" y="0" width="712" height="590" fill="#161b22"/>
+
+  <!-- title: content center x=400 (content spans 66..734) -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">진단 도구 지도 — 링크에서 세션까지, 한 층씩</text>
+
+  <!-- diagnosis rail: x=66, row1 center 91 → row6 center 486 (boxes start x=94, 28px clear) -->
+  <path d="M66,91 L66,486" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- row 1: ibstat/ibstatus — L1, y=64..118, stroke blue=status -->
+  <rect x="94" y="64" width="640" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="106" y="86.3" font-size="12" fill="#e6edf3">ibstat · ibstatus — L1 링크 상태</text>
+  <text x="106" y="103.3" font-size="10" fill="#8b949e">포트 State/LinkUp · Rate · LID · MTU — 물리 링크 건강의 첫 확인</text>
+
+  <!-- row 2: ip addr/ping — IPoIB, y=143..197, stroke cyan=connectivity -->
+  <rect x="94" y="143" width="640" height="54" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="106" y="165.3" font-size="12" fill="#e6edf3">ip addr · ping — IPoIB 연결성</text>
+  <text x="106" y="182.3" font-size="10" fill="#8b949e">ib0에 172.16.44.x/24 부여 후 ping 왕복 — IB 위의 IP 계층 확인</text>
+
+  <!-- row 3: ibv_devinfo — 디바이스, y=222..276, stroke blue=status -->
+  <rect x="94" y="222" width="640" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="106" y="244.3" font-size="12" fill="#e6edf3">ibv_devinfo — 디바이스 · 포트 상세</text>
+  <text x="106" y="261.3" font-size="10" fill="#8b949e">verbs 관점 상세 — phys_port_cnt · active_mtu · sm_lid (§3 열거 도구)</text>
+
+  <!-- row 4: ibping — L2 도달성, y=301..355, stroke cyan=connectivity -->
+  <rect x="94" y="301" width="640" height="54" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="106" y="323.3" font-size="12" fill="#e6edf3">ibping — L2 도달성</text>
+  <text x="106" y="340.3" font-size="10" fill="#8b949e">IP를 거치지 않고 IB 링크 계층에서 LID로 직접 왕복 — 서버 모드와 클라이언트</text>
+
+  <!-- row 5: perftest — L4 대역폭, y=380..434, stroke green=throughput -->
+  <rect x="94" y="380" width="640" height="54" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="106" y="402.3" font-size="12" fill="#e6edf3">ib_write_bw · ib_read_bw · ib_send_bw — L4 대역폭</text>
+  <text x="106" y="419.3" font-size="10" fill="#8b949e">perftest — WRITE · READ · Send 동사별 RC 전송 처리량 측정</text>
+
+  <!-- row 6: 애플리케이션 세션 — L5, y=459..513, stroke purple=session -->
+  <rect x="94" y="459" width="640" height="54" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="106" y="481.3" font-size="12" fill="#e6edf3">애플리케이션 세션 — L5</text>
+  <text x="106" y="498.3" font-size="10" fill="#8b949e">rcx ↔ vgwrdma(rc-v2) · cuObject — 실제 서비스 동작 확인</text>
+
+  <!-- bottom annotations: baseline pitch 26px -->
+  <text x="94" y="537" font-size="10" fill="#8b949e">① 왼쪽 화살표 — 확인 순서: 링크(L1)에서 세션(L5)으로 올라가며, 처음 끊기는 층이 원인이 있는 층</text>
+  <text x="94" y="563" font-size="10" fill="#3fb950">② 보고서 실측 — L4 ib_write_bw .41→.40 = 91 Gb/s · L1~L4 전부 정상, L5 세션에서만 갈림(§6.1)</text>
+</svg>

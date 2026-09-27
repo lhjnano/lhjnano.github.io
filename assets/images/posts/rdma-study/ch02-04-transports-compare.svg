@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 760 671" width="760">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="90" y="0" width="760" height="671" fill="#161b22"/>
+
+  <!-- title: content center x=470 -->
+  <text x="470" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">전송 프로토콜 삼국지 — IB · RoCE · iWARP</text>
+
+  <!-- common service base: x=320..620, y=64..100 -->
+  <rect x="320" y="64" width="300" height="36" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="470" y="86" font-size="12" fill="#e6edf3" text-anchor="middle">verbs — RC·UC·UD 공통 서비스</text>
+
+  <!-- fan-out arrows to the three columns -->
+  <path d="M330,105 C 330,125 220,112 220,119" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M470,105 L470,119" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M610,105 C 610,125 720,112 720,119" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- column headers: y=130 h=52 -->
+  <rect x="110" y="130" width="220" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="220" y="151" font-size="12" fill="#e6edf3" text-anchor="middle">InfiniBand</text>
+  <text x="220" y="169" font-size="10" fill="#8b949e" text-anchor="middle">전용 패브릭 · 무손실</text>
+
+  <rect x="360" y="130" width="220" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="470" y="151" font-size="12" fill="#e6edf3" text-anchor="middle">RoCE v1 / v2</text>
+  <text x="470" y="169" font-size="10" fill="#8b949e" text-anchor="middle">이더넷 위의 RDMA</text>
+
+  <rect x="610" y="130" width="220" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="720" y="151" font-size="12" fill="#e6edf3" text-anchor="middle">iWARP</text>
+  <text x="720" y="169" font-size="10" fill="#8b949e" text-anchor="middle">TCP 위의 RDMA</text>
+
+  <!-- row A: y=208 h=68 -->
+  <rect x="110" y="208" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="220" y="230" font-size="12" fill="#e6edf3" text-anchor="middle">LID + GID</text>
+  <text x="220" y="248" font-size="10" fill="#8b949e" text-anchor="middle">SM이 LID 할당(§4)</text>
+  <text x="220" y="263" font-size="10" fill="#8b949e" text-anchor="middle">스위치는 DLID로 포워딩</text>
+
+  <rect x="360" y="208" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="470" y="230" font-size="12" fill="#e6edf3" text-anchor="middle">GID만 사용</text>
+  <text x="470" y="248" font-size="10" fill="#8b949e" text-anchor="middle">IP 부분을 MAC·IP에 매핑</text>
+  <text x="470" y="263" font-size="10" fill="#8b949e" text-anchor="middle">LID·SM 불필요</text>
+
+  <rect x="610" y="208" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="720" y="230" font-size="12" fill="#e6edf3" text-anchor="middle">IP 주소</text>
+  <text x="720" y="248" font-size="10" fill="#8b949e" text-anchor="middle">TCP 연결로 피어 식별</text>
+  <text x="720" y="263" font-size="10" fill="#8b949e" text-anchor="middle">기존 라우팅 그대로 사용</text>
+
+  <!-- row B: y=302 h=68 -->
+  <rect x="110" y="302" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="220" y="324" font-size="12" fill="#e6edf3" text-anchor="middle">전용 와이어 프로토콜</text>
+  <text x="220" y="342" font-size="10" fill="#8b949e" text-anchor="middle">LRH·GRH·BTH 원생 헤더(§2)</text>
+  <text x="220" y="357" font-size="10" fill="#8b949e" text-anchor="middle">컷스루 스위칭(§1)</text>
+
+  <rect x="360" y="302" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="470" y="324" font-size="12" fill="#e6edf3" text-anchor="middle">이더넷 프레임에 캡슐화</text>
+  <text x="470" y="342" font-size="10" fill="#8b949e" text-anchor="middle">v1 — 이더타입 0x8915, L2 한정</text>
+  <text x="470" y="357" font-size="10" fill="#8b949e" text-anchor="middle">v2 — UDP/IP 4791, 라우팅 가능</text>
+
+  <rect x="610" y="302" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="720" y="324" font-size="12" fill="#e6edf3" text-anchor="middle">TCP 스트림 위 전송</text>
+  <text x="720" y="342" font-size="10" fill="#8b949e" text-anchor="middle">RDMA 세그먼트를 TCP에 실음</text>
+  <text x="720" y="357" font-size="10" fill="#8b949e" text-anchor="middle">WAN 구간 통과</text>
+
+  <!-- row C: y=396 h=68 -->
+  <rect x="110" y="396" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="220" y="418" font-size="12" fill="#e6edf3" text-anchor="middle">크레딧 흐름 제어 내장</text>
+  <text x="220" y="436" font-size="10" fill="#8b949e" text-anchor="middle">드롭 원천 차단 — 무손실</text>
+  <text x="220" y="451" font-size="10" fill="#8b949e" text-anchor="middle">SM이 경로·QoS 배포(§4)</text>
+
+  <rect x="360" y="396" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="470" y="418" font-size="12" fill="#e6edf3" text-anchor="middle">무손실 이더넷이 전제</text>
+  <text x="470" y="436" font-size="10" fill="#8b949e" text-anchor="middle">v1 — PFC, 스위치 의존</text>
+  <text x="470" y="451" font-size="10" fill="#8b949e" text-anchor="middle">v2 — ECN·DCQCN 협상 병행</text>
+
+  <rect x="610" y="396" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="720" y="418" font-size="12" fill="#e6edf3" text-anchor="middle">TCP 혼잡 제어에 맡김</text>
+  <text x="720" y="436" font-size="10" fill="#8b949e" text-anchor="middle">드롭·재전송 허용</text>
+  <text x="720" y="451" font-size="10" fill="#8b949e" text-anchor="middle">무손실 보장 없음</text>
+
+  <!-- row D: y=490 h=68 -->
+  <rect x="110" y="490" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="220" y="512" font-size="12" fill="#e6edf3" text-anchor="middle">최저 지연 · 최고 대역폭</text>
+  <text x="220" y="530" font-size="10" fill="#8b949e" text-anchor="middle">SM·전용 스위치 필수</text>
+  <text x="220" y="545" font-size="10" fill="#8b949e" text-anchor="middle">서브넷 간 확장은 라우터로</text>
+
+  <rect x="360" y="490" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="470" y="512" font-size="12" fill="#e6edf3" text-anchor="middle">기존 이더넷 인프라 재사용</text>
+  <text x="470" y="530" font-size="10" fill="#8b949e" text-anchor="middle">PFC·ECN 튜닝에 민감</text>
+  <text x="470" y="545" font-size="10" fill="#8b949e" text-anchor="middle">대형 데이터센터의 주류</text>
+
+  <rect x="610" y="490" width="220" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="720" y="512" font-size="12" fill="#e6edf3" text-anchor="middle">광역 라우팅 가능</text>
+  <text x="720" y="530" font-size="10" fill="#8b949e" text-anchor="middle">TCP가 도는 곳이면 어디서나</text>
+  <text x="720" y="545" font-size="10" fill="#8b949e" text-anchor="middle">지연 증가 · 생태계 축소</text>
+
+  <!-- bottom annotations -->
+  <text x="110" y="588" font-size="10" fill="#8b949e">공통 서비스 — 세 프로토콜 모두 RC·UC·UD를 올린다. rc-v2 데이터플레인이 쓰는 RC(신뢰 연결)도 그 한 모드다</text>
+  <text x="110" y="618" font-size="10" fill="#8b949e">보고서 환경 — ConnectX-4 VF는 링크 타입이 호스트 PF를 따라 IB로 고정, 전환은 호스트(PVE) 작업이라 불가능했다</text>
+  <text x="110" y="648" font-size="10" fill="#8b949e">이전 문서(8b284ad9)는 RoCE/CX7 환경 — 같은 versitygw라도 패브릭 가정이 달랐고, 그 RoCE 가정이 이슈⑤(§3)의 뿌리였다</text>
+</svg>

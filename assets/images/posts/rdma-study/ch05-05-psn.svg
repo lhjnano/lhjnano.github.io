@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 396" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="396" fill="#161b22"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">PSN과 신뢰 전송 — 순서·중복 검사와 재전송 타이머</text>
+
+  <!-- annotation rows above the strip (y=70), segment labels (y=96) -->
+  <text x="25" y="70" font-size="10" fill="#e6edf3">송신 — 매 패킷에 PSN, QP마다 1씩 증가 (24비트 카운터)</text>
+  <text x="735" y="70" font-size="10" fill="#e6edf3" text-anchor="end">수신 — 기대 PSN(rq_psn)과 비교</text>
+  <text x="95" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">0x100</text>
+  <text x="235" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">0x101</text>
+  <text x="375" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">0x102</text>
+  <text x="517" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">…</text>
+  <text x="662" y="96" font-size="10" fill="#e6edf3" text-anchor="middle">0x10A</text>
+
+  <!-- PSN strip: thick colored segments, y=115, boundaries 25/165/305/445/590/735 -->
+  <path d="M25,115 L 165,115" stroke="#8b949e" stroke-width="14"/>
+  <path d="M165,115 L 305,115" stroke="#1976d2" stroke-width="14"/>
+  <path d="M305,115 L 445,115" stroke="#1565c0" stroke-width="14"/>
+  <path d="M445,115 L 590,115" stroke="#546e7a" stroke-width="14"/>
+  <path d="M590,115 L 735,115" stroke="#58a6ff" stroke-width="14"/>
+
+  <!-- strip caption -->
+  <text x="25" y="140" font-size="10" fill="#78909c">첫 패킷의 PSN이 sq_psn(RTS에서 지정) — 수신측 RTR의 rq_psn과 같은 값이어야 첫 패킷이 수용된다</text>
+
+  <!-- band: receive check, y=165..217, left x=25..365, right x=395..735 -->
+  <rect x="25" y="165" width="340" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="195" y="186" font-size="12" fill="#3fb950" text-anchor="middle">PSN == rq_psn — 수용</text>
+  <text x="195" y="204" font-size="10" fill="#e6edf3" text-anchor="middle">ACK 승인 · rq_psn +1 · 낮은 PSN(중복)은 ACK만</text>
+  <rect x="395" y="165" width="340" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="565" y="186" font-size="12" fill="#f85149" text-anchor="middle">PSN 불일치 — 드랍</text>
+  <text x="565" y="204" font-size="10" fill="#e6edf3" text-anchor="middle">중복·순서 어긋은 조용히 폐기 — 침묵이 재전송을 유발</text>
+
+  <!-- band: retransmit timers, y=242..294 -->
+  <rect x="25" y="242" width="340" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="195" y="263" font-size="12" fill="#e6edf3" text-anchor="middle">ACK 타임아웃 → Go-Back-N 재전송</text>
+  <text x="195" y="281" font-size="10" fill="#e6edf3" text-anchor="middle">timeout=14(≈67ms)마다 미승인 구간 재전송 · retry=7</text>
+  <rect x="395" y="242" width="340" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="565" y="263" font-size="12" fill="#e6edf3" text-anchor="middle">RNR NAK — 수신 큐가 비었을 때</text>
+  <text x="565" y="281" font-size="10" fill="#e6edf3" text-anchor="middle">rnr_retry=7(무한) · min_rnr_timer=12(640μs) 후 재시도</text>
+
+  <!-- warn box: x=25..735, y=319..371 -->
+  <rect x="25" y="319" width="710" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="380" y="340.35" font-size="12" fill="#f85149" text-anchor="middle">이슈⑥ — PSN 불일치: 서버가 조용히 드랍 (보고서 §9)</text>
+  <text x="380" y="355.35" font-size="10" fill="#e6edf3" text-anchor="middle">PREPARE 헤더 PSN(랜덤) ≠ RTS sq_psn(고정 0x100) → 수신 기각 — rcx_set_psn()으로 헤더·sq_psn 단일화</text>
+</svg>

@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 655" width="800">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="800" height="655" fill="#161b22"/>
+
+  <!-- title: content center x=400 (blocks span 25..775) -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">CQ와 CQE — 완료 통지의 창구와 소비의 두 갈래</text>
+
+  <!-- Band 0: QP boxes x=25/285/545 w=230, y=54..124 -->
+  <rect x="25" y="54" width="230" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="140" y="78" font-size="12" fill="#e6edf3" text-anchor="middle">QP A — SQ · RQ</text>
+  <text x="140" y="93" font-size="10" fill="#8b949e" text-anchor="middle">작업이 끝나면 그 결과를</text>
+  <text x="140" y="108" font-size="10" fill="#8b949e" text-anchor="middle">완료(CQE)로 보고한다</text>
+
+  <rect x="285" y="54" width="230" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="400" y="78" font-size="12" fill="#e6edf3" text-anchor="middle">QP B — SQ · RQ</text>
+  <text x="400" y="93" font-size="10" fill="#8b949e" text-anchor="middle">QP마다 CQ를 새로 만들</text>
+  <text x="400" y="108" font-size="10" fill="#8b949e" text-anchor="middle">필요는 없다 — 공유된다</text>
+
+  <rect x="545" y="54" width="230" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="660" y="78" font-size="12" fill="#e6edf3" text-anchor="middle">QP C — SQ · RQ</text>
+  <text x="660" y="93" font-size="10" fill="#8b949e" text-anchor="middle">연결이 늘어도 완료 창구를</text>
+  <text x="660" y="108" font-size="10" fill="#8b949e" text-anchor="middle">하나로 모아 들여다본다</text>
+
+  <!-- completion arrows: box bottom+5 → queue-card top-11 (crossing container wall) -->
+  <path d="M140,129 L140,179" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M460,129 L460,179" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M660,129 L660,179" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- CQ container: x=25..775, y=160..273 -->
+  <rect x="25" y="160" width="750" height="113" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="160" y="171" font-size="11" fill="#78909c">CQ — 여러 QP가 공유하는 완료 창구</text>
+
+  <!-- queue cards: x=40/226/412/598 w=161, y=190..260 -->
+  <rect x="40" y="190" width="161" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="120.5" y="214" font-size="12" fill="#e6edf3" text-anchor="middle">FIFO — 먼저 온 것부터</text>
+  <text x="120.5" y="229" font-size="10" fill="#8b949e" text-anchor="middle">꺼내면(poll) 비워지고</text>
+  <text x="120.5" y="244" font-size="10" fill="#8b949e" text-anchor="middle">wr_id로 원래 WQE 매칭</text>
+
+  <rect x="226" y="190" width="161" height="70" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="306.5" y="214" font-size="12" fill="#e6edf3" text-anchor="middle">CQE[0] — WRITE 완료</text>
+  <text x="306.5" y="229" font-size="10" fill="#8b949e" text-anchor="middle">status 0 (SUCCESS)</text>
+  <text x="306.5" y="244" font-size="10" fill="#8b949e" text-anchor="middle">byte_len = 1 MiB</text>
+
+  <rect x="412" y="190" width="161" height="70" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="492.5" y="214" font-size="12" fill="#e6edf3" text-anchor="middle">CQE[1] — RECV 완료</text>
+  <text x="492.5" y="229" font-size="10" fill="#8b949e" text-anchor="middle">imm_data = 쿠키 값</text>
+  <text x="492.5" y="244" font-size="10" fill="#8b949e" text-anchor="middle">판정 재료가 된다(§6)</text>
+
+  <rect x="598" y="190" width="161" height="70" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="678.5" y="214" font-size="12" fill="#e6edf3" text-anchor="middle">CQE[2] — 오류 완료</text>
+  <text x="678.5" y="229" font-size="10" fill="#8b949e" text-anchor="middle">status LOC_LEN_ERR</text>
+  <text x="678.5" y="244" font-size="10" fill="#8b949e" text-anchor="middle">opcode·byte_len 미정의</text>
+
+  <!-- zoom arrow: CQE[2] bottom+5 → field-card top-11 (crossing walls) -->
+  <path d="M678.5,265 L678.5,324" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- structure container: x=25..775, y=305..418 -->
+  <rect x="25" y="305" width="750" height="113" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="316" font-size="11" fill="#78909c">꺼내면 보이는 모습 — struct ibv_wc (완료 항목의 필드)</text>
+
+  <!-- field cards: x=40/189/338/487/636 w=124, y=335..405 -->
+  <rect x="40" y="335" width="124" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="102" y="359" font-size="12" fill="#e6edf3" text-anchor="middle">wr_id</text>
+  <text x="102" y="374" font-size="10" fill="#8b949e" text-anchor="middle">제출 시 실은 값</text>
+  <text x="102" y="389" font-size="10" fill="#8b949e" text-anchor="middle">원래 WQE와 매칭</text>
+
+  <rect x="189" y="335" width="124" height="70" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="251" y="359" font-size="12" fill="#e6edf3" text-anchor="middle">status</text>
+  <text x="251" y="374" font-size="10" fill="#8b949e" text-anchor="middle">0 = 성공, 그 외 = 오류</text>
+  <text x="251" y="389" font-size="10" fill="#8b949e" text-anchor="middle">판정은 이것 하나로</text>
+
+  <rect x="338" y="335" width="124" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="400" y="359" font-size="12" fill="#e6edf3" text-anchor="middle">opcode</text>
+  <text x="400" y="374" font-size="10" fill="#8b949e" text-anchor="middle">끝난 오퍼레이션</text>
+  <text x="400" y="389" font-size="10" fill="#8b949e" text-anchor="middle">오류 시 미정의</text>
+
+  <rect x="487" y="335" width="124" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="549" y="359" font-size="12" fill="#e6edf3" text-anchor="middle">byte_len</text>
+  <text x="549" y="374" font-size="10" fill="#8b949e" text-anchor="middle">완료된 바이트 수</text>
+  <text x="549" y="389" font-size="10" fill="#8b949e" text-anchor="middle">오류 시 미정의</text>
+
+  <rect x="636" y="335" width="124" height="70" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="698" y="359" font-size="12" fill="#e6edf3" text-anchor="middle">imm_data</text>
+  <text x="698" y="374" font-size="10" fill="#8b949e" text-anchor="middle">32비트 즉값</text>
+  <text x="698" y="389" font-size="10" fill="#8b949e" text-anchor="middle">쿠키가 실린다(§6)</text>
+
+  <!-- consumption arrows: field-card bottom+5 → box top-11 -->
+  <path d="M251,410 L251,443" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M698,410 L698,443" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- consumption boxes: x=25/415 w=360, y=454..524 -->
+  <rect x="25" y="454" width="360" height="70" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="205" y="478" font-size="12" fill="#e6edf3" text-anchor="middle">폴링 — ibv_poll_cq 루프</text>
+  <text x="205" y="493" font-size="10" fill="#8b949e" text-anchor="middle">CQ를 계속 들여다본다 — 완료 즉시 픽업, 지연 최소</text>
+  <text x="205" y="508" font-size="10" fill="#8b949e" text-anchor="middle">대기 중에도 CPU 점유 · rcx가 택한 방식(보고서 §8)</text>
+
+  <rect x="415" y="454" width="360" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="595" y="478" font-size="12" fill="#e6edf3" text-anchor="middle">이벤트 — ibv_get_cq_event</text>
+  <text x="595" y="493" font-size="10" fill="#8b949e" text-anchor="middle">컴플리션 채널(fd)에 알림 등록 후 잠든다 — CPU 휴식</text>
+  <text x="595" y="508" font-size="10" fill="#8b949e" text-anchor="middle">깨어나면 ack_cq_events → poll_cq로 배수(drain)</text>
+
+  <!-- legend -->
+  <text x="25" y="554" font-size="10" fill="#3fb950">초록 실선 — 완료 보고: 끝난 WQE의 결과가 CQE로 CQ에 쌓인다 · CQ 하나를 여러 QP가 공유할 수 있다 (QP마다 새로 만들 필요 없음)</text>
+  <text x="25" y="579" font-size="10" fill="#22d3ee">청록 실선 — 확대: CQE를 꺼내면 struct ibv_wc — wr_id(매칭) · status(판정) · opcode · byte_len · imm_data(32비트, §6의 쿠키)</text>
+  <text x="25" y="604" font-size="10" fill="#8b949e">빨간 테두리 — 오류 완료: status만 유의미하고 opcode·byte_len·flags는 미정의값 (보고서 §10 실측)</text>
+  <text x="25" y="629" font-size="10" fill="#58a6ff">파랑 실선 — 소비의 두 갈래: 폴링(지연 최소·CPU 점유 — rcx)과 이벤트(기상 오버헤드·CPU 휴식) · 꺼내는 창구는 둘 다 ibv_poll_cq</text>
+</svg>

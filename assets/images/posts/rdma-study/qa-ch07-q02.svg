@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 5 760 304" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="5" width="760" height="304" fill="#ffffff"/>
+
+  <!-- top label -->
+  <text x="380" y="32.5" font-size="10" fill="#8b949e" text-anchor="middle">STUDY Q&amp;A</text>
+
+  <!-- question block: x=25, y=56, w=710, h=64 -->
+  <g fill="#eff6ff">
+    <rect x="25" y="56" width="710" height="64" rx="10"/>
+  </g>
+  <rect x="45" y="70" width="36" height="36" rx="8" fill="#2563eb"/>
+  <text x="63" y="92.2" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Q</text>
+  <g fill="#1f2937">
+    <text x="101" y="92.5" font-size="13">보통 RDMA S3 클라이언트로 뭘 쓰나요?</text>
+  </g>
+
+  <!-- answer block: x=25, y=145, w=710, h=144 -->
+  <g fill="#f0fdf4">
+    <rect x="25" y="145" width="710" height="144" rx="10"/>
+  </g>
+  <rect x="45" y="199" width="36" height="36" rx="8" fill="#16a34a"/>
+  <text x="63" y="221.2" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+  <g fill="#334155">
+    <text x="101" y="185.2" font-size="12">범용 RDMA S3 클라이언트는 사실상 존재하지 않는다 — S3 생태계는 전부 HTTP</text>
+    <text x="101" y="203.2" font-size="12">실존 조합: NVIDIA cuObject(벤더 라이브러리) · AMD hipObject · AWS FrostByte(내부용)</text>
+    <text x="101" y="221.2" font-size="12">DAOS는 서버 간 데이터플레인만 RDMA — 클라이언트가 쓰는 문은 여전히 HTTP</text>
+    <text x="101" y="239.2" font-size="12">실무 선택지: 표준 SDK(HTTPS) · 벤더 라이브러리 · 자체 구현(표준 verbs RC)</text>
+    <text x="101" y="257.2" font-size="12">아니면 프론트엔드 교체 — NVMe-oF 프론트 + S3 게이트웨이 조합</text>
+  </g>
+</svg>

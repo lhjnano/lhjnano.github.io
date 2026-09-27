@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 522" width="800">
+  <defs>
+    <marker id="arrow-green-lg" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 L3,6 z" fill="#3fb950"/>
+    </marker>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="800" height="522" fill="#161b22"/>
+
+  <!-- title: content center x=400 (blocks span 25..775) -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">QP — 큐 페어의 내부 구조와 QPN 교환</text>
+
+  <!-- Node A group: x=40..350, y=60..311 -->
+  <rect x="40" y="60" width="310" height="251" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="52" y="71" font-size="11" fill="#78909c">노드 A QP — 클라이언트 rcx (.40)</text>
+
+  <!-- A.SQ: x=55..335, y=90..142, center x=195 -->
+  <rect x="55" y="90" width="280" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="195" y="112" font-size="12" fill="#e6edf3" text-anchor="middle">SQ — 송신 큐</text>
+  <text x="195" y="128" font-size="10" fill="#8b949e" text-anchor="middle">post_send로 WQE 제출</text>
+
+  <!-- A.RQ: y=167..219 -->
+  <rect x="55" y="167" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="195" y="189" font-size="12" fill="#e6edf3" text-anchor="middle">RQ — 수신 큐</text>
+  <text x="195" y="205" font-size="10" fill="#8b949e" text-anchor="middle">post_recv로 수신 버퍼 게시</text>
+
+  <!-- A.ctx: y=244..296 -->
+  <rect x="55" y="244" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="195" y="266" font-size="12" fill="#e6edf3" text-anchor="middle">QP 컨텍스트 — QPN(24bit)·상태·PSN</text>
+  <text x="195" y="282" font-size="10" fill="#8b949e" text-anchor="middle">RTR 시 상대 QPN·PSN·GID·LID 프로그램</text>
+
+  <!-- Node B group: x=450..760, y=60..311 (mirrored stack: RQ on top) -->
+  <rect x="450" y="60" width="310" height="251" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="462" y="71" font-size="11" fill="#78909c">노드 B QP — 게이트웨이 vgwrdma (.41)</text>
+
+  <!-- B.RQ: x=465..745, y=90..142, center x=605 -->
+  <rect x="465" y="90" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="605" y="112" font-size="12" fill="#e6edf3" text-anchor="middle">RQ — 수신 큐</text>
+  <text x="605" y="128" font-size="10" fill="#8b949e" text-anchor="middle">노드 A가 보낸 작업을 여기서 받는다</text>
+
+  <!-- B.SQ: y=167..219 -->
+  <rect x="465" y="167" width="280" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="605" y="189" font-size="12" fill="#e6edf3" text-anchor="middle">SQ — 송신 큐</text>
+  <text x="605" y="205" font-size="10" fill="#8b949e" text-anchor="middle">post_send로 WQE 제출</text>
+
+  <!-- B.ctx: y=244..296 -->
+  <rect x="465" y="244" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="605" y="266" font-size="12" fill="#e6edf3" text-anchor="middle">QP 컨텍스트 — QPN(24bit)·상태·PSN</text>
+  <text x="605" y="282" font-size="10" fill="#8b949e" text-anchor="middle">RTR 시 상대 QPN·PSN·GID·LID 프로그램</text>
+
+  <!-- data flow: A.SQ → B.RQ / B.SQ → A.RQ -->
+  <path d="M340,116 L451,116" fill="none" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-green-lg)"/>
+  <path d="M460,193 L349,193" fill="none" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-green-lg)"/>
+  <text x="400" y="154" font-size="10" fill="#3fb950" text-anchor="middle">SEND · WRITE</text>
+
+  <!-- QPN exchange at context level -->
+  <path d="M340,270 L454,270" fill="none" stroke="#8b949e" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+  <text x="400" y="252" font-size="10" fill="#8b949e" text-anchor="middle">QPN·PSN 교환</text>
+
+  <!-- service level container: x=25..775, y=336..449 -->
+  <rect x="25" y="336" width="750" height="113" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="347" font-size="11" fill="#78909c">서비스 레벨 — QP의 전송 서비스 유형</text>
+
+  <!-- RC: x=40..201, y=366..436, center 120.5 -->
+  <rect x="40" y="366" width="161" height="70" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="120.5" y="390" font-size="12" fill="#e6edf3" text-anchor="middle">RC — 신뢰 연결</text>
+  <text x="120.5" y="405" font-size="10" fill="#e3f2fd" text-anchor="middle">HW 재전송 · 순서 보장</text>
+  <text x="120.5" y="420" font-size="10" fill="#e3f2fd" text-anchor="middle">rc-v2 데이터플레인 (6편)</text>
+
+  <!-- UC: x=226..387, center 306.5 -->
+  <rect x="226" y="366" width="161" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="306.5" y="390" font-size="12" fill="#e6edf3" text-anchor="middle">UC — 비신뢰 연결</text>
+  <text x="306.5" y="405" font-size="10" fill="#8b949e" text-anchor="middle">순서 보장, 재전송 없음</text>
+  <text x="306.5" y="420" font-size="10" fill="#8b949e" text-anchor="middle">연결형 서비스</text>
+
+  <!-- UD: x=412..573, center 492.5 -->
+  <rect x="412" y="366" width="161" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="492.5" y="390" font-size="12" fill="#e6edf3" text-anchor="middle">UD — 데이터그램</text>
+  <text x="492.5" y="405" font-size="10" fill="#8b949e" text-anchor="middle">비연결 · MTU 크기 제한</text>
+  <text x="492.5" y="420" font-size="10" fill="#8b949e" text-anchor="middle">멀티캐스트 지원</text>
+
+  <!-- XRC·DC: x=598..759, center 678.5 -->
+  <rect x="598" y="366" width="161" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="678.5" y="390" font-size="12" fill="#e6edf3" text-anchor="middle">XRC·DC — 확장 연결</text>
+  <text x="678.5" y="405" font-size="10" fill="#8b949e" text-anchor="middle">수만 연결 스케일링</text>
+  <text x="678.5" y="420" font-size="10" fill="#8b949e" text-anchor="middle">7편 cuObject(DCT) 재등장</text>
+
+  <!-- legend -->
+  <text x="25" y="472" font-size="10" fill="#3fb950">초록 실선 — SQ → 상대 RQ 흐름: SEND·WRITE_WITH_IMM은 상대 수신 큐를 소비한다 (plain WRITE는 RQ 없이 — §5)</text>
+  <text x="25" y="497" font-size="10" fill="#8b949e">회색 점선 — 연결 수립 시 QPN·PSN·GID·LID 교환 (rc-v2: QPN·GID 등은 44바이트 토큰에, PSN은 별도 헤더로 — 6편)</text>
+</svg>

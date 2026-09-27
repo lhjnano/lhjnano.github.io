@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 682" width="800">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..775, margins 25/25 -->
+  <rect x="0" y="0" width="800" height="682" fill="#161b22"/>
+
+  <!-- title: content center x=400 -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">cuObject 실증 종합 — 개통 증거 · GPU-direct 성능 · BAR1 경계</text>
+
+  <!-- ── panel 1: cufile.log evidence, x=25..775, y=56..188 ── -->
+  <rect x="25" y="56" width="750" height="132" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#78909c">개통 증거 — cufile.log 3줄 (클라 gpu-1 · libcufile 1.18.1.6 / libcuobjclient 1.2.0.68)</text>
+
+  <rect x="40" y="94" width="347" height="60" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="50" y="112.5" font-size="10" fill="#e3f2fd">nvidia_peermem is enabled</text>
+  <text x="50" y="127.5" font-size="10" fill="#8b949e">Device mlx5_0: IB link layer, using default GID index 0</text>
+  <text x="50" y="142.5" font-size="10" fill="#8b949e">register with RDMA success mr_size: 67108864</text>
+
+  <rect x="413" y="94" width="347" height="60" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="423" y="112.5" font-size="10" fill="#e3f2fd">해석 — GPU HBM 64 MiB를 peermem RDMA 등록</text>
+  <text x="423" y="127.5" font-size="10" fill="#8b949e">cuFile이 네이티브 IB GID idx0 자동 처리</text>
+  <text x="423" y="142.5" font-size="10" fill="#8b949e">게이트웨이 :7071 — DC QP INIT→RTR→RTS 통과</text>
+
+  <path d="M 392,124 L 402,124" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <path d="M 400,193 L 400,203" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── panel 2: performance bars, x=25..775, y=214..476 ── -->
+  <rect x="25" y="214" width="750" height="262" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="232" font-size="11" fill="#78909c">GPU-direct 성능 — PUT/GET 처리량 (GB/s)</text>
+
+  <text x="40" y="258" font-size="10" fill="#58a6ff">■ PUT</text>
+  <text x="105" y="258" font-size="10" fill="#3fb950">■ GET</text>
+  <text x="760" y="258" font-size="10" fill="#8b949e" text-anchor="end">aic1 · libcuobjserver 1.2.0.68 · n=10 · 128/192 MiB은 n=3</text>
+
+  <!-- bars: floor y=412, 38px per GB/s -->
+  <path d="M106,412 v-17 h40 v17 z" fill="#58a6ff"/>
+  <path d="M154,412 v-80 h40 v80 z" fill="#3fb950"/>
+  <path d="M276,412 v-20 h40 v20 z" fill="#58a6ff"/>
+  <path d="M324,412 v-139 h40 v139 z" fill="#3fb950"/>
+  <path d="M446,412 v-20 h40 v20 z" fill="#58a6ff"/>
+  <path d="M494,412 v-111 h40 v111 z" fill="#3fb950"/>
+  <path d="M616,412 v-20 h40 v20 z" fill="#58a6ff"/>
+  <path d="M664,412 v-109 h40 v109 z" fill="#3fb950"/>
+
+  <line x1="40" y1="412" x2="740" y2="412" stroke="#8b949e" stroke-width="1.5"/>
+
+  <text x="126" y="377" font-size="10" fill="#58a6ff" text-anchor="middle">0.450</text>
+  <text x="174" y="314" font-size="10" fill="#3fb950" text-anchor="middle">2.096</text>
+  <text x="296" y="374" font-size="10" fill="#58a6ff" text-anchor="middle">0.523</text>
+  <text x="344" y="255" font-size="10" fill="#3fb950" text-anchor="middle">3.655</text>
+  <text x="466" y="374" font-size="10" fill="#58a6ff" text-anchor="middle">0.531</text>
+  <text x="514" y="283" font-size="10" fill="#3fb950" text-anchor="middle">2.919</text>
+  <text x="636" y="374" font-size="10" fill="#58a6ff" text-anchor="middle">0.538</text>
+  <text x="684" y="285" font-size="10" fill="#3fb950" text-anchor="middle">2.860</text>
+
+  <text x="150" y="436" font-size="10" fill="#e6edf3" text-anchor="middle">4 MiB</text>
+  <text x="320" y="436" font-size="10" fill="#e6edf3" text-anchor="middle">64 MiB</text>
+  <text x="490" y="436" font-size="10" fill="#e6edf3" text-anchor="middle">128 MiB</text>
+  <text x="660" y="436" font-size="10" fill="#e6edf3" text-anchor="middle">192 MiB</text>
+
+  <text x="40" y="462" font-size="10" fill="#8b949e">(참조) HTTP(IPoIB MTU 1500): 4 MiB PUT 0.249/GET 1.314 · 64 MiB 0.333/2.225 — RDMA가 전 구간 우위</text>
+
+  <path d="M 400,481 L 400,491" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── panel 3: BAR1 boundary, x=25..775, y=502..657 ── -->
+  <rect x="25" y="502" width="750" height="155" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="520" font-size="11" fill="#78909c">BAR1 경계 — 256 MiB 창에서 잘리는 GPU-direct 전송 (§4.3)</text>
+
+  <text x="40" y="551" font-size="10" fill="#8b949e">GPUDirect RDMA가 BAR1로 GPU 메모리를 매핑 — RTX A6000 BAR1 = 256 MiB (NVML)</text>
+  <text x="740" y="551" font-size="10" fill="#bc8cff" text-anchor="end">고객 안내: GPU-direct 전송 크기 ≤ BAR1 여유</text>
+
+  <path d="M40,569 h525 v26 h-525 z" fill="#263238" stroke="#3fb950"/>
+  <path d="M565,569 h88 v26 h-88 z" fill="#30363d" stroke="#555555"/>
+  <path d="M653,569 h87 v26 h-87 z" fill="#263238" stroke="#f85149"/>
+
+  <text x="302" y="585" font-size="10" fill="#3fb950" text-anchor="middle">0 – 192 MiB</text>
+  <text x="609" y="585" font-size="10" fill="#8b949e" text-anchor="middle">192–224</text>
+  <text x="696" y="585" font-size="10" fill="#f85149" text-anchor="middle">224–256</text>
+
+  <text x="302" y="618" font-size="10" fill="#3fb950" text-anchor="middle">✓ PUT/GET 성공 · checksum 전 OK</text>
+  <text x="740" y="618" font-size="10" fill="#f85149" text-anchor="end">✗ 224 MiB부터 실패 — cuMemObjGetDescriptor rc=1</text>
+
+  <text x="40" y="643" font-size="10" fill="#8b949e">세 게이트웨이(aic1 1.2·2.0, aic2) 동일 실패 — aic 무관 · H100(BAR1 128 GiB) 등은 해당 없음</text>
+</svg>

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="800" height="600" fill="#161b22"/>
+
+  <!-- title: content center x=400 (blocks span 25..775) -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">WQE — opcode과 SGE, 산란 버퍼의 수집(gather)</text>
+
+  <!-- Band 0: submission pipeline, boxes x=25/285/545 w=230, y=54..124 -->
+  <rect x="25" y="54" width="230" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="140" y="78" font-size="12" fill="#e6edf3" text-anchor="middle">① post_send / post_recv</text>
+  <text x="140" y="93" font-size="10" fill="#8b949e" text-anchor="middle">애플리케이션이 큐에 WQE 기록</text>
+  <text x="140" y="108" font-size="10" fill="#8b949e" text-anchor="middle">커널 경유 없음 — 사용자 공간</text>
+
+  <rect x="285" y="54" width="230" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="400" y="78" font-size="12" fill="#e6edf3" text-anchor="middle">② doorbell — MMIO 쓰기</text>
+  <text x="400" y="93" font-size="10" fill="#8b949e" text-anchor="middle">새 WQE 도착을 HCA에 통지</text>
+  <text x="400" y="108" font-size="10" fill="#8b949e" text-anchor="middle">여기까지가 CPU가 하는 일</text>
+
+  <rect x="545" y="54" width="230" height="70" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="660" y="78" font-size="12" fill="#e6edf3" text-anchor="middle">③ HCA — 비동기 소비</text>
+  <text x="660" y="93" font-size="10" fill="#8b949e" text-anchor="middle">WQE를 DMA로 인출해 실행</text>
+  <text x="660" y="108" font-size="10" fill="#8b949e" text-anchor="middle">이후 조립·전송·ACK은 전부 HW</text>
+
+  <!-- consumption arrow: ③ bottom → SGE[2] card top -->
+  <path d="M678.5,129 L678.5,168" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- WQE container: x=25..775, y=149..262 -->
+  <rect x="25" y="149" width="750" height="113" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="160" font-size="11" fill="#78909c">WQE 하나의 구조 — opcode + SGE 목록 (Work Queue Entry)</text>
+
+  <!-- opcode card: x=40..201, y=179..249 -->
+  <rect x="40" y="179" width="161" height="70" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="120.5" y="203" font-size="12" fill="#e6edf3" text-anchor="middle">opcode</text>
+  <text x="120.5" y="218" font-size="10" fill="#e3f2fd" text-anchor="middle">WRITE · SEND · READ …</text>
+  <text x="120.5" y="233" font-size="10" fill="#e3f2fd" text-anchor="middle">무엇을 할지</text>
+
+  <!-- SGE cards: x=226/412/598, y=179..249 -->
+  <rect x="226" y="179" width="161" height="70" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="306.5" y="203" font-size="12" fill="#e6edf3" text-anchor="middle">SGE[0]</text>
+  <text x="306.5" y="218" font-size="10" fill="#8b949e" text-anchor="middle">lkey · addr · len</text>
+  <text x="306.5" y="233" font-size="10" fill="#8b949e" text-anchor="middle">메모리 조각 좌표</text>
+
+  <rect x="412" y="179" width="161" height="70" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="492.5" y="203" font-size="12" fill="#e6edf3" text-anchor="middle">SGE[1]</text>
+  <text x="492.5" y="218" font-size="10" fill="#8b949e" text-anchor="middle">lkey · addr · len</text>
+  <text x="492.5" y="233" font-size="10" fill="#8b949e" text-anchor="middle">메모리 조각 좌표</text>
+
+  <rect x="598" y="179" width="161" height="70" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="678.5" y="203" font-size="12" fill="#e6edf3" text-anchor="middle">SGE[2]</text>
+  <text x="678.5" y="218" font-size="10" fill="#8b949e" text-anchor="middle">lkey · addr · len</text>
+  <text x="678.5" y="233" font-size="10" fill="#8b949e" text-anchor="middle">메모리 조각 좌표</text>
+
+  <!-- SGE reference arrows → buffers -->
+  <path d="M306.5,254 L306.5,306" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <path d="M492.5,254 L492.5,306" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <path d="M678.5,254 L678.5,306" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- memory container: x=25..775, y=287..400 -->
+  <rect x="25" y="287" width="750" height="113" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="298" font-size="11" fill="#78909c">등록된 메모리(MR) — 조각들은 주소상 멀리 떨어져 있다</text>
+
+  <!-- note card: x=40..201, y=317..387 -->
+  <rect x="40" y="317" width="161" height="70" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="120.5" y="341" font-size="12" fill="#e6edf3" text-anchor="middle">주소는 흩어져 있다</text>
+  <text x="120.5" y="356" font-size="10" fill="#8b949e" text-anchor="middle">할당자가 준 자리 그대로</text>
+  <text x="120.5" y="371" font-size="10" fill="#8b949e" text-anchor="middle">모아 복사할 필요가 없다</text>
+
+  <!-- buffer cards: x=226/412/598, y=317..387 -->
+  <rect x="226" y="317" width="161" height="70" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="306.5" y="341" font-size="12" fill="#e6edf3" text-anchor="middle">버퍼 A — 조각 1</text>
+  <text x="306.5" y="356" font-size="10" fill="#8b949e" text-anchor="middle">addr 0x…5000 · len 4KiB</text>
+  <text x="306.5" y="371" font-size="10" fill="#8b949e" text-anchor="middle">MR 안의 한 구간</text>
+
+  <rect x="412" y="317" width="161" height="70" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="492.5" y="341" font-size="12" fill="#e6edf3" text-anchor="middle">버퍼 B — 조각 2</text>
+  <text x="492.5" y="356" font-size="10" fill="#8b949e" text-anchor="middle">addr 0x…12000 · len 8KiB</text>
+  <text x="492.5" y="371" font-size="10" fill="#8b949e" text-anchor="middle">A와 멀리 떨어짐</text>
+
+  <rect x="598" y="317" width="161" height="70" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="678.5" y="341" font-size="12" fill="#e6edf3" text-anchor="middle">버퍼 C — 조각 3</text>
+  <text x="678.5" y="356" font-size="10" fill="#8b949e" text-anchor="middle">addr 0x…2a000 · len 4KiB</text>
+  <text x="678.5" y="371" font-size="10" fill="#8b949e" text-anchor="middle">B와도 멀리 떨어짐</text>
+
+  <!-- gather arrows → assembly box -->
+  <path d="M306.5,392 L306.5,414" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M492.5,392 L492.5,414" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M678.5,392 L678.5,414" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- assembly box: x=25..775, y=425..495 -->
+  <rect x="25" y="425" width="750" height="70" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="400" y="449" font-size="12" fill="#e6edf3" text-anchor="middle">1개의 전송으로 조립 — scatter-gather</text>
+  <text x="400" y="464" font-size="10" fill="#8b949e" text-anchor="middle">SGE[0] → SGE[1] → SGE[2] 순서대로 조각을 이어 하나의 작업(WR)으로 송신</text>
+  <text x="400" y="479" font-size="10" fill="#8b949e" text-anchor="middle">MTU 단위 분할은 NIC가 담당 — 애플리케이션은 한 번의 post_send</text>
+
+  <!-- legend -->
+  <text x="25" y="525" font-size="10" fill="#22d3ee">청록 실선 — SGE의 참조: lkey·addr·len으로 등록된 메모리의 한 구간을 지목 — 조각들은 주소상 멀리 떨어져 있어도 좋다</text>
+  <text x="25" y="550" font-size="10" fill="#3fb950">초록 실선 — 수집(gather): NIC가 SGE 순서대로 조각을 읽어 한 번의 송신으로 묶는다 · 수신에서 펼쳐지는 반대가 scatter</text>
+  <text x="25" y="575" font-size="10" fill="#8b949e">파랑 실선 — ① 제출 → ② doorbell(MMIO 통지) → ③ HCA의 비동기 소비 · post_recv도 같은 구조로 RQ에 버퍼를 게시</text>
+</svg>

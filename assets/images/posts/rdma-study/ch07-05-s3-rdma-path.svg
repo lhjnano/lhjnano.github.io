@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 770 583" width="770">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="20" y="0" width="770" height="583" fill="#161b22"/>
+
+  <!-- title: content center x=405 -->
+  <text x="405" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">S3-over-RDMA 전체 경로 — 제어는 HTTP, 데이터는 RDMA</text>
+
+  <!-- progress badges: y=60, h=44, w=160, gap=30 -->
+  <rect x="40" y="60" width="160" height="44" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="120" y="85.5" font-size="10" fill="#e6edf3" text-anchor="middle">① v1.8.0 동기화 ✓</text>
+
+  <rect x="230" y="60" width="160" height="44" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="310" y="85.5" font-size="10" fill="#e6edf3" text-anchor="middle">② 클러스터 배포 ✓</text>
+
+  <rect x="420" y="60" width="160" height="44" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="500" y="85.5" font-size="10" fill="#e6edf3" text-anchor="middle">③ HTTP S3 검증 ✓</text>
+
+  <rect x="610" y="60" width="160" height="44" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="690" y="85.5" font-size="10" fill="#e6edf3" text-anchor="middle">④ S3-over-RDMA ✓*</text>
+
+  <!-- client box: x=40, y=134, w=730, h=68 -->
+  <rect x="40" y="134" width="730" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="52" y="155" font-size="12" fill="#e6edf3">S3 클라이언트 — .40 노드 (③ HTTP: cuobjtest · ④ RDMA: rcx)</text>
+  <text x="52" y="172" font-size="10" fill="#8b949e">RC QP 생성 · MR 등록 · 44바이트 RC 토큰 → X-Amz-Rdma-Token 헤더</text>
+  <text x="52" y="188" font-size="10" fill="#8b949e">PUT = RDMA WRITE_WITH_IMM 전송 · GET = zero-SGE recv + imm 대기</text>
+
+  <!-- control lane (HTTP): gray, x=300 -->
+  <path d="M300,207 L300,287" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- data lane (RDMA): cyan, x=510 -->
+  <path d="M510,207 L510,287" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- lane legend box: x=330, y=227, w=150, h=46 -->
+  <rect x="330" y="227" width="150" height="46" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="405" y="245.5" font-size="10" fill="#8b949e" text-anchor="middle">제어 — HTTP·SigV4</text>
+  <text x="405" y="261.5" font-size="10" fill="#22d3ee" text-anchor="middle">데이터 — RDMA(RC)</text>
+
+  <!-- gateway box: x=40, y=298, w=730, h=68 -->
+  <rect x="40" y="298" width="730" height="68" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="52" y="319" font-size="12" fill="#e6edf3">versitygw 게이트웨이 — .41 (Lustre 서버 노드, systemd 유닛)</text>
+  <text x="52" y="336" font-size="10" fill="#e3f2fd">HTTP S3 :7070 (versitygw-test2) · RDMA rc-v2 — vgwrdma --rdma-rc-enable</text>
+  <text x="52" y="352" font-size="10" fill="#e3f2fd">rc-v2 서버 — 토큰 디코딩 · RC QP · staging MR · posix 백엔드 → /mnt/lustre</text>
+
+  <!-- connectors: gateway → lustre targets (green) -->
+  <path d="M165,371 L165,385" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M405,371 L405,385" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M645,371 L645,385" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- lustre targets: y=396, w=210, h=68 -->
+  <rect x="60" y="396" width="210" height="68" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="72" y="417" font-size="12" fill="#e6edf3">MGS + MDT0000</text>
+  <text x="72" y="434" font-size="10" fill="#e3f2fd">172.16.44.41@o2ib</text>
+  <text x="72" y="450" font-size="10" fill="#e3f2fd">메타데이터 + 설정 서비스</text>
+
+  <rect x="300" y="396" width="210" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="312" y="417" font-size="12" fill="#e6edf3">OST0000</text>
+  <text x="312" y="434" font-size="10" fill="#8b949e">172.16.44.41@o2ib</text>
+  <text x="312" y="450" font-size="10" fill="#8b949e">데이터 — ZFS lustre-ost0</text>
+
+  <rect x="540" y="396" width="210" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="552" y="417" font-size="12" fill="#e6edf3">OST0001</text>
+  <text x="552" y="434" font-size="10" fill="#8b949e">172.16.44.42@o2ib</text>
+  <text x="552" y="450" font-size="10" fill="#8b949e">데이터 — ZFS lustre-ost1</text>
+
+  <!-- connectors: targets → fabric bar -->
+  <path d="M165,469 L165,483" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M405,469 L405,483" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M645,469 L645,483" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- fabric bar: x=40, y=494, w=730, h=38 -->
+  <rect x="40" y="494" width="730" height="38" rx="8" fill="#37474f" stroke="#8b949e"/>
+  <text x="405" y="517.2" font-size="12" fill="#e6edf3" text-anchor="middle">물리 패브릭 — ConnectX-4(VF) · IB 모드 · 데이터(RC)도 Lustre(o2ib)도 같은 IB 패브릭 위</text>
+
+
+  <!-- footnote: standalone row -->
+  <text x="405" y="556" font-size="10" fill="#78909c" text-anchor="middle">* 2026-09-22 달성 — 1~46MiB 검증 완료 · ≈47MiB+ 대형 전송은 별도 과제</text>
+</svg>

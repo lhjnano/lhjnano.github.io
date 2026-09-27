@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="90 0 736 461" width="736">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#bc8cff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="90" y="0" width="736" height="461" fill="#161b22"/>
+
+  <!-- title: content center x=458 -->
+  <text x="458" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">서브넷 매니저(SM) — LID 할당과 라우팅</text>
+
+  <!-- steps container -->
+  <rect x="110" y="56" width="684" height="102" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="120" y="70" font-size="11" fill="#78909c">SM의 작동 절차</text>
+
+  <!-- step arrows -->
+  <path d="M275,118 L287,118" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M443,118 L455,118" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M611,118 L623,118" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- step boxes: y=92 h=52 -->
+  <rect x="130" y="92" width="140" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="200" y="113" font-size="12" fill="#e6edf3" text-anchor="middle">① 서브넷 스캔</text>
+  <text x="200" y="131" font-size="10" fill="#8b949e" text-anchor="middle">스위치·엔드포트 탐색</text>
+
+  <rect x="298" y="92" width="140" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="368" y="113" font-size="12" fill="#e6edf3" text-anchor="middle">② LID 할당</text>
+  <text x="368" y="131" font-size="10" fill="#8b949e" text-anchor="middle">엔드포트마다 고유 LID</text>
+
+  <rect x="466" y="92" width="140" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="536" y="113" font-size="12" fill="#e6edf3" text-anchor="middle">③ 라우팅 계산</text>
+  <text x="536" y="131" font-size="10" fill="#8b949e" text-anchor="middle">스위치별 최단 경로</text>
+
+  <rect x="634" y="92" width="140" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="704" y="113" font-size="12" fill="#e6edf3" text-anchor="middle">④ 배포</text>
+  <text x="704" y="131" font-size="10" fill="#8b949e" text-anchor="middle">스위치·CA에 반영</text>
+
+  <!-- subnet container -->
+  <rect x="110" y="174" width="560" height="180" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="120" y="188" font-size="11" fill="#78909c">로컬 서브넷 — LID 공간(SM 관할)</text>
+
+  <!-- SM to nodes: scan / LID assignment -->
+  <path d="M390,265 L390,277" fill="none" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <path d="M330,265 C 300,268 232,258 232,277" fill="none" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <path d="M460,265 C 490,268 548,258 548,277" fill="none" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- switch -->
+  <rect x="310" y="208" width="160" height="52" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="390" y="229" font-size="12" fill="#e6edf3" text-anchor="middle">IB 스위치</text>
+  <text x="390" y="247" font-size="10" fill="#8b949e" text-anchor="middle">SM 마스터 내장</text>
+
+  <!-- nodes: y=288 h=52 -->
+  <rect x="167" y="288" width="130" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="232" y="309" font-size="12" fill="#e6edf3" text-anchor="middle">노드 .40</text>
+  <text x="232" y="327" font-size="10" fill="#58a6ff" text-anchor="middle">LID 0x3FA</text>
+
+  <rect x="325" y="288" width="130" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="390" y="309" font-size="12" fill="#e6edf3" text-anchor="middle">노드 .41</text>
+  <text x="390" y="327" font-size="10" fill="#58a6ff" text-anchor="middle">LID 0x494</text>
+
+  <rect x="483" y="288" width="130" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="548" y="309" font-size="12" fill="#e6edf3" text-anchor="middle">노드 .42</text>
+  <text x="548" y="327" font-size="10" fill="#58a6ff" text-anchor="middle">LID (미기록)</text>
+
+  <!-- router beyond the subnet boundary -->
+  <path d="M675,234 L685,234" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="696" y="208" width="110" height="52" rx="6" fill="#37474f" stroke="#8b949e"/>
+  <text x="751" y="229" font-size="12" fill="#e6edf3" text-anchor="middle">IB 라우터</text>
+  <text x="751" y="247" font-size="10" fill="#8b949e" text-anchor="middle">서브넷 경계</text>
+
+  <!-- bottom annotations -->
+  <text x="110" y="378" font-size="10" fill="#8b949e">서브넷 경계 — 라우터를 넘을 때는 GRH의 GID로 라우팅한다. LID는 서브넷 안에서만 유효(라우터가 DLID 재작성)</text>
+  <text x="110" y="408" font-size="10" fill="#8b949e">SM 마스터/스탠바이 — 서브넷당 마스터 1대가 LID 할당·라우팅을 관장. opensm(호스트 데몬) 또는 스위치 내장으로 구현</text>
+  <text x="110" y="438" font-size="10" fill="#8b949e">보고서 환경 — 스위치 내장 SM: ibstat으로 LID 확인(0x3FA·0x494), ibping으로 서브넷 도달성 검증</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="29 0 722 462" width="722">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#bc8cff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="29" y="0" width="722" height="462" fill="#161b22"/>
+
+  <!-- title: content center x=390 -->
+  <text x="390" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">IB 스위치와 서브넷 매니저(SM) — 무손실 패브릭 토폴로지</text>
+
+  <!-- SM box: x=310..470, y=56..112 -->
+  <rect x="310" y="56" width="160" height="56" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="390" y="79" font-size="12" fill="#e6edf3" text-anchor="middle">서브넷 매니저(SM)</text>
+  <text x="390" y="97" font-size="10" fill="#8b949e" text-anchor="middle">opensm · 패브릭 제어</text>
+
+  <!-- SM -> switch control arrow (dashed purple) -->
+  <path d="M390,117 L390,129" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-purple)"/>
+
+  <!-- switch container: x=51..729, y=140..256 -->
+  <rect x="51" y="140" width="678" height="116" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="61" y="156" font-size="11" fill="#78909c">IB 스위치 — EDR 100Gb/s · 무손실 크로스바</text>
+
+  <!-- internal blocks: y=174..230, arrows at y=202 -->
+  <rect x="67" y="174" width="134" height="56" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="134" y="197" font-size="12" fill="#e6edf3" text-anchor="middle">포트 (QSFP28)</text>
+  <text x="134" y="215" font-size="10" fill="#8b949e" text-anchor="middle">패브릭 인터페이스</text>
+
+  <rect x="226" y="174" width="144" height="56" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="298" y="197" font-size="12" fill="#e6edf3" text-anchor="middle">크로스바</text>
+  <text x="298" y="215" font-size="10" fill="#8b949e" text-anchor="middle">임의 포트쌍 동시 연결</text>
+
+  <rect x="395" y="174" width="164" height="56" rx="6" fill="#0d47a1" stroke="#58a6ff"/>
+  <text x="477" y="197" font-size="12" fill="#e6edf3" text-anchor="middle">포트 버퍼</text>
+  <text x="477" y="215" font-size="10" fill="#e3f2fd" text-anchor="middle">credit 기반 무손실 흐름제어</text>
+
+  <rect x="584" y="174" width="128" height="56" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="648" y="197" font-size="12" fill="#e6edf3" text-anchor="middle">ARM CPU</text>
+  <text x="648" y="215" font-size="10" fill="#8b949e" text-anchor="middle">제어 평면 · SMA 응답</text>
+
+  <path d="M206,202 L215,202" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M375,202 L384,202" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M564,202 L573,202" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- nodes container: x=51..729, y=284..414 -->
+  <rect x="51" y="284" width="678" height="130" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="61" y="300" font-size="11" fill="#78909c">검증 클러스터 — 3노드 (Rocky 8.10)</text>
+
+  <!-- node boxes: y=318..402 (4 lines) -->
+  <rect x="78" y="318" width="190" height="84" rx="6" fill="#1976d2" stroke="#58a6ff"/>
+  <text x="173" y="338" font-size="12" fill="#e6edf3" text-anchor="middle">게이트웨이 .40</text>
+  <text x="173" y="356" font-size="10" fill="#e3f2fd" text-anchor="middle">CX-4 VF×2 · SR-IOV</text>
+  <text x="173" y="372" font-size="10" fill="#e3f2fd" text-anchor="middle">vgwrdma + S3 클라</text>
+  <text x="173" y="388" font-size="10" fill="#bc8cff" text-anchor="middle">LID 0x3FA</text>
+
+  <rect x="295" y="318" width="190" height="84" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="390" y="338" font-size="12" fill="#e6edf3" text-anchor="middle">Lustre .41</text>
+  <text x="390" y="356" font-size="10" fill="#8b949e" text-anchor="middle">MGS + MDT0000 + OST0000</text>
+  <text x="390" y="372" font-size="10" fill="#8b949e" text-anchor="middle">ZFS · inbox verbs</text>
+  <text x="390" y="388" font-size="10" fill="#bc8cff" text-anchor="middle">LID 0x494</text>
+
+  <rect x="512" y="318" width="190" height="84" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="607" y="338" font-size="12" fill="#e6edf3" text-anchor="middle">Lustre .42</text>
+  <text x="607" y="356" font-size="10" fill="#8b949e" text-anchor="middle">OST0001 전담</text>
+  <text x="607" y="372" font-size="10" fill="#8b949e" text-anchor="middle">Lustre 2.15.8 · ZFS</text>
+  <text x="607" y="388" font-size="10" fill="#8b949e" text-anchor="middle">LID — (보고서 미기재)</text>
+
+  <!-- fabric data arrows: switch bottom 256 -> nodes container top 284, cx = 173/390/607 -->
+  <path d="M163,261 L163,273" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M183,279 L183,267" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M380,261 L380,273" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M400,279 L400,267" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M597,261 L597,273" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M617,279 L617,267" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- legend -->
+  <text x="51" y="438" font-size="10" fill="#bc8cff">① 보라 — SM: LID 할당·LFT 배포 (노드의 보라 글자 = 할당된 LID)</text>
+  <text x="352" y="438" font-size="10" fill="#58a6ff">② 파랑 — 스위치 내부 경로</text>
+  <text x="509" y="438" font-size="10" fill="#3fb950">③ 초록 — 노드↔스위치 데이터</text>
+</svg>

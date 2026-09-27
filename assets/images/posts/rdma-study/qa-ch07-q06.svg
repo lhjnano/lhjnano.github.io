@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 5 760 286" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="5" width="760" height="286" fill="#ffffff"/>
+
+  <!-- top label -->
+  <text x="380" y="32.5" font-size="10" fill="#8b949e" text-anchor="middle">STUDY Q&amp;A</text>
+
+  <!-- question block: x=25, y=56, w=710, h=64 -->
+  <g fill="#eff6ff">
+    <rect x="25" y="56" width="710" height="64" rx="10"/>
+  </g>
+  <rect x="45" y="70" width="36" height="36" rx="8" fill="#2563eb"/>
+  <text x="63" y="92.2" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Q</text>
+  <g fill="#1f2937">
+    <text x="101" y="92.5" font-size="13">LNet 등록 거부 "couldn't query intf"는 무슨 뜻인가요?</text>
+  </g>
+
+  <!-- answer block: x=25, y=145, w=710, h=126 -->
+  <g fill="#f0fdf4">
+    <rect x="25" y="145" width="710" height="126" rx="10"/>
+  </g>
+  <rect x="45" y="190" width="36" height="36" rx="8" fill="#16a34a"/>
+  <text x="63" y="212.2" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">A</text>
+  <g fill="#334155">
+    <text x="101" y="185.2" font-size="12">LNet은 등록 전에 인터페이스를 조회한다 — netdev→IB 매핑, 링크 상태, GID 테이블</text>
+    <text x="101" y="203.2" font-size="12">이 메시지는 그 조회 단계가 실패했다는 뜻</text>
+    <text x="101" y="221.2" font-size="12">원인 후보: VF 프로비저닝 불완전 · 링크 다운 · GID 테이블 비었음 · 드라이버 불일치</text>
+    <text x="101" y="239.2" font-size="12">규명 사다리: ibstat → ibv_devinfo → gids/0 → 호스트 PF·VF 설정</text>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 0 770 472" width="770">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="20" y="0" width="770" height="472" fill="#161b22"/>
+
+  <!-- title: content center x=405 -->
+  <text x="405" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">LNet NID와 o2ib — 주소 체계, lnetctl 설정, LND의 역할</text>
+
+  <!-- ── left column container: x=40, y=52, w=370, h=332 ── -->
+  <rect x="40" y="52" width="370" height="332" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="60" y="66" font-size="11" fill="#78909c">NID — LNet이 노드를 식별하는 주소</text>
+
+  <!-- ── right column container: x=425, y=52, w=345, h=332 ── -->
+  <rect x="425" y="52" width="345" height="332" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="442" y="66" font-size="11" fill="#78909c">네트워크 타입과 LND</text>
+
+  <!-- band 1 left: NID display, x=60, y=84, w=340, h=52 -->
+  <rect x="60" y="84" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="230" y="114.9" font-size="14" fill="#e6edf3" text-anchor="middle">172.16.44.41@o2ib</text>
+
+  <!-- band 1 right: type list, x=430, y=84, w=340, h=52 -->
+  <rect x="430" y="84" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="442" y="105.4" font-size="12" fill="#e6edf3">tcp · o2ib · gni · kfi …</text>
+  <text x="442" y="122.4" font-size="10" fill="#8b949e">네트워크 타입 문자열이 LND를 선택한다</text>
+
+  <!-- braces: NID substrings down to the anatomy box -->
+  <path d="M195,139 L195,161" fill="none" stroke="#546e7a" stroke-width="1.5"/>
+  <path d="M267,139 L267,161" fill="none" stroke="#546e7a" stroke-width="1.5"/>
+
+  <!-- band 2 left: NID anatomy, x=60, y=166, w=340, h=52 -->
+  <rect x="60" y="166" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="72" y="187.4" font-size="12" fill="#e6edf3">IP 주소 — ib0(IPoIB)에 부여</text>
+  <text x="72" y="204.4" font-size="10" fill="#8b949e">네트워크 타입 — LND(전송 플러그인) 선택</text>
+
+  <!-- band 2 right: multiple NIDs, x=430, y=166, w=340, h=52 -->
+  <rect x="430" y="166" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="442" y="187.4" font-size="12" fill="#e6edf3">노드는 여러 네트워크에 동시 참여</text>
+  <text x="442" y="204.4" font-size="10" fill="#8b949e">NID도 네트워크마다 하나씩 여러 개</text>
+
+  <!-- band 3 left: lnetctl code, x=60, y=248, w=340, h=68 -->
+  <rect x="60" y="248" width="340" height="68" rx="6" fill="#263238" stroke="#30363d"/>
+  <text x="76" y="269.9" font-size="11" fill="#e6edf3">ip addr add 172.16.44.41/24 dev ib0</text>
+  <text x="76" y="286.4" font-size="11" fill="#e6edf3">lnetctl net add --net o2ib --if ib0</text>
+  <text x="76" y="302.9" font-size="11" fill="#e6edf3">lnetctl export &gt; /etc/lnet.conf</text>
+
+  <!-- band 3 right: ko2iblnd flow, x=430, y=248, w=340, h=68 -->
+  <rect x="430" y="248" width="340" height="68" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="469" y="277.4" font-size="12" fill="#58a6ff">LNet 메시지</text>
+  <text x="569" y="277.4" font-size="12" fill="#8b949e" text-anchor="middle">→</text>
+  <text x="585" y="277.4" font-size="12" fill="#22d3ee">ko2iblnd</text>
+  <text x="647" y="277.4" font-size="12" fill="#8b949e" text-anchor="middle">→</text>
+  <text x="665" y="277.4" font-size="12" fill="#3fb950">RC QP · MR</text>
+  <text x="600" y="295.4" font-size="10" fill="#8b949e" text-anchor="middle">ko2iblnd가 RC QP를 만들어 RDMA로 운반</text>
+
+  <!-- free annotations -->
+  <text x="60" y="340" font-size="10" fill="#8b949e">--if — 이 버전은 --interface가 아님</text>
+  <text x="60" y="366" font-size="10" fill="#8b949e">export 결과는 /etc/lnet.conf에 저장 — 재부팅 시 자동 복원</text>
+  <text x="430" y="340" font-size="10" fill="#8b949e">5편에서 배운 QP·MR가 실제로 쓰이는 계층</text>
+  <text x="430" y="366" font-size="10" fill="#8b949e">socklnd와 o2iblnd는 같은 LNet 인터페이스 아래 교체 가능</text>
+
+  <!-- ── report callout bar: x=40, y=412, w=730, h=40 ── -->
+  <rect x="40" y="412" width="730" height="40" rx="10" fill="none" stroke="#bc8cff" stroke-dasharray="6,4"/>
+  <text x="405" y="432" font-size="10" fill="#bc8cff" text-anchor="middle">보고서 실측 — LNet에는 mlx5_0(ib0)만 등록 가능: ib1은 "couldn't query intf"로 거부(원인 미규명)</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 265" width="760" role="img" aria-label="스터디 Q&amp;A 카드 — 질문: NVIDIA 쪽 데이터플레인은 VRAM을 활용한 RDMA인가요? 답변: 네, cuObject와 GDS 계열의 존재 이유가 VRAM 직접 전송이며 호스트 RAM을 경유하지 않는다. RC 계열은 호스트 메모리 MR을 쓰고, NVIDIA 경로는 DCT 전송과 CUDA 스택, 최신 ConnectX NIC를 요구하지만 RC는 표준 verbs만으로 구동된다.">
+<style>
+text{font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;}
+.q-block{fill:#eff6ff;stroke:#2563eb;stroke-width:1.5;}
+.a-block{fill:#f0fdf4;stroke:#16a34a;stroke-width:1.5;}
+.q-text{fill:#1f2937;}
+.a-text{fill:#334155;}
+</style>
+  <rect x="0" y="0" width="760" height="265" fill="#ffffff"/>
+  <text x="380" y="27.5" text-anchor="middle" font-size="10" fill="#8b949e" letter-spacing="1">STUDY Q&amp;A</text>
+  <rect x="20" y="48" width="720" height="197" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="36" y="64" width="688" height="50" rx="8" class="q-block"/>
+  <rect x="50" y="71" width="36" height="36" rx="8" fill="#2563eb"/>
+  <text x="68" y="93.2" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Q</text>
+  <g class="q-text">
+    <text x="94" y="93.6" font-size="13" font-weight="700">NVIDIA 쪽 데이터플레인은 VRAM을 활용한 RDMA인가요?</text>
+  </g>
+  <rect x="36" y="139" width="688" height="90" rx="8" class="a-block"/>
+  <rect x="50" y="166" width="36" height="36" rx="8" fill="#16a34a"/>
+  <text x="68" y="188.2" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">A</text>
+  <g class="a-text">
+    <text x="94" y="161" font-size="12">· 네 — cuObject/GDS 계열의 존재 이유가 바로 VRAM 직접 전송입니다 (GPUDirect)</text>
+    <text x="94" y="179" font-size="12">· 호스트 RAM을 경유하지 않고 GPU HBM에 바로 닿습니다</text>
+    <text x="94" y="197" font-size="12">· 대비: RC 계열은 호스트 메모리 MR을 등록해 씁니다</text>
+    <text x="94" y="215" font-size="12">· NVIDIA 경로 요구: DCT 전송 · CUDA 스택 · 최신 ConnectX NIC ↔ RC는 표준 verbs만으로 구동</text>
+  </g>
+</svg>

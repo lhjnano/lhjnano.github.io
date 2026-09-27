@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 550" width="740">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="740" height="550" fill="#161b22"/>
+
+  <!-- title: content center x=370 (content spans 25..715) -->
+  <text x="370" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">/dev/infiniband/ — RDMA 디바이스 노드와 용도</text>
+
+  <!-- /dev/infiniband group: x=25..365, y=60..477 -->
+  <rect x="25" y="60" width="340" height="417" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#78909c">/dev/infiniband/</text>
+
+  <!-- uverbs0: y=92..146 -->
+  <rect x="45" y="92" width="300" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="57" y="114.3" font-size="12" fill="#e6edf3">uverbs0</text>
+  <text x="57" y="131.3" font-size="10" fill="#8b949e">디바이스 0 — mlx5_0 대응</text>
+
+  <!-- uverbs1: y=171..225 -->
+  <rect x="45" y="171" width="300" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="57" y="193.3" font-size="12" fill="#e6edf3">uverbs1</text>
+  <text x="57" y="210.3" font-size="10" fill="#8b949e">디바이스 1 — mlx5_1 대응</text>
+
+  <!-- rdma_cm: y=250..304 -->
+  <rect x="45" y="250" width="300" height="54" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="57" y="272.4" font-size="12" fill="#e6edf3">rdma_cm</text>
+  <text x="57" y="289.4" font-size="10" fill="#8b949e">연결 관리 채널</text>
+
+  <!-- umad0: y=329..383 -->
+  <rect x="45" y="329" width="300" height="54" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="57" y="351.4" font-size="12" fill="#e6edf3">umad0</text>
+  <text x="57" y="368.4" font-size="10" fill="#8b949e">MAD 송수신 — 포트 0</text>
+
+  <!-- issm0: y=408..462 -->
+  <rect x="45" y="408" width="300" height="54" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="57" y="430.4" font-size="12" fill="#e6edf3">issm0</text>
+  <text x="57" y="447.4" font-size="10" fill="#8b949e">SM 향한 인터페이스</text>
+
+  <!-- purpose: uverbs0 -->
+  <rect x="375" y="92" width="340" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="387" y="114.3" font-size="12" fill="#e6edf3">verbs 명령 통로 (ioctl)</text>
+  <text x="387" y="131.3" font-size="10" fill="#8b949e">RDMA 디바이스당 하나 — QP·MR·CQ 생성·조작</text>
+
+  <!-- purpose: uverbs1 -->
+  <rect x="375" y="171" width="340" height="54" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="387" y="193.3" font-size="12" fill="#e6edf3">verbs 명령 통로 (ioctl)</text>
+  <text x="387" y="210.3" font-size="10" fill="#8b949e">mlx5_1 ↔ uverbs1 — 두 번째 HCA(VF)용</text>
+
+  <!-- purpose: rdma_cm -->
+  <rect x="375" y="250" width="340" height="54" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="387" y="272.4" font-size="12" fill="#e6edf3">연결 관리 — rdma_cm</text>
+  <text x="387" y="289.4" font-size="10" fill="#8b949e">librdmacm 연결 설정·주소 해석의 커널 채널</text>
+
+  <!-- purpose: umad0 -->
+  <rect x="375" y="329" width="340" height="54" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="387" y="351.4" font-size="12" fill="#e6edf3">서브넷 관리 MAD (사용자 공간)</text>
+  <text x="387" y="368.4" font-size="10" fill="#8b949e">SA 조회·perfquery 등 관리 통신</text>
+
+  <!-- purpose: issm0 -->
+  <rect x="375" y="408" width="340" height="54" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="387" y="430.4" font-size="12" fill="#e6edf3">SM 인터페이스</text>
+  <text x="387" y="447.4" font-size="10" fill="#8b949e">서브넷 관리자(opensm) — LID·포트 관리</text>
+
+  <!-- connectors -->
+  <path d="M350,119 L364,119" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M350,198 L364,198" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M350,277 L364,277" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M350,356 L364,356" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M350,435 L364,435" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- bottom annotations -->
+  <text x="25" y="501" font-size="10" fill="#8b949e">컨테이너에서는 uverbs0/1 · rdma_cm · umad0 · issm0을 --device로 개별 전달</text>
+  <text x="25" y="527" font-size="10" fill="#bc8cff">verbs의 디바이스 열거는 /sys/class/infiniband/ 조회가 필요 → 컨테이너의 /sys:ro 필수 (§4)</text>
+</svg>
