@@ -12,9 +12,9 @@
   <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
   <rect x="75" y="102" width="660" height="116" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
-  <text x="98" y="128.2" font-size="12" fill="#334155">범용 RDMA S3 클라이언트는 사실상 존재하지 않는다 — S3 생태계는 전부 HTTP</text>
+  <text x="98" y="128.2" font-size="12" fill="#334155">범용 RDMA S3 클라이언트는 사실상 존재하지 않습니다. S3 생태계는 전부 HTTP이기 때문이에요</text>
   <text x="98" y="146.2" font-size="12" fill="#334155">실존 조합: NVIDIA cuObject(벤더 라이브러리) · AMD hipObject · AWS FrostByte(내부용)</text>
-  <text x="98" y="164.2" font-size="12" fill="#334155">DAOS는 서버 간 데이터플레인만 RDMA — 클라이언트가 쓰는 문은 여전히 HTTP</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">DAOS는 서버 간 데이터플레인만 RDMA를 쓰고, 클라이언트가 쓰는 문은 여전히 HTTP입니다</text>
   <text x="98" y="182.2" font-size="12" fill="#334155">실무 선택지: 표준 SDK(HTTPS) · 벤더 라이브러리 · 자체 구현(표준 verbs RC)</text>
-  <text x="98" y="200.2" font-size="12" fill="#334155">아니면 프론트엔드 교체 — NVMe-oF 프론트 + S3 게이트웨이 조합</text>
+  <text x="98" y="200.2" font-size="12" fill="#334155">아니면 프론트엔드를 통째로 바꾸는 방법도 있습니다. NVMe-oF 프론트 + S3 게이트웨이 조합이죠</text>
 </svg>

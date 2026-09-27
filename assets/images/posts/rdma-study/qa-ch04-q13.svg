@@ -12,7 +12,7 @@
   <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
   <rect x="75" y="102" width="660" height="98" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
-  <text x="98" y="128.2" font-size="12" fill="#334155">완전히 별개의 개념입니다 — imm은 IB 스펙의 verbs 기능입니다.</text>
+  <text x="98" y="128.2" font-size="12" fill="#334155">완전히 별개의 개념입니다. imm은 IB 스펙의 verbs 기능이에요.</text>
   <text x="98" y="146.2" font-size="12" fill="#334155">imm은 one-sided WRITE의 "알림 없음"을 메우는 32비트 완료 신호 채널이고,</text>
   <text x="98" y="164.2" font-size="12" fill="#334155">SR-IOV는 PCIe 가상화(PF·VF 분할)입니다.</text>
   <text x="98" y="182.2" font-size="12" fill="#334155">PF든 VF든 imm은 동일하게 동작합니다.</text>

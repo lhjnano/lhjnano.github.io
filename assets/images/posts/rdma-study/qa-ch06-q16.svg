@@ -12,8 +12,8 @@
   <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
   <rect x="75" y="102" width="660" height="98" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
-  <text x="98" y="128.2" font-size="12" fill="#334155">일반론은 오히려 반대 — AI일수록 VRAM RDMA의 가치는 올라갑니다</text>
+  <text x="98" y="128.2" font-size="12" fill="#334155">일반론은 오히려 반대입니다. AI일수록 VRAM RDMA의 가치는 올라가요</text>
   <text x="98" y="146.2" font-size="12" fill="#334155">체크포인트 로드, 텐서 스트리밍이 대표 수혜 워크로드입니다</text>
   <text x="98" y="164.2" font-size="12" fill="#334155">필요 없어지는 조건: 전처리 필수 파이프라인, 컴퓨트 병목, 소형 랜덤 액세스</text>
-  <text x="98" y="182.2" font-size="12" fill="#334155">VRAM 직행이 DC 전송 필수는 아닙니다 — GDS의 다른 백엔드는 표준 RDMA READ로 직행을 구현합니다</text>
+  <text x="98" y="182.2" font-size="12" fill="#334155">VRAM 직행이 DC 전송 필수는 아니기도 합니다. GDS의 다른 백엔드는 표준 RDMA READ로 직행을 구현했어요</text>
 </svg>

@@ -303,7 +303,7 @@ EOF
 ### 방화벽 규칙
 
 ```bash
-# UFW — VersityGW 포트만 개방
+# UFW: VersityGW 포트만 개방
 ufw allow 10000/tcp
 ufw allow 443/tcp
 ufw enable

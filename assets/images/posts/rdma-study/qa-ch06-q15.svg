@@ -12,8 +12,8 @@
   <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
   <rect x="75" y="102" width="660" height="98" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
-  <text x="98" y="128.2" font-size="12" fill="#334155">네 — cuObject/GDS 계열의 존재 이유가 바로 VRAM 직접 전송입니다 (GPUDirect)</text>
+  <text x="98" y="128.2" font-size="12" fill="#334155">맞습니다. cuObject/GDS 계열의 존재 이유가 바로 VRAM 직접 전송이에요 (GPUDirect)</text>
   <text x="98" y="146.2" font-size="12" fill="#334155">호스트 RAM을 경유하지 않고 GPU HBM에 바로 닿습니다</text>
-  <text x="98" y="164.2" font-size="12" fill="#334155">대비: RC 계열은 호스트 메모리 MR을 등록해 씁니다</text>
-  <text x="98" y="182.2" font-size="12" fill="#334155">NVIDIA 경로 요구: DCT 전송 · CUDA 스택 · 최신 ConnectX NIC ↔ RC는 표준 verbs만으로 구동</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">대비되는 RC 계열은 호스트 메모리 MR을 등록해 씁니다</text>
+  <text x="98" y="182.2" font-size="12" fill="#334155">NVIDIA 경로는 DCT 전송·CUDA 스택·최신 ConnectX NIC을 요구하지만 RC는 표준 verbs만으로 구동됩니다</text>
 </svg>

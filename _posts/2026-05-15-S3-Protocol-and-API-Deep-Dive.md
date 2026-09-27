@@ -310,7 +310,7 @@ S3 이벤트 알림은 객체 업로드/삭제 등의 변화를 **자동으로 �
 <summary>📖 EventBridge 규칙 설정 전체 코드 보기</summary>
 
 ```bash
-# EventBridge 규칙 생성 — 특정 버킷의 PutObject 이벤트 감지
+# EventBridge 규칙 생성: 특정 버킷의 PutObject 이벤트 감지
 aws events put-rule \
   --name "S3DataUploadRule" \
   --event-pattern '{

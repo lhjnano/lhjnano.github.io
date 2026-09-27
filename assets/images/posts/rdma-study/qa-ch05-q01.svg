@@ -13,7 +13,7 @@
   <rect x="75" y="102" width="660" height="98" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
   <text x="98" y="128.2" font-size="12" fill="#334155">검증 클라이언트는 Go+C 하이브리드</text>
-  <text x="98" y="146.2" font-size="12" fill="#334155">verbs·데이터 경로는 C — 표준 libibverbs만 써 하드웨어 호환 확보</text>
-  <text x="98" y="164.2" font-size="12" fill="#334155">제어 경로(HTTP·서명·흐름제어)는 Go — 빠른 구현</text>
-  <text x="98" y="182.2" font-size="12" fill="#334155">벤더 라이브러리·mlx5dv·DC transport 의존 없음 — 표준 동사만으로 구동</text>
+  <text x="98" y="146.2" font-size="12" fill="#334155">verbs·데이터 경로는 C로 짰습니다. 표준 libibverbs만 써 하드웨어 호환을 확보했고,</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">제어 경로(HTTP·서명·흐름제어)는 Go로 빠르게 구현했습니다</text>
+  <text x="98" y="182.2" font-size="12" fill="#334155">벤더 라이브러리·mlx5dv·DC transport에 의존하지 않고 표준 동사만으로 구동합니다</text>
 </svg>

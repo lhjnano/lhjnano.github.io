@@ -204,9 +204,9 @@ AWS Global Accelerator는 사용자 트래픽을 **AWS 글로벌 백본 네트�
 
 ```
 사용자 (전 세계)
-    ↓ (인터넷 — 최소 구간)
+    ↓ (인터넷: 최소 구간)
 Edge Location (최근접)
-    ↓ (AWS 글로벌 백본 — 프라이빗 고속망)
+    ↓ (AWS 글로벌 백본: 프라이빗 고속망)
 대상 리전
     ↓
 엔드포인트 (ALB / NLB / EC2 / Elastic IP)

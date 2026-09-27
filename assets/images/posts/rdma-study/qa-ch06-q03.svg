@@ -12,8 +12,8 @@
   <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
   <rect x="75" y="102" width="660" height="98" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
-  <text x="98" y="128.2" font-size="12" fill="#334155">간파가 정확합니다 — API가 아니라 구현(전송 계층)의 문제입니다</text>
+  <text x="98" y="128.2" font-size="12" fill="#334155">간파가 정확합니다. API가 아니라 구현(전송 계층)의 문제예요</text>
   <text x="98" y="146.2" font-size="12" fill="#334155">API(S3 REST · SigV4)는 그대로 유지됩니다</text>
-  <text x="98" y="164.2" font-size="12" fill="#334155">제어 확장 라우트는 벤더 사설, 데이터 전송은 표준 verbs + 사설 세션 규약</text>
-  <text x="98" y="182.2" font-size="12" fill="#334155">비유: HTTP/2 · QUIC처럼 API를 안 바꾸고 전송만 빠르게 — 전송 부분은 아직 미표준</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">제어 확장 라우트는 벤더 사설이고, 데이터 전송은 표준 verbs에 사설 세션 규약을 얹었습니다</text>
+  <text x="98" y="182.2" font-size="12" fill="#334155">비유하자면 HTTP/2·QUIC처럼 API를 안 바꾸고 전송만 빠르게 하는 건데, 그 전송 부분이 아직 미표준입니다</text>
 </svg>

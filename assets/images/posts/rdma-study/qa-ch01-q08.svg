@@ -12,8 +12,8 @@
   <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
   <rect x="75" y="102" width="660" height="116" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
-  <text x="98" y="128.2" font-size="12" fill="#334155">겉모습은 거의 동일 — QSFP+→28→56은 같은 폼팩터</text>
-  <text x="98" y="146.2" font-size="12" fill="#334155">전기적으로 다름 — QSFP28은 4×25G NRZ, QSFP56은 4×50G PAM4</text>
+  <text x="98" y="128.2" font-size="12" fill="#334155">겉모습은 거의 동일합니다. QSFP+→28→56은 모두 같은 폼팩터예요</text>
+  <text x="98" y="146.2" font-size="12" fill="#334155">전기적으로 다릅니다. QSFP28은 4×25G NRZ, QSFP56은 4×50G PAM4</text>
   <text x="98" y="164.2" font-size="12" fill="#334155">물리적으로 꽂히지만 링크 트레이닝 실패</text>
   <text x="98" y="182.2" font-size="12" fill="#334155">외관이 달라지는 건 CX7 OSFP부터</text>
   <text x="98" y="200.2" font-size="12" fill="#334155">구분은 라벨·품번·EEPROM 조회</text>

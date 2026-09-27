@@ -96,7 +96,7 @@ Gate 2.5: 보안/법률
 AI가 만드는 가장 흔한 안티패턴. **반응 없는 버튼**을 CI에서 정적 탐지합니다:
 
 ```javascript
-// tools/check.js — 데드 버튼 탐지 로직 (개념)
+// tools/check.js: 데드 버튼 탐지 로직 (개념)
 
 const DEAD_BUTTON_PATTERNS = [
   /onclick=["']\{\}["']/,           // onclick="{}"

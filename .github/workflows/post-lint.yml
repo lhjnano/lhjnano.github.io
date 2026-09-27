@@ -1,0 +1,35 @@
+name: Post Lint
+
+on:
+  pull_request:
+    paths:
+      - '_posts/**/*.md'
+  push:
+    branches: [master]
+    paths:
+      - '_posts/**/*.md'
+
+jobs:
+  em-dash:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # em-dash(U+2014)는 AI 생성 문서의 대표적 슬롯 패턴.
+      # 한국어 산문에서 'A — B' 설명 연결은 콜론·마침표·쉼표·접속사로 대체한다.
+      # 다이어그램 SVG는 그림 라벨(비산문)이므로 대상에서 제외.
+      - name: Reject em-dash (U+2014) in posts
+        run: |
+          FILES=$(grep -rl $'\u2014' _posts --include='*.md' || true)
+          if [ -n "$FILES" ]; then
+            echo "::error::em-dash(—, U+2014)가 포함된 포스트가 있습니다"
+            echo ""
+            for f in $FILES; do
+              echo "❌ $f"
+              grep -n $'\u2014' "$f" | head -3 | sed 's/^/    /'
+            done
+            echo ""
+            echo "치환 가이드: 설명 연결 → ': ' / '. ' / ', ' / 접속사(때문에·즉·반면) / 괄호"
+            exit 1
+          fi
+          echo "✅ em-dash 0건 — 모든 포스트 통과"

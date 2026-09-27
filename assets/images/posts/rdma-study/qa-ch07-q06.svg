@@ -12,8 +12,8 @@
   <circle cx="35" cy="123.2" r="1.9" fill="#dcfce7"/>
   <rect x="75" y="102" width="660" height="98" rx="12" fill="#f0fdf4"/>
   <path d="M75 122.0 L62 129.0 L75 136.0 Z" fill="#f0fdf4"/>
-  <text x="98" y="128.2" font-size="12" fill="#334155">LNet은 등록 전에 인터페이스를 조회한다 — netdev→IB 매핑, 링크 상태, GID 테이블</text>
+  <text x="98" y="128.2" font-size="12" fill="#334155">LNet은 등록 전에 인터페이스를 조회합니다. netdev→IB 매핑, 링크 상태, GID 테이블까지요</text>
   <text x="98" y="146.2" font-size="12" fill="#334155">이 메시지는 그 조회 단계가 실패했다는 뜻</text>
-  <text x="98" y="164.2" font-size="12" fill="#334155">원인 후보: VF 프로비저닝 불완전 · 링크 다운 · GID 테이블 비었음 · 드라이버 불일치</text>
+  <text x="98" y="164.2" font-size="12" fill="#334155">원인 후보는 VF 프로비저닝 불완전, 링크 다운, 빈 GID 테이블, 드라이버 불일치입니다</text>
   <text x="98" y="182.2" font-size="12" fill="#334155">규명 사다리: ibstat → ibv_devinfo → gids/0 → 호스트 PF·VF 설정</text>
 </svg>

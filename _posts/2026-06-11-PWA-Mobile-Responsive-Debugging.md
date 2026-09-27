@@ -175,7 +175,7 @@ self.addEventListener('activate', (event) => {
 
 ```html
 <!-- ❌ -->
-<p>레그 — 스쿼트, RDL, 레그 컬, 레그 익스텐션</p>
+<p>레그: 스쿼트, RDL, 레그 컬, 레그 익스텐션</p>
 
 <!-- ✅ -->
 <ul>
