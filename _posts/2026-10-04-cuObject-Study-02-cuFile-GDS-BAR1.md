@@ -31,7 +31,7 @@ toc_sticky: true
 
 cuObject 입장에서 cuFile은 선택 사항이 아니라 부품입니다. cuObject의 클라이언트 라이브러리(libcuobjclient)가 GPU 메모리 등록에 cuFile을 쓰기 때문이다. cuObject를 이해하려면 반드시 지나야 하는 층이 바로 여기라는 뜻입니다.
 
-- **libcufile**: GDS 사용자 공간 라이브러리. CUFILE_DMABUF_ENABLE으로 dma-buf 경로를 켠다
+- **libcufile**: GDS 사용자 공간 라이브러리. CUFILE_DMABUF_ENABLE으로 dma-buf를 켠다
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch03-01-cufile-layers.svg" alt="cuFile/GDS의 층 구조도: 애플리케이션 요청이 cuFile을 지나 GPUDirect 경로와 호스트 fallback 경로로 갈라지고, 핵심 API 3종이 옆에 붙는다"/>
