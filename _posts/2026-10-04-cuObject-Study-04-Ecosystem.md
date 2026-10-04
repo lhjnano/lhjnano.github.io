@@ -76,7 +76,7 @@ elbencho --cuobj <S3 게이트웨이 엔드포인트>
 
 호출 계층은 그림 3의 순서입니다. elbencho가 libcuobjclient로 GPU 버퍼를 등록하면 게이트웨이의 libcuobjserver가 HTTP 제어와 DC QP 데이터로 응답하고, posix 백엔드에서 객체는 곧 실파일로 떨어집니다.
 
-한 가지 구분은 분명히 해둡니다. 정합성 입증에 elbencho를 쓰지는 않았습니다. 그 역할은 자체 클라이언트(cuobjtest)가 맡았는데, libcuobjclient 계열 GPU-direct 경로와 host 계열로 CX4와 CX6 두 세대에서 검증을 마쳤습니다. elbencho는 이후 고객 환경 벤치마킹의 후보로 남아 있습니다.
+한 가지 구분은 분명히 해둡니다. 정합성 입증에 elbencho를 쓰지는 않고 자체 클라이언트(cuobjtest)가 그 역할을 맡았습니다. elbencho는 고객 환경 벤치마킹의 후보로 남아 있습니다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch06-03-elbencho.svg" alt="elbencho의 호출 계층: elbencho가 libcuobjclient로 GPU 버퍼를 등록하고 게이트웨이의 libcuobjserver와 HTTP 제어·DC QP 데이터로 통신하며 posix 백엔드의 Lustre 실파일에 객체가 착지하는 흐름과 직접 호출 오픈소스가 드문 이유" />

@@ -18,6 +18,7 @@ import { paddingBalance } from './checks/padding-balance.mjs';
 import { lightBgFallback } from './checks/light-bg-fallback.mjs';
 import { paletteConformance } from './checks/palette-conformance.mjs';
 import { connectorGeometry } from './checks/connector-geometry.mjs';
+import { emptyBox } from './checks/empty-box.mjs';
 
 export const CHECKS = [
   xmlEscaping,
@@ -35,4 +36,5 @@ export const CHECKS = [
   lightBgFallback,    // re-enabled (user request)
   paletteConformance,
   connectorGeometry,
+  emptyBox,           // content boxes must carry a label (user request)
 ];

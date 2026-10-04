@@ -49,7 +49,7 @@ cuFile은 드라이버 초기화 때 프로브를 돌려 경로를 결정합니�
 | 요건 | peermem + BAR1 여유 | 없음: 항상 동작 |
 | 성격 | 조건 충족 시 선택되는 우선 경로 | 설계된 대체 경로 (실패 아님) |
 
-> **프로브 결과(CX6 검증, GPU 클라이언트 노드)**: cuFile이 GPUDirect 경로를 선택했다. 로그에 `nvidia_peermem is enabled`, `Device mlx5_0: IB link layer, using default GID index 0`, `Userspace RDMA: Supported / Mellanox PeerDirect: Enabled`가 차례로 찍혔다. 특히 cuFile이 네이티브 IB의 GID 선택(idx0)을 자동으로 처리했다는 점은, GID를 명시적으로 골라야 하는 host-memory 모드의 함정(3편)과 대비된다.
+> **프로브 로그 예시**: `nvidia_peermem is enabled` · `Device mlx5_0: IB link layer, using default GID index 0` · `Userspace RDMA: Supported / Mellanox PeerDirect: Enabled`. GPUDirect가 선택됐을 때의 모습이고, GID idx0 자동 처리는 host-memory 모드의 함정(3편)과 대비된다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch03-02-path-selection.svg" alt="cuFile의 경로 선택 분기도: I/O 요청이 프로브 결과에 따라 GPUDirect 경로와 호스트 fallback으로 나뉜다"/>
@@ -92,7 +92,6 @@ cuFileWrite(h, devPtr, size, fileOffset, &bytesWritten);
 
 정리하면 cuFile은 클라이언트 쪽 등록 담당, cuObject는 그 좌표를 원격에 알리고 전송을 주고받는 담당입니다. 서버가 클라이언트의 GPU 주소를 미리 알면 데이터가 게이트웨이 RAM에 머물 이유가 없다. staging MR을 거쳐 곧장 HBM으로 들어갑니다.
 
-> **검증 증거(cufile.log)**: `nvidia_peermem is enabled` · `register with RDMA success mr_size: 67108864`. 64 MiB 버퍼의 MR 등록이 실제로 열렸다는 흔적이다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch03-04-token-flow.svg" alt="MR 좌표가 토큰을 타고 서버로 흐르는 다이어그램: 클라 GPU HBM, cuFile MR 발급, 토큰 전달, 서버 DC QP"/>
@@ -126,7 +125,7 @@ RTX A6000 클라이언트에서 GPU-direct 버퍼 크기를 훑은 결과입니�
 | 버퍼 크기 | 결과 |
 |-----------|------|
 | 4 MiB | 통과 |
-| 64 MiB | 통과 (mr_size: 67108864 등록 흔적) |
+| 64 MiB | 통과 |
 | 128 MiB | 통과 |
 | 192 MiB | 통과 (BAR1 안쪽 마지막 측정 지점) |
 | 224 MiB | 실패 (등록 거부) |

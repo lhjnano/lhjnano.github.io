@@ -14,13 +14,13 @@ toc_sticky: true
 
 이 시리즈는 cuObject 하나를 축으로 삼아, 그것이 올라앉은 기반(GPUDirect RDMA, BAR1, peermem), 그것이 만나는 층(cuFile/GDS), 그것이 세상과 통하는 생태계(NIXL, LMCache)를 한 번에 조망합니다. 첫 편인 이 글은 시리즈의 지도를 그린 뒤, 모든 것을 떠받치는 물리적 기반인 GPUDirect RDMA를 해부합니다.
 
-글의 실측값은 내부 검증 환경에서 나왔습니다. GPU 노드(gpu-1)가 RTX A6000과 ConnectX-6(네이티브 IB)을 짝으로 쓰고, 스토리지 게이트웨이(stg-node1/2)가 Lustre 백엔드를 받쳐 주는 구성입니다. CX4 검증에서 "IB에서 불가"로 남았던 결론이 CX6 검증에서 어떻게 갱신됐는지도 함께 다룹니다.
+글의 실측값은 내부 검증 환경에서 나왔습니다. GPU 노드(gpu-1)가 RTX A6000과 ConnectX-6(네이티브 IB)을 짝으로 쓰고, 스토리지 게이트웨이(stg-node1/2)가 Lustre 백엔드를 받쳐 주는 구성입니다. cuObject의 입증과 제약 기록은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)이 이미 다루고, 이 시리즈는 NVIDIA 스택 자체에 집중합니다.
 
 ## TL;DR
 
 - NVIDIA GPU I/O의 세 축(NCCL·cuFile·cuObject)은 GPUDirect RDMA 공통 기반 위에 있다
 - 전통 경로는 복사 2번, GPUDirect는 복사 0번이다
-- BAR1은 GPU가 PCIe에 내놓는 주소 창이다. A6000은 256 MiB(실측 192 통과, 224 거부)
+- BAR1은 GPU가 PCIe에 내놓는 주소 창이다. A6000은 256 MiB다(상세는 2편)
 - peermem 등록 6단계는 `cuFileBufRegister`에서 mlx5 MR 프로그래밍까지 이어진다
 - MOFED 필수의 이유는 peer memory 훅이 MOFED에만 있어서다. 주체는 클라이언트뿐이다
 - inbox 환경의 대안은 open-dkms 모듈과 `CUFILE_DMABUF_ENABLE`(dma-buf 경로) 조합이다
@@ -49,26 +49,13 @@ GPU가 데이터를 주고받는 상대는 크게 셋입니다. 옆 노드의 GP
   <figcaption>그림 2. GPUDirect RDMA의 두 기둥. 세 축이 모두 같은 기반 위에 있고, 기반은 BAR1(주소 창)과 peermem(등록 메커니즘)으로 서 있다. 창의 크기는 GPU마다 다른데 RTX A6000은 256 MiB다(시리즈 2편에서 상세).</figcaption>
 </figure>
 
-### cuObject의 위치: 입증과 제약
-
-주인공이 어디까지 입증됐는지도 정리해 둡니다. CX6 네이티브 IB 검증에서 cuObject의 GPU HBM 직송은 끝까지 통과했습니다. cuFile이 64 MiB GPU 버퍼를 peermem MR로 등록한 로그(`register with RDMA success mr_size: 67108864`)가 남았고, 4~192 MiB 전 구간에서 체크섬이 일치했습니다.
-
-제약도 있습니다. cuObject의 DC transport는 ConnectX-5 이상에서만 동작합니다. 구형 NIC의 VF, 즉 가상화 환경에서는 DC 연결 수립에 실패했고 대형 전송의 간헐 실패도 환경 의존으로 관찰됐습니다. CX6 네이티브에서는 재현되지 않았습니다. 그래서 초기 결론이었던 "cuObject는 IB에서 불가"는 "제약은 IB가 아니라 NIC(가상화 환경과 세대)"로 갱신됐습니다.
-
-참고로 cuObject가 제어는 HTTP(SigV4), 데이터는 RDMA로 나누는 제어/데이터 분리 구조와 BAR1 실측 숫자의 측정 맥락은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)에서 이미 다뤘습니다. 이 시리즈는 그 위에서 NVIDIA 스택 쪽으로 더 깊이 내려갑니다.
-
-<figure>
-  <img src="/assets/images/posts/cuobject-study/ch01-03-position.svg" alt="cuObject의 위치 다이어그램: 왼쪽 패널은 CX6 네이티브 IB에서의 입증(GPU HBM 직송, 4~192 MiB 통과), 오른쪽 패널은 구형 NIC의 제약(ConnectX-5 이상 요건, SR-IOV VF 가상화 제약)"/>
-  <figcaption>그림 3, 입증(CX6 네이티브 IB)과 제약(구형 NIC 가상화 환경)을 나란히 놓은 그림. cuObject의 가용성을 결정하는 것은 프로토콜이 아니라 NIC 세대와 가상화 여부다.</figcaption>
-</figure>
-
 ### 시리즈 로드맵: 기반에서 주인공으로
 
 시리즈 4편의 순서는 아래에서 위로 쌓입니다. 1편인 이 글은 공통 기반인 GPUDirect RDMA를 다룹니다. 2편은 cuFile/GDS의 경로 선택과 BAR1 한계, 3편은 주인공 cuObject의 아키텍처(세션·토큰·DC 전송), 4편은 생태계(NIXL·LMCache·elbencho)로 이어집니다. 기반을 알고 올라가면 3편의 함수 이름 하나, 4편의 벤치마크 숫자 하나가 전부 이 글의 부품 위에 서 있음이 보입니다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch01-04-roadmap.svg" alt="학습 로드맵: 생태계, GPUDirect RDMA, cuFile/GDS, cuObject, BAR1 한계, 생태계의 여섯 장이 기반에서 주인공으로 쌓이는 구성"/>
-  <figcaption>그림 4: 학습 로드맵. 원본 학습 가이드의 여섯 장(생태계, GPUDirect RDMA, cuFile/GDS, cuObject, BAR1 한계, 생태계)을 블로그 시리즈의 네 편으로 접은 지도다. 1장과 2장이 이 글이고, 3장과 5장이 2편(cuFile/GDS와 BAR1), 4장이 3편(cuObject), 6장이 4편(생태계)이다. RDMA 학습 시리즈와 상호 참조되되 각자 독립적으로 읽을 수 있다.</figcaption>
+  <figcaption>그림 3: 학습 로드맵. 원본 학습 가이드의 여섯 장(생태계, GPUDirect RDMA, cuFile/GDS, cuObject, BAR1 한계, 생태계)을 블로그 시리즈의 네 편으로 접은 지도다. 1장과 2장이 이 글이고, 3장과 5장이 2편(cuFile/GDS와 BAR1), 4장이 3편(cuObject), 6장이 4편(생태계)이다. RDMA 학습 시리즈와 상호 참조되되 각자 독립적으로 읽을 수 있다.</figcaption>
 </figure>
 
 ## 2. 전통 경로 vs GPUDirect: 복사 2번과 복사 0번
@@ -89,7 +76,7 @@ GPUDirect RDMA는 이 경로를 지웁니다. NIC가 GPU 메모리에 직접 DMA
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch02-01-bar1-peermem.svg" alt="전통 경로(복사 2번)와 GPUDirect 경로(복사 0번)의 대비, BAR1 창의 역할, peermem 등록 흐름(nvidia.ko → MOFED ib_core → nvidia_peermem → mlx5)"/>
-  <figcaption>그림 5. 전통 경로(복사 2번)와 GPUDirect 경로(복사 0번)의 대비. 아래쪽은 GPUDirect가 성립하는 두 장치, 즉 BAR1 창을 통한 주소 노출과 peermem 등록 흐름(nvidia.ko → MOFED ib_core → nvidia_peermem → mlx5 → GPU 페이지 물리 주소 전달)을 함께 그린다.</figcaption>
+  <figcaption>그림 4. 전통 경로(복사 2번)와 GPUDirect 경로(복사 0번)의 대비. 아래쪽은 GPUDirect가 성립하는 두 장치, 즉 BAR1 창을 통한 주소 노출과 peermem 등록 흐름(nvidia.ko → MOFED ib_core → nvidia_peermem → mlx5 → GPU 페이지 물리 주소 전달)을 함께 그린다.</figcaption>
 </figure>
 
 ### 핵심 용어
@@ -103,7 +90,7 @@ NIC 입장에서 GPU 메모리 전체가 한 덩어리로 보이지 않습니다
 
 같은 GPU 메모리라도 주소가 다르면 도달 가능성이 달라집니다. CUDA 가상 주소, 즉 커널이 쓰는 주소로는 NIC가 못 감하고, PCIe 주소(BAR1 창)로만 닿습니다. 창 밖의 메모리는 CPU만 접근할 수 있습니다.
 
-> **실측(RTX A6000)**: BAR1 = 256 MiB. HBM 48 GiB의 약 0.5%에 해당한다. cufile 로그의 `BAR 1 size detected via NVML API: 256 MiB`가 이 하드웨어 선언값을 읽은 흔적이고, 크기별 상한 실험은 192 MiB 통과, 224 MiB부터 등록 거부(`cuMemObjGetDescriptor` rc=1)로 갈렸다. 측정 맥락은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)에, 창의 사용 여유와 동시 등록이 창을 나눠 쓰는 이야기는 이 시리즈 2편에 맡긴다.
+> **RTX A6000의 BAR1은 256 MiB다.** HBM 48 GiB의 약 0.5%에 해당하는 창이다. 경계 실측과 사용 여유의 이야기는 이 시리즈 2편이 맡는다.
 
 ```bash
 # BAR1 창의 크기와 여유 확인
@@ -114,7 +101,7 @@ lsmod | grep nvidia_peermem                  # 등록 통로 역할의 모듈 �
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch02-02-bar1-window.svg" alt="같은 메모리, 다른 주소: NIC가 DMA를 걸 수 있는 주소 공간은 호스트 RAM과 BAR1 창뿐이고, GPU HBM 48 GiB 중 PCIe에 노출되는 조각은 256 MiB"/>
-  <figcaption>그림 6: 같은 메모리, 다른 주소. NIC가 DMA를 걸 수 있는 주소는 호스트 RAM과 BAR1 창뿐이다. GPU HBM 48 GiB 중 PCIe에 노출되는 조각은 256 MiB(RTX A6000 기준)이고, 나머지는 CPU 전용이다.</figcaption>
+  <figcaption>그림 5: 같은 메모리, 다른 주소. NIC가 DMA를 걸 수 있는 주소는 호스트 RAM과 BAR1 창뿐이다. GPU HBM 48 GiB 중 PCIe에 노출되는 조각은 256 MiB(RTX A6000 기준)이고, 나머지는 CPU 전용이다.</figcaption>
 </figure>
 
 ## 4. peermem 등록: GPU 물리 주소가 NIC에 도달하는 6단계
@@ -128,11 +115,11 @@ BAR1이 "문"이라면 peermem은 "문이 열리는 절차"입니다. 애플리�
 5. mlx5: NIC에 GPU 페이지 주소를 전달한다(MR 프로그래밍)
 6. 등록 완료: RDMA가 활성화된다(로그: `register with RDMA success`)
 
-> **왜 필수인가**: NVIDIA 독점 드라이버는 `dmaBufCapable:0`, 즉 자체적으로는 RDMA 등록 수단이 없다. peermem(또는 dma-buf) 없이는 cuFile이 RDMA를 비활성화한다. 로그로는 `nvidia_peermem.ko is not loaded. Disabling UserSpace RDMA access`가 남는다. 검증 환경은 이 요건을 지원되는 커널을 선택하는 경로(검증 보고서의 B' 경로)로 통과했다.
+> **왜 필수인가**: NVIDIA 독점 드라이버는 `dmaBufCapable:0`, 즉 자체적으로는 RDMA 등록 수단이 없다. peermem(또는 dma-buf) 없이는 cuFile이 RDMA를 비활성화한다. 로그로는 `nvidia_peermem.ko is not loaded. Disabling UserSpace RDMA access`가 남는다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch02-03-peermem-steps.svg" alt="peermem 등록 6단계: cuFileBufRegister 시작, nvidia.ko 주소 조회, nvidia_peermem 클라이언트 등록, MOFED ib_core 훅 호출, mlx5 MR 프로그래밍, 등록 완료 로그"/>
-  <figcaption>그림 7. peermem 등록 6단계. 전제 조건(독점 드라이버 dmaBufCapable:0)부터 등록 완료 로그까지, `cuFileBufRegister` 한 번이 커널 안에서 지나는 여정이다.</figcaption>
+  <figcaption>그림 6. peermem 등록 6단계. 전제 조건(독점 드라이버 dmaBufCapable:0)부터 등록 완료 로그까지, `cuFileBufRegister` 한 번이 커널 안에서 지나는 여정이다.</figcaption>
 </figure>
 
 <figure>
@@ -146,13 +133,13 @@ BAR1이 "문"이라면 peermem은 "문이 열리는 절차"입니다. 애플리�
 이 요건의 주체를 오해하면 안 됩니다. MOFED는 클라이언트, 즉 고객 GPU 노드의 요건입니다. 게이트웨이(스토리지 노드)는 inbox OFED 그대로 서버를 구동합니다. 서버는 가볍고 클라이언트가 무거운 제품 구조가 여기서 나옵니다(3편).
 
 
-한편 MOFED 설치가 어려운 환경에는 대안이 열려 있습니다. 대안 A는 NVIDIA open-dkms 커널 모듈과 `CUFILE_DMABUF_ENABLE`의 조합입니다. libcufile이 `ibv_reg_dmabuf_mr` 경로로 등록하기 때문에 inbox rdma-core로 동작하고 MOFED가 필요 없습니다. 아직 널리 채택되지는 않았지만 유망한 경로입니다. 검증 환경(RTX A6000 + 폐쇄 드라이버)은 이 예외 상황이라, 지원되는 커널을 골라 peermem과 MOFED 쪽으로 통과했습니다(4절의 B' 경로).
+한편 MOFED 설치가 어려운 환경에는 대안이 열려 있습니다. 대안 A는 NVIDIA open-dkms 커널 모듈과 `CUFILE_DMABUF_ENABLE`의 조합입니다. libcufile이 `ibv_reg_dmabuf_mr` 경로로 등록하기 때문에 inbox rdma-core로 동작하고 MOFED가 필요 없습니다. 아직 널리 채택되지는 않았지만 유망한 경로입니다.
 
 > **peermem 상시화**: nvidia_peermem은 재부팅 시 저절로 올라오지 않는다. `/etc/modules-load.d/nvidia-peermem.conf`에 모듈 이름을 적어 두면 부팅마다 로드된다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch02-04-mofed-hook.svg" alt="왜 MOFED인가: peer memory 등록 훅(ib_register_peer_memory_client)은 MOFED의 ib_core에만 있고 inbox OFED에는 없다. 대안은 open-dkms와 dma-buf 경로"/>
-  <figcaption>그림 8: 왜 MOFED인가. peer memory 등록 훅은 MOFED(훅 있음, nvidia_peermem 로드 가능)의 ib_core에만 있고 inbox OFED(훅 없음)에는 없다. inbox 환경의 대안은 open-dkms 모듈과 dma-buf 경로다.</figcaption>
+  <figcaption>그림 7: 왜 MOFED인가. peer memory 등록 훅은 MOFED(훅 있음, nvidia_peermem 로드 가능)의 ib_core에만 있고 inbox OFED(훅 없음)에는 없다. inbox 환경의 대안은 open-dkms 모듈과 dma-buf 경로다.</figcaption>
 </figure>
 
 ### 핵심 용어
@@ -177,7 +164,7 @@ BAR1이 "문"이라면 peermem은 "문이 열리는 절차"입니다. 애플리�
 
 1. 세 축(NCCL, cuFile, cuObject)은 GPUDirect RDMA 공통 기반 위에 있다
 2. 전통 경로는 복사 2번, GPUDirect는 복사 0번이다
-3. BAR1이 관문이다. A6000 실측은 192 MiB 통과, 224 MiB 등록 거부였다
+3. BAR1이 관문이다. A6000의 창은 256 MiB다(경계 실측은 2편)
 4. peermem 6단계: nvidia.ko가 번역하고 nvidia_peermem이 중계한다
 5. MOFED 요건의 정체는 훅의 소재이고 주체는 클라이언트뿐이다
 6. inbox 대안은 open-dkms와 `CUFILE_DMABUF_ENABLE` 조합이다

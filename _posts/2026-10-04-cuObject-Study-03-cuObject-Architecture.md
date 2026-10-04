@@ -31,7 +31,7 @@ cuObject는 하나의 프로세스가 모든 일을 떠안지 않습니다. 라�
 - 클라이언트(libcuobjclient): 세션과 토큰 관리. 검증 버전은 1.2.0.68이다
 - 서버(libcuobjserver): DC QP 수신, 토큰 디코딩, staging MR 준비를 맡는다
 
-서버 쪽 배포는 놀랄 만큼 가볍습니다. NVIDIA 리포지토리에 서버 라이브러리가 없는 배포판(rhel8)에서도, rhel9 rpm에서 .so를 추출해 게이트웨이 바이너리와 두 파일만 내려주면 동작했습니다. 패키지 설치 0건, 커널 변경 없이 el8 배포판 내장(inbox) verbs만으로 DC QP 생성까지 통과했죠. 기동도 한 줄이면 족합니다.
+서버 쪽 배포는 놀랄 만큼 가볍습니다. 게이트웨이 바이너리와 라이브러리 파일 두 개만 있으면 배포판 내장(inbox) verbs로 동작하고, 기동도 한 줄이면 족습니다. 구축 기록은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)에 남겨 둡니다.
 
 ```bash
 # 게이트웨이 기동 예시(포트와 백엔드 경로는 환경에 맞게)
@@ -60,7 +60,7 @@ RC의 세계에서 연결은 자산이 아니라 부채처럼 쌓입니다. QP �
 
 DC는 이 그림을 뒤집습니다. 서버는 DCT(DC Target)라는 진입점 하나를 열어 두고, 개별 클라이언트와의 연결 상태는 전송이 일어나는 그 순간에만 동적으로 할당했다가 끝나면 해제합니다. 수신 쪽에서는 SRQ(공유 수신 큐)가 여러 연결의 도착 패킷을 한군데서 받아 줍니다. 유휴 클라이언트는 서버에 상태를 아무것도 남기지 않으니, 상주 자원이 연결 수에 비례하지 않습니다. "수만 동시 연결"이라는 표현이 가능한 이유가 바로 이 동적 상태 모델입니다.
 
-> **구형 NIC VF에서 실패한 이유**: DC는 DCT를 사용하므로 ConnectX-5 이상의 NIC이 필요합니다. CX4 검증의 "cuObject 불가" 결론은 바로 이 조합에서 나왔고, 제약의 정체는 IB 프로토콜이 아니라 NIC 세대와 가상화였습니다. CX6 네이티브 IB 검증에서는 연결 수립과 전송이 전 구간에서 통과했습니다.
+> **구형 NIC에서 실패하는 이유**: DC는 DCT를 사용하므로 ConnectX-5 이상의 NIC이 필요하다. CX4는 DCT 미지원이라 연결 수립 단계에서 막힌다. 제약의 정체는 IB 프로토콜이 아니라 NIC 세대와 가상화다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch04-02-dc-vs-rc.svg" alt="DC와 RC 전송 방식 비교: 연결 수립은 동적 DCT 대 사전 영구 1:1 QP(INIT RTR RTS), 확장성은 수만 동시 연결 대 N×M 연결 폭증, 지원 NIC는 ConnectX-5 이상 Mellanox 전용 대 표준 verbs(타사 NIC 포함)"/>
@@ -128,7 +128,7 @@ HTTP 평면과 RDMA 평면을 한 노드에 나란히 띄우는 이중 데이터
 #endif
 ```
 
-두 버전 간 선택 기준은 성능이 아니라 지원 기간(라이프사이클)입니다. A/B 실측에서 두 버전의 전송 성능은 동일했고, 클라이언트 1.x와 서버 2.x의 상호운용까지 확인됐으니까요. 다만 메이저 전환 작업에서는 두 가지 함정을 기억해야 합니다. 조건부 패치를 넣을 때 이전 빌드의 스테일 아카이브가 남아 심볼 충돌을 일으키는 경우가 있고, 버전 고정(1.x에 머무르는 선택)도 지원 종료 시점을 함께 계획해야 한다는 점입니다. 래퍼 2곳에 조건부 패치를 넣는 실제 작업 기록은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)을 참고하시면 좋습니다.
+두 버전 간 선택 기준은 성능이 아니라 지원 기간(라이프사이클)입니다. 두 버전은 성능이 동일하고 상호운용도 확인돼 있으니까요. 다만 메이저 전환 작업에서는 두 가지 함정을 기억해야 합니다. 조건부 패치를 넣을 때 이전 빌드의 스테일 아카이브가 남아 심볼 충돌을 일으키는 경우가 있고, 버전 고정(1.x에 머무르는 선택)도 지원 종료 시점을 함께 계획해야 한다는 점입니다. 래퍼 2곳에 조건부 패치를 넣는 실제 작업 기록은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)을 참고하시면 좋습니다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch04-04-versions.svg" alt="libcuobjserver 1.x(1.2.0.68, 초기 안정·널리 사용, GLIBC_2.14 요구)와 2.x(2.0.0.109, API 불일치로 수정 필요, 조건부 분기 권장) 비교 다이어그램. 성능 차이는 없고 기준은 라이프사이클"/>
@@ -150,7 +150,7 @@ GPU-direct의 요건은 시리즈 1편과 2편에서 쌓은 이야기 그대로�
 
 > **host-memory 모드의 함정, GID 자동 선택**: host 클라이언트의 GID 자동 선택이 link-local(fe80::) 주소를 건너뛰도록 짜여 있었습니다(RoCE 전제, rdma_host_client_wrapper.cpp:131). 네이티브 IB에서는 유효 GID가 idx0 하나뿐이므로 `VGWRDMA_GID_INDEX=0` 명시가 필수입니다. 반면 GPU-direct의 cuFile은 GID idx0을 자동으로 처리합니다("using default GID index 0" 로그로 확인).
 
-host-memory 모드는 요건이 가벼운 만큼 성능이 궁금해지는 지점입니다. 결론부터 말하면 이 모드에서도 RDMA가 우위를 지켰습니다. 64 MiB PUT에서 RDMA 0.533 GB/s 대 HTTP 0.333 GB/s로 격차가 열렸고, 크기를 키워도 전 구간에서 RDMA가 PUT 약 1.8배, GET 약 1.7배를 유지했습니다. 256 MiB GET에서 HTTP가 1.457 GB/s에 머문 것과 대비되는 숫자죠. HTTP 쪽이 IPoIB(MTU 1500, datagram)을 타야 하는 환경 특성이 이 격차의 배경이고(MTU 이중구조 이야기는 [RDMA 학습 시리즈 2편](/2026/09/27/RDMA-Study-02-Fabrics/)에), 흥미롭게도 이전 RoCE 400GbE 환경에서는 GET이 HTTP 승이었으니 결과가 뒤집힌 셈입니다.
+host-memory 모드는 요건이 가벼운 만큼 성능이 궁금해지는 지점인데, 이 모드에서도 RDMA가 우위를 지킵니다. HTTP 쪽이 IPoIB(MTU 1500, datagram)을 타야 하는 환경 특성이 격차의 배경입니다(MTU 이중구조는 [RDMA 학습 시리즈 2편](/2026/09/27/RDMA-Study-02-Fabrics/) 참조). 수치 실측은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)에 정리돼 있습니다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch04-05-modes.svg" alt="두 가지 모드 비교: GPU-direct 모드(원격에서 GPU HBM 직송, 복사 0, peermem과 BAR1 요건, ConnectX 필요)와 host-memory 모드(원격에서 호스트 RAM을 거쳐 cudaMemcpy, 복사 1, GID idx0 명시만 요구, BAR1 한계 없음)"/>
