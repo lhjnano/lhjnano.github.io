@@ -18,12 +18,12 @@ toc_sticky: true
 
 ## TL;DR
 
-- cuFile(libcufile)은 GPUDirect Storage의 사용자 공간 라이브러리다. 애플리케이션 요청을 받아 GPUDirect 직통(복사 0)과 호스트 fallback(복사 1) 중 경로를 선택하는 층이다
-- 경로 선택은 드라이버 초기화 때 프로브로 결정된다. CX6 검증 환경에서는 GPUDirect가 선택됐다("nvidia_peermem is enabled")
-- 핵심 API는 세 가지이고 순서가 곧 계약이다. cuFileHandleOpen → cuFileBufRegister → cuFileRead/Write. 등록 없이 읽으면 fallback 또는 오류로 떨어진다
-- cuObject와의 분업: cuFile이 peermem으로 MR 좌표(rkey·addr)를 발급하면 cuObject가 그 좌표를 토큰에 실어 서버로 전달하고, 서버의 DC QP가 GPU HBM에 직접 WRITE/READ한다
-- 전송 크기의 상한은 프로토콜 파라미터가 아니라 BAR1 창 크기다. RTX A6000은 창이 256 MiB라 192 MiB까지 통과하고 224 MiB부터는 등록 단계에서 거부된다
-- A100·H100·H200은 BAR1이 128 GiB로 512배 차이. 데이터센터급에서는 이 조건이 사실상 사라지며, 확인은 nvidia-smi -q의 Total과 Free로 충분하다
+- cuFile은 GPUDirect 직통(복사 0)과 호스트 fallback(복사 1)을 고르는 경로 선택 층이다
+- 경로 선택은 초기화 때 프로브로 결정된다. CX6 검증에서는 GPUDirect였다
+- 핵심 API 세 가지의 순서가 곧 계약이다. HandleOpen → BufRegister → Read/Write
+- 분업: cuFile이 MR 좌표를 발급하면 cuObject가 토큰에 실어 서버로 전달한다
+- 전송 크기 상한은 프로토콜이 아니라 BAR1 창이 정한다. A6000: 192 통과, 224 거부
+- 데이터센터급(A100·H100·H200)은 BAR1이 128 GiB로 이 조건이 사실상 사라진다
 
 ## 1. cuFile의 역할: 경로 선택자
 
@@ -31,7 +31,7 @@ toc_sticky: true
 
 cuObject 입장에서 cuFile은 선택 사항이 아니라 부품입니다. cuObject의 클라이언트 라이브러리(libcuobjclient)가 GPU 메모리 등록에 cuFile을 쓰기 때문이다. cuObject를 이해하려면 반드시 지나야 하는 층이 바로 여기라는 뜻입니다.
 
-- **libcufile**: GPUDirect Storage의 사용자 공간 라이브러리. 이 글의 환경 기준 1.18 계열이며, CUFILE_DMABUF_ENABLE 환경 변수로 dma-buf 경로를 켤 수 있다
+- **libcufile**: GDS 사용자 공간 라이브러리. CUFILE_DMABUF_ENABLE으로 dma-buf 경로를 켠다
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch03-01-cufile-layers.svg" alt="cuFile/GDS의 층 구조도: 애플리케이션 요청이 cuFile을 지나 GPUDirect 경로와 호스트 fallback 경로로 갈라지고, 핵심 API 3종이 옆에 붙는다"/>
@@ -73,9 +73,9 @@ cuFileRead (h, devPtr, size, fileOffset, &bytesRead);
 cuFileWrite(h, devPtr, size, fileOffset, &bytesWritten);
 ```
 
-- `cuFileHandleOpen`: 대상을 식별한다. 파일시스템 경로 기반이 기본이며, 원격 백엔드 연결 설정도 이 계열에서 시작된다
-- `cuFileBufRegister(gpu_ptr, size, flags)`: GPU 버퍼를 등록한다. 이 호출이 1편에서 본 peermem 6단계를 트리거한다
-- `cuFileRead/cuFileWrite`: 등록된 버퍼로 직접 입출력한다. 호스트 스테이징 버퍼가 개입해도 애플리케이션은 그것을 보지 못한다
+- `cuFileHandleOpen`: 대상을 식별한다. 파일 경로 기반이 기본이다
+- `cuFileBufRegister`: GPU 버퍼를 등록한다. 1편의 peermem 6단계를 트리거한다
+- `cuFileRead/cuFileWrite`: 등록된 버퍼로 직접 입출력한다
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch03-03-api-sequence.svg" alt="핵심 API 호출 순서 다이어그램: cuFileHandleOpen, cuFileBufRegister, cuFileRead/Write 순서와 각 단계의 역할"/>
@@ -86,7 +86,7 @@ cuFileWrite(h, devPtr, size, fileOffset, &bytesWritten);
 
 이 글 전체에서 가장 중요한 그림은 cuFile과 cuObject의 분업이다. 등장인물은 셋입니다. 클라이언트의 cuFile, 그 좌표를 나르는 cuObject, 그리고 서버의 DC QP다.
 
-1. 클라이언트의 GPU HBM 버퍼를 cuFile이 peermem으로 MR 등록한다. rkey와 addr 좌표가 발급된다
+1. cuFile이 GPU HBM 버퍼를 peermem MR로 등록한다. rkey와 addr이 발급된다
 2. 그 좌표를 cuObject가 토큰에 담아 서버에 전달한다. 제어 채널은 HTTP다
 3. 서버는 그 좌표로 DC QP WRITE/READ를 건다. GPU HBM에 직접 도달한다
 
@@ -111,8 +111,8 @@ cuFileWrite(h, devPtr, size, fileOffset, &bytesWritten);
 
 cuObject GPU-direct의 전송 버퍼는 반드시 이 창 안에 등록됩니다. 4절의 MR 좌표가 바로 창 안 주소의 좌표라는 뜻이다. 그러므로 전송 크기의 상한은 프로토콜의 파라미터가 아니라 GPU가 PCIe에 내놓은 창의 크기가 정합니다. "왜 딱 여기서 끊기는가"라는 질문의 답이 이 한 문장 안에 있습니다.
 
-- **BAR1**: GPU가 PCIe 버스에 매핑해 둔 주소 창. Base Address Register 1에서 온 이름이며, 크기는 GPU 모델별로 다르다
-- **NVML(NVIDIA Management Library)**: GPU 상태 조회 라이브러리. nvidia-smi의 기반이며 BAR1 크기도 여기서 읽는다("BAR 1 size detected via NVML API")
+- **BAR1**: GPU가 PCIe에 매핑하는 주소 창. 크기는 GPU 모델마다 다르다
+- **NVML**: GPU 상태 조회 라이브러리. nvidia-smi의 기반이다
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/ch05-01-bar1-limits.svg" alt="BAR1 크기가 전송 크기 한계가 되는 구조도: 48 GiB HBM 중 BAR1 창 256 MiB만 NIC가 DMA 가능, 전송 크기 경계와 GPU별 비교"/>
@@ -186,11 +186,11 @@ $ nvidia-smi -q -d MEMORY | grep -A 3 'BAR1'
 
 ## 마무리: 핵심 요점
 
-1. cuFile은 경로 선택자다. 애플리케이션의 한 문장 요청을 받아 GPUDirect 직통(복사 0)과 호스트 fallback(복사 1)으로 갈라준다
-2. fallback은 실패가 아니라 설계된 두 번째 길이다. 프로브 결과에 따라 자동으로 내려갈 뿐이다
-3. API 순서가 곧 계약이다. HandleOpen → BufRegister → Read/Write 순서를 지키지 않으면 fallback 또는 오류로 떨어진다
-4. cuFile과 cuObject는 분업한다. cuFile이 MR 좌표를 발급하면 cuObject가 토큰에 실어 서버로 보내고, 서버의 DC QP가 그 좌표로 HBM에 직접 닿는다
-5. 전송 크기 상한은 BAR1 창이 정한다. RTX A6000 실측 경계는 192 MiB 통과, 224 MiB부터 등록 거부였다
-6. 데이터센터급(A100·H100·H200)은 BAR1 128 GiB로 사실상 무제한. 이 한계는 워크스테이션 GPU를 쓰는 환경의 제약이다
+1. cuFile은 GPUDirect 직통과 호스트 fallback을 갈라주는 경로 선택자다
+2. fallback은 실패가 아니라 설계된 두 번째 길이다
+3. API 순서가 곧 계약이다. HandleOpen → BufRegister → Read/Write
+4. cuFile이 MR 좌표를 발급하면 cuObject가 토큰에 실어 서버로 보낸다
+5. 전송 크기 상한은 BAR1이 정한다. 실측 경계는 192 통과, 224 거부였다
+6. 데이터센터급은 BAR1 128 GiB로 사실상 무제한이다
 
 **다음 편 예고**: [cuObject 학습 시리즈 (3/4) cuObject 아키텍처](/2026/10/04/cuObject-Study-03-cuObject-Architecture/)에서는 오늘 본 토큰의 실체를 쫓습니다. 세션과 채널 구조, DC QP와 RC의 선택 기준, 그리고 GPU-direct 모드와 host-memory 모드가 갈리는 조건까지 내려갑니다.

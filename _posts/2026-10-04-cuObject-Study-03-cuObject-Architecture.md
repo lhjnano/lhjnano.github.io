@@ -18,18 +18,18 @@ toc_sticky: true
 
 ## TL;DR
 
-- cuObject는 라이브러리 둘의 분업이다. 클라(libcuobjclient)는 세션·토큰 관리, 서버(libcuobjserver)는 DC QP 수신·토큰 디코딩·staging MR 준비를 맡는다
-- 데이터플레인은 DC(Dynamic Connected). DCT가 연결 상태를 전송 순간에만 할당했다 해제하는 덕에 수만 동시 연결을 흡수한다. 대가는 ConnectX-5 이상이라는 NIC 요건이고, CX4 VF 검증 실패의 진짜 원인이었다
-- 제어 평면(HTTP+SigV4)과 데이터 평면(DC QP)이 토큰으로 연결된다. S3 호환성은 그대로 두고 대역이 필요한 전송만 RDMA로 내보내는 구조다
-- libcuobjserver 1.x(1.2.0.68)와 2.x(2.0.0.109)는 setTelemFlags 시그니처 변경 등 API가 갈라지는 메이저 전환점이다. 성능 차이는 없고 선택 기준은 지원 기간이다
-- 두 가지 모드가 있다. GPU-direct(HBM 직송, peermem + BAR1 + ConnectX 요건)와 host-memory(RAM 경유, GID idx0 명시만 요구). host-memory 실측에서도 RDMA가 PUT 약 1.8배, GET 약 1.7배로 우위였다
+- cuObject는 라이브러리 둘의 분업이다. 클라는 세션·토큰, 서버는 DC QP 수신을 맡는다
+- 데이터플레인 DC는 상태를 전송 순간에만 쓴다. 대가는 CX5+ NIC 요건이다
+- 제어 평면(HTTP+SigV4)과 데이터 평면(DC QP)이 토큰으로 이어진다
+- libcuobjserver 1.x와 2.x는 API가 갈라진다. 기준은 지원 기간이다
+- GPU-direct(HBM 직송)와 host-memory(RAM 경유, GID idx0 명시) 두 모드가 있다
 
 ## 1. 아키텍처 전체: 클라와 서버
 
 cuObject는 하나의 프로세스가 모든 일을 떠안지 않습니다. 라이브러리 둘이 클라이언트와 서버에 나뉘어 앉아 역할을 분담하는 구조입니다. 어느 쪽이 무엇을 소유하는지를 먼저 구분해 두면 이후 절들이 훨씬 읽기 쉬워집니다.
 
-- 클라이언트, libcuobjclient: 세션과 토큰 관리를 담당한다. GPU 메모리 등록은 cuFile이 맡는데, 그 등록 계층의 이야기는 시리즈 2편에서 다뤘다. NVIDIA 정식 배포(CUDA Toolkit 13.1.1 이상)이며 검증에서 쓴 버전은 1.2.0.68이다
-- 서버, libcuobjserver: S3 게이트웨이 프로세스 안에서 DC QP 수신, 토큰 디코딩, staging MR 준비를 맡는다
+- 클라이언트(libcuobjclient): 세션과 토큰 관리. 검증 버전은 1.2.0.68이다
+- 서버(libcuobjserver): DC QP 수신, 토큰 디코딩, staging MR 준비를 맡는다
 
 서버 쪽 배포는 놀랄 만큼 가볍습니다. NVIDIA 리포지토리에 서버 라이브러리가 없는 배포판(rhel8)에서도, rhel9 rpm에서 .so를 추출해 게이트웨이 바이너리와 두 파일만 내려주면 동작했습니다. 패키지 설치 0건, 커널 변경 없이 el8 배포판 내장(inbox) verbs만으로 DC QP 생성까지 통과했죠. 기동도 한 줄이면 족합니다.
 
@@ -69,9 +69,9 @@ DC는 이 그림을 뒤집습니다. 서버는 DCT(DC Target)라는 진입점 �
 
 ### 핵심 용어
 
-- **DCT (DC Target)**: 서버 측에 열어 두는 DC의 수신 진입점. 클라이언트 측은 일반 DC QP로 보내고, 서버는 DCT 하나가 여러 발신자를 받아 들인다. ConnectX-5 이상에서만 구현된 Mellanox 전용 기능이다.
-- **SRQ (Shared Receive Queue)**: 여러 QP가 공유하는 수신 큐. DCT와 함께 쓰여 수신 자원을 연결 수와 무관하게 묶어 둔다.
-- **fan-in**: 다수의 클라이언트가 하나의 서버로 몰려드는 트래픽 형태. KV 캐시 게이트웨이처럼 서버가 소수인 구조에서 DC가 빛나는 이유다.
+- **DCT**: 서버 측 DC 수신 진입점 하나가 여러 발신자를 받는다. CX5+ 전용 기능이다
+- **SRQ**: 여러 QP가 공유하는 수신 큐. DCT와 함께 수신 자원을 묶는다
+- **fan-in**: 다수 클라이언트가 한 서버로 몰리는 형태. DC가 빛나는 조건이다
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/qa-cu3-q09.svg" alt="스터디 Q&A 카드: DC의 수만 연결로 대형 생성형 AI 회사 운용이 괜찮나요라는 질문에 세션과 연결은 자릿수가 다르고 진짜 상한은 NIC 대역폭과 게이트웨이 처리량이라고 답한다" loading="lazy"/>
@@ -89,8 +89,8 @@ DC는 이 그림을 뒤집습니다. 서버는 DCT(DC Target)라는 진입점 �
 
 cuObject는 두 개의 평면으로 나뉘어 돌아갑니다. 평면을 나눈다는 말은 즉 승인과 대역을 다른 길로 보낸다는 뜻입니다.
 
-- 제어 평면, HTTP + SigV4: 버킷, 세션, 토큰 교환을 처리한다. 볼륨은 낮고 표준 S3 인증 체계(SigV4)를 그대로 쓴다. 게이트웨이의 HTTP 포트로 붙는다
-- 데이터 평면, DC QP: 실제 PUT/GET 대역이 흐른다. GPU HBM과 서버의 staging MR이 RDMA로 직통한다
+- 제어 평면(HTTP+SigV4): 버킷, 세션, 토큰 교환. 표준 S3 인증을 그대로 쓴다
+- 데이터 평면(DC QP): PUT/GET 대역. GPU HBM과 staging MR이 직통한다
 
 두 평면을 잇는 것이 토큰입니다. 제어 평면에서 교환해 둔 MR 좌표를 토큰에 실으면, 데이터 평면의 전송이 그 좌표를 향해 이루어집니다. 2편에서 본 cuFile의 등록 작업이 rkey와 addr을 발급했다면, cuObject는 그 좌표를 토큰에 담아 서버에 알리는 역할을 맡는 거죠. 이 분리 덕분에 S3 호환성(인증, 버킷 의미 체계)은 그대로 유지되면서, 대역이 필요한 전송만 RDMA로 내보낼 수 있습니다.
 
@@ -101,10 +101,10 @@ cuObject는 두 개의 평면으로 나뉘어 돌아갑니다. 평면을 나눈�
 
 ### 핵심 용어
 
-- **staging MR**: 서버 측에 미리 준비해 둔 수신 버퍼 영역. DC QP 전송이 이 버퍼를 거쳐 백엔드(posix/Lustre 등)로 이어진다. 데이터가 머무는 곳이 아니라 지나가는 곳이다.
-- **SigV4**: AWS S3의 요청 서명 체계. cuObject의 제어 평면이 표준 S3 인증을 그대로 사용함을 뜻한다.
+- **staging MR**: 서버 측 수신 버퍼. DC QP 전송이 이 버퍼를 거쳐 백엔드로 이어진다
+- **SigV4**: AWS S3 요청 서명 체계. 제어 평면이 그대로 사용한다
 
-게이트웨이 뒤쪽 이야기도 잠깐 짚습니다. 영구 저장은 staging MR에서 끝나지 않고 게이트웨이가 posix I/O로 백엔드 파일시스템에 기록하며, 검증에서는 posix 백엔드가 Lustre 마운트를 가리키는 구성이었습니다. HTTP 평면과 RDMA 평면을 한 노드에 나란히 띄운 이중 데이터플레인 운영(포트 구성 포함)은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)이 상세히 다루니 여기서는 요약으로 남깁니다.
+HTTP 평면과 RDMA 평면을 한 노드에 나란히 띄우는 이중 데이터플레인 운영은 [RDMA 학습 시리즈 6편](/2026/09/27/RDMA-Study-06-S3-RDMA-cuObject/)이 상세히 다룬다.
 
 <figure>
   <img src="/assets/images/posts/cuobject-study/qa-cu3-q03.svg" alt="스터디 Q&A 카드: VRAM과 S3의 RDMA 주소로 통신한다면 영구 저장은 저장장치에 되겠네요라는 질문에 게이트웨이 메모리는 환적 버퍼일 뿐이며 posix I/O로 백엔드 디스크에 기록된다고 답한다" loading="lazy"/>
@@ -114,8 +114,8 @@ cuObject는 두 개의 평면으로 나뉘어 돌아갑니다. 평면을 나눈�
 
 서버 라이브러리에는 두 계열이 있고, 그 사이에는 하위 호환성이 없는 메이저 전환점이 하나 있습니다. 버전을 고르는 일이 생길 때마다 마주치게 되는 갈림길이죠.
 
-- 1.x (1.2.0.68): 초기 안정 버전. 대부분의 통합 환경에서 널리 사용됨
-- 2.x (2.0.0.109): setTelemFlags 시그니처 변경, initRDMAConfigParams 삭제 등 API 불일치로 기존 통합 코드 수정 필요. 성능 차이는 없음
+- 1.x(1.2.0.68): 초기 안정 버전. 널리 쓰인다
+- 2.x(2.0.0.109): API 불일치로 통합 코드 수정이 필요하다. 성능 차이는 없다
 
 2.x로 옮기려다 컴파일 오류를 만나는 지점을 구체적으로 볼까요. 게이트웨이 래퍼가 호출하는 setTelemFlags의 인자가 1.x의 (unsigned) 하나에서 2.x의 (unsigned, unsigned) 둘로 바뀌었고, initRDMAConfigParams는 아예 사라졌습니다. 그래서 전 처리기로 갈라 쓰는 조건부 분기가 실무의 표준 대응이 됩니다.
 
@@ -159,11 +159,11 @@ host-memory 모드는 요건이 가벼운 만큼 성능이 궁금해지는 지�
 
 ## 마무리: 핵심 요점
 
-1. cuObject는 라이브러리 둘의 분업이다. 클라(libcuobjclient)는 세션과 토큰, 서버(libcuobjserver)는 DC QP 수신과 토큰 디코딩, staging MR 준비를 맡는다.
-2. 데이터플레인 DC의 핵심은 DCT 상태 모델이다. 연결 상태를 전송 순간에만 할당하고 해제해, 상주 자원을 늘리지 않고 수만 동시 연결을 흡수한다.
-3. 그 대가는 NIC 세대다. ConnectX-5 이상 요건이 CX4 VF 검증 실패의 진짜 원인이었고, 제약은 IB 프로토콜이 아니라 NIC 세대와 가상화에 있었다.
-4. 제어 평면(HTTP+SigV4)과 데이터 평면(DC QP)의 분리, 그리고 둘을 잇는 토큰이 S3 호환성과 RDMA 직통을 동시에 만족시킨다.
-5. libcuobjserver 1.x와 2.x의 갈림길은 성능이 아니라 라이프사이클이다. 메이저 전환은 setTelemFlags 등 API 차이를 조건부 분기로 흡수한다.
-6. 모드 선택은 요건의 문제다. peermem과 BAR1 여유가 갖춰지면 GPU-direct, 아니면 host-memory로 내려간다(GID idx0 명시가 필수).
+1. cuObject는 라이브러리 둘의 분업이다. 클라는 세션·토큰, 서버는 DC QP 수신을 맡는다
+2. DC의 핵심은 DCT 상태 모델이다. 상주 자원 없이 수만 동시 연결을 흡수한다
+3. 대가는 NIC 세대다. CX5+ 요건이 CX4 VF 검증 실패의 진짜 원인이었다
+4. 두 평면의 분리와 토큰이 S3 호환성과 RDMA 직통을 동시에 만족시킨다
+5. 버전 갈림길의 기준은 라이프사이클이다. API 차이는 조건부 분기로 흡수한다
+6. 요건이 갖춰지면 GPU-direct, 아니면 host-memory(GID idx0 명시)로 내려간다
 
 **다음 편 예고**: [cuObject 학습 시리즈 (4/4) 생태계](/2026/10/04/cuObject-Study-04-Ecosystem/)에서는 NIXL과 LMCache, elbencho까지, 실전에서 누가 cuObject를 소비하는지 둘러봅니다. 아키텍처가 끝난 자리에서 생태계가 시작됩니다.
