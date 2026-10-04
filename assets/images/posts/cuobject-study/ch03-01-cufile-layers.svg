@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="520" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">cuFile/GDS — GPU 스토리지 I/O의 층</text>
+
+  <!-- app layer: x=200..500, y=56..108 -->
+  <rect x="200" y="56" width="300" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="78" font-size="12" fill="#e6edf3" text-anchor="middle">애플리케이션</text>
+  <text x="350" y="94" font-size="10" fill="#8b949e" text-anchor="middle">"이 파일을 GPU 버퍼로 읽어줘"</text>
+
+  <!-- app -> cuFile -->
+  <path d="M350,113 L350,123" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- cuFile layer: x=200..500, y=134..186 -->
+  <rect x="200" y="134" width="300" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="156" font-size="12" fill="#e6edf3" text-anchor="middle">cuFile (libcufile)</text>
+  <text x="350" y="172" font-size="10" fill="#8b949e" text-anchor="middle">경로 선택 분기 — GPUDirect 가능하면 직통</text>
+
+  <!-- cuFile -> two paths: start 186+5 / end 212-11 -->
+  <path d="M265,191 C 240,196 180,196 180,201" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M435,191 C 460,196 520,196 520,201" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- GPUDirect path: x=25..335, y=212..300 -->
+  <rect x="25" y="212" width="310" height="88" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="180" y="236" font-size="12" fill="#3fb950" text-anchor="middle">GPUDirect 경로</text>
+  <text x="180" y="252" font-size="10" fill="#e3f2fd" text-anchor="middle">NIC/블록장치 → GPU BAR1 직통</text>
+  <text x="180" y="267" font-size="10" fill="#8b949e" text-anchor="middle">데이터가 호스트 RAM을 거치지 않음</text>
+  <text x="180" y="282" font-size="10" fill="#3fb950" text-anchor="middle">복사 0 (zero-copy)</text>
+
+  <!-- host fallback: x=365..675, y=212..300 -->
+  <rect x="365" y="212" width="310" height="88" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="520" y="236" font-size="12" fill="#f85149" text-anchor="middle">호스트 fallback 경로</text>
+  <text x="520" y="252" font-size="10" fill="#e3f2fd" text-anchor="middle">NIC/파일 → 호스트 RAM → cudaMemcpy</text>
+  <text x="520" y="267" font-size="10" fill="#8b949e" text-anchor="middle">GPU 도착 전 호스트 버퍼 경유</text>
+  <text x="520" y="282" font-size="10" fill="#f85149" text-anchor="middle">복사 1 — 대체 경로</text>
+
+  <!-- 핵심 함수 3카드: y=326..392, w=200, gaps 25 -->
+  <rect x="25" y="326" width="200" height="66" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="125" y="347.6" font-size="11" fill="#58a6ff" text-anchor="middle">cuFileBufRegister</text>
+  <text x="125" y="362.6" font-size="10" fill="#e6edf3" text-anchor="middle">GPU 버퍼 등록 — 사전 필수</text>
+  <text x="125" y="377.6" font-size="10" fill="#8b949e" text-anchor="middle">RDMA 접근 허용</text>
+
+  <rect x="250" y="326" width="200" height="66" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="347.6" font-size="11" fill="#58a6ff" text-anchor="middle">cuFileRead · cuFileWrite</text>
+  <text x="350" y="362.6" font-size="10" fill="#e6edf3" text-anchor="middle">직접 읽기·쓰기 API</text>
+  <text x="350" y="377.6" font-size="10" fill="#8b949e" text-anchor="middle">GPU 포인터 그대로 전달</text>
+
+  <rect x="475" y="326" width="200" height="66" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="575" y="347.6" font-size="11" fill="#58a6ff" text-anchor="middle">cuFileHandleOpen</text>
+  <text x="575" y="362.6" font-size="10" fill="#e6edf3" text-anchor="middle">파일·버킷 핸들 오픈</text>
+  <text x="575" y="377.6" font-size="10" fill="#8b949e" text-anchor="middle">경로 기반 열기</text>
+
+  <!-- cuObject 역할: x=25..675, y=417..500 -->
+  <rect x="25" y="417" width="650" height="83" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="350" y="440" font-size="12" fill="#bc8cff" text-anchor="middle">cuFile이 cuObject에서 하는 일</text>
+  <text x="350" y="456" font-size="10" fill="#e3f2fd" text-anchor="middle">GPU 메모리 등록 (peermem → MR)</text>
+  <text x="350" y="471" font-size="10" fill="#e3f2fd" text-anchor="middle">등록 좌표를 cuObject가 서버에 전달</text>
+  <text x="350" y="486" font-size="10" fill="#8b949e" text-anchor="middle">서버는 DC QP로 GPU HBM에 직접 접근</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 416.0" width="700">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="417" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">두 가지 모드 — GPU-direct와 host-memory</text>
+
+  <!-- ── GPU-direct panel: x=25..337, y=56..315 ── -->
+  <rect x="25" y="56" width="312" height="259" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#3fb950">GPU-direct 모드 — HBM 직송</text>
+
+  <rect x="40" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="181" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">경로 — 원격 → GPU HBM 직송</text>
+  <text x="181" y="132" font-size="10" fill="#8b949e" text-anchor="middle">복사 0 · 토큰에 MR 좌표 실림</text>
+
+  <rect x="40" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="181" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">요건 — peermem + BAR1 ≥ 전송 크기</text>
+  <text x="181" y="209" font-size="10" fill="#8b949e" text-anchor="middle">독점 드라이버 + MOFED (또는 dma-buf)</text>
+
+  <rect x="40" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+    <text x="181" y="277" font-size="10" fill="#8b949e" text-anchor="middle">256 MiB는 BAR1 한계로 실패 (§4.3)</text>
+
+  <!-- ── host-memory panel: x=363..675, y=56..315 ── -->
+  <rect x="363" y="56" width="312" height="259" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="375" y="74" font-size="11" fill="#22d3ee">host-memory 모드 — RAM 경유</text>
+
+  <rect x="378" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="519" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">경로 — 원격 → 호스트 RAM → GPU</text>
+  <text x="519" y="132" font-size="10" fill="#8b949e" text-anchor="middle">cudaMemcpy 1회 · peermem 불필요</text>
+
+  <rect x="378" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="519" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">요건 — GID idx0 명시만</text>
+  <text x="519" y="209" font-size="10" fill="#8b949e" text-anchor="middle">VGWRDMA_GID_INDEX=0 (네이티브 IB 함정)</text>
+
+  <rect x="378" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+    <text x="519" y="277" font-size="10" fill="#8b949e" text-anchor="middle">BAR1 한계 없음 — 큰 객체도 통과</text>
+
+  <!-- ── bottom band: x=25..675, y=340..392 ── -->
+  <rect x="25" y="340" width="650" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="350" y="362" font-size="12" fill="#e6edf3" text-anchor="middle">선택 기준 — BAR1 여유가 부족하면 host-memory · 토큰 프로토콜은 동일</text>
+  <text x="350" y="378" font-size="10" fill="#8b949e" text-anchor="middle">RDMA가 PUT ~1.8배 · GET ~1.7배로 HTTP 대비 우위</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 494" width="700">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="494" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">DC vs RC — 연결 수립·확장성·지원 NIC</text>
+
+  <!-- ── DC panel: x=25..337, y=56..392 ── -->
+  <rect x="25" y="56" width="312" height="336" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#22d3ee">DC — Dynamic Connected (cuObject 데이터플레인)</text>
+
+  <rect x="40" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="181" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">연결 수립 — 동적</text>
+  <text x="181" y="132" font-size="10" fill="#8b949e" text-anchor="middle">DCT: 전송 때마다 연결 후 해제</text>
+
+  <rect x="40" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="181" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">확장성 — 수만 동시 연결</text>
+  <text x="181" y="209" font-size="10" fill="#8b949e" text-anchor="middle">서버·팬아웃 구조에 유리</text>
+
+  <rect x="40" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="181" y="270" font-size="12" fill="#e6edf3" text-anchor="middle">지원 NIC — CX5 이상 · Mellanox 전용</text>
+  <text x="181" y="286" font-size="10" fill="#8b949e" text-anchor="middle">ConnectX-6 · 200G HDR</text>
+
+  <rect x="40" y="325" width="282" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="181" y="347" font-size="12" fill="#e6edf3" text-anchor="middle">NIC 요건</text>
+  <text x="181" y="363" font-size="10" fill="#8b949e" text-anchor="middle">ConnectX-5 이상 필요</text>
+
+  <!-- ── RC panel: x=363..675, y=56..392 ── -->
+  <rect x="363" y="56" width="312" height="336" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="375" y="74" font-size="11" fill="#bc8cff">RC — Reliable Connected (표준 verbs)</text>
+
+  <rect x="378" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="519" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">연결 수립 — 사전 영구</text>
+  <text x="519" y="132" font-size="10" fill="#8b949e" text-anchor="middle">1:1 QP 쌍, 미리 INIT→RTR→RTS</text>
+
+  <rect x="378" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="519" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">확장성 — 연결 수만큼 증가</text>
+  <text x="519" y="209" font-size="10" fill="#8b949e" text-anchor="middle">N×M 연결 폭증 부담</text>
+
+  <rect x="378" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="519" y="270" font-size="12" fill="#e6edf3" text-anchor="middle">지원 NIC — 표준 verbs면 됨</text>
+  <text x="519" y="286" font-size="10" fill="#8b949e" text-anchor="middle">타사 NIC 포함</text>
+
+  <rect x="378" y="325" width="282" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="519" y="347" font-size="12" fill="#e6edf3" text-anchor="middle">이 가이드에서의 위치</text>
+  <text x="519" y="363" font-size="10" fill="#8b949e" text-anchor="middle">2차 타겟 — AMD · 비-ConnectX (v3 §7)</text>
+
+  <!-- ── bottom band: x=25..675, y=417..469 ── -->
+  <rect x="25" y="417" width="650" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="439" font-size="12" fill="#e6edf3" text-anchor="middle">cuObject 데이터플레인은 DC — 그래서 CX5 이상이 필요하고</text>
+  <text x="350" y="455" font-size="10" fill="#8b949e" text-anchor="middle">구형 NIC에서는 수립 실패 (제약은 NIC 세대, 아니라 NIC 세대·가상화)</text>
+</svg>

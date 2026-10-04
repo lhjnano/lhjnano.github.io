@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 333" width="700">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="333" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">NIXL #2241 — generic S3-over-RDMA 표준화 제안</text>
+
+  <!-- fact cards: w=200 h=68, y=64..132 -->
+  <rect x="25" y="64" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="125" y="87" font-size="12" fill="#e6edf3" text-anchor="middle">상태 — open</text>
+  <text x="125" y="102" font-size="10" fill="#8b949e" text-anchor="middle">아직 머지 안 됨</text>
+  <text x="125" y="117" font-size="10" fill="#8b949e" text-anchor="middle">동향을 지켜볼 것</text>
+
+  <rect x="250" y="64" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="87" font-size="12" fill="#e6edf3" text-anchor="middle">제안 — 범용 전송</text>
+  <text x="350" y="102" font-size="10" fill="#8b949e" text-anchor="middle">generic S3-over-RDMA</text>
+  <text x="350" y="117" font-size="10" fill="#8b949e" text-anchor="middle">NIXL의 표준 계층으로</text>
+
+  <rect x="475" y="64" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="575" y="87" font-size="12" fill="#e6edf3" text-anchor="middle">현재 기반 — cuObject</text>
+  <text x="575" y="102" font-size="10" fill="#8b949e" text-anchor="middle">구현 실체는 cuObject</text>
+  <text x="575" y="117" font-size="10" fill="#8b949e" text-anchor="middle">거기서 확장을 제안</text>
+
+  <!-- outcome boxes: w=310 h=68, y=160..228 -->
+  <rect x="25" y="160" width="310" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="180" y="183" font-size="12" fill="#3fb950" text-anchor="middle">채택 시</text>
+  <text x="180" y="198" font-size="10" fill="#e3f2fd" text-anchor="middle">벤더 중립 엔진으로 표준화</text>
+  <text x="180" y="213" font-size="10" fill="#8b949e" text-anchor="middle">cuObject가 NVIDIA 전용을 넘어섬</text>
+
+  <rect x="365" y="160" width="310" height="68" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="520" y="183" font-size="12" fill="#bc8cff" text-anchor="middle">보류 시</text>
+  <text x="520" y="198" font-size="10" fill="#e3f2fd" text-anchor="middle">현 구조 유지 — cuObject 중심</text>
+  <text x="520" y="213" font-size="10" fill="#8b949e" text-anchor="middle">RC는 AMD · 비-ConnectX 담당 (듀얼)</text>
+
+  <!-- bottom band: x=25..675, y=256..308 -->
+  <rect x="25" y="256" width="650" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="278" font-size="12" fill="#e6edf3" text-anchor="middle">판정 미정 — 벤더 중립 전송이 되면 RC도 NVIDIA 스택에 닿는다 (§8)</text>
+  <text x="350" y="294" font-size="10" fill="#8b949e" text-anchor="middle">그 전까지는 cuObject가 NVIDIA GPU의 사실상 표준</text>
+</svg>

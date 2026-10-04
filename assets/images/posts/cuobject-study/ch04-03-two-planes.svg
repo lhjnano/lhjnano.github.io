@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 407" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="407" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">제어·데이터 평면 분리 — 토큰이 둘을 잇는다</text>
+
+  <!-- ── control plane panel: x=25..675, y=56..176 ── -->
+  <rect x="25" y="56" width="650" height="120" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#78909c">제어 평면 — HTTP + SigV4 · 버킷·세션·토큰</text>
+
+  <rect x="40" y="94" width="297" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="188.5" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">클라 — libcuobjclient</text>
+  <text x="188.5" y="132" font-size="10" fill="#8b949e" text-anchor="middle">세션 수립 · 토큰 발급</text>
+
+  <path d="M342,120 L352,120" fill="none" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+
+  <rect x="363" y="94" width="297" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="511.5" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">서버 — libcuobjserver</text>
+  <text x="511.5" y="132" font-size="10" fill="#8b949e" text-anchor="middle">HTTP 수신 · 토큰 디코딩</text>
+
+  <!-- bridge box: x=175..525, y=201..237 -->
+  <rect x="175" y="201" width="350" height="36" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="350" y="222.8" font-size="11" fill="#bc8cff" text-anchor="middle">토큰 — 제어에서 교환한 좌표로 데이터가 직통</text>
+
+  <!-- ── data plane panel: x=25..675, y=262..382 ── -->
+  <rect x="25" y="262" width="650" height="120" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="280" font-size="11" fill="#78909c">데이터 평면 — DC QP · PUT/GET 대역</text>
+
+  <rect x="40" y="300" width="297" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="188.5" y="322" font-size="12" fill="#e6edf3" text-anchor="middle">GPU HBM (peermem MR)</text>
+  <text x="188.5" y="338" font-size="10" fill="#8b949e" text-anchor="middle">클라 측 버퍼</text>
+
+  <!-- PUT (GPU → server) and GET (server → GPU) arrows -->
+  <path d="M342,320 L352,320" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <path d="M358,338 L348,338" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <rect x="363" y="300" width="297" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="511.5" y="322" font-size="12" fill="#e6edf3" text-anchor="middle">staging MR</text>
+  <text x="511.5" y="338" font-size="10" fill="#8b949e" text-anchor="middle">서버 측 준비 버퍼 — 백엔드로 이어짐</text>
+</svg>

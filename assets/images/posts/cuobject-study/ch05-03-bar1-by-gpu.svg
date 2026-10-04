@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 526" width="700">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="526" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">GPU별 BAR1 크기 — 512배 차이 (로그 스케일)</text>
+
+  <!-- bars (paths, log2 scale × 17px): baseline y=380 -->
+  <!-- RTX A6000: 256 MiB = 2^8 → h=136, top=244 -->
+  <path d="M75,244 h120 v136 h-120 z" fill="#f85149"/>
+  <!-- A100 / H100 / H200: 128 GiB = 2^17 → h=289, top=91 -->
+  <path d="M235,91 h120 v289 h-120 z" fill="#3fb950"/>
+  <path d="M395,91 h120 v289 h-120 z" fill="#3fb950"/>
+  <path d="M555,91 h120 v289 h-120 z" fill="#3fb950"/>
+
+  <!-- value labels above bars (≥15px above bar tops) -->
+  <text x="135" y="225" font-size="10" fill="#f85149" text-anchor="middle">256 MiB</text>
+  <text x="295" y="73" font-size="10" fill="#3fb950" text-anchor="middle">128 GiB</text>
+  <text x="455" y="73" font-size="10" fill="#3fb950" text-anchor="middle">128 GiB</text>
+  <text x="615" y="73" font-size="10" fill="#3fb950" text-anchor="middle">128 GiB</text>
+
+  <!-- baseline -->
+  <line x1="55" y1="380" x2="675" y2="380" stroke="#546e7a" stroke-width="1.5"/>
+
+  <!-- names / notes below baseline -->
+  <text x="135" y="404" font-size="12" fill="#e6edf3" text-anchor="middle">RTX A6000</text>
+  <text x="135" y="430" font-size="10" fill="#f85149" text-anchor="middle">한계 도달 — 224 MiB+ 실패</text>
+
+  <text x="295" y="404" font-size="12" fill="#e6edf3" text-anchor="middle">A100</text>
+  <text x="295" y="430" font-size="10" fill="#8b949e" text-anchor="middle">사실상 무제한</text>
+
+  <text x="455" y="404" font-size="12" fill="#e6edf3" text-anchor="middle">H100</text>
+  <text x="455" y="430" font-size="10" fill="#8b949e" text-anchor="middle">사실상 무제한</text>
+
+  <text x="615" y="404" font-size="12" fill="#e6edf3" text-anchor="middle">H200</text>
+  <text x="615" y="430" font-size="10" fill="#8b949e" text-anchor="middle">사실상 무제한</text>
+
+  <!-- bottom band: x=25..675, y=449..501 -->
+  <rect x="25" y="449" width="650" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="471" font-size="12" fill="#e6edf3" text-anchor="middle">데이터센터급(A100·H100·H200)은 BAR1 128 GiB — GPU-direct 상한 사실상 없음</text>
+  <text x="350" y="487" font-size="10" fill="#8b949e" text-anchor="middle">워크스테이션 GPU(RTX 계열)는 창이 작다 — 큰 객체는 host-memory 모드로 (§4.3)</text>
+</svg>

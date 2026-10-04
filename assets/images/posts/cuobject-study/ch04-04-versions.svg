@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="25 0 660 285" width="660">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+  <rect x="25" y="0" width="660" height="285" fill="#161b22"/>
+  <text x="355" y="35" font-size="16" fill="#e6edf3" text-anchor="middle">libcuobjserver 1.x와 2.x — 갈림길은 라이프사이클</text>
+
+  <rect x="45" y="65" width="290" height="95" rx="8" fill="#263238" stroke="#3fb950"/>
+  <text x="58" y="94" font-size="12" fill="#e6edf3">1.x (1.2.0.68)</text>
+  <text x="58" y="109" font-size="10" fill="#8b949e">초기 안정 — 널리 사용</text>
+  <text x="58" y="124" font-size="10" fill="#8b949e">GLIBC_2.14 요구</text>
+  <text x="58" y="139" font-size="10" fill="#8b949e">libcuobjclient 정식 클라이언트</text>
+
+  <rect x="365" y="65" width="285" height="95" rx="8" fill="#263238" stroke="#58a6ff"/>
+  <text x="378" y="94" font-size="12" fill="#e6edf3">2.x (2.0.0.109)</text>
+  <text x="378" y="109" font-size="10" fill="#8b949e">API 불일치 — 수정 필요</text>
+  <text x="378" y="124" font-size="10" fill="#8b949e">조건부 분기 (&#8805; 2) 권장</text>
+  <text x="378" y="139" font-size="10" fill="#8b949e">수정 후 정상 구동</text>
+
+  <path d="M340,117 L354,117" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="45" y="185" width="620" height="50" rx="8" fill="#263238" stroke="#bc8cff"/>
+  <text x="58" y="205" font-size="11" fill="#e6edf3">성능 차이 없음 — 기준은 라이프사이클</text>
+  <text x="58" y="222" font-size="10" fill="#8b949e">메이저 전환 시 조건부 분기 권장</text>
+
+  <text x="355" y="260" font-size="10" fill="#78909c" text-anchor="middle">CUDA Toolkit &#8805; 13.1.1 · MOFED 불필요</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 608" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="608" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">실전 파이프라인 — KV 오프로드가 부르는 S3-over-RDMA</text>
+
+  <!-- step 1: y=64..116 -->
+  <rect x="25" y="64" width="650" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="86" font-size="12" fill="#e6edf3" text-anchor="middle">vLLM — 추론 엔진</text>
+  <text x="350" y="102" font-size="10" fill="#8b949e" text-anchor="middle">KV 캐시 생성 — 긴 컨텍스트일수록 HBM 압박</text>
+
+  <path d="M350,121 L350,131" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 2: y=142..194 -->
+  <rect x="25" y="142" width="650" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="164" font-size="12" fill="#e6edf3" text-anchor="middle">KV cache — GPU HBM 상의 블록</text>
+  <text x="350" y="180" font-size="10" fill="#8b949e" text-anchor="middle">오프로드 대상</text>
+
+  <path d="M350,199 L350,209" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 3: y=220..272 -->
+  <rect x="25" y="220" width="650" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="242" font-size="12" fill="#e6edf3" text-anchor="middle">LMCache — 캐시 계층</text>
+  <text x="350" y="258" font-size="10" fill="#8b949e" text-anchor="middle">프리필 재사용 · P/D 분리 시나리오</text>
+
+  <path d="M350,277 L350,287" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 4: y=298..350 -->
+  <rect x="25" y="298" width="650" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="320" font-size="12" fill="#e6edf3" text-anchor="middle">NIXL — 벤더 중립 이식 계층</text>
+  <text x="350" y="336" font-size="10" fill="#8b949e" text-anchor="middle">통합 API로 GDS · cuObject · UCX 추상화</text>
+
+  <path d="M350,355 L350,365" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 5: y=376..428 -->
+  <rect x="25" y="376" width="650" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="350" y="398" font-size="12" fill="#e6edf3" text-anchor="middle">cuObject — 전송</text>
+  <text x="350" y="414" font-size="10" fill="#8b949e" text-anchor="middle">NIXL의 OBJ accelerated engine 기반</text>
+
+  <path d="M350,433 L350,443" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 6: y=454..506 -->
+  <rect x="25" y="454" width="650" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="350" y="476" font-size="12" fill="#e6edf3" text-anchor="middle">원격 S3</text>
+  <text x="350" y="492" font-size="10" fill="#8b949e" text-anchor="middle">게이트웨이(libcuobjserver) + Lustre 백엔드 </text>
+
+  <!-- bottom band: x=25..675, y=531..583 -->
+  <rect x="25" y="531" width="650" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="561" font-size="12" fill="#e6edf3" text-anchor="middle">NVIDIA 스택의 KV 오프로드가 전부 cuObject로 묶인다 (§8)</text>
+  </svg>

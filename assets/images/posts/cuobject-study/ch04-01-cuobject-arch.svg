@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="800">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-cyan" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 L3,6 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..775, margins 25/25 -->
+  <rect x="0" y="0" width="800" height="520" fill="#161b22"/>
+
+  <!-- title: content center x=400 -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">cuObject 아키텍처 — 세션·토큰·전송</text>
+
+  <!-- ── 클라이언트 컨테이너: x=25..345, y=51..387 ── -->
+  <rect x="25" y="51" width="320" height="336" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="70" font-size="11" fill="#78909c">클라이언트 — 고객 GPU 노드</text>
+
+  <rect x="45" y="88" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="185" y="110" font-size="12" fill="#e6edf3" text-anchor="middle">앱 — KV 캐시 오프로드</text>
+  <text x="185" y="126" font-size="10" fill="#8b949e" text-anchor="middle">NIXL · LMCache · cuobjtest</text>
+
+  <path d="M185,145 L185,154" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="45" y="165" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="185" y="187" font-size="12" fill="#e6edf3" text-anchor="middle">libcuobjclient</text>
+  <text x="185" y="203" font-size="10" fill="#8b949e" text-anchor="middle">세션 · 토큰 관리</text>
+
+  <path d="M185,222 L185,231" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="45" y="242" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="185" y="264" font-size="12" fill="#e6edf3" text-anchor="middle">cuFile — GPU 메모리 등록</text>
+  <text x="185" y="280" font-size="10" fill="#8b949e" text-anchor="middle">peermem → MR 등록 (64 MiB 실증)</text>
+
+  <path d="M185,299 L185,308" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="45" y="319" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="185" y="341" font-size="12" fill="#e6edf3" text-anchor="middle">GPU HBM (peermem MR)</text>
+  <text x="185" y="357" font-size="10" fill="#8b949e" text-anchor="middle">또는 호스트 메모리 MR</text>
+
+  <!-- ── 서버 컨테이너: x=455..775, y=51..387 ── -->
+  <rect x="455" y="51" width="320" height="336" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="467" y="70" font-size="11" fill="#78909c">서버 — 스토리지 노드</text>
+
+  <rect x="475" y="88" width="280" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="615" y="110" font-size="12" fill="#e6edf3" text-anchor="middle">S3 게이트웨이</text>
+  <text x="615" y="126" font-size="10" fill="#8b949e" text-anchor="middle">S3 게이트웨이 — HTTP 수신</text>
+
+  <path d="M615,145 L615,154" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="475" y="165" width="280" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="615" y="187.4" font-size="12" fill="#e6edf3" text-anchor="middle">libcuobjserver</text>
+  <text x="615" y="203.4" font-size="10" fill="#e3f2fd" text-anchor="middle">DC QP · 토큰 디코딩</text>
+  <text x="615" y="218.4" font-size="10" fill="#22d3ee" text-anchor="middle">staging MR — 수신 버퍼</text>
+
+  <path d="M615,238 L615,247" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="475" y="258" width="280" height="38" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="615" y="281.2" font-size="12" fill="#e6edf3" text-anchor="middle">posix — 스토리지 백엔드</text>
+
+  <path d="M615,301 L615,310" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="475" y="321" width="280" height="38" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="615" y="344.2" font-size="12" fill="#e6edf3" text-anchor="middle">Lustre — Lustre 마운트</text>
+
+  <!-- 제어 평면: HTTP+SigV4 (회색 점선), libcuobjclient → libcuobjserver -->
+  <path d="M330,191 C 380,191 430,114 464,114" fill="none" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text x="402" y="94" font-size="10" fill="#8b949e" text-anchor="middle">제어 — HTTP+SigV4</text>
+
+  <!-- 데이터 평면: DC QP (청록 실선), GPU HBM ↔ staging MR -->
+  <path d="M330,345 C 385,345 430,220 461,220" fill="none" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrow-cyan)"/>
+  <text x="400" y="372" font-size="10" fill="#22d3ee" text-anchor="middle">DC QP — 데이터 직통</text>
+
+  <!-- ── 하단 대비: DC vs RC, y=412..495 ── -->
+  <rect x="25" y="412" width="360" height="83" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="205" y="434.5" font-size="12" fill="#22d3ee" text-anchor="middle">DC — cuObject 데이터플레인</text>
+  <text x="205" y="450.5" font-size="10" fill="#e3f2fd" text-anchor="middle">ConnectX-5 이상 · 동적 연결 (DCT)</text>
+  <text x="205" y="465.5" font-size="10" fill="#e3f2fd" text-anchor="middle">수만 개 동시 연결 · 토큰 기반 전송</text>
+  <text x="205" y="480.5" font-size="10" fill="#8b949e" text-anchor="middle">CX6 네이티브 IB에서 동작</text>
+
+  <rect x="415" y="412" width="360" height="83" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="595" y="434.5" font-size="12" fill="#bc8cff" text-anchor="middle">RC — 표준 verbs 데이터플레인</text>
+  <text x="595" y="450.5" font-size="10" fill="#e3f2fd" text-anchor="middle">전세대 · 1:1 영구 연결 (QPC)</text>
+  <text x="595" y="465.5" font-size="10" fill="#e3f2fd" text-anchor="middle">표준 RC verbs — 타사 NIC 가능</text>
+  <text x="595" y="480.5" font-size="10" fill="#8b949e" text-anchor="middle">2차 타겟 — AMD/ROCm · 비-ConnectX</text>
+</svg>

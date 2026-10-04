@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 333" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="333" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">학습 로드맵 — 기반에서 주인공으로, 위로 쌓인다</text>
+
+  <!-- ── row 1: x=25..225 / 250..450 / 475..675, y=64..132 ── -->
+  <rect x="25" y="64" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="125" y="87" font-size="12" fill="#e6edf3" text-anchor="middle">1편 — 생태계</text>
+  <text x="125" y="102" font-size="10" fill="#8b949e" text-anchor="middle">세 축(NCCL·cuFile·cuObject)</text>
+  <text x="125" y="117" font-size="10" fill="#8b949e" text-anchor="middle">왜 나뉘어 있는가</text>
+
+  <rect x="250" y="64" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="87" font-size="12" fill="#e6edf3" text-anchor="middle">2편 — GPUDirect RDMA</text>
+  <text x="350" y="102" font-size="10" fill="#8b949e" text-anchor="middle">BAR1 창과 peermem 등록</text>
+  <text x="350" y="117" font-size="10" fill="#8b949e" text-anchor="middle">NIC가 GPU를 읽는 원리</text>
+
+  <rect x="475" y="64" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="575" y="87" font-size="12" fill="#e6edf3" text-anchor="middle">3편 — cuFile/GDS</text>
+  <text x="575" y="102" font-size="10" fill="#8b949e" text-anchor="middle">경로 선택의 층</text>
+  <text x="575" y="117" font-size="10" fill="#8b949e" text-anchor="middle">GPUDirect vs 호스트</text>
+
+  <!-- row 1 arrows: 225+5 → 250-11 / 450+5 → 475-11 -->
+  <path d="M230,98 L239,98" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M455,98 L464,98" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── row 2: y=160..228 ── -->
+  <rect x="25" y="160" width="200" height="68" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="125" y="183" font-size="12" fill="#e6edf3" text-anchor="middle">4편 — cuObject</text>
+  <text x="125" y="198" font-size="10" fill="#8b949e" text-anchor="middle">세션·토큰·DC 전송</text>
+  <text x="125" y="213" font-size="10" fill="#8b949e" text-anchor="middle">주인공 — 아키텍처 전체</text>
+
+  <rect x="250" y="160" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="183" font-size="12" fill="#e6edf3" text-anchor="middle">5편 — BAR1 한계</text>
+  <text x="350" y="198" font-size="10" fill="#8b949e" text-anchor="middle">전송 크기의 물리적 상한</text>
+  <text x="350" y="213" font-size="10" fill="#8b949e" text-anchor="middle">192 MiB 경계의 이유</text>
+
+  <rect x="475" y="160" width="200" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="575" y="183" font-size="12" fill="#e6edf3" text-anchor="middle">6편 — 생태계</text>
+  <text x="575" y="198" font-size="10" fill="#8b949e" text-anchor="middle">NIXL·LMCache·elbencho</text>
+  <text x="575" y="213" font-size="10" fill="#8b949e" text-anchor="middle">실전에서 누가 쓰나</text>
+
+  <!-- row 2 arrows -->
+  <path d="M230,194 L239,194" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M455,194 L464,194" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ── bottom band: x=25..675, y=256..308 ── -->
+  <rect x="25" y="256" width="650" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="350" y="278" font-size="12" fill="#e6edf3" text-anchor="middle">RDMA 학습 가이드(v3)와 상호 참조 — 각자 독립적으로 읽을 수 있다</text>
+  <text x="350" y="294" font-size="10" fill="#8b949e" text-anchor="middle">v3를 읽었다면 1편·6편부터, 처음이면 1→6 순서대로</text>
+</svg>

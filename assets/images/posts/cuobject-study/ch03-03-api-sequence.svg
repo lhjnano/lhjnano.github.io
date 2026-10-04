@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 418" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 40..660, margins 40/40 -->
+  <rect x="0" y="0" width="700" height="418" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">핵심 API — 세 가지와 호출 순서</text>
+
+  <!-- API 1: x=40..660, y=56..124 -->
+  <rect x="25" y="56" width="650" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="79" font-size="12" fill="#58a6ff" text-anchor="middle">① cuFileHandleOpen</text>
+  <text x="350" y="94" font-size="10" fill="#e6edf3" text-anchor="middle">파일·객체 핸들 열기 — 경로 기반</text>
+  <text x="350" y="109" font-size="10" fill="#8b949e" text-anchor="middle">CUfileHandle_t h; cuFileHandleOpen(&amp;h, ..., &amp;err);</text>
+
+  <path d="M350,129 L350,141" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- API 2: y=152..220 -->
+  <rect x="25" y="152" width="650" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="175" font-size="12" fill="#58a6ff" text-anchor="middle">② cuFileBufRegister</text>
+  <text x="350" y="190" font-size="10" fill="#e6edf3" text-anchor="middle">GPU 버퍼 등록 — RDMA 접근 허용 (사전 필수)</text>
+  <text x="350" y="205" font-size="10" fill="#8b949e" text-anchor="middle">cuFileBufRegister(devPtr, size, flags);</text>
+
+  <path d="M350,225 L350,237" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- API 3: y=248..316 -->
+  <rect x="25" y="248" width="650" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="271" font-size="12" fill="#58a6ff" text-anchor="middle">③ cuFileRead / cuFileWrite</text>
+  <text x="350" y="286" font-size="10" fill="#e6edf3" text-anchor="middle">등록된 GPU 버퍼로 직접 입출력</text>
+  <text x="350" y="301" font-size="10" fill="#8b949e" text-anchor="middle">cuFileRead(h, devPtr, size, off, &amp;bytes);</text>
+
+  <!-- bottom band: x=40..660, y=341..393 -->
+  <rect x="25" y="341" width="650" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="350" y="363" font-size="12" fill="#e6edf3" text-anchor="middle">순서가 핵심 — Register 없이 Read/Write하면 fallback 또는 오류</text>
+  <text x="350" y="379" font-size="10" fill="#8b949e" text-anchor="middle">cuObject는 이 등록이 만든 MR 좌표를 토큰으로 재사용한다 (아래 그림)</text>
+</svg>

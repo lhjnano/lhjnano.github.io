@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 392" width="700">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="392" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">BAR1 확인 — nvidia-smi -q (고객 GPU 노드에서)</text>
+
+  <!-- terminal box: x=25..675, y=56..181 -->
+  <rect x="25" y="56" width="650" height="125" rx="6" fill="#263238" stroke="#37474f"/>
+  <text x="45" y="84.5" font-size="10" fill="#e6edf3">$ nvidia-smi -q -d MEMORY | grep -A 3 'BAR1'</text>
+  <text x="45" y="99.5" font-size="10" fill="#8b949e">    BAR1 Memory Usage</text>
+  <text x="45" y="114.5" font-size="10" fill="#8b949e">        Total                  : 256 MiB</text>
+  <text x="45" y="129.5" font-size="10" fill="#8b949e">        Used                   : 4 MiB</text>
+  <text x="45" y="144.5" font-size="10" fill="#8b949e">        Free                   : 252 MiB</text>
+  <text x="45" y="159.5" font-size="10" fill="#546e7a">(출력 예 — RTX A6000)</text>
+
+  <!-- interpretation box: y=206..258 -->
+  <rect x="25" y="206" width="650" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="228" font-size="12" fill="#e6edf3" text-anchor="middle">Total = BAR1 창 크기 — GPU-direct 버퍼의 물리적 상한</text>
+  <text x="350" y="244" font-size="10" fill="#8b949e" text-anchor="middle">Free = 지금 사용 가능한 여유 — 전송 크기와 비교할 값</text>
+
+  <!-- guidance band: y=283..367 -->
+  <rect x="25" y="283" width="650" height="84" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="350" y="307" font-size="12" fill="#3fb950" text-anchor="middle">고객 안내 (§10 권고)</text>
+  <text x="350" y="322" font-size="10" fill="#e3f2fd" text-anchor="middle">① GPU-direct 전송 크기 ≤ BAR1 여유인지 확인</text>
+  <text x="350" y="337" font-size="10" fill="#e3f2fd" text-anchor="middle">② 부족하면 host-memory 모드 — peermem·BAR1 무관</text>
+  <text x="350" y="352" font-size="10" fill="#e3f2fd" text-anchor="middle">③ 데이터센터 GPU(A100+)는 사실상 무제한</text>
+</svg>

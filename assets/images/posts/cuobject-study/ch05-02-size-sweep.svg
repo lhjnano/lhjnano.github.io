@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 0.0 470.0 300.0" width="478">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..545, margins 25/25 -->
+  <rect x="0" y="0" width="478" height="322" fill="#161b22"/>
+
+  <g transform="translate(-50,0)">
+
+  <!-- title: content center x=285 -->
+  <text x="290" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">전송 크기 경계 (RTX A6000 · GPU-direct)</text>
+
+  <!-- column dividers -->
+  <line x1="165" y1="50" x2="165" y2="252" stroke="#37474f" stroke-width="1"/>
+  <line x1="285" y1="50" x2="285" y2="252" stroke="#37474f" stroke-width="1"/>
+  <line x1="415" y1="50" x2="415" y2="252" stroke="#37474f" stroke-width="1"/>
+
+  <!-- header texts -->
+  <text x="95" y="64" font-size="11" fill="#58a6ff" text-anchor="middle">버퍼 크기</text>
+  <text x="225" y="64" font-size="11" fill="#58a6ff" text-anchor="middle">결과</text>
+    
+  <!-- row 1: 4 MiB -->
+  <text x="95" y="93" font-size="11" fill="#e6edf3" text-anchor="middle">4 MiB</text>
+  <text x="225" y="93" font-size="10" fill="#3fb950" text-anchor="middle">✅ 통과</text>
+  <text x="350" y="93" font-size="11" fill="#e6edf3" text-anchor="middle">0.450</text>
+  <text x="480" y="93" font-size="11" fill="#e6edf3" text-anchor="middle">2.096</text>
+
+  <!-- row 2: 64 MiB -->
+  <text x="95" y="122" font-size="11" fill="#e6edf3" text-anchor="middle">64 MiB</text>
+  <text x="225" y="122" font-size="10" fill="#3fb950" text-anchor="middle">✅ 통과</text>
+  <text x="350" y="122" font-size="11" fill="#e6edf3" text-anchor="middle">0.523</text>
+  <text x="480" y="122" font-size="11" fill="#e6edf3" text-anchor="middle">3.655</text>
+
+  <!-- row 3: 128 MiB -->
+  <text x="95" y="151" font-size="11" fill="#e6edf3" text-anchor="middle">128 MiB</text>
+  <text x="225" y="151" font-size="10" fill="#3fb950" text-anchor="middle">✅ 통과</text>
+  <text x="350" y="151" font-size="11" fill="#e6edf3" text-anchor="middle">0.531</text>
+  <text x="480" y="151" font-size="11" fill="#e6edf3" text-anchor="middle">2.919</text>
+
+  <!-- row 4: 192 MiB -->
+  <text x="95" y="180" font-size="11" fill="#e6edf3" text-anchor="middle">192 MiB</text>
+  <text x="225" y="180" font-size="10" fill="#3fb950" text-anchor="middle">✅ 통과</text>
+  <text x="350" y="180" font-size="11" fill="#e6edf3" text-anchor="middle">0.538</text>
+  <text x="480" y="180" font-size="11" fill="#e6edf3" text-anchor="middle">2.860</text>
+
+  <!-- row 5: 224 MiB -->
+  <text x="95" y="209" font-size="11" fill="#e6edf3" text-anchor="middle">224 MiB</text>
+  <text x="225" y="209" font-size="10" fill="#f85149" text-anchor="middle">✗ 실패</text>
+  <text x="350" y="209" font-size="11" fill="#8b949e" text-anchor="middle">—</text>
+  <text x="480" y="209" font-size="11" fill="#8b949e" text-anchor="middle">—</text>
+
+  <!-- row 6: 256 MiB -->
+  <text x="95" y="238" font-size="11" fill="#e6edf3" text-anchor="middle">256 MiB</text>
+  <text x="225" y="238" font-size="10" fill="#f85149" text-anchor="middle">✗ 실패 rc=1</text>
+  <text x="350" y="238" font-size="11" fill="#8b949e" text-anchor="middle">—</text>
+  <text x="480" y="238" font-size="11" fill="#8b949e" text-anchor="middle">—</text>
+
+  <!-- notes -->
+  <text x="285" y="274" font-size="10" fill="#8b949e" text-anchor="middle">192 MiB는 BAR1 256 MiB에 딱 맞게 통과 · 256 MiB 실패 — cuMemObjGetDescriptor rc=1</text>
+  </g>
+</svg>

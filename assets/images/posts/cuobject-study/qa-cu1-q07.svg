@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 241" width="760" role="img" aria-label="질문: NVIDIA는 왜 폐쇄 드라이버에 dma-buf를 구현하지 않았나요? 답변: 법적 하드 블로커와 전략이 겹쳐 있다.">
+  <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+  <circle cx="30" cy="45.5" r="6.5" fill="#2563eb"/>
+  <path d="M20 62.5 C20 53.5, 40 53.5, 40 62.5 Z" fill="#2563eb"/>
+  <rect x="75" y="20" width="660" height="76" rx="12" fill="#eff6ff"/>
+  <path d="M75 40.0 L62 47.0 L75 54.0 Z" fill="#eff6ff"/>
+  <text x="98" y="52.5" font-size="13" font-weight="600" fill="#1f2937">NVIDIA가 그 드라이버를 구현하지 않은 이유는?</text>
+  <text x="98" y="72.5" font-size="13" font-weight="600" fill="#1f2937">2021년도면 꽤 지났는데도 안 할 걸 보면 이유가 있을 것 같은데요</text>
+  <circle cx="30" cy="130.2" r="2" fill="#16a34a"/>
+  <line x1="30" y1="132.2" x2="30" y2="136.2" stroke="#16a34a" stroke-width="1.8"/>
+  <path d="M20 136.2 L40 136.2 L40 150.2 L20 150.2 Z" fill="#16a34a"/>
+  <circle cx="25" cy="143.2" r="1.9" fill="#dcfce7"/>
+  <circle cx="35" cy="143.2" r="1.9" fill="#dcfce7"/>
+  <rect x="75" y="122" width="660" height="98" rx="12" fill="#f0fdf4"/>
+  <path d="M75 142.0 L62 149.0 L75 156.0 Z" fill="#f0fdf4"/>
+  <text x="98" y="148.2" font-size="12" fill="#334155">dma_buf_export는 GPL-only 심볼이라 폐쇄 모듈은 호출 자체가 불가능합니다</text>
+  <text x="98" y="166.2" font-size="12" fill="#334155">설계 철학도 반대 방향. 폐쇄 모듈은 커널과의 결합을 최소화하는 얇은 shim 구조예요</text>
+  <text x="98" y="184.2" font-size="12" fill="#334155">전략적으로는 2022년 오픈 모듈 전환, Blackwell부터는 오픈 전용</text>
+  <text x="98" y="202.2" font-size="12" fill="#334155">문을 고치는 대신 문이 있는 쪽으로 집을 옮긴 셈입니다</text>
+</svg>

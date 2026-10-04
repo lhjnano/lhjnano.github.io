@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 397" width="800">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..775, margins 25/25 -->
+  <rect x="0" y="0" width="800" height="397" fill="#161b22"/>
+
+  <!-- title: content center x=400 -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">cuObject 생태계 — 누가 쓰고 있나 (§8 포지셔닝)</text>
+
+  <!-- ── hub: cuObject, x=290..510, y=64..132 ── -->
+  <rect x="290" y="64" width="220" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="400" y="86.7" font-size="12" fill="#e6edf3" text-anchor="middle">cuObject</text>
+  <text x="400" y="101.7" font-size="10" fill="#8b949e" text-anchor="middle">NVIDIA S3-over-RDMA</text>
+  <text x="400" y="116.7" font-size="10" fill="#8b949e" text-anchor="middle">libcuobjclient ↔ libcuobjserver</text>
+
+  <!-- fan-out to consumers: start 132+5 / end 162-11 -->
+  <path d="M400,137 C 300,140 140,146 140,151" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M400,137 L 400,151" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <path d="M400,137 C 500,140 660,146 660,151" fill="none" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- ── consumers: y=162..228, w=230, gaps 30 ── -->
+  <rect x="25" y="162" width="230" height="66" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="140" y="183.6" font-size="11" fill="#58a6ff" text-anchor="middle">NIXL — OBJ accelerated engine</text>
+  <text x="140" y="198.6" font-size="10" fill="#e6edf3" text-anchor="middle">Dell/NVIDIA 머지 · 프로덕션 지향</text>
+  <text x="140" y="213.6" font-size="10" fill="#8b949e" text-anchor="middle">통합 API로 여러 백엔드 추상화</text>
+
+  <rect x="285" y="162" width="230" height="66" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="400" y="183.6" font-size="11" fill="#58a6ff" text-anchor="middle">LMCache</text>
+  <text x="400" y="198.6" font-size="10" fill="#e6edf3" text-anchor="middle">vLLM KV cache 오프로드</text>
+  <text x="400" y="213.6" font-size="10" fill="#8b949e" text-anchor="middle">NIXL 경유 — 활발</text>
+
+  <rect x="545" y="162" width="230" height="66" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="660" y="183.6" font-size="11" fill="#58a6ff" text-anchor="middle">elbencho --cuobj</text>
+  <text x="660" y="198.6" font-size="10" fill="#e6edf3" text-anchor="middle">벤치마킹 도구</text>
+  <text x="660" y="213.6" font-size="10" fill="#8b949e" text-anchor="middle">cuObject 직접 호출</text>
+
+  <!-- ── bottom band: x=25..775, y=253..372 ── -->
+  <rect x="25" y="253" width="750" height="119" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="272" font-size="11" fill="#78909c">확장 지평 — 표준화 제안과 실전 파이프라인</text>
+
+  <rect x="40" y="290" width="345" height="66" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="212" y="311.6" font-size="11" fill="#bc8cff" text-anchor="middle">NIXL #2241 — generic S3-over-RDMA 표준화 제안</text>
+  <text x="212" y="326.6" font-size="10" fill="#e6edf3" text-anchor="middle">상태 — 아직 open (미머지)</text>
+  <text x="212" y="341.6" font-size="10" fill="#8b949e" text-anchor="middle">벤더 중립으로 확장되면 RC도 NVIDIA 스택에 닿음</text>
+
+  <rect x="410" y="290" width="350" height="66" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="585" y="311.6" font-size="11" fill="#3fb950" text-anchor="middle">실전 파이프라인</text>
+  <text x="585" y="326.6" font-size="10" fill="#e3f2fd" text-anchor="middle">vLLM → LMCache → NIXL → cuObject → 원격 S3</text>
+  <text x="585" y="341.6" font-size="10" fill="#8b949e" text-anchor="middle">NVIDIA 스택의 KV 오프로드가 전부 cuObject로 묶임</text>
+</svg>

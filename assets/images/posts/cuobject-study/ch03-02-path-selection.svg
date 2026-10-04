@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 398" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#f85149"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="398" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">cuFile의 경로 선택 — GPUDirect냐 호스트냐</text>
+
+  <!-- request box: x=200..500, y=56..100 -->
+  <rect x="200" y="56" width="300" height="44" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="82.2" font-size="12" fill="#e6edf3" text-anchor="middle">I/O 요청 — cuFileRead / cuFileWrite</text>
+
+  <!-- arrow: 100+5 → 130-11 -->
+  <path d="M350,105 L350,119" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- selector box: x=200..500, y=130..182 -->
+  <rect x="200" y="130" width="300" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="152" font-size="12" fill="#58a6ff" text-anchor="middle">경로 선택</text>
+  <text x="350" y="168" font-size="10" fill="#8b949e" text-anchor="middle">드라이버 초기화 때 프로브로 결정</text>
+
+  <!-- branch arrows: Q-curves ending 11px above path boxes (tip 5px short of edge) -->
+  <path d="M310,187 Q 187,194 187,201" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M390,187 Q 513,194 513,201" fill="none" stroke="#f85149" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- GPUDirect path: x=40..335, y=212..296 -->
+  <rect x="40" y="212" width="295" height="84" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="187.5" y="236" font-size="12" fill="#3fb950" text-anchor="middle">GPUDirect 경로</text>
+  <text x="187.5" y="251" font-size="10" fill="#e3f2fd" text-anchor="middle">NIC/블록 → BAR1 → GPU HBM</text>
+  <text x="187.5" y="266" font-size="10" fill="#8b949e" text-anchor="middle">호스트 RAM 무경유 — 복사 0 (zero-copy)</text>
+  <text x="187.5" y="281" font-size="10" fill="#8b949e" text-anchor="middle">요건: peermem + BAR1 여유</text>
+
+  <!-- host fallback path: x=365..660, y=212..296 -->
+  <rect x="365" y="212" width="295" height="84" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="512.5" y="236" font-size="12" fill="#f85149" text-anchor="middle">호스트 fallback 경로</text>
+  <text x="512.5" y="251" font-size="10" fill="#e3f2fd" text-anchor="middle">NIC → 호스트 RAM → cudaMemcpy</text>
+  <text x="512.5" y="266" font-size="10" fill="#8b949e" text-anchor="middle">GPU 도착 전 1회 복사</text>
+  <text x="512.5" y="281" font-size="10" fill="#8b949e" text-anchor="middle">요건 없음 — 항상 동작하는 대체로</text>
+
+  <!-- bottom band: x=25..675, y=321..373 -->
+  <rect x="25" y="321" width="650" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="343" font-size="12" fill="#e6edf3" text-anchor="middle">GPUDirect 경로 — GPU HBM에 MR 등록</text>
+  <text x="350" y="359" font-size="10" fill="#8b949e" text-anchor="middle">초록 화살표 = 조건 충족 시 · 빨강 화살표 = 미충족 시 (자동 fallback)</text>
+</svg>

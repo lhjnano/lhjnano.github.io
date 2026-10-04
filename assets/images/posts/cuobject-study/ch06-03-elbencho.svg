@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 331" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 31..669, margins 31/31 -->
+  <rect x="0" y="0" width="700" height="331" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">elbencho --cuobj — 직접 호출하는 오픈소스 벤치마크</text>
+
+  <!-- terminal box: x=31..669, y=56..136 -->
+  <rect x="25" y="56" width="650" height="80" rx="6" fill="#263238" stroke="#37474f"/>
+  <text x="45" y="84.5" font-size="10" fill="#e6edf3">$ elbencho --cuobj …</text>
+  <text x="45" y="99.5" font-size="10" fill="#8b949e">스토리지 벤치마크 도구 — NVMe · GDS · cuObject 통합 측정</text>
+  <text x="45" y="114.5" font-size="10" fill="#8b949e">PUT/GET 처리량·레이턴시·분산 확장 측정 지원</text>
+
+  <!-- flow row: 4 boxes w=140 gap 26, y=161..229 -->
+  <rect x="25" y="161" width="140" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="95" y="184" font-size="12" fill="#e6edf3" text-anchor="middle">elbencho</text>
+  <text x="95" y="199" font-size="10" fill="#8b949e" text-anchor="middle">측정 루프</text>
+  <text x="95" y="214" font-size="10" fill="#8b949e" text-anchor="middle">오픈소스 · 직접 호출</text>
+
+  <rect x="191" y="161" width="140" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="261" y="184" font-size="12" fill="#e6edf3" text-anchor="middle">libcuobjclient</text>
+  <text x="261" y="199" font-size="10" fill="#8b949e" text-anchor="middle">세션·토큰</text>
+  <text x="261" y="214" font-size="10" fill="#8b949e" text-anchor="middle">GPU 버퍼 등록</text>
+
+  <rect x="357" y="161" width="140" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="427" y="184" font-size="12" fill="#e6edf3" text-anchor="middle">libcuobjserver</text>
+  <text x="427" y="199" font-size="10" fill="#8b949e" text-anchor="middle">HTTP + DC QP</text>
+  <text x="427" y="214" font-size="10" fill="#8b949e" text-anchor="middle">posix 백엔드</text>
+
+  <rect x="523" y="161" width="140" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="593" y="184" font-size="12" fill="#e6edf3" text-anchor="middle">Lustre 실파일</text>
+  <text x="593" y="199" font-size="10" fill="#8b949e" text-anchor="middle">객체 = 실파일</text>
+  <text x="593" y="214" font-size="10" fill="#8b949e" text-anchor="middle">lfs getstripe raid0 확인</text>
+
+  <!-- arrows between flow boxes at y=195 -->
+  <path d="M170,195 L180,195" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M336,195 L346,195" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M502,195 L512,195" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- bottom band: x=31..669, y=254..306 -->
+  <rect x="25" y="254" width="650" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="350" y="276" font-size="12" fill="#e6edf3" text-anchor="middle">직접 호출하는 오픈소스는 드물다 — 폐쇄 라이브러리·비공개 와이어 프로토콜</text>
+  <text x="350" y="292" font-size="10" fill="#8b949e" text-anchor="middle">오픈소스 소비자는 NIXL · elbencho가 거의 전부</text>
+</svg>

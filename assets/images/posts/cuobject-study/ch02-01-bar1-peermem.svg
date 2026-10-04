@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 745" width="800">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#f85149"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..775, margins 25/25 -->
+  <rect x="0" y="0" width="800" height="745" fill="#161b22"/>
+
+  <!-- title: content center x=400 -->
+  <text x="400" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">BAR1 매핑과 peermem 등록 — NIC가 GPU 메모리를 읽는 경로</text>
+
+  <!-- ── left group: traditional path, x=25..387, y=56..400 ── -->
+  <rect x="25" y="56" width="362" height="344" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#f85149">전통 경로 — 복사 2번</text>
+
+  <rect x="40" y="94" width="332" height="36" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="206" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">스토리지 — 원격 S3 (Lustre 실파일)</text>
+
+  <path d="M206,135 L206,145" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="156" width="332" height="36" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="206" y="178" font-size="12" fill="#e6edf3" text-anchor="middle">NIC — ConnectX (mlx5)</text>
+
+  <path d="M206,197 L206,207" fill="none" stroke="#f85149" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-red)"/>
+
+  <rect x="40" y="218" width="332" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="206" y="240" font-size="12" fill="#e6edf3" text-anchor="middle">호스트 RAM 버퍼</text>
+  <text x="206" y="256" font-size="10" fill="#8b949e" text-anchor="middle">스테이징 복사 #1 — 경유지이자 낭비</text>
+
+  <path d="M206,275 L206,285" fill="none" stroke="#f85149" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-red)"/>
+
+  <rect x="40" y="296" width="332" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="206" y="318" font-size="12" fill="#e6edf3" text-anchor="middle">GPU VRAM (HBM)</text>
+  <text x="206" y="334" font-size="10" fill="#8b949e" text-anchor="middle">CPU 카피 #2로 도착 — 2번째 복사</text>
+  <text x="206" y="349" font-size="10" fill="#8b949e" text-anchor="middle">RAM 왕복 지연 + CPU 사이클 부담</text>
+
+  <text x="206" y="388" font-size="10" fill="#f85149" text-anchor="middle">복사 2번 — RAM 왕복 + CPU 카피 부담</text>
+
+  <!-- ── right group: GPUDirect path, x=413..775, y=56..400 ── -->
+  <rect x="413" y="56" width="362" height="344" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="425" y="74" font-size="11" fill="#3fb950">GPUDirect 경로 — 복사 0번</text>
+
+  <rect x="428" y="94" width="332" height="36" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="594" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">스토리지 — 원격 S3 (Lustre 실파일)</text>
+
+  <path d="M594,135 L594,145" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="428" y="156" width="332" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="594" y="178" font-size="12" fill="#e6edf3" text-anchor="middle">NIC — ConnectX (mlx5)</text>
+  <text x="594" y="194" font-size="10" fill="#8b949e" text-anchor="middle">BAR1 창으로 GPU 메모리에 직접 DMA</text>
+
+  <path d="M594,213 L594,223" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="428" y="234" width="332" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="594" y="256" font-size="12" fill="#e6edf3" text-anchor="middle">GPU VRAM (HBM)</text>
+  <text x="594" y="272" font-size="10" fill="#8b949e" text-anchor="middle">peermem 등록 영역 — 복사 0번 직송</text>
+
+  <rect x="428" y="312" width="332" height="52" rx="6" fill="#161b22" stroke="#37474f"/>
+  <text x="594" y="334" font-size="10" fill="#e6edf3" text-anchor="middle">실증 로그 (cufile.log, §4):</text>
+  <text x="594" y="349" font-size="10" fill="#8b949e" text-anchor="middle">register with RDMA success — mr_size: 67108864</text>
+
+  <text x="594" y="388" font-size="10" fill="#3fb950" text-anchor="middle">복사 0번 — 호스트 RAM 미경유</text>
+
+  <!-- ── BAR1 window section: x=25..775, y=426..572 ── -->
+  <rect x="25" y="426" width="750" height="146" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="444" font-size="11" fill="#78909c">BAR1 창 — GPU 메모리 48GB 중 256MiB만 NIC가 DMA할 수 있다 (RTX A6000)</text>
+
+  <rect x="40" y="464" width="344" height="72" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="212" y="488" font-size="12" fill="#e6edf3" text-anchor="middle">BAR1 창 — 256MiB</text>
+  <text x="212" y="504" font-size="10" fill="#e3f2fd" text-anchor="middle">PCIe 매핑된 GPU 메모리 창 — 안쪽 주소만 NIC DMA</text>
+  <text x="212" y="519" font-size="10" fill="#3fb950" text-anchor="middle">192MiB 등록 성공 · 224MiB부터 등록 실패 (BAR1 초과)</text>
+
+  <rect x="410" y="464" width="350" height="72" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="585" y="488" font-size="12" fill="#e6edf3" text-anchor="middle">창 밖 — 나머지 ~47.75GB</text>
+  <text x="585" y="504" font-size="10" fill="#8b949e" text-anchor="middle">CPU만 접근 — NIC는 DMA 불가</text>
+  <text x="585" y="519" font-size="10" fill="#8b949e" text-anchor="middle">GPU-direct 전송 크기 ≤ BAR1 여유분</text>
+
+  <text x="400" y="560" font-size="10" fill="#8b949e" text-anchor="middle">256MiB는 48GB의 약 0.5% · H100(BAR1 128GiB) 등 데이터센터 GPU는 해당 없음</text>
+
+  <!-- ── peermem registration flow: x=25..775, y=598..725 ── -->
+  <rect x="25" y="598" width="750" height="127" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="616" font-size="11" fill="#78909c">peermem 등록 흐름 — GPU 페이지 물리 주소가 NIC에 전달되는 과정</text>
+
+  <rect x="40" y="636" width="123" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="101.5" y="658" font-size="12" fill="#e6edf3" text-anchor="middle">nvidia.ko</text>
+  <text x="101.5" y="674" font-size="10" fill="#8b949e" text-anchor="middle">NVIDIA 드라이버</text>
+
+  <rect x="189" y="636" width="123" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="250.5" y="658" font-size="12" fill="#e6edf3" text-anchor="middle">MOFED ib_core</text>
+  <text x="250.5" y="674" font-size="10" fill="#8b949e" text-anchor="middle">peer-memory 등록 API</text>
+
+  <rect x="338" y="636" width="123" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="399.5" y="658" font-size="12" fill="#e6edf3" text-anchor="middle">nvidia_peermem</text>
+  <text x="399.5" y="674" font-size="10" fill="#8b949e" text-anchor="middle">GPU 메모리 등록 모듈</text>
+
+  <rect x="487" y="636" width="123" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="548.5" y="658" font-size="12" fill="#e6edf3" text-anchor="middle">mlx5 NIC 드라이버</text>
+  <text x="548.5" y="674" font-size="10" fill="#8b949e" text-anchor="middle">mlx5_core</text>
+
+  <rect x="636" y="636" width="123" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="697.5" y="658" font-size="12" fill="#e6edf3" text-anchor="middle">GPU 페이지</text>
+  <text x="697.5" y="674" font-size="10" fill="#3fb950" text-anchor="middle">물리 주소 전달 완료</text>
+
+  <path d="M168,662 L178,662" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M317,662 L327,662" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M466,662 L476,662" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M615,662 L625,662" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="400" y="712" font-size="10" fill="#8b949e" text-anchor="middle">등록 호출 ib_register_peer_memory_client() — nvidia_peermem.ko가 MOFED를 거쳐 mlx5에 GPU 페이지 물리 주소 전달 (§5)</text>
+</svg>

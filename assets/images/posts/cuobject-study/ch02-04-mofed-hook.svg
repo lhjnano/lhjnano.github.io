@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 417" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="417" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">왜 MOFED인가 — peer-memory 등록 훅의 소재</text>
+
+  <!-- ── left panel: MOFED, x=25..337, y=56..315 ── -->
+  <rect x="25" y="56" width="312" height="259" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#3fb950">MOFED — 훅이 있는 쪽</text>
+
+  <rect x="40" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="181" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">peer-memory 등록 훅 존재</text>
+  <text x="181" y="132" font-size="10" fill="#8b949e" text-anchor="middle">ib_register_peer_memory_client — ib_core</text>
+
+  <rect x="40" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="181" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">nvidia_peermem.ko 로드 가능</text>
+  <text x="181" y="209" font-size="10" fill="#8b949e" text-anchor="middle">modprobe nvidia_peermem — 실전 구성 방식</text>
+
+  <rect x="40" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="181" y="270" font-size="12" fill="#e6edf3" text-anchor="middle">요구 주체 — 클라이언트(고객 GPU 노드)</text>
+  <text x="181" y="286" font-size="10" fill="#8b949e" text-anchor="middle">스토리지 노드는 MOFED 불필요</text>
+
+  <!-- ── right panel: inbox OFED, x=363..675, y=56..315 ── -->
+  <rect x="363" y="56" width="312" height="259" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="375" y="74" font-size="11" fill="#f85149">inbox OFED — 훅이 없는 쪽</text>
+
+  <rect x="378" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="519" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">peer-memory 훅 없음</text>
+  <text x="519" y="132" font-size="10" fill="#8b949e" text-anchor="middle">nvidia_peermem 로드 불가</text>
+
+  <rect x="378" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="519" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">대안 A — open-dkms + dma-buf</text>
+  <text x="519" y="209" font-size="10" fill="#8b949e" text-anchor="middle">CUFILE_DMABUF_ENABLE=1 · ibv_reg_dmabuf_mr</text>
+
+  <rect x="378" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="519" y="270" font-size="12" fill="#e6edf3" text-anchor="middle">inbox rdma-core로 동작</text>
+  <text x="519" y="286" font-size="10" fill="#8b949e" text-anchor="middle">유망한 대안 (아직 검증 필요)</text>
+
+  <!-- ── bottom band: x=25..675, y=340..392 ── -->
+  <rect x="25" y="340" width="650" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="362" font-size="12" fill="#e6edf3" text-anchor="middle">정리 — 훅이 MOFED에만 있으므로 peermem 경로엔 MOFED가 필요</text>
+  <text x="350" y="378" font-size="10" fill="#8b949e" text-anchor="middle">게이트웨이는 inbox OFED로 구동 · MOFED 요건은 클라이언트 쪽</text>
+</svg>

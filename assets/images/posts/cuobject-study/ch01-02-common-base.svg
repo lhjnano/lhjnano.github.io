@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 373" width="700">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="373" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">GPUDirect RDMA — 세 축의 공통 기반</text>
+
+  <!-- three axes row: x=25..225 / 250..450 / 475..675, y=56..100 -->
+  <rect x="25" y="56" width="200" height="44" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="125" y="82.2" font-size="12" fill="#e6edf3" text-anchor="middle">NCCL — GPU↔GPU</text>
+
+  <rect x="250" y="56" width="200" height="44" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="82.2" font-size="12" fill="#e6edf3" text-anchor="middle">cuFile — GPU↔File</text>
+
+  <rect x="475" y="56" width="200" height="44" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="575" y="82.2" font-size="12" fill="#e6edf3" text-anchor="middle">cuObject — GPU↔S3</text>
+
+  <!-- arrows down to common band: start 100+5 / end 128-11 -->
+  <path d="M125,105 L125,117" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M350,105 L350,117" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M575,105 L575,117" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- common band: x=25..675, y=128..180 -->
+  <rect x="25" y="128" width="650" height="52" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="350" y="150" font-size="12" fill="#e6edf3" text-anchor="middle">GPUDirect RDMA — NIC↔GPU 직접 DMA</text>
+  <text x="350" y="166" font-size="10" fill="#8b949e" text-anchor="middle">데이터가 호스트 RAM 버퍼를 거치지 않는다 — 세 축 모두 이 기반 위</text>
+
+  <!-- arrows down to two pillars: start 180+5 / end 208-11 -->
+  <path d="M180,185 L180,197" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M520,185 L520,197" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- two pillars: x=25..335 / 365..675, y=208..276 -->
+  <rect x="25" y="208" width="310" height="68" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="180" y="231" font-size="12" fill="#58a6ff" text-anchor="middle">BAR1 — 주소 창</text>
+  <text x="180" y="246" font-size="10" fill="#e3f2fd" text-anchor="middle">GPU가 PCIe 버스에 노출하는 매핑 창</text>
+  <text x="180" y="261" font-size="10" fill="#8b949e" text-anchor="middle">RTX A6000 = 256 MiB (5편에서 상세)</text>
+
+  <rect x="365" y="208" width="310" height="68" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="520" y="231" font-size="12" fill="#bc8cff" text-anchor="middle">peermem — 등록 메커니즘</text>
+  <text x="520" y="246" font-size="10" fill="#e3f2fd" text-anchor="middle">nvidia_peermem이 GPU 페이지 주소를 NIC에 전달</text>
+  <text x="520" y="261" font-size="10" fill="#8b949e" text-anchor="middle">MOFED ib_core의 훅 필요 (2편에서 상세)</text>
+
+  <!-- arrows down to NIC: start 276+5 / end 304-11 -->
+  <path d="M180,281 L180,293" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M520,281 L520,293" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- NIC: x=25..675, y=304..348 -->
+  <rect x="25" y="304" width="650" height="44" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="350" y="330.2" font-size="12" fill="#e6edf3" text-anchor="middle">ConnectX NIC (mlx5) — DMA 엔진</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 545" width="390">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..365, margins 25/25 -->
+  <rect x="0" y="0" width="390" height="545" fill="#161b22"/>
+
+  <!-- title: content center x=195 -->
+  <text x="195" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">peermem 등록 — 6단계</text>
+
+  <!-- precondition note -->
+  <text x="195" y="59" font-size="10" fill="#f85149" text-anchor="middle">전제 — 독점 드라이버 dmaBufCapable:0 → peermem 없으면 RDMA 비활성</text>
+
+  <!-- step 1: y=78..130 -->
+  <rect x="25" y="78" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="195" y="100" font-size="12" fill="#e6edf3" text-anchor="middle">① cuFileBufRegister — cuFile</text>
+  <text x="195" y="116" font-size="10" fill="#8b949e" text-anchor="middle">GPU 버퍼 등록 요청이 시작점</text>
+
+  <path d="M195,135 L195,145" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 2: y=156..208 -->
+  <rect x="25" y="156" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="195" y="178" font-size="12" fill="#e6edf3" text-anchor="middle">② nvidia.ko — 물리 주소 조회</text>
+  <text x="195" y="194" font-size="10" fill="#8b949e" text-anchor="middle">가상 주소 → GPU 페이지 물리 주소</text>
+
+  <path d="M195,213 L195,223" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 3: y=234..286 -->
+  <rect x="25" y="234" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="195" y="256" font-size="12" fill="#e6edf3" text-anchor="middle">③ nvidia_peermem.ko — peer client</text>
+  <text x="195" y="272" font-size="10" fill="#8b949e" text-anchor="middle">자신을 peer memory client로 등록</text>
+
+  <path d="M195,291 L195,301" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 4: y=312..364 -->
+  <rect x="25" y="312" width="340" height="52" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="195" y="334" font-size="12" fill="#e6edf3" text-anchor="middle">④ ib_register_peer_memory_client</text>
+  <text x="195" y="350" font-size="10" fill="#8b949e" text-anchor="middle">MOFED ib_core의 훅 호출 — inbox에는 없음</text>
+
+  <path d="M195,369 L195,379" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 5: y=390..442 -->
+  <rect x="25" y="390" width="340" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="195" y="412" font-size="12" fill="#e6edf3" text-anchor="middle">⑤ mlx5 — NIC에 주소 전달</text>
+  <text x="195" y="428" font-size="10" fill="#8b949e" text-anchor="middle">MR 프로그래밍으로 DMA 경로 확보</text>
+
+  <path d="M195,447 L195,457" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step 6: y=468..520 -->
+  <rect x="25" y="468" width="340" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="195" y="490" font-size="12" fill="#e6edf3" text-anchor="middle">⑥ 등록 완료 — RDMA 활성</text>
+  <text x="195" y="506" font-size="10" fill="#8b949e" text-anchor="middle">로그: "register with RDMA success" (§4)</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 417" width="700">
+  <defs>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..675, margins 25/25 -->
+  <rect x="0" y="0" width="700" height="417" fill="#161b22"/>
+
+  <!-- title: content center x=350 -->
+  <text x="350" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">같은 메모리, 다른 주소 — BAR1 창의 원리</text>
+
+  <!-- ── left panel: what the NIC can address, x=25..337, y=56..315 ── -->
+  <rect x="25" y="56" width="312" height="259" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="37" y="74" font-size="11" fill="#78909c">NIC가 DMA를 걸 수 있는 주소</text>
+
+  <rect x="40" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="181" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">호스트 RAM — 언제나 가능</text>
+  <text x="181" y="132" font-size="10" fill="#8b949e" text-anchor="middle">시스템 메모리 영역</text>
+
+  <rect x="40" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="181" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">BAR1 창 256 MiB — GPU HBM의 일부</text>
+  <text x="181" y="209" font-size="10" fill="#8b949e" text-anchor="middle">PCIe 주소로 매핑 — 이 조각만 NIC가 도달</text>
+
+  <rect x="40" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#f85149"/>
+  <text x="181" y="270" font-size="12" fill="#e6edf3" text-anchor="middle">창 밖 ≈47.75 GiB — CPU 전용</text>
+  <text x="181" y="286" font-size="10" fill="#8b949e" text-anchor="middle">NIC는 DMA를 걸 수 없음</text>
+
+  <!-- arrow connecting the two BAR1 boxes: 322+5 → 378-11, y=197 -->
+  <path d="M327,197 L367,197" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- ── right panel: GPU HBM proportions, x=363..675, y=56..315 ── -->
+  <rect x="363" y="56" width="312" height="259" rx="10" fill="none" stroke="#8b949e" stroke-dasharray="6,4"/>
+  <text x="375" y="74" font-size="11" fill="#78909c">GPU HBM 48 GiB — BAR1이 차지하는 비율</text>
+
+  <rect x="378" y="94" width="282" height="52" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="519" y="116" font-size="12" fill="#e6edf3" text-anchor="middle">전체 HBM — 48 GiB</text>
+  <text x="519" y="132" font-size="10" fill="#8b949e" text-anchor="middle">CUDA 커널이 자유롭게 사용</text>
+
+  <rect x="378" y="171" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="519" y="193" font-size="12" fill="#e6edf3" text-anchor="middle">BAR1 창 — 256 MiB (약 0.5%)</text>
+  <text x="519" y="209" font-size="10" fill="#8b949e" text-anchor="middle">이 조각만 PCIe 버스에 노출</text>
+
+  <rect x="378" y="248" width="282" height="52" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="519" y="270" font-size="12" fill="#e6edf3" text-anchor="middle">데이터센터급은 다르다</text>
+  <text x="519" y="286" font-size="10" fill="#8b949e" text-anchor="middle">A100 · H100 · H200 = 128 GiB 창</text>
+
+  <!-- ── bottom band: x=25..675, y=340..392 ── -->
+  <rect x="25" y="340" width="650" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="350" y="362" font-size="12" fill="#e6edf3" text-anchor="middle">NIC는 PCIe 주소(BAR1)로만 GPU 메모리에 닿는다 — CUDA 가상 주소로는 못 감</text>
+  <text x="350" y="378" font-size="10" fill="#8b949e" text-anchor="middle">RTX A6000의 창 256 MiB — GPU-direct 전송 크기 상한의 물리적 근거 (5편)</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 725 351" width="725">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas: content 25..700, margins 25/25 -->
+  <rect x="0" y="0" width="725" height="351" fill="#161b22"/>
+
+  <!-- title: content center x=362 -->
+  <text x="362" y="32" font-size="16" fill="#e6edf3" text-anchor="middle">MR 좌표가 토큰을 타고 서버로 — cuObject × cuFile</text>
+
+  <!-- step boxes: x=25..175 / 200..350 / 375..525 / 550..700, y=56..124 -->
+  <rect x="25" y="56" width="150" height="68" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="100" y="79" font-size="12" fill="#e6edf3" text-anchor="middle">클라 GPU HBM</text>
+  <text x="100" y="94" font-size="10" fill="#8b949e" text-anchor="middle">전송 대상 버퍼</text>
+  <text x="100" y="109" font-size="10" fill="#8b949e" text-anchor="middle">cudaMalloc으로 확보</text>
+
+  <rect x="200" y="56" width="150" height="68" rx="6" fill="#263238" stroke="#3fb950"/>
+  <text x="275" y="79" font-size="12" fill="#e6edf3" text-anchor="middle">cuFile — MR 발급</text>
+  <text x="275" y="94" font-size="10" fill="#8b949e" text-anchor="middle">peermem으로 등록</text>
+  <text x="275" y="109" font-size="10" fill="#8b949e" text-anchor="middle">rkey · addr 좌표 획득</text>
+
+  <rect x="375" y="56" width="150" height="68" rx="6" fill="#263238" stroke="#bc8cff"/>
+  <text x="450" y="79" font-size="12" fill="#e6edf3" text-anchor="middle">토큰 — 전달</text>
+  <text x="450" y="94" font-size="10" fill="#8b949e" text-anchor="middle">좌표를 세션에 실어</text>
+  <text x="450" y="109" font-size="10" fill="#8b949e" text-anchor="middle">제어 채널(HTTP)로</text>
+
+  <rect x="550" y="56" width="150" height="68" rx="6" fill="#263238" stroke="#22d3ee"/>
+  <text x="625" y="79" font-size="12" fill="#e6edf3" text-anchor="middle">서버 — DC QP</text>
+  <text x="625" y="94" font-size="10" fill="#8b949e" text-anchor="middle">그 좌표로 접근</text>
+  <text x="625" y="109" font-size="10" fill="#8b949e" text-anchor="middle">WRITE / READ 직접</text>
+
+  <!-- arrows between steps at y=90 -->
+  <path d="M180,90 L189,90" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M355,90 L364,90" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M530,90 L539,90" fill="none" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- evidence panel: x=25..700, y=149..249 -->
+  <rect x="25" y="149" width="675" height="100" rx="6" fill="#263238" stroke="#546e7a"/>
+  <text x="362" y="179" font-size="12" fill="#58a6ff" text-anchor="middle">cuFile 로그 — 개통 확인</text>
+  <text x="362" y="196" font-size="10" fill="#8b949e" text-anchor="middle">"nvidia_peermem is enabled"</text>
+  <text x="362" y="211" font-size="10" fill="#8b949e" text-anchor="middle">"register with RDMA success mr_size: 67108864" — 64 MiB</text>
+  <text x="362" y="226" font-size="10" fill="#3fb950" text-anchor="middle">좌표 전달 확인</text>
+
+  <!-- bottom band: x=25..700, y=274..326 -->
+  <rect x="25" y="274" width="675" height="52" rx="6" fill="#263238" stroke="#58a6ff"/>
+  <text x="362" y="296" font-size="12" fill="#e6edf3" text-anchor="middle">왜 이 설계인가 — 서버가 클라 GPU 좌표를 미리 알면</text>
+  <text x="362" y="312" font-size="10" fill="#8b949e" text-anchor="middle">데이터가 게이트웨이 RAM에 머물지 않고 staging MR을 거쳐 GPU HBM으로</text>
+</svg>
