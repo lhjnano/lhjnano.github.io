@@ -143,13 +143,51 @@ SKILL.md 폴더 형식은 opencode와도 호환됩니다. ~/.claude/skills/ 또�
 | 텍스트 렌더 | PIL 비트맵(약간 소프트) | Pango 벡터(가장 선명) | 브라우저(탭룰러 넘버) |
 | 품질 총평 | ★2.5 | ★3.5 | ★5 |
 
+### 결과물
+
+<figure>
+  <video controls muted loop preload="metadata" style="width:100%;max-width:640px">
+    <source src="/assets/videos/posts/motion-battle/battle1-remotion.mp4" type="video/mp4"/>
+  </video>
+  <figcaption>Remotion + haidrrrry 스킬. 364줄, 렌더 52.5s, 품질 총평 ★5</figcaption>
+</figure>
+
+<figure>
+  <video controls muted loop preload="metadata" style="width:100%;max-width:640px">
+    <source src="/assets/videos/posts/motion-battle/battle1-manim.mp4" type="video/mp4"/>
+  </video>
+  <figcaption>Manim CE v0.22. 42줄, 웜 렌더 4.12s, 품질 총평 ★3.5</figcaption>
+</figure>
+
+<figure>
+  <video controls muted loop preload="metadata" style="width:100%;max-width:640px">
+    <source src="/assets/videos/posts/motion-battle/battle1-moviepy.mp4" type="video/mp4"/>
+  </video>
+  <figcaption>moviepy 1.0.3. 79줄, 최소 파일 크기 163.6K, 품질 총평 ★2.5</figcaption>
+</figure>
+
 ### 프레임 비교에서 드러난 것
 
 t=0.5s에서 Remotion만 글자별 스태거 등장과 그레이딩이 진행 중이었습니다. PIL 정량 분석으로 코너 색이 4개 모두 달랐는데(#0b1321~#060f1e), 그라디언트의 실증입니다.
 
+<figure>
+  <img src="/assets/images/posts/motion-battle/compare_t0.5.jpg" alt="t=0.5초 3도구 정지 프레임 비교: moviepy는 타이틀 페이드인 중, Manim은 타이틀과 0 즉시 표시, Remotion은 글자별 스태거와 그라디언트 진행 중" loading="lazy"/>
+  <figcaption>t=0.5s. Remotion만 스태거 등장과 그레이딩이 진행 중이다</figcaption>
+</figure>
+
 가장 흥미로운 지점은 t=2.5s입니다. 동일 스펙인데 카운트 값이 8,750(moviepy, Manim)과 9,999(Remotion)로 갈렸습니다. 스프링 이징의 조기 수렴(약 2.83s 도달) 때문인데, 이징을 비워 두거나 통일하지 않으면 프레임에 직접 노출된다는 경고 사례입니다.
 
+<figure>
+  <img src="/assets/images/posts/motion-battle/compare_t2.5.jpg" alt="t=2.5초 3도구 카운트 값 비교: 8,750과 8,750과 9,999로 이징 곡선 차이가 노출" loading="lazy"/>
+  <figcaption>t=2.5s. 동일 스펙인데 카운트 값이 갈린다(아래 설명)</figcaption>
+</figure>
+
 t=4.2s 강조 연출은 격차가 극대화됐습니다. Remotion은 색 전환과 숫자 글로우와 비네트, Manim은 전체 블록 착색(강조색 픽셀 6,618로 최다), moviepy는 숫자만 색 전환(5,038)이었습니다.
+
+<figure>
+  <img src="/assets/images/posts/motion-battle/compare_t4.2.jpg" alt="t=4.2초 강조 연출 비교: Remotion은 글로우와 비네트, Manim은 전체 색 전환, moviepy는 숫자만 색 전환" loading="lazy"/>
+  <figcaption>t=4.2s. 강조 연출의 격차가 극대화되는 순간</figcaption>
+</figure>
 
 ### 도구별 총평
 
@@ -236,7 +274,33 @@ sudo 불가 환경에서 실제로 만난 함정들입니다.
 | 프레임 PNG 밀도 | 445~582KB(그레이드·비네트·그레인) | 75~336KB(플랫 벡터) |
 | 스타일 | 영화적 질감·텍스처 | 깔끔한 기술 다이어그램 |
 
+### 결과물
+
+<figure>
+  <video controls muted loop preload="metadata" style="width:100%;max-width:640px">
+    <source src="/assets/videos/posts/motion-battle/battle2-revideo.mp4" type="video/mp4"/>
+  </video>
+  <figcaption>Revideo. 순차 재렌더 31.7s, 육안 평가 우세</figcaption>
+</figure>
+
+<figure>
+  <video controls muted loop preload="metadata" style="width:100%;max-width:640px">
+    <source src="/assets/videos/posts/motion-battle/battle2-hyperframes.mp4" type="video/mp4"/>
+  </video>
+  <figcaption>HyperFrames. 순차 재렌더 1m46s, 영화적 질감</figcaption>
+</figure>
+
 양쪽 모두 계약을 완수했습니다. 최종 길이 42.000s와 42.033s로 누적 타이밍 계약도 충족했고, 스타일만 정확히 갈렸습니다.
+
+<figure>
+  <img src="/assets/images/posts/motion-battle/battle2-compare-t20.jpg" alt="t=20초 좌 HyperFrames 우 Revideo 정지 프레임 비교: 옵티마이저 3색 궤적 레이스 장면" loading="lazy"/>
+  <figcaption>t=20s. 좌 HyperFrames(영화적 질감) 우 Revideo(플랫 벡터). S3 옵티마이저 궤적 레이스 장면</figcaption>
+</figure>
+
+<figure>
+  <img src="/assets/images/posts/motion-battle/battle2-compare-t39.jpg" alt="t=39초 좌 HyperFrames 우 Revideo 정지 프레임 비교: 요약 3줄 엔딩 장면" loading="lazy"/>
+  <figcaption>t=39s. 요약 엔딩 장면의 스타일 대비</figcaption>
+</figure>
 
 ### 실전 함정 6종
 
