@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 218" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="218" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">5단계 분석 사이클</text>
+
+  <!-- step arrows: y=86, box vertical centre, 5px start / 11px end clearance -->
+  <path d="M152,86 L161,86" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M299,86 L308,86" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M446,86 L455,86" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M593,86 L602,86" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- step boxes: row y=60, w=122, h=52, gap 25; fills alternate #eff6ff / #f0f4f8 -->
+  <rect x="25" y="60" width="122" height="52" rx="8" fill="#eff6ff" stroke="#666666" stroke-width="1.5"/>
+  <text x="86" y="80.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">①스코어카드</text>
+  <text x="86" y="98.9" font-size="10" fill="#495057" text-anchor="middle">warp로 축 좁히기</text>
+
+  <rect x="172" y="60" width="122" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="233" y="80.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">②한 창 동시 캡처</text>
+  <text x="233" y="98.9" font-size="10" fill="#495057" text-anchor="middle">probe 스크립트</text>
+
+  <rect x="319" y="60" width="122" height="52" rx="8" fill="#eff6ff" stroke="#666666" stroke-width="1.5"/>
+  <text x="380" y="80.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">③구간 판정 표</text>
+  <text x="380" y="98.9" font-size="10" fill="#495057" text-anchor="middle">관측을 판정으로</text>
+
+  <rect x="466" y="60" width="122" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="527" y="80.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">④결정 실험 1개</text>
+  <text x="527" y="98.9" font-size="10" fill="#495057" text-anchor="middle">A/B 교차 2회 이상</text>
+
+  <rect x="613" y="60" width="122" height="52" rx="8" fill="#eff6ff" stroke="#666666" stroke-width="1.5"/>
+  <text x="674" y="80.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">⑤원복·기록</text>
+  <text x="674" y="98.9" font-size="10" fill="#495057" text-anchor="middle">실험 후 즉시 원복</text>
+
+  <!-- duration labels: bbox top 128.5 keeps 16.5px below box row -->
+  <text x="86" y="136" font-size="10" fill="#495057" text-anchor="middle">10분</text>
+  <text x="233" y="136" font-size="10" fill="#495057" text-anchor="middle">10분</text>
+  <text x="380" y="136" font-size="10" fill="#495057" text-anchor="middle">-</text>
+  <text x="527" y="136" font-size="10" fill="#495057" text-anchor="middle">20분</text>
+  <text x="674" y="136" font-size="10" fill="#495057" text-anchor="middle">-</text>
+
+  <!-- loop ⑤ -> ② via bottom, dashed; risers offset from the duration labels -->
+  <path d="M640,117 C640,152 630,168 600,168 L220,168 C190,168 190,150 190,123" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-purple)"/>
+  <text x="410" y="193" font-size="10" fill="#7c3aed" text-anchor="middle">다음 벽</text>
+</svg>

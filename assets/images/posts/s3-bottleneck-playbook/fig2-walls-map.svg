@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 254" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="254" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">계층 경로와 6가지 벽</text>
+
+  <!-- wall tags: row y=64, h=30; tile the width with 25px gaps -->
+  <rect x="25" y="64" width="122" height="30" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="86" y="82.5" font-size="10" fill="#2563eb" text-anchor="middle" font-weight="bold">CPU 벽</text>
+
+  <rect x="172" y="64" width="122" height="30" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="233" y="82.5" font-size="10" fill="#7c3aed" text-anchor="middle" font-weight="bold">게이트웨이 내부</text>
+
+  <rect x="319" y="64" width="122" height="30" rx="8" fill="#f0f4f8" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="380" y="82.5" font-size="10" fill="#92400e" text-anchor="middle" font-weight="bold">마운트당 메타 한도</text>
+
+  <rect x="466" y="64" width="151" height="30" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="541.5" y="82.5" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">블록 I/O 크기 벽</text>
+
+  <rect x="642" y="64" width="93" height="30" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="688.5" y="82.5" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">미디어 처리량 벽</text>
+
+  <!-- tag-to-layer link lines: 5px clear of both boxes -->
+  <path d="M86,99 L86,117" fill="none" stroke="#999999" stroke-width="1"/>
+  <path d="M233,99 L233,117" fill="none" stroke="#999999" stroke-width="1"/>
+  <path d="M380,99 L380,117" fill="none" stroke="#999999" stroke-width="1"/>
+  <path d="M612,99 L612,117" fill="none" stroke="#999999" stroke-width="1"/>
+  <path d="M690,99 L690,117" fill="none" stroke="#999999" stroke-width="1"/>
+  <path d="M380,179 L380,197" fill="none" stroke="#999999" stroke-width="1"/>
+
+  <!-- layer arrows: y=148, box vertical centre, 5px start / 11px end clearance -->
+  <path d="M152,148 L161,148" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M299,148 L308,148" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M446,148 L455,148" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M587,148 L596,148" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- layer boxes: row y=122, h=52, gap 25; OST narrower, disk wider -->
+  <rect x="25" y="122" width="122" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="86" y="142.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">클라이언트</text>
+  <text x="86" y="160.9" font-size="10" fill="#495057" text-anchor="middle">warp</text>
+
+  <rect x="172" y="122" width="122" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="233" y="142.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">게이트웨이</text>
+  <text x="233" y="160.9" font-size="10" fill="#495057" text-anchor="middle">versitygw</text>
+
+  <rect x="319" y="122" width="122" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="380" y="142.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">클라이언트 스택</text>
+  <text x="380" y="160.9" font-size="10" fill="#495057" text-anchor="middle">mdc · osc</text>
+
+  <rect x="466" y="122" width="116" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="524" y="142.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">OST</text>
+  <text x="524" y="160.9" font-size="10" fill="#495057" text-anchor="middle">obdfilter</text>
+
+  <rect x="607" y="122" width="128" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="671" y="142.9" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">디스크</text>
+  <text x="671" y="160.9" font-size="10" fill="#495057" text-anchor="middle">(ZFS)</text>
+
+  <!-- grant wall tag below the client stack -->
+  <rect x="333" y="202" width="94" height="30" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="380" y="220.5" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">배출(grant) 한도</text>
+</svg>
