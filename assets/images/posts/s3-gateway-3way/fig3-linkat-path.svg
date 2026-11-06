@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 396" width="760">
+  <defs>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="396" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">O_TMPFILE+linkat와 named temp+rename, 두 쓰기 경로</text>
+
+  <!-- column headers -->
+  <text x="194" y="62" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold">기본 쓰기 경로</text>
+  <text x="566" y="62" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">전환한 쓰기 경로</text>
+
+  <!-- left path (slow): x=22, w=344, boxes y=82/146/210/274/338, h=36 -->
+  <rect x="22" y="82" width="344" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="194" y="104.2" font-size="12" fill="#1f2937" text-anchor="middle">S3 PUT</text>
+  <path d="M194,123 L194,135" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <rect x="22" y="146" width="344" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="194" y="168.2" font-size="12" fill="#1f2937" text-anchor="middle">O_TMPFILE 생성</text>
+  <path d="M194,187 L194,199" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <rect x="22" y="210" width="344" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="194" y="232.2" font-size="12" fill="#1f2937" text-anchor="middle">linkat()</text>
+  <path d="M194,251 L194,263" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <rect x="22" y="274" width="344" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="194" y="296.2" font-size="12" fill="#1f2937" text-anchor="middle">ZFS unlinked-set 동기 커밋</text>
+  <path d="M194,315 L194,327" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <rect x="22" y="338" width="344" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="194" y="360.2" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold">linkat() 실측 16.6ms</text>
+
+  <!-- right path (fast): x=394, w=344 -->
+  <rect x="394" y="82" width="344" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="566" y="104.2" font-size="12" fill="#1f2937" text-anchor="middle">S3 PUT</text>
+  <path d="M566,123 L566,135" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="394" y="146" width="344" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="566" y="168.2" font-size="12" fill="#1f2937" text-anchor="middle">named temp 생성</text>
+  <path d="M566,187 L566,199" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="394" y="210" width="344" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="566" y="232.2" font-size="12" fill="#1f2937" text-anchor="middle">rename()</text>
+  <path d="M566,251 L566,263" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="394" y="274" width="344" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="566" y="296.2" font-size="12" fill="#1f2937" text-anchor="middle">커밋 회피</text>
+  <path d="M566,315 L566,327" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="394" y="338" width="344" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="566" y="360.2" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">3.9~10.9배 개선</text>
+</svg>

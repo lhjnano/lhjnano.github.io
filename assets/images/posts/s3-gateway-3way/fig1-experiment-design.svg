@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 356" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="356" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">3원 비교 실험 설계: 동일 하드웨어, 세 가지 배치</text>
+
+  <!-- client box: x=22, y=62, w=716, h=36 -->
+  <rect x="22" y="62" width="716" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="380" y="84.2" font-size="12" fill="#1f2937" text-anchor="middle">minio/warp 클라이언트 (동일 워크스테이션 · 동일 네트워크 경로)</text>
+
+  <!-- client to gateway arrows -->
+  <path d="M130,103 L130,115" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M373,103 L373,115" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M616,103 L616,115" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- gateway boxes: row y=126, h=36, w=216 -->
+  <rect x="22" y="126" width="216" height="36" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="130" y="148.2" font-size="12" fill="#1f2937" text-anchor="middle">① versitygw v1.6.0</text>
+  <rect x="265" y="126" width="216" height="36" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="373" y="148.2" font-size="12" fill="#1f2937" text-anchor="middle">② versitygw v1.6.0</text>
+  <rect x="508" y="126" width="216" height="36" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="616" y="148.2" font-size="12" fill="#1f2937" text-anchor="middle">③ MinIO 자체 빌드</text>
+
+  <!-- gateway to backend arrows -->
+  <path d="M130,167 L130,179" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M373,167 L373,179" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M616,167 L616,179" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- control-group dashed box around ZFS backends of ②③: x=253, y=175, w=483, h=80 -->
+  <rect x="253" y="175" width="483" height="80" rx="10" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+  <!-- backend boxes: row y=190, h=52, w=216 -->
+  <rect x="22" y="190" width="216" height="52" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="130" y="210.35" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">Lustre</text>
+  <text x="130" y="229.35" font-size="10" fill="#495057" text-anchor="middle">MDT mirror 2×150G · OST raidz1</text>
+  <rect x="265" y="190" width="216" height="52" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="373" y="210.35" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">ZFS</text>
+  <text x="373" y="229.35" font-size="10" fill="#495057" text-anchor="middle">raidz1 3×100G</text>
+  <rect x="508" y="190" width="216" height="52" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="616" y="210.35" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">ZFS</text>
+  <text x="616" y="229.35" font-size="10" fill="#495057" text-anchor="middle">raidz1 동일 디스크·동일 속성</text>
+
+  <!-- neutral band: x=22, y=270, w=716, h=36 -->
+  <rect x="22" y="270" width="716" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="380" y="292.2" font-size="12" fill="#2c3e50" text-anchor="middle">동일 VM 템플릿 · 동일 디스크 · 동일 워크로드(warp)</text>
+
+  <!-- control-group annotation under columns ②③ -->
+  <text x="494.5" y="331" font-size="11" fill="#7c3aed" text-anchor="middle">② ③ 대조군: 동일 ZFS 위 소프트웨어만 교체</text>
+</svg>

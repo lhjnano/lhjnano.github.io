@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 246" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="246" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">소형 PUT과 대용량 지속 쓰기의 순서 반전</text>
+
+  <!-- left panel: x=22, y=62, w=327, h=162 -->
+  <rect x="22" y="62" width="327" height="162" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="34" y="82" font-size="13" fill="#2c3e50" font-weight="bold">PUT 4KiB · conc.1 (obj/s)</text>
+
+  <!-- left bars: axis x=148, names end at 136, values right of bar end -->
+  <rect x="148" y="101" width="150" height="20" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="136" y="114.85" font-size="11" fill="#495057" text-anchor="end">MinIO</text>
+  <text x="309" y="114.85" font-size="11" fill="#2563eb" font-weight="bold">283.5</text>
+
+  <rect x="148" y="147" width="69.3" height="20" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="136" y="160.85" font-size="11" fill="#495057" text-anchor="end">VersityGW(Lustre)</text>
+  <text x="228.3" y="160.85" font-size="11" fill="#16a34a" font-weight="bold">131</text>
+
+  <rect x="148" y="193" width="39.7" height="20" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="136" y="206.85" font-size="11" fill="#495057" text-anchor="end">VersityGW(ZFS)</text>
+  <text x="198.7" y="206.85" font-size="11" fill="#dc2626" font-weight="bold">75</text>
+
+  <!-- inversion emphasis between panels -->
+  <text x="393" y="160.55" font-size="13" fill="#dc2626" text-anchor="middle" font-weight="bold">순서 반전</text>
+
+  <!-- right panel: x=437, y=62, w=301, h=162 -->
+  <rect x="437" y="62" width="301" height="162" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="449" y="82" font-size="13" fill="#2c3e50" font-weight="bold">PUT 16MiB · 180s (MiB/s)</text>
+
+  <!-- right bars: axis x=563, names end at 551, values right of bar end -->
+  <rect x="563" y="101" width="130" height="20" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="551" y="114.85" font-size="11" fill="#495057" text-anchor="end">VersityGW(Lustre)</text>
+  <text x="704" y="114.85" font-size="11" fill="#16a34a" font-weight="bold">89.2</text>
+
+  <rect x="563" y="147" width="119.4" height="20" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="551" y="160.85" font-size="11" fill="#495057" text-anchor="end">VersityGW(ZFS)</text>
+  <text x="693.4" y="160.85" font-size="11" fill="#92400e" font-weight="bold">81.9</text>
+
+  <rect x="563" y="193" width="64" height="20" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="551" y="206.85" font-size="11" fill="#495057" text-anchor="end">MinIO</text>
+  <text x="638" y="206.85" font-size="11" fill="#2563eb" font-weight="bold">43.9</text>
+</svg>
