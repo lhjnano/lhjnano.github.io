@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 314" width="760">
+  <defs>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="314" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">PMTU 블랙홀: 작은 패킷은 통과, 큰 패킷은 갇힘</text>
+
+  <!-- small-packet lane: app top center -> server top center, passes over NAT -->
+  <path d="M 100,165 C 100,60 633,60 633,159" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="380" y="61" font-size="11" fill="#16a34a" text-anchor="middle">작은 패킷(헬스체크)</text>
+
+  <!-- big-packet lane: app top -> NAT top, stops there -->
+  <path d="M 154,165 C 154,122 460,122 460,159" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+  <text x="460" y="120" font-size="11" fill="#dc2626" text-anchor="middle">큰 패킷(스트리밍)</text>
+
+  <!-- actor row: tops y=170, h=44, gaps 28px -->
+  <rect x="22" y="170" width="210" height="44" rx="9" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="127" y="196" font-size="12" fill="#1f2937" text-anchor="middle">WSL2 앱</text>
+  <rect x="260" y="170" width="240" height="44" rx="9" fill="#f0f4f8" stroke="#666666"/>
+  <text x="380" y="196" font-size="12" fill="#1f2937" text-anchor="middle">Hyper-V vSwitch NAT</text>
+  <rect x="528" y="170" width="210" height="44" rx="9" fill="#f0f4f8" stroke="#666666"/>
+  <text x="633" y="196" font-size="12" fill="#1f2937" text-anchor="middle">외부 서버</text>
+
+  <!-- ICMP frag needed tries to return, gets blocked: dashed hook + cross -->
+  <path d="M 380,219 C 380,250 300,257 245,257" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-red)"/>
+  <line x1="223" y1="250" x2="237" y2="264" stroke="#dc2626" stroke-width="2.5"/>
+  <line x1="237" y1="250" x2="223" y2="264" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="170" y="257" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="bold">ICMP 차단</text>
+  <text x="310" y="283" font-size="11" fill="#dc2626" text-anchor="middle">ICMP frag needed</text>
+
+  <!-- result: row bottom 214 -> result top 242, gap 28px -->
+  <rect x="430" y="242" width="308" height="52" rx="9" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="584" y="263" font-size="12" fill="#dc2626" text-anchor="middle">커넥션은 살아있는데</text>
+  <text x="584" y="281" font-size="12" fill="#dc2626" text-anchor="middle">데이터는 안 흐름 → 타임아웃</text>
+</svg>

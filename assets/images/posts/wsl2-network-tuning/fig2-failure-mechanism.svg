@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 412" width="760">
+  <defs>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#fbbf24"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="412" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">v1 실패 원인 2개의 구조</text>
+
+  <!-- common symptom: y=60..104 -->
+  <rect x="230" y="60" width="300" height="44" rx="9" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="380" y="86" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold">API 호출 반복 타임아웃</text>
+
+  <!-- fan-out to the two cause chains -->
+  <path d="M 380,109 C 380,125 200,105 200,121" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <path d="M 380,109 C 380,125 560,105 560,121" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+
+  <!-- cause 1 chain (buffer): x=22..366, rows at y=132/204/276, gaps 28px -->
+  <rect x="22" y="132" width="344" height="44" rx="9" fill="#f0f4f8" stroke="#fbbf24"/>
+  <text x="194" y="158" font-size="12" fill="#1f2937" text-anchor="middle">TCP 버퍼 128MB</text>
+  <path d="M 200,181 L 200,193" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <rect x="22" y="204" width="344" height="44" rx="9" fill="#f0f4f8" stroke="#fbbf24"/>
+  <text x="194" y="230" font-size="12" fill="#1f2937" text-anchor="middle">커널 메모리 부족 (4GB WSL2, 12+ 커넥션)</text>
+  <path d="M 200,253 L 200,265" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <rect x="22" y="276" width="344" height="44" rx="9" fill="#f0f4f8" stroke="#fbbf24"/>
+  <text x="194" y="302" font-size="12" fill="#1f2937" text-anchor="middle">소켓 강제 드랍</text>
+
+  <!-- cause 2 chain (PMTU blackhole): x=394..738 -->
+  <rect x="394" y="132" width="344" height="44" rx="9" fill="#f0f4f8" stroke="#7c3aed"/>
+  <text x="566" y="158" font-size="12" fill="#1f2937" text-anchor="middle">MTU probing=1</text>
+  <path d="M 560,181 L 560,193" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <rect x="394" y="204" width="344" height="44" rx="9" fill="#f0f4f8" stroke="#7c3aed"/>
+  <text x="566" y="230" font-size="12" fill="#1f2937" text-anchor="middle">WSL2 NAT에서 ICMP 차단</text>
+  <path d="M 560,253 L 560,265" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <rect x="394" y="276" width="344" height="44" rx="9" fill="#f0f4f8" stroke="#7c3aed"/>
+  <text x="566" y="302" font-size="12" fill="#1f2937" text-anchor="middle">PMTU 블랙홀: 큰 패킷만 갇힘</text>
+
+  <!-- both chains resolve into v2: row3 bottom 320 -> conclusion top 348, gap 28px -->
+  <path d="M 200,325 L 200,337" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <path d="M 560,325 L 560,337" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+  <rect x="130" y="348" width="500" height="44" rx="9" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="380" y="374" font-size="12" fill="#16a34a" text-anchor="middle">v2: 두 항목 원복 + BBR·fq·16MB·RPS 유지 → 타임아웃 0건</text>
+</svg>
