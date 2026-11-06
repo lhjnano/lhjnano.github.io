@@ -18,9 +18,11 @@ permalink: /about/
 
 최근에 ZFS/Lustre 기반 듀얼컨트롤러 스케일 아웃 스토리지의 백엔드 팀으로 자리를 옮겼습니다. LVM 중심이던 환경에서 ZFS와 Lustre로 무대가 바뀌었고, API 백엔드와 클러스터 관리를 개발하고 있습니다.
 
-최근에는 볼륨 생성 중 간헐적으로 `EBUSY`가 뜨는 문제를 추적하다가, OpenZFS 커널 내부의 잠금 레이스까지 파고들어갔습니다. 결국 업스트림에 [PR #18611](https://github.com/openzfs/zfs/pull/18611)로 패치를 기여하게 됐는데, 버그 증상부터 잠금 계층 분석, 패치 작성, 리뷰 통과까지 꽤 긴 여정이었습니다.
+최근에는 볼륨 생성 중 간헐적으로 `EBUSY`가 뜨는 문제를 추적하다가, OpenZFS 커널 내부의 잠금 레이스까지 파고들어갔습니다. 결국 업스트림에 [PR #18611](https://github.com/openzfs/zfs/pull/18611)로 패치를 기여했고 master에 병합됐는데, 버그 증상부터 잠금 계층 분석, 패치 작성, 리뷰 통과까지 꽤 긴 여정이었습니다.
 
 그 여정의 연장선에서, `zpool export`를 실행할 때 마운트된 zvol 블록 장치가 있으면 명령이 D-state에 빠져 **재부팅 외에는 복구할 수 없는** hang을 잡았습니다. 마운트된 ZFS 데이터셋은 이미 `EBUSY`로 막아두고 있었는데, zvol은 그 검사가 빠져 있어 `zvol_remove_minors_impl()`이 open count가 0이 될 때까지 무한 대기한 것이 원인이었습니다. 비차단(non-blocking) 검사를 `spa_export_common()`에 추가해 zvol이 사용 중이면 즉시 `EBUSY`를 반환하도록 고쳤고, 이 패치는 [PR #18841](https://github.com/openzfs/zfs/pull/18841)로 **OpenZFS master에 병합**되었습니다.
+
+백엔드 팀에서 쓰는 S3 게이트웨이인 versitygw에도 기여가 이어졌습니다. 버전 관리가 설정되지 않은 버킷의 조회가 빈 설정을 반환하도록 고친 [PR #2293](https://github.com/versity/versitygw/pull/2293)에 이어, 게이트웨이 성능 병목을 조사하다 fallocate가 지원되지 않는 백엔드에서 업로드마다 실패 왕복이 붙는다는 것을 찾아내고 경로별로 스킵하는 [PR #2616](https://github.com/versity/versitygw/pull/2616)을 올렸습니다. 둘 다 병합됐고, 그 조사 과정은 [S3 게이트웨이 병목 분석 플레이북](/2026/11/06/S3-Gateway-Bottleneck-Playbook/)으로 정리해 뒀습니다. 지금은 임시 파일 디렉터리 분산을 다루는 [PR #2460](https://github.com/versity/versitygw/pull/2460)의 리뷰가 진행 중입니다.
 
 ![Career Evolution](/assets/images/about/career-timeline.svg)
 
