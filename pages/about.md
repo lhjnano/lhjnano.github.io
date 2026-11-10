@@ -24,6 +24,8 @@ permalink: /about/
 
 백엔드 팀에서 쓰는 S3 게이트웨이인 versitygw에도 기여가 이어졌습니다. 버전 관리가 설정되지 않은 버킷의 조회가 빈 설정을 반환하도록 고친 [PR #2293](https://github.com/versity/versitygw/pull/2293)에 이어, 게이트웨이 성능 병목을 조사하다 fallocate가 지원되지 않는 백엔드에서 업로드마다 실패 왕복이 붙는다는 것을 찾아내고 경로별로 스킵하는 [PR #2616](https://github.com/versity/versitygw/pull/2616)을 올렸습니다. 둘 다 병합됐고, 그 조사 과정은 [S3 게이트웨이 병목 분석 플레이북](/2026/11/06/S3-Gateway-Bottleneck-Playbook/)으로 정리해 뒀습니다. 지금은 임시 파일 디렉터리 분산을 다루는 [PR #2460](https://github.com/versity/versitygw/pull/2460)의 리뷰가 진행 중입니다.
 
+터미널 쪽에서도 한 건 보냈습니다. Mattermost 터미널 클라이언트 matterhorn에서 /sh 스크립트가 파이프 버퍼(64KB)보다 큰 출력을 내면 자식 프로세스는 쓰기에, 부모는 종료 대기에 서로 묶여 영원히 끝나지 않는 행업을 잡았습니다. 출력 스트림을 읽는 스레드를 기다림보다 먼저 띄우는 수정을 올려 [PR #868](https://github.com/matterhorn-chat/matterhorn/pull/868)로 병합됐습니다.
+
 ![Career Evolution](/assets/images/about/career-timeline.svg)
 
 ## 왜 블로그를 쓰는가
