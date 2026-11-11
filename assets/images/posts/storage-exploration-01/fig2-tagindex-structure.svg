@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 305" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="305" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">태그 색인의 뼈대: 한 점의 훅과 ZAP 트리</text>
+
+  <!-- left panel: hook location -->
+  <rect x="22" y="62" width="340" height="221" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="34" y="82" font-size="13" fill="#2c3e50" font-weight="bold">훅 위치: 세 경로가 만나는 한 점</text>
+
+  <!-- three entry paths: row y=104, w=88 -->
+  <rect x="34" y="104" width="88" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="78" y="125.85" font-size="11" fill="#1f2937" text-anchor="middle">Linux</text>
+  <rect x="147" y="104" width="88" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="191" y="125.85" font-size="11" fill="#1f2937" text-anchor="middle">FreeBSD</text>
+  <rect x="260" y="104" width="88" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="304" y="125.85" font-size="11" fill="#1f2937" text-anchor="middle">ZIL 재생</text>
+
+  <path d="M78,145 L78,157" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M191,145 L191,157" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M304,145 L304,157" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- single hook box: x=34, y=168, w=314 -->
+  <rect x="34" y="168" width="314" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="46" y="190.2" font-size="12" fill="#1f2937" font-weight="bold">zfs_sa_set_xattr()</text>
+  <text x="336" y="190.2" font-size="12" fill="#495057" text-anchor="end">단일 훅</text>
+
+  <text x="192" y="246" font-size="11" fill="#495057" text-anchor="middle">세 경로 모두 여기를 지나므로 분기 불필요</text>
+
+  <!-- right panel: on-disk tree -->
+  <rect x="398" y="62" width="340" height="221" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="410" y="82" font-size="13" fill="#2c3e50" font-weight="bold">온디스크: 신규 DMU 객체 타입 없음</text>
+
+  <rect x="513" y="104" width="110" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="568" y="126.2" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">마스터노드 ZAP</text>
+
+  <path d="M568,145 L568,157" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="428" y="168" width="280" height="36" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="568" y="190.2" font-size="12" fill="#1f2937" text-anchor="middle">TAG_INDEX 헤더 ZAP</text>
+
+  <path d="M568,209 L568,221" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="428" y="232" width="280" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="568" y="254.2" font-size="12" fill="#1f2937" text-anchor="middle">태그별 포스팅 ZAP · 정수 키</text>
+</svg>

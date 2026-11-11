@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 365" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="365" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">vouch: 엔진 하나에 계약 세 개</text>
+
+  <!-- left: vouch engine -->
+  <rect x="25" y="64" width="170" height="280" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="37" y="84" font-size="13" fill="#2c3e50" font-weight="bold">vouch 엔진</text>
+
+  <rect x="35" y="104" width="150" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="110" y="126" font-size="11" fill="#1f2937" text-anchor="middle">저널 접기 체크포인트</text>
+
+  <rect x="35" y="166" width="150" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="110" y="188" font-size="11" fill="#1f2937" text-anchor="middle">C 데몬 2개</text>
+
+  <rect x="35" y="228" width="150" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="110" y="250" font-size="11" fill="#1f2937" text-anchor="middle">32B 헤더 · 메시지 10종</text>
+
+  <rect x="35" y="290" width="150" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="110" y="312" font-size="11" fill="#1f2937" text-anchor="middle">HMAC 상호 인증</text>
+
+  <!-- engine to adapters -->
+  <path d="M200,88 L279,88" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- contract row labels -->
+  <text x="242" y="164" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">채널</text>
+  <text x="242" y="234" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">베이스</text>
+  <text x="242" y="304" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">실체화</text>
+
+  <!-- blk adapter column -->
+  <rect x="290" y="64" width="210" height="48" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="302" y="94" font-size="12" fill="#1f2937" font-weight="bold">vouch blk</text>
+  <rect x="415" y="73" width="70" height="34" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="450" y="94" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">무패치</text>
+
+  <rect x="290" y="138" width="210" height="44" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="395" y="164" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="bold">저널 재생</text>
+
+  <rect x="290" y="208" width="210" height="44" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="395" y="234" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="bold">체크포인트</text>
+
+  <rect x="290" y="278" width="210" height="44" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="395" y="304" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="bold">fs 복구</text>
+
+  <!-- zfs adapter column -->
+  <rect x="525" y="64" width="210" height="48" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="537" y="94" font-size="12" fill="#1f2937" font-weight="bold">vouch zfs</text>
+  <rect x="645" y="73" width="70" height="34" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="680" y="94" font-size="11" fill="#92400e" text-anchor="middle" font-weight="bold">2단계</text>
+
+  <rect x="525" y="138" width="210" height="44" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="630" y="164" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="bold">ZIL 장치</text>
+
+  <rect x="525" y="208" width="210" height="44" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="630" y="234" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="bold">증분 send</text>
+
+  <rect x="525" y="278" width="210" height="44" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="630" y="304" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="bold">재생 ioctl</text>
+</svg>

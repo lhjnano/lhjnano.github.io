@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 392" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="392" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">RPO 스펙트럼과 두 개의 질문</text>
+
+  <!-- spectrum row: three options -->
+  <rect x="25" y="64" width="220" height="54" rx="8" fill="#e2e8f0" stroke="#999999" stroke-width="1.5"/>
+  <text x="37" y="86" font-size="12" fill="#1f2937" font-weight="bold">전통 동기 복제</text>
+  <text x="37" y="104" font-size="11" fill="#495057">RPO 0 · 성능 포기</text>
+
+  <rect x="270" y="64" width="220" height="54" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="282" y="86" font-size="12" fill="#1f2937" font-weight="bold">vouch 저널 먼저</text>
+  <text x="282" y="104" font-size="11" fill="#495057">RPO 0 · 성능 유지</text>
+
+  <rect x="515" y="64" width="220" height="54" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="527" y="86" font-size="12" fill="#92400e" font-weight="bold">비동기 스냅샷 증분</text>
+  <text x="527" y="104" font-size="11" fill="#92400e">RPO 수 초 · 빠른 전송</text>
+
+  <!-- leader lines down to each option's position on the spectrum axis -->
+  <path d="M135,123 Q95,137 71,143" fill="none" stroke="#999999" stroke-width="1.5"/>
+  <path d="M380,123 Q250,144 155,143" fill="none" stroke="#16a34a" stroke-width="1.5"/>
+  <path d="M625,123 Q640,133 648,144" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+
+  <!-- spectrum axis -->
+  <path d="M45,152 L715,152" fill="none" stroke="#666666" stroke-width="1.5"/>
+  <path d="M45,146 L45,158" fill="none" stroke="#666666" stroke-width="1.5"/>
+  <path d="M715,146 L715,158" fill="none" stroke="#666666" stroke-width="1.5"/>
+  <circle cx="65" cy="152" r="4.5" fill="#999999"/>
+  <circle cx="148" cy="152" r="4.5" fill="#16a34a"/>
+  <circle cx="650" cy="152" r="4.5" fill="#fbbf24"/>
+  <text x="45" y="180" font-size="12" fill="#495057" text-anchor="start" font-weight="bold">RPO 0</text>
+  <text x="715" y="180" font-size="12" fill="#495057" text-anchor="end" font-weight="bold">수 초</text>
+
+  <!-- two questions panel -->
+  <rect x="25" y="240" width="710" height="130" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="37" y="262" font-size="13" fill="#2c3e50" font-weight="bold">결이 다른 두 질문</text>
+
+  <rect x="42" y="286" width="325" height="60" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="204.5" y="311" font-size="11" fill="#495057" text-anchor="middle">관측 · 1편</text>
+  <text x="204.5" y="330" font-size="13" fill="#1f2937" text-anchor="middle" font-weight="bold">무엇이 변했는가</text>
+
+  <rect x="393" y="286" width="325" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="555.5" y="311" font-size="11" fill="#495057" text-anchor="middle">DR · 이번 편</text>
+  <text x="555.5" y="330" font-size="13" fill="#7c3aed" text-anchor="middle" font-weight="bold">크래시 순간 무엇을 잃지 않을 것인가</text>
+</svg>

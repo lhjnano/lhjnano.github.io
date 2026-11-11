@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 246" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="246" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">테스트 31건에서 124건까지</text>
+
+  <!-- start bar: 31 tests -->
+  <rect x="25" y="64" width="177" height="50" rx="8" fill="#dddddd" stroke="#999999" stroke-width="1.5"/>
+  <text x="113" y="93" font-size="11" fill="#495057" text-anchor="middle" font-weight="bold">시작 31건</text>
+  <text x="218" y="93" font-size="11" fill="#999999">출발점 · zfs-dr 시절</text>
+
+  <!-- growth arrow -->
+  <path d="M113,119 L113,133" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- stacked bar: 124 tests in 5 suites -->
+  <path d="M25,144 H82.3 V194 H25 Z" fill="#2563eb"/>
+  <text x="53.6" y="158" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">unit</text>
+  <text x="53.6" y="185" font-size="11" fill="#ffffff" text-anchor="middle">10건</text>
+
+  <path d="M82.3,144 H196.8 V194 H82.3 Z" fill="#16a34a"/>
+  <text x="139.5" y="158" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">apply</text>
+  <text x="139.5" y="185" font-size="11" fill="#ffffff" text-anchor="middle">20건</text>
+
+  <path d="M196.8,144 H448.7 V194 H196.8 Z" fill="#7c3aed"/>
+  <text x="322.7" y="158" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">net</text>
+  <text x="322.7" y="185" font-size="11" fill="#ffffff" text-anchor="middle">44건</text>
+
+  <path d="M448.7,144 H500.2 V194 H448.7 Z" fill="#fbbf24"/>
+  <text x="474.4" y="158" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="bold">barrier</text>
+  <text x="474.4" y="185" font-size="11" fill="#1f2937" text-anchor="middle">9건</text>
+
+  <path d="M500.2,144 H735 V194 H500.2 Z" fill="#999999"/>
+  <text x="617.6" y="158" font-size="11" fill="#1f2937" text-anchor="middle" font-weight="bold">hook</text>
+  <text x="617.6" y="185" font-size="11" fill="#1f2937" text-anchor="middle">41건</text>
+
+  <!-- rule label -->
+  <text x="380" y="220" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">규칙: 새 동작은 시험과 함께, 수정 전 빨강 확인</text>
+</svg>

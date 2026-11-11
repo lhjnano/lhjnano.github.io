@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 243" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="243" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">A/B 측정 교정: 가짜 비용이 ±1%로 수렴</text>
+
+  <!-- left panel: fixed order, no gap (fake) -->
+  <rect x="22" y="62" width="340" height="159" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="34" y="82" font-size="13" fill="#2c3e50" font-weight="bold">고정 순서 · 무간격 (가짜)</text>
+
+  <text x="34" y="117.85" font-size="11" fill="#334155">순서 1</text>
+  <rect x="90" y="104" width="131" height="20" rx="3" fill="#dc2626"/>
+  <text x="233" y="117.85" font-size="11" fill="#dc2626" font-weight="bold">-10%</text>
+
+  <text x="34" y="163.85" font-size="11" fill="#334155">순서 2</text>
+  <rect x="90" y="150" width="210" height="20" rx="3" fill="#dc2626"/>
+  <text x="312" y="163.85" font-size="11" fill="#dc2626" font-weight="bold">-16%</text>
+
+  <text x="34" y="194" font-size="11" fill="#dc2626">원인: 앞 벤치 txg sync가 뒤에 겹침</text>
+
+  <!-- right panel: interleaved + synced gap (real); rows offset half a step
+       so the two panels' bars are not read as one chart row -->
+  <rect x="398" y="62" width="340" height="159" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="410" y="82" font-size="13" fill="#2c3e50" font-weight="bold">교차 + 동기 간격 (진짜)</text>
+
+  <text x="410" y="130.85" font-size="11" fill="#334155">순서 1</text>
+  <rect x="466" y="117" width="13" height="20" rx="3" fill="#16a34a"/>
+  <text x="491" y="130.85" font-size="11" fill="#16a34a" font-weight="bold">+1%</text>
+
+  <text x="410" y="176.85" font-size="11" fill="#334155">순서 2</text>
+  <rect x="466" y="163" width="13" height="20" rx="3" fill="#16a34a"/>
+  <text x="491" y="176.85" font-size="11" fill="#16a34a" font-weight="bold">-1%</text>
+
+  <text x="410" y="207" font-size="11" fill="#16a34a">교차에도 ±1% 수렴</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 424" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+    <marker id="arrowGrey" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#999999"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="16" markerHeight="16" refX="4" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L16,8 L0,16 L4,8 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 L3,6 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="424" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">저널 먼저: 동기로 굳히는 것은 가벼운 쪽</text>
+
+  <!-- participants -->
+  <rect x="22" y="62" width="160" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="102" y="84.2" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">앱 쓰기</text>
+  <rect x="207" y="62" width="160" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="287" y="84.2" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">로컬 ZIL</text>
+  <rect x="392" y="62" width="160" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="472" y="84.2" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">원격 저널</text>
+  <rect x="577" y="62" width="160" height="36" rx="8" fill="#e2e8f0" stroke="#999999" stroke-width="1.5"/>
+  <text x="657" y="84.2" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">데이터 본체</text>
+
+  <!-- lifelines -->
+  <path d="M102,98 L102,308" fill="none" stroke="#dddddd" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <path d="M287,98 L287,308" fill="none" stroke="#dddddd" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <path d="M472,98 L472,308" fill="none" stroke="#dddddd" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <path d="M657,98 L657,308" fill="none" stroke="#dddddd" stroke-width="1.2" stroke-dasharray="4,4"/>
+
+  <!-- message 1: app write to local ZIL -->
+  <text x="193" y="127" font-size="11" fill="#495057" text-anchor="middle">쓰기 · 순서와 위치만</text>
+  <path d="M110,140 L276,140" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- message 2: journal first, synchronous, thick green -->
+  <text x="372" y="178" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">저널 먼저 · 동기 전송</text>
+  <path d="M295,196 L455,196" fill="none" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <text x="372" y="218" font-size="11" fill="#495057" text-anchor="middle">ACK 기다림 · 여기서 RPO 0</text>
+
+  <!-- message 3: data fold, asynchronous, dashed grey -->
+  <text x="564.5" y="238" font-size="11" fill="#495057" text-anchor="middle">무겁지만 나중에 · 비동기</text>
+  <path d="M295,252 L646,252" fill="none" stroke="#999999" stroke-width="1.5" stroke-dasharray="7,5" marker-end="url(#arrowGrey)"/>
+
+  <!-- crash point on the local node -->
+  <path d="M287,276 L297,288 L291,289 L299,302 L284,292 L290,291 z" fill="#dc2626"/>
+  <text x="309" y="292" font-size="12" fill="#dc2626" text-anchor="start" font-weight="bold">크래시</text>
+
+  <!-- recovery: replay the remote journal -->
+  <rect x="350" y="318" width="385" height="84" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="362" y="334" font-size="13" fill="#2c3e50" font-weight="bold">크래시 뒤</text>
+  <path d="M287,304 C287,336 322,372 351,372" fill="none" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <rect x="365" y="354" width="356" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="543" y="376.2" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">원격 저널 재생으로 복구 · RPO 0</text>
+</svg>

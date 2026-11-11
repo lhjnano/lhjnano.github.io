@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 495" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="495" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">zfs-dr 도구의 구성</text>
+
+  <!-- row 1: data-path subcommands -->
+  <rect x="25" y="64" width="158" height="52" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="37" y="85" font-size="12" fill="#2563eb" font-weight="bold">slog</text>
+  <text x="37" y="103" font-size="11" fill="#495057">nbdkit 이중 기록</text>
+
+  <rect x="209" y="64" width="158" height="52" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="221" y="85" font-size="12" fill="#2563eb" font-weight="bold">journald</text>
+  <text x="221" y="103" font-size="11" fill="#495057">DR 기록장</text>
+
+  <rect x="393" y="64" width="158" height="52" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="405" y="85" font-size="12" fill="#2563eb" font-weight="bold">extract</text>
+  <text x="405" y="103" font-size="11" fill="#495057">ZIL 블록 추출</text>
+
+  <rect x="577" y="64" width="158" height="52" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="589" y="85" font-size="12" fill="#2563eb" font-weight="bold">sync</text>
+  <text x="589" y="103" font-size="11" fill="#495057">증분 send</text>
+
+  <!-- center: zdr CLI -->
+  <rect x="280" y="141" width="200" height="56" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="292" y="164" font-size="12" fill="#2563eb" font-weight="bold">zdr CLI</text>
+  <text x="292" y="182" font-size="11" fill="#495057">zfs-dr 진입점</text>
+
+  <!-- row 2: operation subcommands -->
+  <rect x="25" y="222" width="158" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="37" y="243" font-size="12" fill="#1f2937" font-weight="bold">failover</text>
+  <text x="37" y="261" font-size="11" fill="#495057">절체 · 승격</text>
+
+  <rect x="209" y="222" width="158" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="221" y="243" font-size="12" fill="#1f2937" font-weight="bold">failback</text>
+  <text x="221" y="261" font-size="11" fill="#495057">복귀</text>
+
+  <rect x="393" y="222" width="158" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="405" y="243" font-size="12" fill="#1f2937" font-weight="bold">points</text>
+  <text x="405" y="261" font-size="11" fill="#495057">복원 지점 목록</text>
+
+  <rect x="577" y="222" width="158" height="52" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="589" y="243" font-size="12" fill="#1f2937" font-weight="bold">config</text>
+  <text x="589" y="261" font-size="11" fill="#495057">설정 관리</text>
+
+  <!-- dataset requirement tags -->
+  <rect x="25" y="300" width="158" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="104" y="322" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">데이터셋 요건</text>
+
+  <rect x="209" y="300" width="158" height="36" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="288" y="322" font-size="11" fill="#92400e" text-anchor="middle">sync=always</text>
+
+  <rect x="393" y="300" width="158" height="36" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="472" y="322" font-size="11" fill="#92400e" text-anchor="middle">logbias=latency</text>
+
+  <rect x="577" y="300" width="158" height="36" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="656" y="322" font-size="11" fill="#92400e" text-anchor="middle">zdr:replicate=on</text>
+
+  <!-- packaging strip -->
+  <rect x="25" y="362" width="710" height="112" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="37" y="380" font-size="13" fill="#2c3e50" font-weight="bold">패키징 · 운영</text>
+
+  <rect x="42" y="402" width="150" height="42" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="117" y="427" font-size="12" fill="#1f2937" text-anchor="middle">systemd 유닛 4종</text>
+
+  <rect x="217" y="402" width="150" height="42" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="292" y="427" font-size="12" fill="#1f2937" text-anchor="middle">설정 파일</text>
+
+  <rect x="392" y="402" width="150" height="42" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="467" y="427" font-size="12" fill="#1f2937" text-anchor="middle">RPM spec</text>
+
+  <rect x="567" y="402" width="150" height="42" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="642" y="427" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">CI · rocky8</text>
+</svg>

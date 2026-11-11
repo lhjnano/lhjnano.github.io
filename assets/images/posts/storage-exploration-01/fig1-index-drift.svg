@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 305" width="760">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#666666"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="305" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">왜 크래시 뒤에 색인은 거짓말을 하는가</text>
+
+  <!-- left panel: separate transactions -->
+  <rect x="22" y="62" width="340" height="221" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="34" y="82" font-size="13" fill="#2c3e50" font-weight="bold">외부 인덱스(기존)</text>
+
+  <rect x="50" y="104" width="190" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="62" y="126.2" font-size="12" fill="#1f2937">파일 write 커밋</text>
+  <text x="228" y="126.2" font-size="12" fill="#495057" text-anchor="end">tx 1</text>
+
+  <rect x="50" y="168" width="190" height="36" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="62" y="190.2" font-size="12" fill="#1f2937">색인 갱신 커밋</text>
+  <text x="228" y="190.2" font-size="12" fill="#495057" text-anchor="end">tx 2</text>
+
+  <!-- crash point between the two commits -->
+  <path d="M274,142 L262,154 L268,154 L262,164 L274,151 L268,151 z" fill="#dc2626"/>
+  <text x="292" y="158" font-size="11" fill="#dc2626" font-weight="bold">크래시</text>
+
+  <path d="M145,209 L145,221" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="50" y="232" width="280" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="190" y="254.2" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="bold">크래시 뒤: 둘 중 하나만 생존</text>
+
+  <!-- right panel: one transaction -->
+  <rect x="398" y="62" width="340" height="221" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="410" y="82" font-size="13" fill="#2c3e50" font-weight="bold">트랜잭션 안(목표)</text>
+
+  <rect x="428" y="104" width="280" height="100" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="440" y="124" font-size="11" fill="#334155">하나의 트랜잭션 · 같은 txg</text>
+
+  <rect x="440" y="143" width="114" height="36" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="497" y="165.2" font-size="12" fill="#1f2937" text-anchor="middle">파일 write</text>
+  <rect x="582" y="143" width="114" height="36" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="639" y="165.2" font-size="12" fill="#1f2937" text-anchor="middle">색인 갱신</text>
+
+  <path d="M568,209 L568,221" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="428" y="232" width="280" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="568" y="254.2" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">같은 txg 커밋 · 함께 생존</text>
+</svg>

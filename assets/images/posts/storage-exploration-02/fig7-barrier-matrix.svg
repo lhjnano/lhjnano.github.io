@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 613" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="613" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">장벽 6종 × 전원 차단 매트릭스</text>
+
+  <!-- header row -->
+  <rect x="25" y="64" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="135" y="86" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">시스템 콜</text>
+
+  <rect x="271" y="64" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="381" y="86" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">크래시 조건</text>
+
+  <rect x="517" y="64" width="218" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="626" y="86" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">결과</text>
+
+  <!-- fsync -->
+  <rect x="25" y="125" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="135" y="147" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">fsync</text>
+
+  <rect x="271" y="125" width="220" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="381" y="147" font-size="12" fill="#dc2626" text-anchor="middle">전원 차단</text>
+
+  <rect x="517" y="125" width="218" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="626" y="147" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">일치 ✓</text>
+
+  <!-- fdatasync -->
+  <rect x="25" y="186" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="135" y="208" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">fdatasync</text>
+
+  <rect x="271" y="186" width="220" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="381" y="208" font-size="12" fill="#dc2626" text-anchor="middle">전원 차단</text>
+
+  <rect x="517" y="186" width="218" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="626" y="208" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">일치 ✓</text>
+
+  <!-- O_SYNC -->
+  <rect x="25" y="247" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="135" y="269" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">O_SYNC</text>
+
+  <rect x="271" y="247" width="220" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="381" y="269" font-size="12" fill="#dc2626" text-anchor="middle">전원 차단</text>
+
+  <rect x="517" y="247" width="218" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="626" y="269" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">일치 ✓</text>
+
+  <!-- O_DSYNC -->
+  <rect x="25" y="308" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="135" y="330" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">O_DSYNC</text>
+
+  <rect x="271" y="308" width="220" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="381" y="330" font-size="12" fill="#dc2626" text-anchor="middle">전원 차단</text>
+
+  <rect x="517" y="308" width="218" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="626" y="330" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">일치 ✓</text>
+
+  <!-- RWF_DSYNC -->
+  <rect x="25" y="369" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="135" y="391" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">RWF_DSYNC</text>
+
+  <rect x="271" y="369" width="220" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="381" y="391" font-size="12" fill="#dc2626" text-anchor="middle">전원 차단</text>
+
+  <rect x="517" y="369" width="218" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="626" y="391" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">일치 ✓</text>
+
+  <!-- msync -->
+  <rect x="25" y="430" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="135" y="452" font-size="12" fill="#1f2937" text-anchor="middle" font-weight="bold">msync</text>
+
+  <rect x="271" y="430" width="220" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="381" y="452" font-size="12" fill="#dc2626" text-anchor="middle">전원 차단</text>
+
+  <rect x="517" y="430" width="218" height="36" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="626" y="452" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">일치 ✓</text>
+
+  <!-- no-barrier write row -->
+  <rect x="25" y="491" width="220" height="36" rx="8" fill="#f0f4f8" stroke="#999999" stroke-width="1.5"/>
+  <text x="135" y="513" font-size="12" fill="#495057" text-anchor="middle" font-weight="bold">무장벽 쓰기</text>
+
+  <rect x="271" y="491" width="220" height="36" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="381" y="513" font-size="12" fill="#dc2626" text-anchor="middle">전원 차단</text>
+
+  <rect x="517" y="491" width="218" height="36" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="626" y="513" font-size="12" fill="#92400e" text-anchor="middle" font-weight="bold">활동기록 잔류 확인</text>
+
+  <!-- T1~T6 campaign strip -->
+  <rect x="25" y="552" width="710" height="40" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="380" y="576" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="bold">장애 캠페인 T1~T6 · 전항목 통과</text>
+</svg>
