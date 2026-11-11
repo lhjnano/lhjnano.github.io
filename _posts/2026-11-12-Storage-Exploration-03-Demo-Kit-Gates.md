@@ -20,7 +20,7 @@ toc_sticky: true
 - 키트 완성: setup, replicate, failover, failback 스크립트와 런북, 오프라인 번들
 - 시나리오 8종 통과: 부하 중 증분, 전송 중 kill, 외부 쓰기 거부, 짝 컨트롤러 전환까지
 - 관문 여섯 개: 수요자, 팀 자산, 백엔드 양쪽, 유지보수 담당자, 무패치 경로, 완료 기준
-- 정리: 기술 검증 습관 11개는 있었다. 도입 관문을 받쳐 주는 습관은 없었다. 그래서 6개를 더 만든다
+- 정리: 기술 검증 습관 11개는 있었지만 도입 관문을 받쳐 주는 습관은 없었다
 
 ## 1. 시연 키트: 48시간의 결정들
 
@@ -83,7 +83,7 @@ vouch는 로드맵에 자리를 등록해 뒀다. 시연 키트는 채택 검토
 
 ## 참고자료
 
-- 1편 [스토리지 탐구: 검색은 왜 원본 트랜잭션 밖에 있나](/2026/11/12/Storage-Exploration-01-Search-Stream/)
-- 2편 [스토리지 탐구: RPO 0와 싸우는 법](/2026/11/12/Storage-Exploration-02-RPO-Zero/)
+- 1편 검색은 왜 트랜잭션 밖에 있나(/2026/11/12/Storage-Exploration-01-Search-Stream/)
+- 2편 RPO 0와 싸우는 법(/2026/11/12/Storage-Exploration-02-RPO-Zero/)
 - DRBD docs, bzfs(내부 어댑터 브랜치 feature/replicd-bzfs), replicd(제품 1.4.3)
 - 2026-11-04 ~ 11-05 리허설 기록과 시연 런북
