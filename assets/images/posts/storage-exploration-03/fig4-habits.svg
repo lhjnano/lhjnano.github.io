@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <defs>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
+
+  <!-- title: content center x=380 (columns span 21..739) -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">습관의 지도: 있던 습관과 없던 습관</text>
+
+  <!-- habit cluster label -->
+  <text x="393" y="60" font-size="10" fill="#2563eb">기술 검증 습관 H1~H11 중 대표 6개</text>
+
+  <!-- empty zone over gate 1: no habit supported it -->
+  <rect x="21" y="79" width="346" height="82" rx="8" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="194" y="123.5" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="bold">①을 받쳐 주는 습관이 없었다</text>
+
+  <!-- H chips row 1: over columns 4..6 -->
+  <rect x="393" y="79" width="98" height="28" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="442" y="96.15" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="bold">H1 차등</text>
+  <rect x="517" y="79" width="98" height="28" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="566" y="96.15" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="bold">H2 회귀</text>
+  <rect x="641" y="79" width="98" height="28" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="690" y="96.15" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="bold">H3 A/B</text>
+
+  <!-- H chips row 2 -->
+  <rect x="393" y="133" width="98" height="28" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="442" y="150.15" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="bold">H6 CI</text>
+  <rect x="517" y="133" width="98" height="28" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="566" y="150.15" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="bold">H9 크래시</text>
+  <rect x="641" y="133" width="98" height="28" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="690" y="150.15" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="bold">H10 실장비</text>
+
+  <!-- warning arrow: empty zone points into gate 1 -->
+  <path d="M70,166 L70,176" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- gate row: same six gates as figure 3 -->
+  <rect x="21" y="187" width="98" height="33" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="70" y="207.35" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="bold">① 수요자·시점</text>
+  <rect x="145" y="187" width="98" height="33" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="194" y="207.35" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="bold">② 팀 자산</text>
+  <rect x="269" y="187" width="98" height="33" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="318" y="207.35" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="bold">③ 백엔드 양쪽</text>
+  <rect x="393" y="187" width="98" height="33" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="442" y="207.35" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="bold">④ 유지보수</text>
+  <rect x="517" y="187" width="98" height="33" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="566" y="207.35" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="bold">⑤ 무패치 경로</text>
+  <rect x="641" y="187" width="98" height="33" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="690" y="207.35" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="bold">⑥ 완료 기준</text>
+
+  <!-- support arrows: A habit holds up its gate -->
+  <path d="M70,242 L70,231" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M194,242 L194,231" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M318,242 L318,231" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M442,242 L442,231" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M566,242 L566,231" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M690,242 L690,231" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- A chips: one habit per gate -->
+  <rect x="21" y="247" width="98" height="28" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="70" y="264.15" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">A1 수요자 연결</text>
+  <rect x="145" y="247" width="98" height="28" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="194" y="264.15" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">A2 팀 자산 조사</text>
+  <rect x="269" y="247" width="98" height="28" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="318" y="264.15" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">A3 백엔드 축</text>
+  <rect x="393" y="247" width="98" height="28" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="442" y="264.15" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">A4 인수 시험</text>
+  <rect x="517" y="247" width="98" height="28" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="566" y="264.15" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">A5 무패치 E2E</text>
+  <rect x="641" y="247" width="98" height="28" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="690" y="264.15" font-size="9" fill="#16a34a" text-anchor="middle" font-weight="bold">A6 완료 정의</text>
+
+  <!-- added-habit row label -->
+  <text x="21" y="298" font-size="10" fill="#16a34a">추가 습관 A: 관문 ①~⑥에 하나씩 대응</text>
+</svg>

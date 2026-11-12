@@ -30,6 +30,11 @@ toc_sticky: true
 
 설계 원칙은 단순했다. 시연은 리허설의 재현이어야 한다. 현장에서 처음 보는 단계가 하나라도 있으면 그것이 시연을 먹는다. 그래서 모든 단계를 스크립트 하나로 실행 가능하게 만들고, 런북에는 각 단계의 기대 결과를 적어뒀다.
 
+<figure>
+  <img src="/assets/images/posts/storage-exploration-03/fig1-scenarios.svg" alt="시연 시나리오 8종 지도. S1 등록과 시드 스냅샷(sha256 무결성), S2 부하 중 증분 추종(RPO 4.2초), S3 전송 중 강제 종료 후 재개, S4 받는 쪽 외부 쓰기 거부 후 재시드, S5 공통 스냅샷 없는 원본 삭제 거부(거부가 기대값), S7 native와 병행 증분 성능 비교, F1' 짝 컨트롤러 전환, F2' 소유 상실 후 자동 회복. 일곱 개는 PASS, S5는 거부가 기대값" />
+  <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 1: 시연 시나리오 8종 지도. 복제 시나리오(S) 여섯 개와 컨트롤러 시험(F) 두 개. S5는 거부가 곧 기대값이다</figcaption>
+</figure>
+
 ### bzfs 어댑터: 기존 엔진에 붙이는 법
 
 replicd는 이미 있던 방식이다. kstat 감지로 그룹 스냅샷을 만들고 증분 send로 전송하며, HMAC 짝 인증에 ssh 없이 전용 수신 데몬이 받는다. 여기에 bzfs 전송을 얹는 작업이 내 몫이었다. 제어는 ssh zfs, 전송은 bzfs, 재개 토큰은 bzfs에 맡기고, 수신 후 readonly와 origin 표시까지. 11커밋, 24파일에 970줄.
@@ -41,6 +46,11 @@ replicd는 이미 있던 방식이다. kstat 감지로 그룹 스냅샷을 만�
 리허설은 CI에서 두 번 돌렸다. bzfs 키트는 첫 전송 768MiB를 8.1초에 올리고, 200MB 증분이 약 2초. failover 중에도 쓰기가 이어졌고, failback은 증분 경로가 실패해 --force 전체 재동기(969MB 11.2초)로 회복됐다. 정상 증분 복귀는 실측이 없다는 것까지 기록에 남겼다. DRBD 키트는 초기 동기 100G가 약 40분, 전 단계 통과.
 
 성능도 측정했다. 같은 장비에서 200MB 증분 3회의 전송 중앙값이 native 0.79초, bzfs 1.66초. RPO는 1.40초 대 3.25초. 차이의 정체도 함께 적었다. bzfs 기동과 제어 ssh의 고정비. 전환은 bzfs 약 2초, DRBD 약 1초였다.
+
+<figure>
+  <img src="/assets/images/posts/storage-exploration-03/fig2-dr-compare.svg" alt="DR 3종 비교 가로 바 차트. 전송 중앙값(200MB 증분) native 0.79s, bzfs 1.66s, DRBD는 측정 항목 아님(동기 복제). RPO native 1.40s, bzfs 3.25s. 전환 native 약 1s, bzfs 약 2s, DRBD 약 1s. 차이의 원인은 bzfs 전송마다 기동과 제어 ssh 왕복의 고정비" />
+  <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 2: DR 3종 비교. 전송·RPO는 native 대비 bzfs가 느리고 그 차이는 기동과 ssh 제어의 고정비에서 온다. DRBD는 전환만 비교했다</figcaption>
+</figure>
 
 정직한 기록도 남겼다. 리허설 문서에 인용돼 있던 "100MB/s 지속 쓰기에서 지연 143초" 표는 이번 측정이 아니라 다른 작성자의 문서 인용이었다는 것. DC 빌드 환경의 컨트롤러 디스크가 로컬이라 실제 풀 이동은 시험할 수 없었고 F1'·F2'로 대체 검증했다는 것. 반입 장비가 NVMe여서 절대 속도는 해석하지 말 것. 시연용 숫자일수록 출처가 명확해야 한다는 게 이 키트의 규칙이었다.
 
@@ -61,11 +71,21 @@ replicd는 이미 있던 방식이다. kstat 감지로 그룹 스냅샷을 만�
 | ⑤ 무패치 1단계 | 제품 빌드 위 E2E | zfs-dr·vouch zfs 어댑터 |
 | ⑥ 완료 기준 | 일감 + MR + 릴리스 | 시연 키트 |
 
+<figure>
+  <img src="/assets/images/posts/storage-exploration-03/fig3-gates.svg" alt="여섯 개 관문 사다리. 좌에서 우로 ① 수요자·시점(확인할 것: 일감·고객·PoC, 멈춘 탐구: changelog·zchangelog·vouch), ② 팀 자산(내부 문서·브랜치, zfs-dr), ③ 백엔드 양쪽(Lustre·ZFS, 태그 색인), ④ 유지보수(언어·런타임, vouch C데몬), ⑤ 무패치 경로(제품 빌드 E2E, zfs 어댑터), ⑥ 완료 기준(일감+MR+릴리스, 시연 키트는 검토 중). 여섯 관문 모두 구현이 끝난 뒤에 나타났다" />
+  <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 3: 여섯 개 관문 사다리. 각 단 위는 착수 전에 확인할 것, 아래는 그 관문에서 멈춘 탐구. 관문은 전부 구현이 끝난 뒤에 나타났다</figcaption>
+</figure>
+
 ### 습관의 지도
 
 이 관문에 갖다 놓을 습관도 점검했다. 시리즈를 관통한 기술 검증 습관 11개, 차등 테스트(H1)부터 매트릭스 테스트(H11)까지. 그런데 지도에 그려보니 이 습관들은 ⑥ 완료 기준과 ④의 일부(회귀·CI·문서)에 몰려 있었다. 프로젝트가 실제로 가장 많이 멈춘 ① 수요자·시점을 받쳐 주는 습관은 하나도 없었다.
 
 그래서 6개를 추가로 정의했다. 착수 전에 일감과 수요자를 먼저 연결하고 없으면 처음부터 실험으로 표시하는 것(A1). 설계서 첫머리에 팀 자산 조사 결과를 적는 것(A2). 매트릭스 테스트 조건 축에 백엔드를 넣는 것(A3). 만든 사람이 아닌 사람이 문서만 보고 재현해 보는 인수 시험(A4). 패치 모듈이 아니라 제품 빌드로 E2E를 먼저 통과시키는 것(A5). 실측과 문서가 끝나도 일감 상태와 MR과 릴리스 노트가 갖춰져야 완료로 보는 것(A6).
+
+<figure>
+  <img src="/assets/images/posts/storage-exploration-03/fig4-habits.svg" alt="습관의 지도. 기술 검증 습관 칩 여섯 개(H1 차등, H2 회귀, H3 A/B, H6 CI, H9 크래시, H10 실장비)는 오른쪽 ⑥ 완료 기준·④ 일부 영역에 몰려 있고 관문 ① 위쪽 영역은 비어 있다. 추가 습관 A1 수요자 연결, A2 팀 자산 조사, A3 백엔드 축, A4 인수 시험, A5 무패치 E2E, A6 완료 정의가 관문 ①~⑥ 아래에 하나씩 대응한다" />
+  <figcaption style="font-size:13px;color:#8b949e;text-align:center;margin-top:8px">그림 4: 습관의 지도. 기술 검증 습관(H)은 ⑥·④에 몰려 있었고 ①을 받쳐 주는 습관은 없었다. 추가 습관 A1~A6을 관문에 하나씩 붙인다</figcaption>
+</figure>
 
 기술 검증을 습관으로 만들었던 것과 같은 방식이다. 도입 관문에도 반복 가능한 행동을 붙이는 것. 그게 이 회고의 결론이다.
 

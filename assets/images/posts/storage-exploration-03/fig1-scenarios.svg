@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 392" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="392" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">시연 시나리오 8종 지도</text>
+
+  <!-- row 1: S1 S2 S3 S4 -->
+  <rect x="22" y="58" width="158" height="130" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="34" y="86" font-size="14" fill="#2563eb" font-weight="bold">S1</text>
+  <text x="34" y="110" font-size="11" fill="#495057">등록과 시드 스냅샷</text>
+  <text x="34" y="126.5" font-size="11" fill="#495057">sha256 무결성</text>
+  <rect x="34" y="145" width="100" height="33" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="84" y="165.35" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">PASS</text>
+
+  <rect x="208" y="58" width="158" height="130" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="220" y="86" font-size="14" fill="#2563eb" font-weight="bold">S2</text>
+  <text x="220" y="110" font-size="11" fill="#495057">부하 중 증분 추종</text>
+  <text x="220" y="126.5" font-size="11" fill="#495057">RPO 4.2초</text>
+  <rect x="220" y="145" width="100" height="33" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="270" y="165.35" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">PASS</text>
+
+  <rect x="394" y="58" width="158" height="130" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="406" y="86" font-size="14" fill="#2563eb" font-weight="bold">S3</text>
+  <text x="406" y="110" font-size="11" fill="#495057">전송 중 강제 종료</text>
+  <text x="406" y="126.5" font-size="11" fill="#495057">이후 재개 완료</text>
+  <rect x="406" y="145" width="100" height="33" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="456" y="165.35" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">PASS</text>
+
+  <rect x="580" y="58" width="158" height="130" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="592" y="86" font-size="14" fill="#2563eb" font-weight="bold">S4</text>
+  <text x="592" y="110" font-size="11" fill="#495057">받는 쪽 외부 쓰기</text>
+  <text x="592" y="126.5" font-size="11" fill="#495057">거부 후 재시드</text>
+  <rect x="592" y="145" width="100" height="33" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="642" y="165.35" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">PASS</text>
+
+  <!-- row 2: S5 S7 F1' F2' -->
+  <rect x="22" y="214" width="158" height="130" rx="10" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="34" y="242" font-size="14" fill="#92400e" font-weight="bold">S5</text>
+  <text x="34" y="266" font-size="11" fill="#495057">공통 스냅샷 없는</text>
+  <text x="34" y="282.5" font-size="11" fill="#495057">원본 삭제 거부</text>
+  <rect x="34" y="301" width="100" height="33" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="84" y="321.35" font-size="11" fill="#92400e" text-anchor="middle" font-weight="bold">거부가 기대값</text>
+
+  <rect x="208" y="214" width="158" height="130" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="220" y="242" font-size="14" fill="#2563eb" font-weight="bold">S7</text>
+  <text x="220" y="266" font-size="11" fill="#495057">native와 병행</text>
+  <text x="220" y="282.5" font-size="11" fill="#495057">증분 성능 비교</text>
+  <rect x="220" y="301" width="100" height="33" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="270" y="321.35" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">PASS</text>
+
+  <rect x="394" y="214" width="158" height="130" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="406" y="242" font-size="14" fill="#7c3aed" font-weight="bold">F1'</text>
+  <text x="406" y="266" font-size="11" fill="#495057">짝 컨트롤러</text>
+  <text x="406" y="282.5" font-size="11" fill="#495057">전환</text>
+  <rect x="406" y="301" width="100" height="33" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="456" y="321.35" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">PASS</text>
+
+  <rect x="580" y="214" width="158" height="130" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="592" y="242" font-size="14" fill="#7c3aed" font-weight="bold">F2'</text>
+  <text x="592" y="266" font-size="11" fill="#495057">소유 상실 후</text>
+  <text x="592" y="282.5" font-size="11" fill="#495057">자동 회복</text>
+  <rect x="592" y="301" width="100" height="33" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="642" y="321.35" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="bold">PASS</text>
+
+  <!-- legend -->
+  <text x="22" y="368" font-size="11" fill="#2563eb">■</text>
+  <text x="38" y="368" font-size="11" fill="#495057">복제 시나리오(S)</text>
+  <text x="170" y="368" font-size="11" fill="#7c3aed">■</text>
+  <text x="186" y="368" font-size="11" fill="#495057">컨트롤러 장애 시험(F)</text>
+  <text x="350" y="368" font-size="11" fill="#92400e">■</text>
+  <text x="366" y="368" font-size="11" fill="#495057">거부가 기대값(S5)</text>
+</svg>

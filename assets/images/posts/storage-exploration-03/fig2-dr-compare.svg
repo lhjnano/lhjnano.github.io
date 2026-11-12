@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 805" width="760">
+  <style>
+    text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  </style>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="760" height="805" fill="#ffffff"/>
+
+  <!-- title: content center x=380 -->
+  <text x="380" y="32" font-size="16" fill="#2c3e50" text-anchor="middle" font-weight="bold">DR 3종 비교: 전송 중앙값 · RPO · 전환</text>
+
+  <!-- group 1: transfer median -->
+  <rect x="22" y="58" width="716" height="204" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="36" y="80" font-size="13" fill="#2c3e50" font-weight="bold">전송 중앙값 (200MB 증분)</text>
+
+  <text x="36" y="119.35" font-size="11" fill="#16a34a" font-weight="bold">native</text>
+  <rect x="120" y="99" width="142" height="33" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="128" y="119.35" font-size="11" fill="#16a34a" font-weight="bold">0.79s</text>
+
+  <text x="36" y="178.35" font-size="11" fill="#2563eb" font-weight="bold">bzfs</text>
+  <rect x="120" y="158" width="299" height="33" rx="3" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="128" y="178.35" font-size="11" fill="#2563eb" font-weight="bold">1.66s</text>
+
+  <text x="36" y="237.35" font-size="11" fill="#999999" font-weight="bold">DRBD</text>
+  <text x="128" y="237.35" font-size="11" fill="#999999">측정 항목 아님 (동기 복제)</text>
+
+  <!-- group 2: RPO -->
+  <rect x="22" y="288" width="716" height="204" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="36" y="310" font-size="13" fill="#2c3e50" font-weight="bold">RPO (부하 중 증분 추종)</text>
+
+  <text x="36" y="349.35" font-size="11" fill="#16a34a" font-weight="bold">native</text>
+  <rect x="120" y="329" width="252" height="33" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="128" y="349.35" font-size="11" fill="#16a34a" font-weight="bold">1.40s</text>
+
+  <text x="36" y="408.35" font-size="11" fill="#2563eb" font-weight="bold">bzfs</text>
+  <rect x="120" y="388" width="585" height="33" rx="3" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="128" y="408.35" font-size="11" fill="#2563eb" font-weight="bold">3.25s</text>
+
+  <text x="36" y="467.35" font-size="11" fill="#999999" font-weight="bold">DRBD</text>
+  <text x="128" y="467.35" font-size="11" fill="#999999">측정 항목 아님 (동기 복제)</text>
+
+  <!-- group 3: failover -->
+  <rect x="22" y="518" width="716" height="204" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="36" y="540" font-size="13" fill="#2c3e50" font-weight="bold">전환 시간 (약)</text>
+
+  <text x="36" y="569.35" font-size="11" fill="#16a34a" font-weight="bold">native</text>
+  <rect x="120" y="549" width="180" height="33" rx="3" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="128" y="569.35" font-size="11" fill="#16a34a" font-weight="bold">약 1s</text>
+
+  <text x="36" y="628.35" font-size="11" fill="#2563eb" font-weight="bold">bzfs</text>
+  <rect x="120" y="608" width="360" height="33" rx="3" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="128" y="628.35" font-size="11" fill="#2563eb" font-weight="bold">약 2s</text>
+
+  <text x="36" y="687.35" font-size="11" fill="#7c3aed" font-weight="bold">DRBD</text>
+  <rect x="120" y="667" width="180" height="33" rx="3" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="128" y="687.35" font-size="11" fill="#7c3aed" font-weight="bold">약 1s</text>
+
+  <!-- fixed-cost note -->
+  <rect x="22" y="748" width="716" height="36" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+  <text x="38" y="770.2" font-size="12" fill="#495057">차이의 정체: bzfs는 전송마다 기동 + 제어는 ssh 왕복. 이 고정비가 증분·RPO·전환 격차의 원인</text>
+</svg>
