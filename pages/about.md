@@ -24,6 +24,8 @@ permalink: /about/
 
 백엔드 팀에서 쓰는 S3 게이트웨이인 versitygw에도 기여가 이어졌습니다. 버전 관리가 설정되지 않은 버킷의 조회가 빈 설정을 반환하도록 고친 [PR #2293](https://github.com/versity/versitygw/pull/2293)에 이어, 게이트웨이 성능 병목을 조사하다 fallocate가 지원되지 않는 백엔드에서 업로드마다 실패 왕복이 붙는다는 것을 찾아내고 경로별로 스킵하는 [PR #2616](https://github.com/versity/versitygw/pull/2616)을 올렸습니다. 둘 다 병합됐고, 그 조사 과정은 [S3 게이트웨이 병목 분석 플레이북](/2026/11/06/S3-Gateway-Bottleneck-Playbook/)으로 정리해 뒀습니다. 지금은 임시 파일 디렉터리 분산을 다루는 [PR #2460](https://github.com/versity/versitygw/pull/2460)의 리뷰가 진행 중입니다.
 
+NFS 쪽에서도 한 건 병합됐습니다. nfsdcld는 daemon(0, 0)으로 데몬화하는데 서비스가 Type=forking이라 부모가 나가면 시작된 것으로 치는 systemd와, 자식이 실제로 rpc_pipefs 감시를 설치하는 시점 사이에 틈이 생깁니다. 부팅이 바쁘거나 재시작이 몰리면 nfsd가 먼저 뜨고 커널의 1초 대기창이 헛되이 지나가는데, 관찰된 사례는 NFS 서버가 44분간 내려앉은 것이었습니다. 다른 데몬들이 쓰는 daemon_init()/daemon_ready() 헬퍼로 전환해 감시 설치 직후에야 준비 신호를 보내도록 고친 [패치](https://lore.kernel.org/linux-nfs/20261015114755.33331-1-lhjnano@gmail.com/)를 메일링 리스트로 보냈고, 메인테이너 트리에 들어가 3.1.2 릴리스를 향해 가고 있습니다.
+
 터미널 쪽에서도 한 건 보냈습니다. Mattermost 터미널 클라이언트 matterhorn에서 /sh 스크립트가 파이프 버퍼(64KB)보다 큰 출력을 내면 자식 프로세스는 쓰기에, 부모는 종료 대기에 서로 묶여 영원히 끝나지 않는 행업을 잡았습니다. 출력 스트림을 읽는 스레드를 기다림보다 먼저 띄우는 수정을 올려 [PR #868](https://github.com/matterhorn-chat/matterhorn/pull/868)로 병합됐습니다.
 
 ![Career Evolution](/assets/images/about/career-timeline.svg)
