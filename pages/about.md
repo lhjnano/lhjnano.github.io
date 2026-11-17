@@ -18,17 +18,33 @@ permalink: /about/
 
 최근에 ZFS/Lustre 기반 듀얼컨트롤러 스케일 아웃 스토리지의 백엔드 팀으로 자리를 옮겼습니다. LVM 중심이던 환경에서 ZFS와 Lustre로 무대가 바뀌었고, API 백엔드와 클러스터 관리를 개발하고 있습니다.
 
-최근에는 볼륨 생성 중 간헐적으로 `EBUSY`가 뜨는 문제를 추적하다가, OpenZFS 커널 내부의 잠금 레이스까지 파고들어갔습니다. 결국 업스트림에 [PR #18611](https://github.com/openzfs/zfs/pull/18611)로 패치를 기여했고 master에 병합됐는데, 버그 증상부터 잠금 계층 분석, 패치 작성, 리뷰 통과까지 꽤 긴 여정이었습니다.
-
-그 여정의 연장선에서, `zpool export`를 실행할 때 마운트된 zvol 블록 장치가 있으면 명령이 D-state에 빠져 **재부팅 외에는 복구할 수 없는** hang을 잡았습니다. 마운트된 ZFS 데이터셋은 이미 `EBUSY`로 막아두고 있었는데, zvol은 그 검사가 빠져 있어 `zvol_remove_minors_impl()`이 open count가 0이 될 때까지 무한 대기한 것이 원인이었습니다. 비차단(non-blocking) 검사를 `spa_export_common()`에 추가해 zvol이 사용 중이면 즉시 `EBUSY`를 반환하도록 고쳤고, 이 패치는 [PR #18841](https://github.com/openzfs/zfs/pull/18841)로 **OpenZFS master에 병합**되었습니다.
-
-백엔드 팀에서 쓰는 S3 게이트웨이인 versitygw에도 기여가 이어졌습니다. 버전 관리가 설정되지 않은 버킷의 조회가 빈 설정을 반환하도록 고친 [PR #2293](https://github.com/versity/versitygw/pull/2293)에 이어, 게이트웨이 성능 병목을 조사하다 fallocate가 지원되지 않는 백엔드에서 업로드마다 실패 왕복이 붙는다는 것을 찾아내고 경로별로 스킵하는 [PR #2616](https://github.com/versity/versitygw/pull/2616)을 올렸습니다. 둘 다 병합됐고, 그 조사 과정은 [S3 게이트웨이 병목 분석 플레이북](/2026/11/06/S3-Gateway-Bottleneck-Playbook/)으로 정리해 뒀습니다. 지금은 임시 파일 디렉터리 분산을 다루는 [PR #2460](https://github.com/versity/versitygw/pull/2460)의 리뷰가 진행 중입니다.
-
-NFS 쪽에서도 한 건 병합됐습니다. nfsdcld는 daemon(0, 0)으로 데몬화하는데 서비스가 Type=forking이라 부모가 나가면 시작된 것으로 치는 systemd와, 자식이 실제로 rpc_pipefs 감시를 설치하는 시점 사이에 틈이 생깁니다. 부팅이 바쁘거나 재시작이 몰리면 nfsd가 먼저 뜨고 커널의 1초 대기창이 헛되이 지나가는데, 관찰된 사례는 NFS 서버가 44분간 내려앉은 것이었습니다. 다른 데몬들이 쓰는 daemon_init()/daemon_ready() 헬퍼로 전환해 감시 설치 직후에야 준비 신호를 보내도록 고친 [패치](https://lore.kernel.org/linux-nfs/20261015114755.33331-1-lhjnano@gmail.com/)를 메일링 리스트로 보냈고, 메인테이너 트리에 들어가 3.1.2 릴리스를 향해 가고 있습니다.
-
-터미널 쪽에서도 한 건 보냈습니다. Mattermost 터미널 클라이언트 matterhorn에서 /sh 스크립트가 파이프 버퍼(64KB)보다 큰 출력을 내면 자식 프로세스는 쓰기에, 부모는 종료 대기에 서로 묶여 영원히 끝나지 않는 행업을 잡았습니다. 출력 스트림을 읽는 스레드를 기다림보다 먼저 띄우는 수정을 올려 [PR #868](https://github.com/matterhorn-chat/matterhorn/pull/868)로 병합됐습니다.
+업스트림 기여는 이 습관의 자연스러운 결과였습니다. 쓰다 보니 결함을 만나고, 만나면 고쳐 올리게 되더군요. 지금까지 일곱 프로젝트에서 열두 건이 병합됐습니다.
 
 ![Career Evolution](/assets/images/about/career-timeline.svg)
+
+## 오픈소스 기여
+
+- **[OpenZFS](https://github.com/openzfs/zfs)**: 스토리지 백엔드의 결함 추적에서
+  - [#18611](https://github.com/openzfs/zfs/pull/18611): 볼륨 생성 중 `EBUSY` 잠금 레이스 수정
+  - [#18841](https://github.com/openzfs/zfs/pull/18841): zvol 사용 중 `zpool export`의 복구 불가 hang 수정
+- **[resource-agents](https://github.com/ClusterLabs/resource-agents)**: HA 클러스터의 ZFS 펜싱에서
+  - [#2206](https://github.com/ClusterLabs/resource-agents/pull/2206): start 반환 전 풀 상태 안정 대기
+  - [#2213](https://github.com/ClusterLabs/resource-agents/pull/2213): monitor 실패 전 전이 상태 재조회
+- **[versitygw](https://github.com/versity/versitygw)**: S3 게이트웨이 운영과 병목 조사에서
+  - [#2293](https://github.com/versity/versitygw/pull/2293): 미설정 버킷의 버전 관리 조회가 빈 설정 반환
+  - [#2616](https://github.com/versity/versitygw/pull/2616): fallocate 실패 스킵, 소형 PUT +8.2%
+- **[nfs-utils](https://git.linux-nfs.org/cgit/nfs-utils.git/)**: NFS 서버 44분 장애의 근본 원인에서
+  - [패치](https://lore.kernel.org/linux-nfs/20261015114755.33331-1-lhjnano@gmail.com/): nfsdcld 준비 신호 경쟁 수정 (3.1.2 대상)
+- **[velero](https://github.com/vmware-tanzu/velero)**: 쿠버네티스 백업 운영에서
+  - [#10496](https://github.com/velero-io/velero/pull/10496): 버전 우선순위 파싱의 CRLF 처리
+  - [#10490](https://github.com/velero-io/velero/pull/10490): 스케줄 reconciler의 값 비교 수정
+- **[longhorn](https://github.com/longhorn/longhorn)**: 분산 블록 스토리지의 백업 경로에서
+  - [#5203](https://github.com/longhorn/longhorn-manager/pull/5203): 백업 타깃을 status 기준으로 조회
+  - [#5344](https://github.com/longhorn/longhorn-manager/pull/5344): 백업 업데이트 시 타깃 라벨 제거 거부
+- **[matterhorn](https://github.com/matterhorn-chat/matterhorn)**: 쓰던 터미널 클라이언트의 행업에서
+  - [#868](https://github.com/matterhorn-chat/matterhorn/pull/868): 파이프 버퍼 초과 출력으로 인한 /sh 행업 수정
+
+병목 조사의 전체 과정은 [S3 게이트웨이 병목 분석 플레이북](/2026/11/06/S3-Gateway-Bottleneck-Playbook/)에 정리해 뒀습니다.
 
 ## 왜 블로그를 쓰는가
 
