@@ -18,8 +18,6 @@ permalink: /about/
 
 최근에 ZFS/Lustre 기반 듀얼컨트롤러 스케일 아웃 스토리지의 백엔드 팀으로 자리를 옮겼습니다. LVM 중심이던 환경에서 ZFS와 Lustre로 무대가 바뀌었고, API 백엔드와 클러스터 관리를 개발하고 있습니다.
 
-업스트림 기여는 이 습관의 자연스러운 결과였습니다. 쓰다 보니 결함을 만나고, 만나면 고쳐 올리게 되더군요. 지금까지 일곱 프로젝트에서 열두 건이 병합됐습니다.
-
 ![Career Evolution](/assets/images/about/career-timeline.svg)
 
 ## 오픈소스 기여
