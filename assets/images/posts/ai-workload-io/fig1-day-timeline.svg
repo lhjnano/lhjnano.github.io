@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 254" width="760" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="254" fill="#ffffff"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker></defs>
+<text x="380" y="32.0" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">AI 학습의 하루, 저장 I/O의 시간축</text>
+<rect x="22" y="62" width="156" height="92" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="100.0" y="96.0" font-size="13" font-weight="700" fill="#2563eb" text-anchor="middle">① 적재</text>
+<text x="100.0" y="112.0" font-size="11" fill="#495057" text-anchor="middle">원본 1TB 적재</text>
+<text x="100.0" y="128.0" font-size="11" fill="#495057" text-anchor="middle">순차 쓰기</text>
+<line x1="182" y1="108.0" x2="202" y2="108.0" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="208" y="62" width="156" height="92" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="286.0" y="96.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle">② 전처리</text>
+<text x="286.0" y="112.0" font-size="11" fill="#495057" text-anchor="middle">콜드 읽기 1TB</text>
+<text x="286.0" y="128.0" font-size="11" fill="#495057" text-anchor="middle">출력 2TB 버스트</text>
+<line x1="368" y1="108.0" x2="388" y2="108.0" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="394" y="62" width="156" height="92" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+<text x="472.0" y="96.0" font-size="13" font-weight="700" fill="#16a34a" text-anchor="middle">③ 섭취</text>
+<text x="472.0" y="112.0" font-size="11" fill="#495057" text-anchor="middle">콜드 1TB 후</text>
+<text x="472.0" y="128.0" font-size="11" fill="#495057" text-anchor="middle">웜 6TB(캐시)</text>
+<line x1="554" y1="108.0" x2="574" y2="108.0" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="580" y="62" width="156" height="92" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="658.0" y="96.0" font-size="13" font-weight="700" fill="#7c3aed" text-anchor="middle">④ 체크포인트</text>
+<text x="658.0" y="112.0" font-size="11" fill="#495057" text-anchor="middle">1TB/회 간격 수십 분</text>
+<text x="658.0" y="128.0" font-size="11" fill="#495057" text-anchor="middle">3.6분 스파이크</text>
+<rect x="22" y="181" width="716" height="52" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="380" y="211.2" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">바쁜 순간은 세 곳: ② 콜드 읽기+출력 버스트 · ③ 캐시 밖 잔량 · ④ 체크포인트 스파이크</text>
+</svg>

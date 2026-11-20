@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 244" width="760" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="244" fill="#ffffff"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker></defs>
+<text x="380" y="32.0" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">체크포인트 한 건, 쓰기 속도의 시간 전개</text>
+<rect x="44" y="62" width="204" height="86" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="146.0" y="90.0" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle">쓰기 스파이크</text>
+<text x="146.0" y="109.0" font-size="11" fill="#495057" text-anchor="middle">63 GB/s · 3.6분</text>
+<text x="146.0" y="127.0" font-size="10" fill="#999999" text-anchor="middle">800B 모델 관측 중앙값</text>
+<line x1="252" y1="105.0" x2="272" y2="105.0" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="278" y="62" width="204" height="86" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="380.0" y="90.0" font-size="13" font-weight="700" fill="#666666" text-anchor="middle">다음 스파이크까지</text>
+<text x="380.0" y="109.0" font-size="11" fill="#495057" text-anchor="middle">간격 40분</text>
+<text x="380.0" y="127.0" font-size="10" fill="#999999" text-anchor="middle">오버랩 9%</text>
+<line x1="486" y1="105.0" x2="506" y2="105.0" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="512" y="62" width="204" height="86" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+<text x="614.0" y="90.0" font-size="13" font-weight="700" fill="#16a34a" text-anchor="middle">전역 drain</text>
+<text x="614.0" y="109.0" font-size="11" fill="#495057" text-anchor="middle">50~200 GB/s 밴드</text>
+<text x="614.0" y="127.0" font-size="10" fill="#999999" text-anchor="middle">비동기, 학습 지속</text>
+<rect x="22" y="173" width="716" height="46" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="380" y="199.8" font-size="11" fill="#495057" text-anchor="middle">전역 저장은 로컬 체크포인트의 주기적 drain만 흡수한다. 버스트는 NVMe가 가져간다</text>
+</svg>

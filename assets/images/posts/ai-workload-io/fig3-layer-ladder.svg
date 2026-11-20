@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" width="760" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="520" fill="#ffffff"/>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker></defs>
+<text x="380" y="32.0" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">AI 노드의 계층 사다리</text>
+<rect x="22" y="54" width="716" height="74" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="42" y="85.0" font-size="13" font-weight="700" fill="#dc2626">GPU · HBM</text>
+<text x="42" y="105.0" font-size="11" fill="#495057">모델·활성화·KV 캐시 착지점 · 80~192 GB/카드 · 3~8 TB/s</text>
+<line x1="82" y1="131" x2="82" y2="149" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="678" y1="149" x2="678" y2="131" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="22" y="155" width="716" height="74" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="42" y="186.0" font-size="13" font-weight="700" fill="#7c3aed">CPU · RAM</text>
+<text x="42" y="206.0" font-size="11" fill="#495057">페이지 캐시·스테이징 · 0.5~2 TB · 100~400 GB/s</text>
+<line x1="82" y1="232" x2="82" y2="250" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="678" y1="250" x2="678" y2="232" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="22" y="256" width="716" height="74" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+<text x="42" y="287.0" font-size="13" font-weight="700" fill="#16a34a">로컬 NVMe</text>
+<text x="42" y="307.0" font-size="11" fill="#495057">로컬 체크포인트·스필·스왑 · 4~8장 · 28~56 GB/s</text>
+<line x1="82" y1="333" x2="82" y2="351" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<line x1="678" y1="351" x2="678" y2="333" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="22" y="357" width="716" height="74" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="42" y="388.0" font-size="13" font-weight="700" fill="#2563eb">전역 저장</text>
+<text x="42" y="408.0" font-size="11" fill="#495057">원본·drain·아카이브 · PB급 · 50~200 GB/s</text>
+<rect x="22" y="456" width="716" height="40" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="380" y="479.9" font-size="11" fill="#495057" text-anchor="middle">레플리카 수백 개 중 저장을 쓰는 건 1개. 셔플은 저장이 아니라 네트워크 트래픽이다</text>
+</svg>
