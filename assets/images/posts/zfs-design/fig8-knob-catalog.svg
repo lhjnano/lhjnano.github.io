@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 650" width="760" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="650" fill="#ffffff"/>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">자주 만나는 기본값 여덟 개의 근거</text>
+<text x="310" y="60" font-size="11" fill="#495057" text-anchor="middle" font-weight="700">기본값</text>
+<text x="565" y="60" font-size="11" fill="#495057" text-anchor="middle" font-weight="700">근거와 성질</text>
+<rect x="25" y="80" width="710" height="44" rx="8" fill="#f0f4f8" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="106" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">recordsize</text>
+<text x="310" y="105.5" font-size="10" fill="#2563eb" text-anchor="middle">128K</text>
+<text x="565" y="105.5" font-size="10" fill="#495057" text-anchor="middle">워크로드 정렬이 기준</text>
+<rect x="25" y="152" width="710" height="44" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="178" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">zfs_arc_max</text>
+<text x="310" y="177.5" font-size="10" fill="#2563eb" text-anchor="middle">RAM 절반</text>
+<text x="565" y="177.5" font-size="10" fill="#495057" text-anchor="middle">캐시와 동거 프로그램의 균형</text>
+<rect x="25" y="224" width="710" height="44" rx="8" fill="#f0f4f8" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="250" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">zfs_dirty_data_max</text>
+<text x="310" y="249.5" font-size="10" fill="#2563eb" text-anchor="middle">RAM 10%</text>
+<text x="565" y="249.5" font-size="10" fill="#495057" text-anchor="middle">쓰기 브레이크 지점</text>
+<rect x="25" y="296" width="710" height="44" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="322" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">txg_timeout</text>
+<text x="310" y="321.5" font-size="10" fill="#2563eb" text-anchor="middle">5초</text>
+<text x="565" y="321.5" font-size="10" fill="#495057" text-anchor="middle">순차성과 지연의 균형</text>
+<rect x="25" y="368" width="710" height="44" rx="8" fill="#f0f4f8" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="394" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">compression</text>
+<text x="310" y="393.5" font-size="10" fill="#2563eb" text-anchor="middle">off · on 시 lz4</text>
+<text x="565" y="393.5" font-size="10" fill="#495057" text-anchor="middle">CPU와 공간의 거래</text>
+<rect x="25" y="440" width="710" height="44" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="466" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">ashift</text>
+<text x="310" y="465.5" font-size="10" fill="#2563eb" text-anchor="middle">12 (4K)</text>
+<text x="565" y="465.5" font-size="10" fill="#495057" text-anchor="middle">풀 생성 시 영구 고정</text>
+<rect x="25" y="512" width="710" height="44" rx="8" fill="#f0f4f8" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="538" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">atime</text>
+<text x="310" y="537.5" font-size="10" fill="#2563eb" text-anchor="middle">on · off 권장</text>
+<text x="565" y="537.5" font-size="10" fill="#495057" text-anchor="middle">COW 세금 차단</text>
+<rect x="25" y="584" width="710" height="44" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="610" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">primarycache</text>
+<text x="310" y="609.5" font-size="10" fill="#2563eb" text-anchor="middle">all</text>
+<text x="565" y="609.5" font-size="10" fill="#495057" text-anchor="middle">메타 전용 풀만 metadata</text>
+</svg>

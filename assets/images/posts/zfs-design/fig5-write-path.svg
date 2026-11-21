@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 202" width="800" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#999999"/></marker></defs>
+<rect x="0" y="0" width="800" height="202" fill="#ffffff"/>
+<text x="400" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">쓰기가 지나는 다섯 단계와 각 단계의 기본값</text>
+<rect x="23" y="90" width="130" height="90" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="88" y="131" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="700">절단</text>
+<text x="88" y="146" font-size="9" fill="#495057" text-anchor="middle">128K</text>
+<line x1="156" y1="135" x2="176" y2="135" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="179" y="90" width="130" height="90" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="244" y="131" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="700">압축</text>
+<text x="244" y="146" font-size="9" fill="#495057" text-anchor="middle">off · on 시 lz4</text>
+<line x1="312" y1="135" x2="332" y2="135" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="335" y="90" width="130" height="90" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="400" y="131" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="700">ARC 더티</text>
+<text x="400" y="146" font-size="9" fill="#495057" text-anchor="middle">RAM 10%</text>
+<line x1="468" y1="135" x2="488" y2="135" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="491" y="90" width="130" height="90" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="556" y="131" font-size="11" fill="#7c3aed" text-anchor="middle" font-weight="700">txg 커밋</text>
+<text x="556" y="146" font-size="9" fill="#495057" text-anchor="middle">5초 주기</text>
+<line x1="624" y1="135" x2="644" y2="135" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="647" y="90" width="130" height="90" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="2"/>
+<text x="712" y="131" font-size="11" fill="#666666" text-anchor="middle" font-weight="700">디스크 기록</text>
+<text x="712" y="146" font-size="9" fill="#495057" text-anchor="middle">ashift 12</text>
+</svg>
