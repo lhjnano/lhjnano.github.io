@@ -1,42 +1,43 @@
-<svg viewBox="0 0 860 470" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="하드웨어 계층 사다리와 워크로드 흐름">
+<svg viewBox="0 0 860 490" width="860" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="하드웨어 계층 사다리와 워크로드 흐름">
   <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;}</style>
   <defs>
     <marker id="hA" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 L3,6 z" fill="#1976d2"/></marker>
     <marker id="hB" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 L3,6 z" fill="#fbbf24"/></marker>
   </defs>
-  <rect x="0" y="0" width="860" height="470" fill="#ffffff"/>
-  <text x="440" y="28" font-size="15" fill="#ffffff" text-anchor="middle">AI 노드의 계층 사다리 — 오른쪽: 용량·대역, 왼쪽: 워크로드의 이동</text>
-  <!-- 층: GPU/HBM y=60, RAM y=150, NVMe y=240, 전역 y=330 (w=380 x=240..620, h=70) -->
-  <rect x="240" y="60"  width="380" height="70" rx="8" fill="#e3f2fd" stroke="#546e7a"/>
-  <text x="258" y="86"  font-size="13" fill="#ffffff" font-weight="bold">GPU · HBM(VRAM)</text>
-  <text x="258" y="106" font-size="10.5" fill="#495057">모델 가중치 · 활성화 · KV 캐시 — 연산의 최종 착지점</text>
-  <text x="632" y="86"  font-size="10.5" fill="#495057">80–192 GB/카드</text>
-  <text x="632" y="106" font-size="10.5" fill="#495057">3–8 TB/s</text>
-  <rect x="240" y="150" width="380" height="70" rx="8" fill="#dbeafe" stroke="#546e7a"/>
-  <text x="258" y="176" font-size="13" fill="#ffffff" font-weight="bold">CPU · RAM(노드)</text>
-  <text x="258" y="196" font-size="10.5" fill="#495057">페이지 캐시 · 프리페치 버퍼 · 비동기 체크포인트 스테이징</text>
-  <text x="632" y="176" font-size="10.5" fill="#495057">0.5–2 TB/노드</text>
-  <text x="632" y="196" font-size="10.5" fill="#495057">100–400 GB/s</text>
-  <rect x="240" y="240" width="380" height="70" rx="8" fill="#bfdbfe" stroke="#546e7a"/>
-  <text x="258" y="266" font-size="13" fill="#ffffff" font-weight="bold">로컬 NVMe(노드)</text>
-  <text x="258" y="286" font-size="10.5" fill="#495057">노드 로컬 체크포인트(비동기 1단계) · 스플 · 스왑</text>
-  <text x="632" y="266" font-size="10.5" fill="#495057">4–8장 · 수십 TB</text>
-  <text x="632" y="286" font-size="10.5" fill="#495057">28–56 GB/s 합산</text>
-  <rect x="240" y="330" width="380" height="70" rx="8" fill="#2c3e50" stroke="#546e7a"/>
-  <text x="258" y="356" font-size="13" fill="#ffffff" font-weight="bold">전역 저장(공유 FS · 객체 · HDD 계층)</text>
-  <text x="258" y="376" font-size="10.5" fill="#495057">데이터셋 원본 · 전역 체크포인트 drain · 아카이브</text>
-  <text x="632" y="356" font-size="10.5" fill="#495057">PB급</text>
-  <text x="632" y="376" font-size="10.5" fill="#495057">집적 대역(50–200 GB/s 관측)</text>
+  <rect x="0" y="0" width="860" height="490" fill="#ffffff"/>
+  <text x="440" y="34" font-size="15" fill="#2c3e50" text-anchor="middle">AI 노드의 계층 사다리 — 오른쪽: 용량·대역, 왼쪽: 워크로드의 이동</text>
+  <!-- 층: GPU/HBM y=56, RAM y=151, NVMe y=246, 전역 y=341 (w=380 x=240..620, h=70, gap=25) -->
+  <rect x="240" y="56"  width="380" height="70" rx="8" fill="#e3f2fd" stroke="#546e7a"/>
+  <text x="258" y="82"  font-size="13" fill="#1976d2" font-weight="bold">GPU · HBM(VRAM)</text>
+  <text x="258" y="102" font-size="10.5" fill="#495057">모델 가중치 · 활성화 · KV 캐시 — 연산의 최종 착지점</text>
+  <text x="610" y="82"  font-size="10.5" fill="#495057" text-anchor="end">80–192 GB/카드</text>
+  <text x="610" y="102" font-size="10.5" fill="#495057" text-anchor="end">3–8 TB/s</text>
+  <rect x="240" y="151" width="380" height="70" rx="8" fill="#dbeafe" stroke="#546e7a"/>
+  <text x="258" y="177" font-size="13" fill="#7c3aed" font-weight="bold">CPU · RAM(노드)</text>
+  <text x="258" y="197" font-size="10.5" fill="#495057">페이지 캐시 · 프리페치 버퍼 · 비동기 체크포인트 스테이징</text>
+  <text x="610" y="177" font-size="10.5" fill="#495057" text-anchor="end">0.5–2 TB/노드</text>
+  <text x="610" y="197" font-size="10.5" fill="#495057" text-anchor="end">100–400 GB/s</text>
+  <rect x="240" y="246" width="380" height="70" rx="8" fill="#dcfce7" stroke="#546e7a"/>
+  <text x="258" y="272" font-size="13" fill="#16a34a" font-weight="bold">로컬 NVMe(노드)</text>
+  <text x="258" y="292" font-size="10.5" fill="#495057">노드 로컬 체크포인트(비동기 1단계) · 스플 · 스왑</text>
+  <text x="610" y="272" font-size="10.5" fill="#495057" text-anchor="end">4–8장 · 수십 TB</text>
+  <text x="610" y="292" font-size="10.5" fill="#495057" text-anchor="end">28–56 GB/s 합산</text>
+  <rect x="240" y="341" width="380" height="70" rx="8" fill="#f0f4f8" stroke="#546e7a"/>
+  <text x="258" y="367" font-size="13" fill="#2563eb" font-weight="bold">전역 저장(공유 FS · 객체 · HDD 계층)</text>
+  <text x="258" y="387" font-size="10.5" fill="#495057">데이터셋 원본 · 전역 체크포인트 drain · 아카이브</text>
+  <text x="610" y="367" font-size="10.5" fill="#495057" text-anchor="end">PB급</text>
+  <text x="610" y="387" font-size="10.5" fill="#495057" text-anchor="end">집적 대역(50–200 GB/s)</text>
   <!-- 층 사이 안내 -->
-  <text x="430" y="142" font-size="9.5" fill="#78909c" text-anchor="middle">↑ 섭취: 캐시 히트의 1차 층 ↓</text>
-  <text x="430" y="232" font-size="9.5" fill="#78909c" text-anchor="middle">스필·KV 오프로드의 왕복 층</text>
-  <text x="430" y="322" font-size="9.5" fill="#78909c" text-anchor="middle">네트워크(노드들)를 건너는 층</text>
-  <!-- 왼쪽 흐름 화살표 -->
-  <path d="M150,330 C110,300 110,150 150,100" stroke="#1976d2" stroke-width="2" fill="none" marker-end="url(#hA)"/>
-  <text x="94" y="215" font-size="10.5" fill="#1976d2" text-anchor="middle" transform="rotate(-90 94 215)">섭취·콜드 스타트 (위로 등반)</text>
-  <path d="M180,95 C140,180 140,300 180,365" stroke="#fbbf24" stroke-width="2" fill="none" marker-end="url(#hB)"/>
-  <text x="135" y="215" font-size="10.5" fill="#92400e" text-anchor="middle" transform="rotate(90 135 215)">체크포인트 3단 하강 (VRAM→RAM→NVMe→전역)</text>
+  <text x="430" y="144" font-size="9.5" fill="#78909c" text-anchor="middle">↑ 섭취: 캐시 히트의 1차 층 ↓</text>
+  <text x="430" y="239" font-size="9.5" fill="#78909c" text-anchor="middle">스필·KV 오프로드의 왕복 층</text>
+  <text x="430" y="334" font-size="9.5" fill="#78909c" text-anchor="middle">네트워크(노드들)를 건너는 층</text>
+  <!-- 왼쪽 흐름 화살표 (섭취: 위로 등반) -->
+  <path d="M160,376 C110,340 160,150 160,96" stroke="#1976d2" stroke-width="2" fill="none" marker-end="url(#hA)"/>
+  <text x="82" y="236" font-size="10.5" fill="#1976d2" text-anchor="middle" transform="rotate(-90 82 236)">섭취 · 콜드 스타트 (위로 등반)</text>
+  <!-- 오른쪽 흐름 화살표 (체크포인트: 아래로 하강) -->
+  <path d="M700,96 C650,150 700,340 700,376" stroke="#fbbf24" stroke-width="2" fill="none" marker-end="url(#hB)"/>
+  <text x="740" y="236" font-size="10.5" fill="#92400e" text-anchor="middle" transform="rotate(90 720 236)">체크포인트 하강</text>
   <!-- 하단 노드 박스 -->
-  <rect x="240" y="418" width="380" height="36" rx="8" fill="#f3f7fb" stroke="#999999" stroke-dasharray="6,4"/>
-  <text x="430" y="441" font-size="10.5" fill="#495057" text-anchor="middle">노드들 — 데이터 병렬: 레플리카 수백 개 중 쓰는 건 1개 · 셔플은 저장이 아니라 네트워크 트래픽</text>
+  <rect x="240" y="434" width="380" height="36" rx="8" fill="#f3f7fb" stroke="#999999" stroke-dasharray="6,4"/>
+  <text x="430" y="457" font-size="10.5" fill="#495057" text-anchor="middle">노드들 — 레플리카 수백 개 중 쓰는 건 1개 · 셔플은 저장이 아니라 네트워크 트래픽</text>
 </svg>
