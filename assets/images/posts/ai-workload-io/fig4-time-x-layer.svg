@@ -1,28 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" width="760" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 566" width="760" role="img">
 <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
-<rect x="0" y="0" width="760" height="520" fill="#ffffff"/>
+<rect x="0" y="0" width="760" height="566" fill="#ffffff"/>
 <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker></defs>
-<text x="380" y="32.0" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">시간축 × 계층, 저장이 실제로 나르는 양</text>
-<rect x="22" y="52" width="716" height="74" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-<text x="42" y="93.5" font-size="13" font-weight="700" fill="#2563eb">① 적재</text>
-<text x="40" y="82.0" font-size="11" fill="#495057">1TB 순차 쓰기</text>
-<text x="40" y="104.0" font-size="10" fill="#999999">전역 저장으로 하강</text>
-<line x1="380" y1="129" x2="380" y2="145" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
-<rect x="22" y="151" width="716" height="74" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
-<text x="42" y="192.6" font-size="13" font-weight="700" fill="#dc2626">② 전처리</text>
-<text x="40" y="181.0" font-size="11" fill="#495057">콜드 읽기 1TB + 출력 2TB</text>
-<text x="40" y="203.0" font-size="10" fill="#999999">+85s/617MB 실측 · 스필 0.4%</text>
-<line x1="380" y1="228" x2="380" y2="244" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
-<rect x="22" y="250" width="716" height="74" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-<text x="42" y="291.6" font-size="13" font-weight="700" fill="#16a34a">③ 섭취</text>
-<text x="40" y="280.0" font-size="11" fill="#495057">콜드 1TB + 웜 6TB</text>
-<text x="40" y="302.0" font-size="10" fill="#999999">웜은 캐시가 흡수, 전역 미접촉</text>
-<line x1="380" y1="327" x2="380" y2="343" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
-<rect x="22" y="349" width="716" height="74" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
-<text x="42" y="390.6" font-size="13" font-weight="700" fill="#7c3aed">④ 체크포인트</text>
-<text x="40" y="379.0" font-size="11" fill="#495057">1TB/회 × 5회</text>
-<text x="40" y="401.0" font-size="10" fill="#999999">HBM에서 NVMe 즉시, 전역은 drain</text>
-<rect x="22" y="448" width="716" height="52" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
-<text x="380" y="468.0" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">저장이 실제로 나르는 총량: 1 + 1 + 2 + 5 = 9TB</text>
-<text x="380" y="488.0" font-size="10" fill="#495057" text-anchor="middle">재읽기 6TB가 가장 굵은 파이프지만 저장을 지나지 않는다. 설계는 9TB의 속도와 시점에 맞춘다</text>
+<text x="380" y="34" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">시간축 × 계층, 저장이 실제로 나르는 양</text>
+<rect x="22" y="50" width="716" height="80" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+<text x="42" y="74" font-size="13" font-weight="700" fill="#2563eb">① 적재</text>
+<text x="42" y="96" font-size="11" fill="#495057">1TB 순차 쓰기</text>
+<text x="42" y="114" font-size="10" fill="#999999">전역 저장으로 하강</text>
+<line x1="380" y1="133" x2="380" y2="152" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="22" y="158" width="716" height="80" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="42" y="182" font-size="13" font-weight="700" fill="#dc2626">② 전처리</text>
+<text x="42" y="204" font-size="11" fill="#495057">콜드 읽기 1TB + 출력 2TB</text>
+<text x="42" y="222" font-size="10" fill="#999999">+85s/617MB 실측 · 스필 0.4%</text>
+<line x1="380" y1="241" x2="380" y2="260" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="22" y="266" width="716" height="80" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+<text x="42" y="290" font-size="13" font-weight="700" fill="#16a34a">③ 섭취</text>
+<text x="42" y="312" font-size="11" fill="#495057">콜드 1TB + 웜 6TB</text>
+<text x="42" y="330" font-size="10" fill="#999999">웜은 캐시 흡수 · 전역 미접촉</text>
+<line x1="380" y1="349" x2="380" y2="368" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="22" y="374" width="716" height="80" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="42" y="398" font-size="13" font-weight="700" fill="#7c3aed">④ 체크포인트</text>
+<text x="42" y="420" font-size="11" fill="#495057">1TB/회 × 5회</text>
+<text x="42" y="438" font-size="10" fill="#999999">HBM→NVMe 즉시 · 전역 drain</text>
+<rect x="22" y="488" width="716" height="54" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="380" y="510" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">저장이 실제로 나르는 총량: 1 + 1 + 2 + 5 = 9TB</text>
+<text x="380" y="530" font-size="10" fill="#495057" text-anchor="middle">재읽기 6TB는 저장을 지나지 않는다. 설계는 9TB의 속도와 시점에 맞춘다</text>
 </svg>
