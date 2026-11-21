@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 268" width="760" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="268" fill="#ffffff"/>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">시리즈 3편이 답한 질문</text>
+<rect x="24" y="70" width="220" height="112" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="134" y="115" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">1편</text>
+<text x="134" y="130" font-size="10" fill="#495057" text-anchor="middle">벽은 사라지지 않고</text>
+<text x="134" y="145" font-size="10" fill="#495057" text-anchor="middle">옮겨갈 뿐이다</text>
+<rect x="270" y="70" width="220" height="112" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="380" y="115" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">2편</text>
+<text x="380" y="130" font-size="10" fill="#495057" text-anchor="middle">기본값 하나하나를</text>
+<text x="380" y="145" font-size="10" fill="#495057" text-anchor="middle">읽어 내려간다</text>
+<rect x="516" y="70" width="220" height="112" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="626" y="115" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="700">3편</text>
+<text x="626" y="130" font-size="10" fill="#495057" text-anchor="middle">증상에서 값까지</text>
+<text x="626" y="145" font-size="10" fill="#495057" text-anchor="middle">결정 카드로 묶는다</text>
+<rect x="25" y="208" width="710" height="38" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="380" y="231" font-size="11" fill="#495057" text-anchor="middle">값은 옮기는 도구이지 지우는 도구가 아니다</text>
+</svg>

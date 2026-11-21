@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 276" width="760" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="276" fill="#ffffff"/>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">풀 생성 시점의 결정 네 가지</text>
+<text x="180" y="60" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="700">왼쪽 두 개는 못 바꾼다</text>
+<text x="580" y="60" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="700">오른쪽 두 개는 언제든</text>
+<rect x="21" y="78" width="160" height="112" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="101" y="123" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="700">vdev 구성</text>
+<text x="101" y="138" font-size="10" fill="#495057" text-anchor="middle">mirror · RAIDZ</text>
+<text x="101" y="153" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">풀 생성 시에만</text>
+<rect x="207" y="78" width="160" height="112" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="287" y="123" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="700">ashift</text>
+<text x="287" y="138" font-size="10" fill="#495057" text-anchor="middle">12 (4K 섹터)</text>
+<text x="287" y="153" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">풀 생성 시에만</text>
+<rect x="393" y="78" width="160" height="112" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="473" y="123" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">atime</text>
+<text x="473" y="138" font-size="10" fill="#495057" text-anchor="middle">off 권장</text>
+<text x="473" y="153" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="700">언제든 변경</text>
+<rect x="579" y="78" width="160" height="112" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="659" y="123" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">compression</text>
+<text x="659" y="138" font-size="10" fill="#495057" text-anchor="middle">on · lz4</text>
+<text x="659" y="153" font-size="10" fill="#16a34a" text-anchor="middle" font-weight="700">언제든 변경</text>
+<rect x="25" y="216" width="710" height="38" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="380" y="239" font-size="11" fill="#495057" text-anchor="middle">못 바꾸는 두 가지는 만들 때 신중하게, 바꿀 수 있는 두 가지는 일찍 켜둔다</text>
+</svg>
