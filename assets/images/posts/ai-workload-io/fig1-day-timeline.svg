@@ -2,7 +2,7 @@
 <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
 <rect x="0" y="0" width="760" height="426" fill="#ffffff"/>
 <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker></defs>
-<text x="380" y="32" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">AI 학습의 하루, 저장 I/O 속도 (GB/s, 로그 눈금 개념)</text>
+<text x="380" y="32" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">AI 학습의 하루, 저장 I/O 속도 (강도, 로그 눈금 개념 · 막대 높이 = 상대적 I/O 강도)</text>
 <text x="48" y="74" font-size="9" fill="#999999" text-anchor="end">100</text>
 <line x1="55" y1="70" x2="735" y2="70" stroke="#e2e8f0" stroke-width="1"/>
 <text x="48" y="114" font-size="9" fill="#999999" text-anchor="end">10</text>
@@ -11,7 +11,7 @@
 <line x1="55" y1="150" x2="735" y2="150" stroke="#e2e8f0" stroke-width="1"/>
 <text x="48" y="194" font-size="9" fill="#999999" text-anchor="end">0.1</text>
 <line x1="55" y1="190" x2="735" y2="190" stroke="#e2e8f0" stroke-width="1"/>
-<text x="48" y="58" font-size="9" fill="#999999" text-anchor="end">GB/s</text>
+<text x="48" y="58" font-size="9" fill="#999999" text-anchor="end">강도</text>
 <line x1="55" y1="330" x2="735" y2="330" stroke="#999999" stroke-width="1.5" marker-end="url(#ar)"/>
 <line x1="60" y1="325" x2="60" y2="335" stroke="#999999" stroke-width="1.5"/>
 <text x="60" y="350" font-size="9" fill="#999999" text-anchor="middle">0h</text>
