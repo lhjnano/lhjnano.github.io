@@ -1,42 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" role="img">
-<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
-<rect x="0" y="0" width="760" height="470" fill="#ffffff"/>
-<defs>
-<marker id="m8" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#2563eb"/></marker>
-<marker id="m8o" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#fbbf24"/></marker>
-<marker id="m12" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12 Z" fill="#2563eb"/></marker>
-<marker id="m12o" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12 Z" fill="#fbbf24"/></marker>
-<marker id="m16" markerWidth="16" markerHeight="16" refX="4" refY="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L16 8 L0 16 Z" fill="#2563eb"/></marker>
-</defs>
-<text x="380" y="32" font-size="14" font-weight="700" fill="#2c3e50" text-anchor="middle">계층 사다리와 데이터 흐름</text>
-<rect x="200" y="52" width="360" height="70" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
-<text x="220" y="80" font-size="13" font-weight="700" fill="#dc2626">GPU · HBM</text>
-<text x="220" y="102" font-size="10" fill="#495057">모델 · 활성화 · KV 캐시 · 3~8 TB/s</text>
-<rect x="200" y="149" width="360" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
-<text x="220" y="177" font-size="13" font-weight="700" fill="#7c3aed">CPU · RAM</text>
-<text x="220" y="199" font-size="10" fill="#495057">페이지 캐시 · 스테이징 · 100~400 GB/s</text>
-<rect x="200" y="246" width="360" height="70" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-<text x="220" y="274" font-size="13" font-weight="700" fill="#16a34a">로컬 NVMe</text>
-<text x="220" y="296" font-size="10" fill="#495057">체크포인트 1단계 · 스플 · 28~56 GB/s</text>
-<rect x="200" y="343" width="360" height="70" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
-<text x="220" y="371" font-size="13" font-weight="700" fill="#2563eb">전역 저장</text>
-<text x="220" y="393" font-size="10" fill="#495057">원본 · drain · 아카이브 · 50~200 GB/s</text>
-<line x1="170" y1="343" x2="170" y2="122" stroke="#2563eb" stroke-width="4" marker-end="url(#m16)"/>
-<text x="152" y="232" font-size="10" font-weight="700" fill="#2563eb" text-anchor="end">섭취</text>
-<text x="152" y="246" font-size="9" fill="#2563eb" text-anchor="end">등반</text>
-<line x1="155" y1="149" x2="155" y2="122" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#m8)"/>
-<text x="140" y="136" font-size="8" fill="#2563eb" text-anchor="end">캐시</text>
-<line x1="100" y1="149" x2="100" y2="316" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#m8)"/>
-<line x1="100" y1="316" x2="100" y2="149" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#m8)"/>
-<text x="85" y="232" font-size="9" font-weight="700" fill="#7c3aed" text-anchor="end">스필</text>
-<text x="85" y="244" font-size="8" fill="#7c3aed" text-anchor="end">왕복</text>
-<line x1="580" y1="122" x2="580" y2="149" stroke="#fbbf24" stroke-width="3" marker-end="url(#m12o)"/>
-<text x="596" y="136" font-size="8" fill="#92400e">스테이징</text>
-<line x1="580" y1="219" x2="580" y2="246" stroke="#fbbf24" stroke-width="3" marker-end="url(#m12o)"/>
-<text x="596" y="232" font-size="8" fill="#92400e">로컬 쓰기</text>
-<line x1="580" y1="316" x2="580" y2="343" stroke="#fbbf24" stroke-width="2" marker-end="url(#m8o)"/>
-<text x="596" y="330" font-size="8" fill="#92400e">drain</text>
-<text x="660" y="232" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle" transform="rotate(90 660 232)">체크포인트 하강</text>
-<rect x="25" y="410" width="710" height="40" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
-<text x="380" y="432" font-size="11" fill="#495057" text-anchor="middle">섭취는 위로 등반 · 체크포인트는 아래로 하강 · 스플은 왕복 · 셔플은 저장이 아닌 네트워크</text>
+<svg viewBox="0 0 860 470" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="하드웨어 계층 사다리와 워크로드 흐름">
+  <style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;}</style>
+  <defs>
+    <marker id="hA" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 L3,6 z" fill="#1976d2"/></marker>
+    <marker id="hB" markerWidth="12" markerHeight="12" refX="3" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 L3,6 z" fill="#fbbf24"/></marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="470" fill="#ffffff"/>
+  <text x="440" y="28" font-size="15" fill="#ffffff" text-anchor="middle">AI 노드의 계층 사다리 — 오른쪽: 용량·대역, 왼쪽: 워크로드의 이동</text>
+  <!-- 층: GPU/HBM y=60, RAM y=150, NVMe y=240, 전역 y=330 (w=380 x=240..620, h=70) -->
+  <rect x="240" y="60"  width="380" height="70" rx="8" fill="#e3f2fd" stroke="#546e7a"/>
+  <text x="258" y="86"  font-size="13" fill="#ffffff" font-weight="bold">GPU · HBM(VRAM)</text>
+  <text x="258" y="106" font-size="10.5" fill="#495057">모델 가중치 · 활성화 · KV 캐시 — 연산의 최종 착지점</text>
+  <text x="632" y="86"  font-size="10.5" fill="#495057">80–192 GB/카드</text>
+  <text x="632" y="106" font-size="10.5" fill="#495057">3–8 TB/s</text>
+  <rect x="240" y="150" width="380" height="70" rx="8" fill="#dbeafe" stroke="#546e7a"/>
+  <text x="258" y="176" font-size="13" fill="#ffffff" font-weight="bold">CPU · RAM(노드)</text>
+  <text x="258" y="196" font-size="10.5" fill="#495057">페이지 캐시 · 프리페치 버퍼 · 비동기 체크포인트 스테이징</text>
+  <text x="632" y="176" font-size="10.5" fill="#495057">0.5–2 TB/노드</text>
+  <text x="632" y="196" font-size="10.5" fill="#495057">100–400 GB/s</text>
+  <rect x="240" y="240" width="380" height="70" rx="8" fill="#bfdbfe" stroke="#546e7a"/>
+  <text x="258" y="266" font-size="13" fill="#ffffff" font-weight="bold">로컬 NVMe(노드)</text>
+  <text x="258" y="286" font-size="10.5" fill="#495057">노드 로컬 체크포인트(비동기 1단계) · 스플 · 스왑</text>
+  <text x="632" y="266" font-size="10.5" fill="#495057">4–8장 · 수십 TB</text>
+  <text x="632" y="286" font-size="10.5" fill="#495057">28–56 GB/s 합산</text>
+  <rect x="240" y="330" width="380" height="70" rx="8" fill="#2c3e50" stroke="#546e7a"/>
+  <text x="258" y="356" font-size="13" fill="#ffffff" font-weight="bold">전역 저장(공유 FS · 객체 · HDD 계층)</text>
+  <text x="258" y="376" font-size="10.5" fill="#495057">데이터셋 원본 · 전역 체크포인트 drain · 아카이브</text>
+  <text x="632" y="356" font-size="10.5" fill="#495057">PB급</text>
+  <text x="632" y="376" font-size="10.5" fill="#495057">집적 대역(50–200 GB/s 관측)</text>
+  <!-- 층 사이 안내 -->
+  <text x="430" y="142" font-size="9.5" fill="#78909c" text-anchor="middle">↑ 섭취: 캐시 히트의 1차 층 ↓</text>
+  <text x="430" y="232" font-size="9.5" fill="#78909c" text-anchor="middle">스필·KV 오프로드의 왕복 층</text>
+  <text x="430" y="322" font-size="9.5" fill="#78909c" text-anchor="middle">네트워크(노드들)를 건너는 층</text>
+  <!-- 왼쪽 흐름 화살표 -->
+  <path d="M150,330 C110,300 110,150 150,100" stroke="#1976d2" stroke-width="2" fill="none" marker-end="url(#hA)"/>
+  <text x="94" y="215" font-size="10.5" fill="#1976d2" text-anchor="middle" transform="rotate(-90 94 215)">섭취·콜드 스타트 (위로 등반)</text>
+  <path d="M180,95 C140,180 140,300 180,365" stroke="#fbbf24" stroke-width="2" fill="none" marker-end="url(#hB)"/>
+  <text x="135" y="215" font-size="10.5" fill="#92400e" text-anchor="middle" transform="rotate(90 135 215)">체크포인트 3단 하강 (VRAM→RAM→NVMe→전역)</text>
+  <!-- 하단 노드 박스 -->
+  <rect x="240" y="418" width="380" height="36" rx="8" fill="#f3f7fb" stroke="#999999" stroke-dasharray="6,4"/>
+  <text x="430" y="441" font-size="10.5" fill="#495057" text-anchor="middle">노드들 — 데이터 병렬: 레플리카 수백 개 중 쓰는 건 1개 · 셔플은 저장이 아니라 네트워크 트래픽</text>
 </svg>
