@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 506" width="760" role="img">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="506" fill="#ffffff"/>
+<defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#999999"/></marker></defs>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">여섯 가지 조치: 무엇을 치우고 무엇이 새로 서는가</text>
+<text x="180" y="58" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="700">치우는 벽</text>
+<text x="580" y="58" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="700">새로 서는 벽</text>
+<rect x="25" y="80" width="710" height="44" rx="8" fill="#f0f4f8" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="106" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">recordsize 상향</text>
+<text x="180" y="105.5" font-size="10" fill="#16a34a" text-anchor="middle">랜덤 IOPS</text>
+<line x1="290" y1="102" x2="370" y2="102" stroke="#999999" stroke-width="1.5" marker-end="url(#ar4)"/>
+<text x="580" y="105.5" font-size="10" fill="#dc2626" text-anchor="middle">파편화 가속</text>
+<rect x="25" y="152" width="710" height="44" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="178" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">ARC 상향</text>
+<text x="180" y="177.5" font-size="10" fill="#16a34a" text-anchor="middle">캐시 미스</text>
+<line x1="290" y1="174" x2="370" y2="174" stroke="#999999" stroke-width="1.5" marker-end="url(#ar4)"/>
+<text x="580" y="177.5" font-size="10" fill="#dc2626" text-anchor="middle">앱 메모리 경합</text>
+<rect x="25" y="224" width="710" height="44" rx="8" fill="#f0f4f8" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="250" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">SLOG 추가</text>
+<text x="180" y="249.5" font-size="10" fill="#16a34a" text-anchor="middle">ZIL 인터리브</text>
+<line x1="290" y1="246" x2="370" y2="246" stroke="#999999" stroke-width="1.5" marker-end="url(#ar4)"/>
+<text x="580" y="249.5" font-size="10" fill="#dc2626" text-anchor="middle">SLOG 수명 · PLP</text>
+<rect x="25" y="296" width="710" height="44" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="322" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">lz4에서 zstd</text>
+<text x="180" y="321.5" font-size="10" fill="#16a34a" text-anchor="middle">디스크 대역</text>
+<line x1="290" y1="318" x2="370" y2="318" stroke="#999999" stroke-width="1.5" marker-end="url(#ar4)"/>
+<text x="580" y="321.5" font-size="10" fill="#dc2626" text-anchor="middle">CPU 세금</text>
+<rect x="25" y="368" width="710" height="44" rx="8" fill="#f0f4f8" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="394" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">mirror 추가</text>
+<text x="180" y="393.5" font-size="10" fill="#16a34a" text-anchor="middle">vdev 대역</text>
+<line x1="290" y1="390" x2="370" y2="390" stroke="#999999" stroke-width="1.5" marker-end="url(#ar4)"/>
+<text x="580" y="393.5" font-size="10" fill="#dc2626" text-anchor="middle">컨트롤러 · 공간 절반</text>
+<rect x="25" y="440" width="710" height="44" rx="8" fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+<text x="40" y="466" font-size="11" fill="#2c3e50" text-anchor="start" font-weight="700">scrub 제한</text>
+<text x="180" y="465.5" font-size="10" fill="#16a34a" text-anchor="middle">운영 경합</text>
+<line x1="290" y1="462" x2="370" y2="462" stroke="#999999" stroke-width="1.5" marker-end="url(#ar4)"/>
+<text x="580" y="465.5" font-size="10" fill="#dc2626" text-anchor="middle">완주 지연</text>
+</svg>
