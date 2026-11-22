@@ -11,3 +11,5 @@ Gemfile.lock
 .\$*.png.dtmp
 BLOG_GOVERNANCE.md
 sync-governance.sh
+tools/post-gate.py
+tools/slop-check/

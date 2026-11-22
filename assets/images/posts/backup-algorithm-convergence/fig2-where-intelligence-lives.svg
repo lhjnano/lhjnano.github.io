@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 478" width="820" role="img" aria-label="백업 도구 세 개에서 지능이 위치하는 곳의 비교. kopia는 fs 스캔, CDC 청킹, HMAC-SHA256 콘텐츠 ID, AES-256-GCM 암호화, 인덱스 커밋까지 전부 클라이언트 바이너리 안에 두고, 객체 저장소는 암호화된 블롭만 보관하는 수동 공간이다. velero는 server Pod의 약 15개 reconciler가 선언적 API를 조율하고 node-agent DaemonSet이 내장 kopia 엔진으로 Pod 볼륨을 kopia repo에 올리며 메타데이터는 JSON tarball로 따로 보관한다. longhorn은 볼륨마다 사용자공간 longhorn-engine이 쓰기와 스냅샷을 주관하고 각 노드의 레플리카 세 개가 동기 복제로 데이터를 보관한다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<defs>
+<marker id="kvl2-ah" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0,0 L0,8 L7,4 z" fill="#666666"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="820" height="478" fill="#ffffff"/>
+<text x="410" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">같은 골격, 다른 주소: 지능은 어디에 사나</text>
+<rect x="22" y="60" width="240" height="56" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+<text x="142" y="83.5" font-size="13" fill="#2563eb" text-anchor="middle" font-weight="700">kopia</text>
+<text x="142" y="100.5" font-size="9.5" fill="#495057" text-anchor="middle">지능이 클라이언트에 전부</text>
+<rect x="290" y="60" width="240" height="56" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="410" y="83.5" font-size="13" fill="#16a34a" text-anchor="middle" font-weight="700">velero</text>
+<text x="410" y="100.5" font-size="9.5" fill="#495057" text-anchor="middle">조율과 실행이 두 층으로 분리</text>
+<rect x="558" y="60" width="240" height="56" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+<text x="678" y="83.5" font-size="13" fill="#7c3aed" text-anchor="middle" font-weight="700">longhorn</text>
+<text x="678" y="100.5" font-size="9.5" fill="#495057" text-anchor="middle">엔진과 레플리카에 분산</text>
+<rect x="22" y="142" width="240" height="150" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+<text x="142" y="180.6" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="700">kopia 클라이언트 바이너리</text>
+<text x="34" y="200.6" font-size="9.5" fill="#495057" text-anchor="start">fs 엔트리 스캔</text>
+<text x="34" y="215.6" font-size="9.5" fill="#495057" text-anchor="start">CDC 스플리터 청킹</text>
+<text x="34" y="230.6" font-size="9.5" fill="#495057" text-anchor="start">HMAC-SHA256 콘텐츠 ID</text>
+<text x="34" y="245.6" font-size="9.5" fill="#495057" text-anchor="start">AES-256-GCM 암호화</text>
+<text x="34" y="260.6" font-size="9.5" fill="#495057" text-anchor="start">팩 블롭 쓰기 + 인덱스 커밋</text>
+<line x1="142" y1="297" x2="142" y2="311" stroke="#666666" stroke-width="1.5" marker-end="url(#kvl2-ah)"/>
+<rect x="22" y="318" width="240" height="74" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="142" y="343.4" font-size="10.5" fill="#666666" text-anchor="middle" font-weight="700">객체 저장소</text>
+<text x="142" y="359.4" font-size="9" fill="#8b949e" text-anchor="middle">S3 · B2 · SFTP · 로컬 (17종 이상)</text>
+<text x="142" y="373.4" font-size="9" fill="#8b949e" text-anchor="middle">암호화된 블롭만 보관하는 수동 공간</text>
+<rect x="290" y="142" width="240" height="56" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="410" y="165" font-size="10.5" fill="#16a34a" text-anchor="middle" font-weight="700">server Pod 1 replica</text>
+<text x="410" y="182" font-size="9.5" fill="#495057" text-anchor="middle">~15 reconciler가 선언적 API를 조율</text>
+<line x1="410" y1="203" x2="410" y2="217" stroke="#666666" stroke-width="1.5" marker-end="url(#kvl2-ah)"/>
+<rect x="290" y="224" width="240" height="56" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+<text x="410" y="247" font-size="10.5" fill="#16a34a" text-anchor="middle" font-weight="700">node-agent DaemonSet</text>
+<text x="410" y="264" font-size="9.5" fill="#495057" text-anchor="middle">Pod 볼륨을 kopia 리포지토리로 업로드</text>
+<line x1="410" y1="285" x2="410" y2="299" stroke="#666666" stroke-width="1.5" marker-end="url(#kvl2-ah)"/>
+<rect x="290" y="306" width="240" height="30" rx="8" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+<text x="410" y="324.5" font-size="10" fill="#92400e" text-anchor="middle" font-weight="700">알고리즘 = 내장 kopia</text>
+<line x1="410" y1="341" x2="410" y2="355" stroke="#666666" stroke-width="1.5" marker-end="url(#kvl2-ah)"/>
+<rect x="290" y="362" width="240" height="30" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="410" y="380.5" font-size="10" fill="#495057" text-anchor="middle">kopia repo + 1회성 JSON tarball</text>
+<rect x="558" y="142" width="240" height="56" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+<text x="678" y="165" font-size="10.5" fill="#7c3aed" text-anchor="middle" font-weight="700">longhorn-engine</text>
+<text x="678" y="182" font-size="9.5" fill="#495057" text-anchor="middle">사용자공간, 볼륨마다 기동</text>
+<line x1="678" y1="203" x2="678" y2="217" stroke="#666666" stroke-width="1.5" marker-end="url(#kvl2-ah)"/>
+<rect x="558" y="224" width="240" height="56" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2"/>
+<text x="678" y="247" font-size="10.5" fill="#7c3aed" text-anchor="middle" font-weight="700">레플리카 1 · 2 · 3</text>
+<text x="678" y="264" font-size="9.5" fill="#495057" text-anchor="middle">각 노드 위 스파스 파일</text>
+<line x1="678" y1="285" x2="678" y2="299" stroke="#666666" stroke-width="1.5" marker-end="url(#kvl2-ah)"/>
+<rect x="558" y="306" width="240" height="86" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="678" y="336.5" font-size="10.5" fill="#7c3aed" text-anchor="middle" font-weight="700">동기 3레플리카 복제</text>
+<text x="678" y="354.5" font-size="9.5" fill="#495057" text-anchor="middle">쓰기는 세 레플리카에 동시 반영</text>
+<text x="678" y="368.5" font-size="9.5" fill="#495057" text-anchor="middle">'복제'의 목적은 가용성 확보</text>
+<rect x="22" y="418" width="776" height="38" rx="8" fill="#f0f4f8" stroke="#666666" stroke-width="1.5"/>
+<text x="410" y="440.8" font-size="11" fill="#495057" text-anchor="middle">같은 증분 골격이라도 지능이 사는 곳은 다르다: kopia는 한 바이너리 안, velero는 server와 node-agent 사이, longhorn은 엔진과 레플리카 사이다</text>
+</svg>
