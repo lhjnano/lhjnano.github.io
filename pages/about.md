@@ -32,7 +32,7 @@ permalink: /about/
   - [#2293](https://github.com/versity/versitygw/pull/2293): 미설정 버킷의 버전 관리 조회가 빈 설정 반환
   - [#2616](https://github.com/versity/versitygw/pull/2616): fallocate 실패 스킵, 소형 PUT +8.2%
 - **[nfs-utils](https://git.linux-nfs.org/cgit/nfs-utils.git/)**: NFS 서버 44분 장애의 근본 원인에서
-  - [패치](https://lore.kernel.org/linux-nfs/20261015114755.33331-1-lhjnano@gmail.com/): nfsdcld 준비 신호 경쟁 수정 (3.1.2 대상)
+  - [패치](https://lore.kernel.org/linux-nfs/20261015114755.33331-1-lhjnano@gmail.com/): 커널 nfsd에서 nfsdcld 준비 신호 폴링 제거 (nfsd-testing 기준)
 - **[velero](https://github.com/vmware-tanzu/velero)**: 쿠버네티스 백업 운영에서
   - [#10496](https://github.com/velero-io/velero/pull/10496): 버전 우선순위 파싱의 CRLF 처리
   - [#10490](https://github.com/velero-io/velero/pull/10490): 스케줄 reconciler의 값 비교 수정
