@@ -103,9 +103,12 @@ collections:
 # ---------------- #
 #      Comments    #
 # ---------------- #
-comments_provider: utterances
-utterances:
-  repo: lhjnano/blog-comments
+comments_provider: giscus
+giscus:
+  repo: lhjnano/lhjnano.github.io
+  repo-id: R_kgDOL7t4mQ
+  category: Announcements
+  category-id: DIC_kwDOL7t4mc4ChwI6
 
 # ---------------- #
 #      Search      #
