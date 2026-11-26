@@ -1,0 +1,48 @@
+<!-- 그림 10. 번짐의 엔트로피 밀도 h(δ)와 그 수렴. h(0)=h(1)=0이고 대칭이며 격자 평균 A_n이 적분 C=1.2199로 간다 -->
+<!-- 캡션 문장은 본문에서 그대로 인용된다. -->
+<!-- 왼쪽: 대칭 종모양 h(δ) 곡선과 n=5 격자 세로선, 리만 합 사각형. 오른쪽: n별 격자 평균 표와 적분 C 수렴 행. -->
+<!-- 색: 보라 곡선, 주황 리만 합 사각형, 파랑 표 카드, 초록 수렴 행. -->
+<!-- 검증: node tools/svg-lint/bin/svg-lint.mjs assets/images/posts/rh-proof/fig10-entropy-curve.svg -->
+<!-- 작성: 2026-11-26, rh-proof 시리즈 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 336" width="760" role="img" aria-label="번짐의 엔트로피 밀도 도표. 왼쪽 패널은 δ가 0에서 1까지 갈 때의 h(δ) 곡선으로 양 끝에서 0이고 중앙에서 가장 높은 대칭 종 모양이며, 곡선 아래 n=5 격자의 세로 점선과 리만 합 사각형을 깔아 격자 평균 A_n을 보여준다. 오른쪽 표는 n=3일 때 1.1976, n=5일 때 1.2152, n=7일 때 1.2182, n=25일 때 1.2199로 커지고 n이 무한대로 갈 때 적분 상수 C인 1.2199에 수렴함을 정리했다. 화살표와 부제는 n이 커질수록 격자 평균이 적분에 수렴한다는 관계를 담는다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="336" fill="#ffffff"/>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">번짐의 엔트로피 밀도 h(δ)와 격자 평균의 수렴</text>
+<text x="380" y="60" font-size="11" fill="#666666" text-anchor="middle">n이 커질수록 격자 평균 A_n이 적분 C=1.2199로 수렴한다</text>
+<rect x="25" y="84" width="330" height="230" rx="10" fill="#f0f4f8" stroke="#999999" stroke-width="2"/>
+<text x="190" y="103" font-size="12" fill="#495057" text-anchor="middle" font-weight="700">h(δ) 곡선과 격자 평균 A_n</text>
+<line x1="48" y1="120" x2="48" y2="280" stroke="#495057" stroke-width="1.5"/>
+<line x1="48" y1="280" x2="338" y2="280" stroke="#495057" stroke-width="1.5"/>
+<path d="M48 280 L48 243 L106 243 L106 280 Z M106 280 L106 211 L164 211 L164 280 Z M164 280 L164 202 L222 202 L222 280 Z M222 280 L222 211 L280 211 L280 280 Z M280 280 L280 243 L338 243 L338 280 Z" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+<line x1="106" y1="196" x2="106" y2="280" stroke="#999999" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="164" y1="196" x2="164" y2="280" stroke="#999999" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="222" y1="196" x2="222" y2="280" stroke="#999999" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="280" y1="196" x2="280" y2="280" stroke="#999999" stroke-width="1" stroke-dasharray="3,3"/>
+<polyline points="48,280 62,258 77,243 92,232 106,224 120,217 135,211 149,207 164,204 178,203 193,202 208,203 222,204 237,207 251,211 266,217 280,224 294,232 309,243 324,258 338,280" fill="none" stroke="#7c3aed" stroke-width="2"/>
+<text x="115" y="183" font-size="10" fill="#92400e" text-anchor="middle">격자 평균</text>
+<text x="155" y="183" font-size="10" fill="#92400e" text-anchor="middle">A_n</text>
+<line x1="135" y1="188" x2="135" y2="198" stroke="#92400e" stroke-width="1" stroke-dasharray="2,2"/>
+<text x="39" y="116" font-size="11" fill="#495057" text-anchor="start">h(δ)</text>
+<text x="346" y="302" font-size="11" fill="#495057" text-anchor="middle">δ</text>
+<text x="48" y="302" font-size="9" fill="#666666" text-anchor="middle">0</text>
+<text x="193" y="302" font-size="9" fill="#666666" text-anchor="middle">0.5</text>
+<text x="336" y="302" font-size="9" fill="#666666" text-anchor="middle">1</text>
+<rect x="380" y="84" width="355" height="230" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="430" y="106" font-size="14" fill="#2563eb" text-anchor="middle" font-weight="700">n</text>
+<text x="610" y="106" font-size="14" fill="#2563eb" text-anchor="middle" font-weight="700">격자 평균 A_n</text>
+<line x1="398" y1="118" x2="718" y2="118" stroke="#cbd5e1" stroke-width="1"/>
+<text x="430" y="140" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">3</text>
+<text x="610" y="140" font-size="11" fill="#495057" text-anchor="middle">1.1976</text>
+<text x="430" y="158" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">5</text>
+<text x="610" y="158" font-size="11" fill="#495057" text-anchor="middle">1.2152</text>
+<text x="430" y="176" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">7</text>
+<text x="610" y="176" font-size="11" fill="#495057" text-anchor="middle">1.2182</text>
+<text x="430" y="194" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">25</text>
+<text x="610" y="194" font-size="11" fill="#495057" text-anchor="middle">1.2199</text>
+<line x1="398" y1="290" x2="718" y2="290" stroke="#cbd5e1" stroke-width="1"/>
+<text x="558" y="302" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="700">n→∞ : 1.2199(적분 C)</text>
+<defs>
+<marker id="ah-gray-10" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker>
+</defs>
+<path d="M360 199 L369 199" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-10)"/>
+</svg>

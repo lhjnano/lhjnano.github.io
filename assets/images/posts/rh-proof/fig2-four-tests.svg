@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 346" width="760" role="img" aria-label="인증에 쓰인 네 가지 시험과 각각이 차단하는 함정. 상단 아카이브 박스는 175,187 파일의 Lean 라이브러리이고, 아래 2x2 카드는 1 명제의 정의(Mathlib RiemannHypothesis 재사용, 명제 정의 자체의 오염 차단), 2 컴파일 재현(수십 명이 동일 내보내기 재현, 빌드와 환경 오류 차단), 3 명제 일치(고립 파일과 comparator 2종 대조, 문제 치환 차단), 4 증명 유효성(커널 리플레이와 독립 체커, 비활성 내보내기, 추론 오류와 악의 코드 차단)을 담는다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="346" fill="#ffffff"/>
+<defs>
+<marker id="ah-gray-2" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker>
+</defs>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">인증은 네 가지 시험을 통과해야 하고, 각 시험은 저마다 다른 함정을 막는다</text>
+<text x="380" y="60" font-size="11" fill="#666666" text-anchor="middle">2026-11-21 Lean 커뮤니티 인증 성명이 제시한 네 가지 기준</text>
+<rect x="20" y="80" width="720" height="44" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="2"/>
+<text x="45" y="106" font-size="12" fill="#2c3e50" font-weight="700">Lean 라이브러리 아카이브</text>
+<text x="205" y="106" font-size="11" fill="#495057">175,187 파일</text>
+<path d="M193,129 L193,139" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-2)"/>
+<path d="M567,129 L567,139" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-2)"/>
+<rect x="20" y="150" width="346" height="74" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="193" y="175.8" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">1 명제의 정의</text>
+<text x="193" y="190.8" font-size="10" fill="#495057" text-anchor="middle">Mathlib RiemannHypothesis 재사용</text>
+<text x="193" y="205.8" font-size="10" fill="#dc2626" text-anchor="middle">차단: 명제 정의 자체의 오염</text>
+<rect x="394" y="150" width="346" height="74" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="567" y="175.8" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="700">2 컴파일 재현</text>
+<text x="567" y="190.8" font-size="10" fill="#495057" text-anchor="middle">수십 명이 동일 내보내기 재현</text>
+<text x="567" y="205.8" font-size="10" fill="#dc2626" text-anchor="middle">차단: 빌드·환경 오류</text>
+<rect x="20" y="250" width="346" height="74" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="193" y="275.8" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">3 명제 일치</text>
+<text x="193" y="290.8" font-size="10" fill="#495057" text-anchor="middle">고립 파일 + comparator 2종 대조</text>
+<text x="193" y="305.8" font-size="10" fill="#dc2626" text-anchor="middle">차단: 문제 치환(비슷한 다른 정리 증명)</text>
+<rect x="394" y="250" width="346" height="74" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="567" y="275.8" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="700">4 증명 유효성</text>
+<text x="567" y="290.8" font-size="10" fill="#495057" text-anchor="middle">커널 리플레이 + 독립 체커, 비활성 내보내기</text>
+<text x="567" y="305.8" font-size="10" fill="#dc2626" text-anchor="middle">차단: 추론 오류·악의 코드</text>
+</svg>

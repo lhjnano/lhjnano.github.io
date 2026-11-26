@@ -1,0 +1,44 @@
+<!-- 그림 7. W-R2의 붕괴 경로. 계산은 정확했지만 측정 대상과 주장 대상이 달랐다 -->
+<!-- 캡션 문장은 2편 본문에서 그대로 인용된다. -->
+<!-- 색: 초록 1단계 통과, 빨강 2단계 붕괴와 라벨 칩과 철회 기록, 회색 교훈 밴드 -->
+<!-- 날짜 표기: 철회는 2026-11-25로 쓴다(원문 창 상단 11-27은 오기로 확정). -->
+<!-- χ² 11.8~24.5와 기각역 25는 W-R2 재분석 수치를 그대로 쓴 것이다. -->
+<!-- 배지: 위 카드에 측정 대상, 아래 카드에 주장 대상의 대비를 강조했다. -->
+<!-- 라벨 칩은 두 카드 사이 화살표 위에 놓인 대비 라벨이다. -->
+<!-- 노트 박스는 점선 그룹 테두리 안 오른쪽 열에 둔다. -->
+<!-- 검증: node tools/svg-lint/bin/svg-lint.mjs assets/images/posts/rh-proof/fig7-w-r2.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 482" width="760" role="img" aria-label="W-R2의 붕괴 경로 도표. 위 초록 카드는 1단계 통과로 키 1,516개가 전부 곡선 방정식을 통과하고 카이제곱 계산이 정확하며 널모델 대조가 정상이었음을 보여주고 측정 대상 배지가 붙어 있다. 가운데 빨간 라벨 칩은 측정 대상과 주장 대상이 같지 않다는 대비를 화살표 위에 보여준다. 아래 빨간 카드는 2단계 붕괴로 중복 제거 미수행, 수집된 키 56개의 실체는 서로 다른 키 3개라는 사실, 인증서가 도메인마다 반복 수집된 점, 중복 제거 뒤 전 발급자 균일로 카이제곱 11.8에서 24.5가 기각역 25에 미달한 점을 보여주고 주장 대상 배지가 붙어 있다. 오른쪽 점선 테두리 안 철회 기록 노트는 철회 2026-11-25과 원문 표기 11-27이 오기임을, 한 줄 대응표가 없어서 통과했다는 문구와 함께 기록한다. 아래 밴드는 계산이 정확해도 측정 대상과 주장 대상이 다르면 검증은 붕괴한다는 교훈을 담는다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="482" fill="#ffffff"/>
+<defs>
+<marker id="ah-red-7" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#dc2626"/></marker>
+</defs>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">W-R2의 붕괴 경로</text>
+<text x="380" y="60" font-size="11" fill="#666666" text-anchor="middle">계산은 정확했지만 측정 대상과 주장 대상이 달랐다</text>
+<rect x="25" y="84" width="490" height="88" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="270" y="109.4" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">1단계 통과</text>
+<text x="270" y="124.4" font-size="10" fill="#495057" text-anchor="middle">키 1,516개 전부 곡선 방정식 통과</text>
+<text x="495" y="124.4" font-size="10" fill="#16a34a" text-anchor="end" font-weight="700">측정 대상</text>
+<text x="270" y="139.4" font-size="10" fill="#495057" text-anchor="middle">χ² 계산 정확</text>
+<text x="270" y="154.4" font-size="10" fill="#495057" text-anchor="middle">널모델 대조 정상</text>
+<path d="M270,177 L270,189" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#ah-red-7)"/>
+<rect x="180" y="200" width="180" height="36" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+<text x="270" y="221.5" font-size="10" fill="#dc2626" text-anchor="middle" font-weight="700">측정 대상 ≠ 주장 대상</text>
+<path d="M270,241 L270,253" stroke="#dc2626" stroke-width="1.5" fill="none" marker-end="url(#ah-red-7)"/>
+<rect x="25" y="264" width="490" height="116" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="270" y="288.4" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="700">2단계 붕괴</text>
+<text x="270" y="303.4" font-size="10" fill="#495057" text-anchor="middle">중복 제거 미수행</text>
+<text x="495" y="303.4" font-size="10" fill="#dc2626" text-anchor="end" font-weight="700">주장 대상</text>
+<text x="270" y="318.4" font-size="10" fill="#495057" text-anchor="middle">수집된 키 56개의 실체는 서로 다른 키 3개</text>
+<text x="270" y="333.4" font-size="10" fill="#495057" text-anchor="middle">인증서가 도메인마다 반복 수집</text>
+<text x="270" y="348.4" font-size="10" fill="#495057" text-anchor="middle">중복 제거 뒤 전 발급자 균일</text>
+<text x="270" y="363.4" font-size="10" fill="#495057" text-anchor="middle">χ² 11.8~24.5, 기각역 25 미달</text>
+<rect x="540" y="120" width="195" height="108" rx="10" fill="#ffffff" stroke="#999999" stroke-width="2" stroke-dasharray="6,4"/>
+<rect x="550" y="130" width="175" height="88" rx="10" fill="#f0f4f8" stroke="#999999" stroke-width="2"/>
+<text x="637.5" y="155.4" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="700">철회 기록</text>
+<text x="637.5" y="170.4" font-size="10" fill="#495057" text-anchor="middle">철회: 2026-11-25</text>
+<text x="637.5" y="185.4" font-size="10" fill="#495057" text-anchor="middle">원문 표기 11-27은 오기</text>
+<text x="637.5" y="200.4" font-size="10" fill="#666666" text-anchor="middle">한 줄 대응표가 없어서 통과했다</text>
+<rect x="25" y="408" width="710" height="52" rx="10" fill="#f0f4f8" stroke="#999999" stroke-width="2"/>
+<text x="380" y="437.5" font-size="10" fill="#2c3e50" text-anchor="middle">계산이 정확해도 측정 대상과 주장 대상이 다르면 검증은 붕괴한다</text>
+</svg>

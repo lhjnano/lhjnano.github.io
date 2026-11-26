@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 306" width="760" role="img" aria-label="스테파노프 방법의 계보와 정수 세계에서의 역할 보존. 위쪽에 Weil 1949(야코비안 경유, 해석적 기계), Stepanov 1969(다항식 방법, 초등적), Bombieri 1973(단순화) 세 카드가 좌에서 우로 화살표로 이어지고, 아래에 Alpöge와 Claude 2026(정수의 리만 가설) 카드가 있다. 두 개의 세로 화살표가 위 행과 아래 카드를 잇고, 그 사이에 다중도(고차 소거)의 역할이 theta lift 사슬(길이 √X)의 다중도 모방으로 대응된다는 라벨 두 개와 장난감 세팅에서 통한 아이디어를 전체로 수십 회 수송했다는 노트 박스가 있다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="306" fill="#ffffff"/>
+<defs>
+<marker id="ah-gray-3" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker>
+<marker id="ah-purple-3" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#7c3aed"/></marker>
+</defs>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">유한체 곡선에서 길러진 스테파노프 방법은 정수 세계에서도 역할을 보존한다</text>
+<rect x="20" y="60" width="220" height="60" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="130" y="101" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">Weil 1949</text>
+<text x="130" y="86" font-size="10" fill="#495057" text-anchor="middle">야코비안 경유, 해석적 기계</text>
+<rect x="270" y="60" width="220" height="60" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="380" y="101" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">Stepanov 1969</text>
+<text x="380" y="86" font-size="10" fill="#495057" text-anchor="middle">다항식 방법, 초등적</text>
+<rect x="520" y="60" width="220" height="60" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="630" y="101" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">Bombieri 1973</text>
+<text x="630" y="86" font-size="10" fill="#495057" text-anchor="middle">단순화</text>
+<rect x="83" y="146" width="180" height="52" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="173" y="175.5" font-size="10" fill="#495057" text-anchor="middle">다중도(고차 소거)의 역할</text>
+<rect x="290" y="146" width="180" height="52" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="380" y="168" font-size="10" fill="#495057" text-anchor="middle">theta lift 사슬(길이 √X)이</text>
+<text x="380" y="183" font-size="10" fill="#495057" text-anchor="middle">다중도를 모방</text>
+<rect x="497" y="146" width="180" height="52" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="2"/>
+<text x="587" y="168" font-size="10" fill="#495057" text-anchor="middle">장난감 세팅에서 통한 아이디어를</text>
+<text x="587" y="183" font-size="10" fill="#495057" text-anchor="middle">전체로 수송(수십 회)</text>
+<rect x="20" y="224" width="720" height="60" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="380" y="265" font-size="12" fill="#7c3aed" text-anchor="middle" font-weight="700">Alpöge와 Claude 2026</text>
+<text x="380" y="250" font-size="10" fill="#495057" text-anchor="middle">정수의 리만 가설</text>
+<path d="M245,90 L259,90" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-3)"/>
+<path d="M495,90 L509,90" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-3)"/>
+<path d="M268,172 L279,172" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-3)"/>
+<path d="M42,125 L42,213" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#ah-purple-3)"/>
+<path d="M718,125 L718,213" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#ah-purple-3)"/>
+</svg>

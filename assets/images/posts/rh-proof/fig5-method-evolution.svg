@@ -1,0 +1,44 @@
+<!-- 그림 5. 계측 단면도 방법론의 진화. 지식의 정리에서 발견의 도구로, 다시 발견의 관문으로 -->
+<!-- 캡션 문장은 2편 본문에서 그대로 인용된다. -->
+<!-- 색: 파랑 골격 v6(정리), 보라 v0.1과 v0.2(도구), 초록 v0.3과 v0.4(관문) -->
+<!-- 버전명과 날짜는 연구 문서 원문 표기를 따른다(골격 v6 = 2026-11-13). -->
+<!-- 카드 폭은 5열 배치와 25px 최소 간격 제약으로 124px가 된다. -->
+<!-- 검증: node tools/svg-lint/bin/svg-lint.mjs assets/images/posts/rh-proof/fig5-method-evolution.svg -->
+<!-- 작성: 2026-11-26, rh-proof 시리즈 2편 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 272" width="760" role="img" aria-label="계측 단면도 방법론의 다섯 단계 진화 도표. 2026년 11월 13일 골격 v6이 명명법과 소거 사이클로 지도는 상태가 아니다를 정리했고, v0.1이 수학 지형 변환으로 지도는 증명이 아니다를 선언하며, v0.2가 역방향 렌즈와 쌍대 브리지, 극한 탐침에 휴리스틱 6종을 더해 발견의 도구가 된다. v0.3은 W-R2 철회에서 도출한 검증 3단계와 확정 원칙을, v0.4는 생성기 규약과 생존율 회계를 더해 발견의 관문으로 완성된다. 아래 화살표와 세 개의 단계 라벨은 지식의 정리에서 발견의 도구를 거쳐 발견의 관문으로 가는 흐름을 보여준다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="272" fill="#ffffff"/>
+<defs>
+<marker id="ah-gray-5" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker>
+</defs>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">계측 단면도 방법론의 진화</text>
+<text x="380" y="60" font-size="11" fill="#666666" text-anchor="middle">지식의 정리에서 발견의 도구로, 다시 발견의 관문으로</text>
+<rect x="20" y="80" width="124" height="98" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="82" y="110.2" font-size="11" fill="#2563eb" text-anchor="middle" font-weight="700">골격 v6</text>
+<text x="82" y="125.2" font-size="10" fill="#495057" text-anchor="middle">2026-11-13</text>
+<text x="82" y="140.2" font-size="10" fill="#495057" text-anchor="middle">명명법·소거 사이클</text>
+<text x="82" y="155.2" font-size="10" fill="#495057" text-anchor="middle">지도는 상태가 아니다</text>
+<rect x="169" y="80" width="124" height="98" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="231" y="117.7" font-size="11" fill="#7c3aed" text-anchor="middle" font-weight="700">v0.1</text>
+<text x="231" y="132.7" font-size="10" fill="#495057" text-anchor="middle">수학 지형 변환</text>
+<text x="231" y="147.7" font-size="10" fill="#495057" text-anchor="middle">지도는 증명이 아니다</text>
+<rect x="318" y="80" width="124" height="98" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+<text x="380" y="102.7" font-size="11" fill="#7c3aed" text-anchor="middle" font-weight="700">v0.2</text>
+<text x="380" y="117.7" font-size="10" fill="#495057" text-anchor="middle">역방향 렌즈</text>
+<text x="380" y="132.7" font-size="10" fill="#495057" text-anchor="middle">쌍대 브리지</text>
+<text x="380" y="147.7" font-size="10" fill="#495057" text-anchor="middle">극한 탐침</text>
+<text x="380" y="162.7" font-size="10" fill="#495057" text-anchor="middle">휴리스틱 6종</text>
+<rect x="467" y="80" width="124" height="98" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="529" y="117.7" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="700">v0.3</text>
+<text x="529" y="132.7" font-size="10" fill="#495057" text-anchor="middle">검증 3단계 + 확정 원칙</text>
+<text x="529" y="147.7" font-size="10" fill="#495057" text-anchor="middle">W-R2 철회에서 도출</text>
+<rect x="616" y="80" width="124" height="98" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="678" y="117.7" font-size="11" fill="#16a34a" text-anchor="middle" font-weight="700">v0.4</text>
+<text x="678" y="132.7" font-size="10" fill="#495057" text-anchor="middle">생성기 규약</text>
+<text x="678" y="147.7" font-size="10" fill="#495057" text-anchor="middle">생존율 회계</text>
+<path d="M82,202 L678,202" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-5)"/>
+<text x="82" y="222" font-size="10" fill="#2563eb" text-anchor="middle">지식의 정리</text>
+<text x="306" y="222" font-size="10" fill="#7c3aed" text-anchor="middle">발견의 도구</text>
+<text x="604" y="222" font-size="10" fill="#16a34a" text-anchor="middle">발견의 관문</text>
+<text x="380" y="248" font-size="10" fill="#666666" text-anchor="middle">골격 v6(2026-11-13) 이후 v0.1에서 v0.4로 다듬어졌다</text>
+</svg>

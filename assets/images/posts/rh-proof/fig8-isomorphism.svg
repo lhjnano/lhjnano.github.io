@@ -1,0 +1,45 @@
+<!-- 그림 8. 앤트로픽의 검증 파이프라인과 계측 단면도의 대응 지도 -->
+<!-- 캡션 문장은 2편 본문에서 그대로 인용된다. 부제: 규모는 달라도 단계 구조가 대응한다 -->
+<!-- 색: 왼쪽 열 파랑(앤트로픽과 Lean), 오른쪽 열은 단계 색(빨강 의미론, 파랑 추론, 초록 독립성, 회색 회계) -->
+<!-- ⑥⑦은 계측 단면도 v0.2 검사 항목 번호를 따른다. -->
+<!-- 좌우 카드 폭은 340px로 같게 하여 행 크기 불일치 판정을 피한다. -->
+<!-- 검증: node tools/svg-lint/bin/svg-lint.mjs assets/images/posts/rh-proof/fig8-isomorphism.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 456" width="760" role="img" aria-label="앤트로픽의 검증 파이프라인과 계측 단면도의 대응 지도 도표. 왼쪽 열은 앤트로픽과 Lean 파이프라인의 네 단계로 명제 정의는 Mathlib 재사용, 명제 일치는 고립 파일과 comparator, 증명 유효성은 커널과 독립 체커, toy 세팅 수송과 생존 회계는 장난감 세팅의 아이디어를 전체로 수송한다. 오른쪽 열은 계측 단면도 검증 단계의 네 카드로 의미론 단계의 명제-대응 검사 6번, 추론 단계의 독립 재현 채널 7번, 제2 채널이 1·2단계를 재현하는 독립성 단계, 축소 모델 H4와 생존율 회계다. 네 개의 가로 화살표가 좌우 카드를 한 행씩 대응 연결하며, 규모는 달라도 단계 구조가 대응한다는 부제를 머리에 둔다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="456" fill="#ffffff"/>
+<defs>
+<marker id="ah-gray-8" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L8 4 L0 8 Z" fill="#666666"/></marker>
+</defs>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">앤트로픽의 검증 파이프라인과 계측 단면도의 대응 지도</text>
+<text x="380" y="60" font-size="11" fill="#666666" text-anchor="middle">규모는 달라도 단계 구조가 대응한다</text>
+<text x="195" y="88" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">앤트로픽 · Lean 파이프라인</text>
+<text x="565" y="88" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">계측 단면도 검증 단계</text>
+<rect x="25" y="108" width="340" height="60" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="195" y="134.4" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">명제 정의</text>
+<text x="195" y="149.4" font-size="10" fill="#495057" text-anchor="middle">Mathlib 재사용</text>
+<rect x="395" y="108" width="340" height="60" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="565" y="134.4" font-size="12" fill="#dc2626" text-anchor="middle" font-weight="700">의미론 단계</text>
+<text x="565" y="149.4" font-size="10" fill="#495057" text-anchor="middle">명제-대응 검사 ⑥</text>
+<path d="M370,138 L384,138" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-8)"/>
+<rect x="25" y="196" width="340" height="60" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="195" y="222.4" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">명제 일치</text>
+<text x="195" y="237.4" font-size="10" fill="#495057" text-anchor="middle">고립 파일 · comparator</text>
+<rect x="395" y="196" width="340" height="60" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="565" y="222.4" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">추론 단계</text>
+<text x="565" y="237.4" font-size="10" fill="#495057" text-anchor="middle">독립 재현 채널 ⑦</text>
+<path d="M370,226 L384,226" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-8)"/>
+<rect x="25" y="284" width="340" height="60" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="195" y="310.4" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">증명 유효성</text>
+<text x="195" y="325.4" font-size="10" fill="#495057" text-anchor="middle">커널 · 독립 체커</text>
+<rect x="395" y="284" width="340" height="60" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="565" y="310.4" font-size="12" fill="#16a34a" text-anchor="middle" font-weight="700">독립성 단계</text>
+<text x="565" y="325.4" font-size="10" fill="#495057" text-anchor="middle">제2 채널이 1·2단계를 재현</text>
+<path d="M370,314 L384,314" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-8)"/>
+<rect x="25" y="372" width="340" height="60" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="195" y="398.4" font-size="12" fill="#2563eb" text-anchor="middle" font-weight="700">toy 세팅 수송 + 생존 회계</text>
+<text x="195" y="413.4" font-size="10" fill="#495057" text-anchor="middle">장난감 세팅의 아이디어를 전체로 수송</text>
+<rect x="395" y="372" width="340" height="60" rx="10" fill="#f0f4f8" stroke="#666666" stroke-width="2"/>
+<text x="565" y="398.4" font-size="12" fill="#666666" text-anchor="middle" font-weight="700">축소 모델 H4</text>
+<text x="565" y="413.4" font-size="10" fill="#495057" text-anchor="middle">생존율 회계</text>
+<path d="M370,402 L384,402" stroke="#666666" stroke-width="1.5" fill="none" marker-end="url(#ah-gray-8)"/>
+</svg>

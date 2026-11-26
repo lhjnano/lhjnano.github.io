@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="760" role="img" aria-label="검증의 세 층과 그것을 닫는 주체. 아래로 갈수록 기계화가 어려워진다. 첫째 층은 기계가 닫는 추론 유효성(커널 리플레이, 독립 체커, 컴파일)이고, 둘째 층은 도구와 커뮤니티가 닫는 명제 충실성(고립 명제 파일, comparator, 다수 재현)이며, 셋째 층은 사람만 닫는 이해, 평가, 저널 게재, Clay 심의로 아직 열린 층이다. 세 번째 카드는 점선 테두리로 표시되어 있다.">
+<style>text{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}</style>
+<rect x="0" y="0" width="760" height="322" fill="#ffffff"/>
+<text x="380" y="32" font-size="14" fill="#2c3e50" text-anchor="middle" font-weight="700">기계가 닫는 층부터 사람만 닫는 층까지, 검증의 세 층은 주체가 다르다</text>
+<text x="380" y="60" font-size="11" fill="#666666" text-anchor="middle">아래로 갈수록 기계화가 어려워진다</text>
+<rect x="25" y="80" width="710" height="56" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+<text x="45" y="112" font-size="12" fill="#16a34a" font-weight="700">기계가 닫는다</text>
+<text x="265" y="112" font-size="11" fill="#495057">추론 유효성: 커널 리플레이 · 독립 체커 · 컴파일</text>
+<rect x="25" y="162" width="710" height="56" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="45" y="194" font-size="12" fill="#2563eb" font-weight="700">도구와 커뮤니티가 닫는다</text>
+<text x="265" y="194" font-size="11" fill="#495057">명제 충실성: 고립 명제 파일 · comparator · 다수 재현</text>
+<rect x="25" y="244" width="710" height="56" rx="10" fill="#f0f4f8" stroke="#999999" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="45" y="276" font-size="12" fill="#666666" font-weight="700">사람만 닫는다</text>
+<text x="265" y="276" font-size="11" fill="#666666">이해 · 평가 · 저널 게재 · Clay 심의</text>
+<text x="715" y="276" font-size="11" fill="#666666" font-weight="700" text-anchor="end">아직 열린 층</text>
+</svg>
